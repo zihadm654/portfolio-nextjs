@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+// import { Link } from "react-router-dom";
 // import Loader from "../components/Loader";
 // import { describe } from "../helpers/Animation"
-import { Blogs } from "../data/blogs.js"
+// import { Blogs } from "../data/blogs.js"
 const BlogPage = () => {
   // const [blogs, setBlogs] = useState(null);
   useEffect(() => {
@@ -14,7 +14,7 @@ const BlogPage = () => {
       {/* <Loader /> */}
       <h4>Welcome to my personal blog</h4>
       <div className="container">
-        {Blogs.map((blog, index) => (
+        {/* {Blogs.map((blog, index) => (
           <article
             key={index}
             className="content">
@@ -37,7 +37,7 @@ const BlogPage = () => {
               </div>
             </Link>
           </article>
-        ))}
+        ))} */}
       </div>
     </div>
   );

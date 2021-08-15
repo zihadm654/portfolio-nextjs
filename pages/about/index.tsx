@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react';
 // import { SlideData } from "../components/SlideData"
 // import Loader from "../components/Loader"
 import {
@@ -12,19 +12,21 @@ import {
   SiWebpack,
   SiGreensock,
   SiStyledComponents,
-} from 'react-icons/si'
+} from 'react-icons/si';
 const AboutPage = () => {
-
   useEffect(() => {
-    window.scroll(0, 0)
-  }, [])
+    window.scroll(0, 0);
+  }, []);
   return (
     <section className="about__page">
       <div className="about__description">
         <h5>A FEW WORDS ABOUT ME</h5>
         <h3>
-          I’m Abdul Malik, a <span>Front-end-developer & UI/UX designer </span> who focuses on
-          telling stories visually, through <span>minimalistic </span> and clear way. I design and develop <span>responsive websites </span>and functional user friendly interfaces.
+          I’m Abdul Malik, a <span>Front-end-developer & UI/UX designer </span>{' '}
+          who focuses on telling stories visually, through{' '}
+          <span>minimalistic </span> and clear way. I design and develop{' '}
+          <span>responsive websites </span>and functional user friendly
+          interfaces.
         </h3>
         <p>
           Over the past 3 years I have been working and as a rising startups
@@ -32,9 +34,7 @@ const AboutPage = () => {
           spare time I enjoy to see sunset and adventures.
         </p>
       </div>
-      <div
-        className="about__slider">
-      </div>
+      <div className="about__slider"></div>
 
       <div className="language__container">
         <div className="language__title">
@@ -81,8 +81,8 @@ const AboutPage = () => {
           head over to my<span> LinkedIn profile</span>.
         </p>
       </div>
-    </section >
-  )
-}
+    </section>
+  );
+};
 
-export default AboutPage
+export default AboutPage;

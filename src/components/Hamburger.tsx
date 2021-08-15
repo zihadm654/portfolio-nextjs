@@ -1,18 +1,33 @@
-function Hamburger() {
+import Link from 'next/link';
+function Hamburger({ menu }) {
   return (
-    <div className="hamburger">
-      <div className="secondary__background"></div>
+    <div className={menu ? 'hamburger menu' : 'hamburger'}>
       <div className="menu__layer">
         <div className="container">
           <div className="wrapper">
             <div className="menu__links">
               <nav className="navbar">
                 <ul className="nav__links">
-                  <li>{/* <NavLink to="/">Home</NavLink> */}</li>
-                  <li>{/* <NavLink to="/projects">Projects</NavLink> */}</li>
-                  <li>{/* <NavLink to="/about">About</NavLink> */}</li>
-                  <li>{/* <NavLink to="/blogs">Blogs</NavLink> */}</li>
-                  <li>{/* <NavLink to="/story">Story</NavLink> */}</li>
+                  <li>
+                    <Link href="/">
+                      <a>Home</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/projects">
+                      <a>Project</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about">
+                      <a>About</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/blog">
+                      <a>Blog</a>
+                    </Link>
+                  </li>
                 </ul>
               </nav>
               <div className="info">
@@ -26,32 +41,13 @@ function Hamburger() {
             </div>
           </div>
           <div className="social__media">
-            {/* <NavLink
-              to={{ pathname: 'https://dribbble.com/zihadm654' }}
-              target="_blank"
-            >
-              Dribbble
-            </NavLink>
-            <NavLink to={{ pathname: 'https://behance.net/zihadm654' }} target="_blank">
-              Behance
-            </NavLink>
-            <NavLink to={{ pathname: 'https://instagram.com/zihadm654' }} target="_blank">
-              Instagram
-            </NavLink>
-            <NavLink
-              to={{ pathname: 'https://github.com/zihadm654' }}
-              target="_blank"
-            >
-              Github
-            </NavLink>
-            <NavLink
-              to={{
-                pathname: 'https://www.linkedin.com/in/Abdul -malek-a095031a4/',
-              }}
-              target="_blank"
-            >
+            <Link href={'https://dribbble.com/zihadm654'}>Dribbble</Link>
+            <Link href={'https://behance.net/zihadm654'}>Behance</Link>
+            <Link href={'https://instagram.com/zihadm654'}>Instagram</Link>
+            <Link href={'https://github.com/zihadm654'}>Github</Link>
+            <Link href={'https://www.linkedin.com/in/Abdul -malek-a095031a4/'}>
               Linkdin
-            </NavLink> */}
+            </Link>
           </div>
         </div>
       </div>

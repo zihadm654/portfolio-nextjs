@@ -41,10 +41,10 @@ function Contact() {
               <a>Linkdin</a>
             </Link>
           </div>
-          {/* <hr /> */}
+          <hr />
           <div className="copyright">
             <p>
-              &copy; 2021 Abdul Malik || Made in{' '}
+              &copy; 2021 Abdul Malik || Made with{' '}
               <span
                 className={show ? 'active' : ''}
                 onClick={() => {

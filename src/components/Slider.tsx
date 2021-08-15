@@ -1,3 +1,5 @@
+import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
+import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
 import { useState } from 'react';
 import { slidedata } from '../data/slidedata';
 function Slider() {
@@ -17,17 +19,17 @@ function Slider() {
       </div>
       <div className="slideContent">
         <div className="quotation">
-          {/* <ImQuotesLeft className="left-quote" /> */}
+          <ImQuotesLeft className="left-quote" />
           <p>{slidedata[activeItem].quote}</p>
-          {/* <ImQuotesRight className="right-quote" /> */}
+          <ImQuotesRight className="right-quote" />
         </div>
       </div>
       <div className="wrapper__btn">
         <button className="btn prev" onClick={prevHandler}>
-          {/* <BsArrowLeft /> */}
+          <BsArrowLeft />
         </button>
         <button className="btn next" onClick={nextHandler}>
-          {/* <BsArrowRight /> */}
+          <BsArrowRight />
         </button>
       </div>
     </section>

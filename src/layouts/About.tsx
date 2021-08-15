@@ -1,4 +1,4 @@
-// import Icon from '../helpers/Icon'
+import { Icon } from '../utility/Button';
 // import { HorizontalScroll } from '../helpers/Animation'
 
 function About() {
@@ -13,6 +13,7 @@ function About() {
             My journey from an Arts Student to a Front-end developer with
             designing experience.
           </p>
+          <Icon site={'/about'} text={'learn more'} />
         </div>
       </div>
     </div>

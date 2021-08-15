@@ -53,10 +53,10 @@ a {
   text-decoration: none;
 }
 .link {
+  @include flex(flex-start);
+  margin-top: 1.3rem;
   a {
     text-align: center;
-    @include flex(flex-start);
-    margin-top: 1.3rem;
     color: $fontHighlight;
     font-weight: 500;
     font-size: $p;
@@ -65,16 +65,15 @@ a {
     cursor: pointer;
   }
   .icon {
-    margin-left: 1rem;
-    font-size: 2rem;
+    margin-top: 0.41rem;
+    margin-left: 0.7rem;
+    font-size: 2.3rem;
   }
 }
 .custom__btn {
   position: relative;
   box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 38%);
   text-transform: uppercase;
-  // height: 8rem;
-  // width: 35rem;
   border-radius: 1.5rem;
   margin: 2rem 0;
   padding: 2rem 5rem;

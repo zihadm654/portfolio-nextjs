@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Layouts from '../src/layouts/Layouts';
 export default function Home() {
   return (

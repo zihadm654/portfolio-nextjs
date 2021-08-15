@@ -11,7 +11,7 @@ function Projects() {
       </div>
       <Button
         className={'secondary__btn'}
-        site={'/projects'}
+        site={'/project'}
         text={'see more'}
       />
     </section>
