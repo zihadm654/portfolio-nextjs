@@ -1,0 +1,63 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  width: 0.9rem !important;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(160, 160, 160);
+  border-radius: 0.8rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: gray;
+}
+html {
+  font-size: 70%;
+  @include media(sm) {
+    font-size: 39%;
+  }
+  @include media(md) {
+    font-size: 44%;
+  }
+  @include media(lg) {
+    font-size: 56.25%;
+  }
+  @include media(xlg) {
+    font-size: 62.5%;
+  }
+}
+body {
+  color: $dominant;
+}
+a {
+  color: $dominant;
+}
+span {
+  color: $dominant;
+  font-weight: 700;
+}
+.hamburger,
+.secondary__background,
+.hero__wrapper,
+.describe,
+.project,
+.testimonial,
+.testimonial__title,
+.progress,
+.slider,
+.skills__container,
+.about__wrapper,
+.about__page,
+.contact,
+.contact__page,
+.story__page,
+.case__details,
+.blog__details {
+  @include media(xxlg) {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+}

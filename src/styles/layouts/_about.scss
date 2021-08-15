@@ -1,0 +1,48 @@
+.about {
+  background: $dominant;
+  color: #ffffff;
+  padding: 4rem 0;
+  .about__wrapper {
+    padding: 4rem 7rem;
+    @include grid;
+    @include media(sm) {
+      padding: 2rem;
+    }
+    @include media(md) {
+      padding: 4rem;
+    }
+    .img__wrapper {
+      width: 100%;
+      height: 35rem;
+      grid-column: span 6;
+      background: red;
+      @include media(sm) {
+        height: 35rem;
+        grid-column: 1/13;
+      }
+      @include media(md) {
+        height: 38rem;
+        grid-column: 1/13;
+      }
+      @include media(lg) {
+        height: 42rem;
+      }
+    }
+    .about__description {
+      align-self: center;
+      grid-column: span 6;
+      @include media(sm) {
+        grid-column: 1/13;
+      }
+      @include media(md) {
+        grid-column: 1/13;
+      }
+      h3 {
+        padding: 1.5rem 0;
+      }
+      .link {
+        padding: 1rem 0;
+      }
+    }
+  }
+}

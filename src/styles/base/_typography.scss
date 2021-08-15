@@ -1,0 +1,33 @@
+h1 {
+  font-size: $xxlr;
+  font-weight: 700;
+  line-height: 8.6rem;
+}
+h2 {
+  letter-spacing: 0.02rem;
+  font-size: $sbtl;
+  font-weight: 500;
+  line-height: 6rem;
+}
+h3 {
+  font-size: $xlr;
+  line-height: 4.5rem;
+  font-weight: 500;
+}
+h4 {
+  line-height: 3.8rem;
+  font-size: $lr;
+  font-weight: 400;
+}
+h5 {
+  line-height: 2.592rem;
+  font-size: $md;
+  font-weight: 400;
+}
+p {
+  font-size: $p;
+}
+a {
+  font-weight: 400;
+  font-size: $p;
+}

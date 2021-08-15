@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Motion Design Icon</title>
+    <defs>
+        <linearGradient x1="74.427481%" y1="94.5455208%" x2="7.6422604%" y2="19.6591663%" id="linearGradient-1">
+            <stop stop-color="#5B3DF4" offset="0%"></stop>
+            <stop stop-color="#1BB7FF" offset="100%"></stop>
+            <stop stop-color="#1BB7FF" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-85.7%" y="-85.7%" width="271.4%" height="271.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="8" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="83.0399599%" y1="92.7195493%" x2="14.6998809%" y2="13.168414%" id="linearGradient-3">
+            <stop stop-color="#5B3DF4" offset="0%"></stop>
+            <stop stop-color="#8DDBFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="119.482917%" y1="50%" x2="-45.3344466%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#7EB5F0" offset="100%"></stop>
+            <stop stop-color="#FFB401" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-85.7%" y="-85.7%" width="271.4%" height="271.4%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="8" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-85.7%" y="-85.7%" width="271.4%" height="271.4%" filterUnits="objectBoundingBox" id="filter-6">
+            <feGaussianBlur stdDeviation="8" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Motion-Design-Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3-Copy" opacity="0.250697545" transform="translate(6.000000, 24.000000)">
+            <g id="Group-2-Copy-3">
+                <rect id="Rectangle-Copy-8" fill="url(#linearGradient-1)" opacity="0.703729539" filter="url(#filter-2)" x="2" y="7" width="28" height="28" rx="14"></rect>
+                <g id="Group">
+                    <rect id="Rectangle-Copy-6" fill="url(#linearGradient-3)" x="0" y="0" width="30" height="30" rx="15"></rect>
+                    <rect id="Rectangle-Copy-3" fill="url(#linearGradient-4)" x="8" y="8" width="14" height="14" rx="7"></rect>
+                    <rect id="Rectangle-Copy-7" fill="#FFFFFF" transform="translate(4.600000, 9.600000) scale(-1, 1) translate(-4.600000, -9.600000) " x="4" y="9" width="1.2" height="1.2" rx="0.6"></rect>
+                    <path d="M5.67030844,7.54801231 C5.9975915,5.77400616 8.53337245,4 10.284426,4" id="Path-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+        <g id="Group-2-Copy-2" opacity="0.793805804" transform="translate(25.000000, 24.000000)">
+            <rect id="Rectangle-Copy-8" fill="url(#linearGradient-1)" opacity="0.703729539" filter="url(#filter-5)" x="2" y="7" width="28" height="28" rx="14"></rect>
+            <g id="Group">
+                <rect id="Rectangle-Copy-6" fill="url(#linearGradient-3)" x="0" y="0" width="30" height="30" rx="15"></rect>
+                <rect id="Rectangle-Copy-3" fill="url(#linearGradient-4)" x="8" y="8" width="14" height="14" rx="7"></rect>
+                <rect id="Rectangle-Copy-7" fill="#FFFFFF" transform="translate(4.600000, 9.600000) scale(-1, 1) translate(-4.600000, -9.600000) " x="4" y="9" width="1.2" height="1.2" rx="0.6"></rect>
+                <path d="M5.67030844,7.54801231 C5.9975915,5.77400616 8.53337245,4 10.284426,4" id="Path-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+        <g id="Group-3" transform="translate(45.000000, 24.000000)">
+            <g id="Group-2-Copy-2">
+                <rect id="Rectangle-Copy-8" fill="url(#linearGradient-1)" opacity="0.703729539" filter="url(#filter-6)" x="0" y="8" width="28" height="28" rx="14"></rect>
+                <g id="Group">
+                    <rect id="Rectangle-Copy-6" fill="url(#linearGradient-3)" x="0" y="0" width="30" height="30" rx="15"></rect>
+                    <rect id="Rectangle-Copy-3" fill="url(#linearGradient-4)" x="8" y="8" width="14" height="14" rx="7"></rect>
+                    <rect id="Rectangle-Copy-7" fill="#FFFFFF" transform="translate(4.600000, 9.600000) scale(-1, 1) translate(-4.600000, -9.600000) " x="4" y="9" width="1.2" height="1.2" rx="0.6"></rect>
+                    <path d="M5.67030844,7.54801231 C5.9975915,5.77400616 8.53337245,4 10.284426,4" id="Path-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

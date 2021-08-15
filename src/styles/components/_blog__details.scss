@@ -1,0 +1,55 @@
+.blog__details {
+  margin-top: 5rem;
+  padding: 4rem 5rem;
+  article {
+    h4 {
+      font-weight: 600;
+    }
+    .img__container {
+      padding-top: 2rem;
+      height: 45rem;
+      width: 100%;
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .description {
+      padding-top: 2rem;
+      h5 {
+        font-weight: 500;
+      }
+      .author__container {
+        padding-bottom: 1rem;
+        @include flex(flex-start);
+        .author__img {
+          height: 5rem;
+          width: 5rem;
+          img {
+            border-radius: 50%;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+          }
+        }
+        .author__info {
+          margin-left: 1rem;
+          font-size: $p;
+          p {
+            font-size: $sm;
+          }
+        }
+      }
+    }
+    article {
+      padding-top: 1rem;
+    }
+  }
+  .conclution {
+    padding-top: 3rem;
+    p {
+      padding: 1rem 0;
+    }
+  }
+}

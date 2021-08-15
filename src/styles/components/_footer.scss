@@ -1,0 +1,12 @@
+.footer {
+  background-color: rgba(119, 117, 117, 0.555);
+  padding: 0.5rem;
+  text-align: center;
+  width: 100%;
+  @include media(md) {
+    padding: 1rem;
+  }
+  p {
+    font-size: $sm;
+  }
+}

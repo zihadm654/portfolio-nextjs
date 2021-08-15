@@ -1,0 +1,71 @@
+.describe {
+  @include grid;
+  padding: 4rem 7rem;
+  @include media(sm) {
+    padding: 2.5rem;
+  }
+  &__left {
+    @include media(sm) {
+      grid-column: 1/13;
+    }
+    @include media(md) {
+      grid-column: 1/13;
+    }
+    align-self: center;
+    padding: 2rem 0rem;
+    grid-column: span 6;
+    h2 {
+      font-weight: 400;
+      font-size: $sbtl;
+      line-height: 6.5rem;
+      padding-bottom: 2.7rem;
+    }
+    h4 {
+      padding: 2rem 0;
+    }
+  }
+  &__right {
+    grid-column: span 6;
+    @include media(md) {
+      grid-column: 1/13;
+    }
+    @include media(sm) {
+      grid-column: 1/13;
+    }
+    .line__img {
+      padding: 1rem 0;
+      gap: 2rem;
+      @include flex(space-evenly);
+      img {
+        height: 5em;
+        width: 5em;
+        @include media(xlg) {
+          width: 8em;
+          height: 8em;
+        }
+      }
+      ul {
+        text-align: flex-start;
+        width: 75%;
+        h5 {
+          font-weight: 600;
+          margin-bottom: 1rem;
+        }
+        li {
+          background-size: 1em 1em;
+          padding-left: 3rem;
+          margin-bottom: 0.5rem;
+          background-position: 0 50%;
+          font-size: $p;
+          list-style: none;
+          background-image: url('https://uploads-ssl.webflow.com/603a00d2496482478db36f56/6059b9ce9376de30a9282afd_icon-checkmark.svg');
+          background-repeat: no-repeat;
+        }
+      }
+    }
+    p {
+      text-align: flex-start;
+      margin: 1.5rem 0;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.hero__wrapper {
+  min-height: 100vh;
+  padding: 4rem 6rem;
+  @include grid;
+  @include media(sm) {
+    padding: 2.5rem;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -20;
+    background: $circle1;
+    bottom: 0rem;
+    left: 0rem;
+    height: 100%;
+    width: 100%;
+    clip-path: circle(20vw at 10% 56%);
+  }
+  .hero__container {
+    position: relative;
+    @include media(sm) {
+      grid-column: 1/13;
+    }
+    @include media(md) {
+      grid-column: 2/11;
+    }
+    @include media(xlg) {
+      grid-column: 2/11;
+    }
+    // overflow: hidden;
+    grid-column: 2/11;
+    margin-top: 8rem;
+    padding: 2.5rem 0;
+    color: $dominant;
+    .circle__text {
+      position: absolute;
+      top: -7%;
+      right: 1%;
+      @include media(sm) {
+        display: none;
+      }
+      @include media(xxlg) {
+        right: -20%;
+      }
+      img {
+        height: 14rem;
+        width: 14rem;
+        animation: rotate 4s linear infinite;
+      }
+    }
+    h1 {
+      padding: 2rem 0;
+      overflow: hidden;
+    }
+    h5 {
+      overflow: hidden;
+      @include flex(space-around);
+    }
+    p {
+      overflow: hidden;
+    }
+    .primary__btn {
+      margin-top: 5rem;
+    }
+  }
+}

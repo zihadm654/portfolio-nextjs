@@ -1,0 +1,44 @@
+.progress {
+  padding: 4rem 7rem;
+  @include media(sm) {
+    padding: 3rem 2rem;
+  }
+  @include media(md) {
+    padding: 3rem;
+  }
+  .progress__description {
+    text-align: center;
+    h5 {
+      color: $fontColor;
+    }
+    h2 {
+      padding-top: 0.6rem;
+      color: $dominant;
+    }
+    .list {
+      min-height: 20rem;
+      @include flex(space-evenly);
+      padding: 3rem 2rem;
+      span {
+        .line {
+          @include media(sm) {
+            width: 2.6rem;
+          }
+        }
+      }
+    }
+    h4 {
+      @include media(sm) {
+        font-size: $p;
+      }
+    }
+    p {
+      color: $fontColor;
+    }
+  }
+  .link {
+    a {
+      justify-content: center;
+    }
+  }
+}

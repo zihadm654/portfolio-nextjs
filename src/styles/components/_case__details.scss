@@ -1,0 +1,31 @@
+.case__details {
+  margin-top: 4rem;
+  padding: 4rem 5rem;
+  .case__study {
+    text-align: center;
+    h2 {
+      padding: 0.5rem 0;
+    }
+    p {
+      color: $fontColor;
+    }
+  }
+  .container {
+    padding: 5rem 0;
+    .img__wrapper {
+      height: 40em;
+      width: 100%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .content {
+      padding: 3rem 0;
+      h4 {
+        font-weight: 500;
+      }
+    }
+  }
+}

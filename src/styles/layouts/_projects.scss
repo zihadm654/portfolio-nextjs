@@ -1,0 +1,17 @@
+.project {
+  position: relative;
+  padding: 4rem 7rem;
+  @include media(sm) {
+    padding: 2.5rem;
+  }
+  .project__title {
+    padding: 2rem 0;
+    h2 {
+      font-weight: 600;
+      margin: 1.2rem 0;
+    }
+    p {
+      width: 50ch;
+    }
+  }
+}

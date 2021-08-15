@@ -1,0 +1,117 @@
+.about__page {
+  padding: 4rem 5rem;
+  @include media(sm) {
+    padding: 2.5rem;
+  }
+  @include media(md) {
+    padding: 3.7rem;
+  }
+  // background: black;
+  .about__description,
+  .experience {
+    text-align: center;
+    padding: 3rem;
+    margin-top: 10rem;
+    @include media(sm) {
+      padding: 1.2rem 0;
+      text-align: left;
+    }
+    @include media(md) {
+      padding: 1.5rem 0;
+    }
+    h5 {
+      letter-spacing: 1rem;
+      color: gray;
+    }
+    h3 {
+      padding: 1.5rem 0;
+      line-height: 4.7rem;
+      color: $dominant;
+      font-weight: 400;
+    }
+    p {
+      color: $fontColor;
+      padding: 1rem 0;
+      font-weight: 400;
+      letter-spacing: 0.079rem;
+    }
+  }
+  .about__slider {
+  }
+  .html,
+  .git {
+    color: orangered;
+  }
+  .css {
+    color: blue;
+  }
+  .scss,
+  .styled {
+    color: palevioletred;
+  }
+  .javascript {
+    color: yellow;
+  }
+  .react {
+    color: cyan;
+  }
+  .webpack {
+    color: rgb(22, 117, 206);
+  }
+  .gsap {
+    color: green;
+  }
+  .language__container {
+    .language__title {
+      padding: 2rem;
+      text-align: center;
+      h3 {
+        font-weight: 500;
+        letter-spacing: 0.5rem;
+        color: gray;
+      }
+    }
+    .languages {
+      align-items: center;
+      justify-items: center;
+      @include grid;
+      grid-template-columns: repeat(10, 1fr);
+      font-size: 3.2rem;
+      padding: 2rem 1rem;
+    }
+  }
+  .tools {
+    text-align: center;
+    padding: 4rem 0rem;
+    @include grid;
+    gap: 4rem;
+    h5 {
+      letter-spacing: 0.15rem;
+      padding: 2rem 0;
+      font-weight: 600;
+    }
+    h4 {
+      font-size: $md;
+      line-height: 4rem;
+    }
+    &__left {
+      grid-column: 1/5;
+    }
+    &__middle {
+      grid-column: 5/9;
+    }
+    &__right {
+      grid-column: 9/13;
+    }
+    &__left,
+    &__middle,
+    &__right {
+      @include media(sm) {
+        grid-column: 1/13;
+      }
+      @include media(md) {
+        grid-column: 1/13;
+      }
+    }
+  }
+}

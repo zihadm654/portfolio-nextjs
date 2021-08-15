@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>User Experience Icon</title>
+    <defs>
+        <linearGradient x1="8.90179974%" y1="27.6964689%" x2="100%" y2="71.3757396%" id="linearGradient-1">
+            <stop stop-color="#FFB401" offset="0%"></stop>
+            <stop stop-color="#FFB401" offset="0%"></stop>
+            <stop stop-color="#FA6400" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-34.6%" y="-52.9%" width="169.2%" height="205.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="6" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="8.90179974%" y1="-2.17019724%" x2="100%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FFB401" offset="0%"></stop>
+            <stop stop-color="#FFB401" offset="0%"></stop>
+            <stop stop-color="#FA6400" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-85.7%" y="-85.7%" width="271.4%" height="271.4%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="8" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="10.8686053%" y1="31.0785902%" x2="100%" y2="68.9349112%" id="linearGradient-5">
+            <stop stop-color="#FFB401" offset="0%"></stop>
+            <stop stop-color="#FFAF00" offset="0%"></stop>
+            <stop stop-color="#FA6400" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="10.8686053%" y1="0.0356521375%" x2="100%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#FFB401" offset="0%"></stop>
+            <stop stop-color="#FFAF00" offset="0%"></stop>
+            <stop stop-color="#FA6400" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="105.535998%" y1="37.4618615%" x2="-9.72890463%" y2="66.847862%" id="linearGradient-7">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFAB2C" offset="100%"></stop>
+            <stop stop-color="#FFB401" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="User-Experience-Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-Copy-5" fill="url(#linearGradient-1)" opacity="0.551548549" filter="url(#filter-2)" x="17" y="42" width="52" height="34" rx="17"></rect>
+        <rect id="Rectangle-Copy-8" fill="url(#linearGradient-3)" opacity="0.703729539" filter="url(#filter-4)" x="31" y="12" width="28" height="28" rx="14"></rect>
+        <g id="Group" transform="translate(14.000000, 5.000000)">
+            <rect id="Rectangle" fill="url(#linearGradient-5)" x="0" y="36" width="52" height="32" rx="16"></rect>
+            <rect id="Rectangle-Copy-6" fill="url(#linearGradient-6)" x="11" y="0" width="30" height="30" rx="15"></rect>
+            <rect id="Rectangle-Copy-3" fill="url(#linearGradient-7)" x="19" y="45" width="27" height="14" rx="7"></rect>
+            <rect id="Rectangle-Copy-7" fill="#FFFFFF" transform="translate(15.600000, 9.600000) scale(-1, 1) translate(-15.600000, -9.600000) " x="15" y="9" width="1.2" height="1.2" rx="0.6"></rect>
+            <path d="M16.6703084,7.54801231 C16.9975915,5.77400616 19.5333725,4 21.284426,4" id="Path-3" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,66 @@
+.contact__page {
+  margin-top: 9rem;
+  padding: 4rem 8rem;
+  @include media(sm) {
+    padding: 3rem;
+  }
+  .content {
+    padding: 10rem 0;
+    h2 {
+      @include media(sm) {
+        width: 90%;
+      }
+      width: 50%;
+      padding: 3rem 0;
+    }
+  }
+  form {
+    padding: 4rem 0;
+    height: 100%;
+    width: 100%;
+    .inputs {
+      margin: 5rem 0;
+      position: relative;
+      input {
+        background: transparent;
+        width: 65%;
+        height: 5rem;
+        font-weight: 500;
+        font-size: $md;
+        outline: none;
+        border: none;
+        border-bottom: 0.2rem solid $fontColor;
+        &:focus {
+          border-bottom: 0.2rem solid $dominant;
+        }
+        &:focus ~ label,
+        &:valid ~ label {
+          font-size: $p;
+          font-weight: 500;
+          z-index: 2;
+          transform: translateY(-3.5rem);
+          color: $dominant;
+        }
+      }
+      label {
+        z-index: -1;
+        color: $fontColor;
+        font-size: $lr;
+        position: absolute;
+        bottom: 1.2rem;
+        left: 0;
+        transition: 300ms transform ease-out;
+        background: #fff;
+      }
+    }
+    button {
+      background: $dominant;
+      border: none;
+      outline: none;
+      padding: 1.3rem 2.3rem;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 0.3rem;
+    }
+  }
+}

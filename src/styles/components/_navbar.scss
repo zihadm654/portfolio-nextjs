@@ -1,0 +1,172 @@
+.inner__header.sticky {
+  position: fixed;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(45px);
+}
+
+.container {
+  .wrapper {
+    grid-column: 1/13;
+  }
+}
+header {
+  .inner__header {
+    @include media(sm) {
+      padding: 2.5rem;
+    }
+    @include media(md) {
+      padding: 2.5rem 3.7rem;
+    }
+    height: 7rem;
+    width: 100%;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 7rem;
+    @include flex(space-between);
+    // a {
+    z-index: 10;
+    .logo {
+      @include flex(center);
+      img {
+        height: 3.7rem;
+        width: 3.7rem;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+      h4 {
+        font-size: $lr;
+        padding-left: 1rem;
+        padding-bottom: 0.5rem;
+        font-family: $title-font;
+      }
+      // }
+    }
+    .menu {
+      @include flex(center);
+      z-index: 10;
+      cursor: pointer;
+      p {
+        margin-right: 0.8rem;
+        margin-bottom: 0.4rem;
+        font-size: $sm;
+        font-weight: 600;
+      }
+    }
+  }
+  .hamburger {
+    display: none;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    .secondary__background {
+      background: $secondaryColor;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+    .menu__layer {
+      position: relative;
+      background: $red;
+      height: 100%;
+      overflow: hidden;
+      .container {
+        @include grid;
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+        .wrapper {
+          .menu__links {
+            height: 100%;
+            width: 100%;
+            @include grid;
+            position: relative;
+            top: 8rem;
+            padding: 0 6rem;
+            .navbar {
+              grid-column: span 6;
+              @include media(sm) {
+                grid-column: 1/13;
+                justify-self: start;
+              }
+              @include media(md) {
+                grid-column: 1/13;
+              }
+              .nav__links {
+                margin: 0;
+                padding: 0;
+                li {
+                  list-style: none;
+                  cursor: pointer;
+                  height: 9rem;
+                  position: relative;
+                  a {
+                    font-size: $xxlr;
+                    font-weight: 700;
+                    color: #ffffff;
+                    text-decoration: none;
+                    &:hover {
+                      color: #000;
+                    }
+                  }
+                }
+              }
+            }
+            .info {
+              @include media(sm) {
+                grid-column: 1/13;
+                width: 60%;
+              }
+              @include media(md) {
+                grid-column: 1/13;
+                width: 70%;
+              }
+              justify-self: flex-end;
+              grid-column: span 6;
+              color: #fff;
+              width: 100%;
+              p {
+                margin: 1rem auto;
+              }
+            }
+          }
+        }
+        .social__media {
+          z-index: 1000;
+          padding-right: 7rem;
+          justify-self: self-end;
+          align-self: center;
+          grid-column: 1/13;
+          @include media(sm) {
+            padding-right: 0rem;
+            justify-self: center;
+          }
+          a {
+            color: #fff;
+            margin-right: 2rem;
+            transition: all 0.3s;
+            &:hover {
+              background: $dominant;
+              padding: 1rem 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.hamburger.menu {
+  display: block;
+}

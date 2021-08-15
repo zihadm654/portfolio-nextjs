@@ -1,0 +1,102 @@
+.primary__btn {
+  position: relative;
+  overflow: hidden;
+  a {
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  background: $dominant;
+  padding: 2.3rem 3.5rem;
+  margin: 2rem 0;
+  border-radius: 1.5rem;
+  border: 3px solid rgba(255, 255, 255, 0.87);
+  transition: transform ease-in-out 300ms;
+  outline: none;
+  box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 44%);
+  &:hover,
+  &:focus {
+    transform: translateY(-0.8rem);
+    cursor: pointer;
+    background-color: $secondaryColor;
+  }
+  @include media(sm) {
+    width: 100%;
+    padding: 1.7rem 2rem;
+  }
+}
+.secondary__btn {
+  position: relative;
+  @include media(sm) {
+    height: 6rem;
+    width: 18rem;
+  }
+  box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 38%);
+  outline: none;
+  transition: transform ease-in-out 300ms;
+  height: 6.5rem;
+  width: 16.6rem;
+  margin: 3rem 0;
+  background-color: $secondaryColor;
+  border-radius: 1rem;
+  border: none;
+  a {
+    color: #ffffff;
+  }
+  &:hover,
+  &:focus {
+    transform: translateY(-0.5rem);
+    cursor: pointer;
+  }
+}
+a {
+  text-decoration: none;
+}
+.link {
+  a {
+    text-align: center;
+    @include flex(flex-start);
+    margin-top: 1.3rem;
+    color: $fontHighlight;
+    font-weight: 500;
+    font-size: $p;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  .icon {
+    margin-left: 1rem;
+    font-size: 2rem;
+  }
+}
+.custom__btn {
+  position: relative;
+  box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 38%);
+  text-transform: uppercase;
+  // height: 8rem;
+  // width: 35rem;
+  border-radius: 1.5rem;
+  margin: 2rem 0;
+  padding: 2rem 5rem;
+  background: transparent;
+  border: 3px solid #000000;
+  transition: transform ease-in-out 300ms;
+  outline: none;
+  a {
+    font-weight: bold;
+  }
+  &:hover,
+  &:focus {
+    transform: translateY(-0.8rem);
+    cursor: pointer;
+    background-color: $dominant;
+
+    a {
+      color: #ffffff;
+    }
+  }
+  @include media(sm) {
+    width: 100%;
+    padding: 1.5rem 2rem;
+  }
+}

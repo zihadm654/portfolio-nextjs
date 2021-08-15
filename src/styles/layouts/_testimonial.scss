@@ -1,0 +1,7 @@
+.testimonial {
+  padding: 4rem 7rem;
+  margin-top: 3rem;
+  @include media(sm) {
+    padding: 2rem;
+  }
+}

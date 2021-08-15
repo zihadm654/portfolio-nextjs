@@ -1,0 +1,78 @@
+.slider {
+  position: relative;
+  margin: 4.5rem 0;
+  @include grid;
+  background-color: $dominant;
+  height: 65rem;
+  padding: 8rem;
+  .clientInfo {
+    grid-column: 1/6;
+    @include media(sm) {
+      grid-column: 1/13;
+    }
+    h4 {
+      color: #fff;
+      font-weight: 600;
+    }
+    p {
+      font-size: $p;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.65);
+    }
+  }
+  .slideContent {
+    @include media(sm) {
+      grid-column: 1/13;
+      padding: 4rem 2rem;
+    }
+    grid-column: span 6;
+    position: relative;
+    padding: 1.5rem 3rem;
+    .quotation {
+      position: relative;
+      p {
+        color: #fff;
+        line-height: 2rem;
+        font-size: $p;
+      }
+      .left-quote,
+      .right-quote {
+        position: absolute;
+        height: 3rem;
+        width: 3rem;
+        color: #fff;
+      }
+      .left-quote {
+        top: -2rem;
+        left: -4rem;
+      }
+      .right-quote {
+        bottom: -2rem;
+        right: -3rem;
+      }
+    }
+  }
+  .wrapper__btn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include flex(space-between);
+    .btn {
+      @include media(sm) {
+        height: 50%;
+      }
+      transition: ease-in-out 300ms;
+      height: 100%;
+      color: #fff;
+      padding: 1.5rem;
+      cursor: pointer;
+      font-size: $md;
+      border: none;
+      background: transparent;
+      &:hover {
+        color: $fontColor;
+        background: rgba(255, 255, 255, 0.202);
+      }
+    }
+  }
+}

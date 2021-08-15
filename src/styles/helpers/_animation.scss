@@ -1,0 +1,17 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes progress {
+  from {
+    width: 0em;
+  }
+  to {
+    background-color: red;
+    width: 1.5em;
+  }
+}
