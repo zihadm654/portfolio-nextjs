@@ -4,8 +4,8 @@ function Describe() {
     <div className="describe">
       <div className="describe__left">
         <h2>
-          Your website should turn<span> visitors</span> into{' '}
-          <span>engaged</span> customers
+          Your website should turn<strong> visitors</strong> into{' '}
+          <strong>engaged</strong> customers
         </h2>
         <h4>
           These two extra things make all the difference between a visit and a
@@ -29,13 +29,10 @@ function Describe() {
           Your high-performing website will achieve this through the use of
           intentional design and on-the-pulse marketing tactics.
         </p>
-        <p>
-          <strong>
-            A good, intentional design will position you as the expert and
-            authority that you know you are, conveying trust among your
-            visitors.
-          </strong>
-        </p>
+        <h5>
+          A good, intentional design will position you as the expert and
+          authority that you know you are, conveying trust among your visitors.
+        </h5>
         <p>
           If you want to discover how you stand out from the rest and be
           represented by a high-performing, 24/7 lead-generating website, then

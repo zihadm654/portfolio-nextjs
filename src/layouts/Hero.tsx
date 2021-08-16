@@ -16,14 +16,16 @@ function Hero() {
           </svg>
           Available For Freelance Work
         </h5>
-        <h1>Less is more, Simple is clearity</h1>
+        <h1>Taking your vision and serving as a reality</h1>
         <p>
-          I am a self-taught Front-end-developer and UI/UX designer. Crafting
-          Website Based on Simplicity and Performance that are
+          I am a self-taught Enthusiastic Front-end-developer and UI/UX
+          designer. I am a upcoming master level Frontend developer & UI/UX
+          designer. Crafting Website Based on Simplicity and Performance that
+          are
           <span>
             {' '}
             conversions-focused, brand-accurate, user-friendly, performance and
-            minimalistic based.
+            minimalistic design.
           </span>
         </p>
         <Button

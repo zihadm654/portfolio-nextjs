@@ -3,10 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../assets/logo.png';
 import Hamburger from './Hamburger';
-import { GiHamburger } from 'react-icons/gi';
+import { HiMenuAlt3 } from 'react-icons/hi';
 import { MdClose } from 'react-icons/md';
 function Header() {
-  const [menu, setMenu] = useState(true);
+  const [menu, setMenu] = useState(false);
   useEffect(() => {});
   const handleClick = () => {
     setMenu((prev) => !prev);
@@ -25,10 +25,10 @@ function Header() {
               </a>
             </Link>
             <div className="menu" onClick={handleClick}>
-              <p>{!menu ? 'menu' : 'close'}</p>
+              <h5>{!menu ? 'menu' : 'close'}</h5>
               <div>
                 {!menu ? (
-                  <GiHamburger style={{ fontSize: '2rem' }} />
+                  <HiMenuAlt3 style={{ fontSize: '2rem' }} />
                 ) : (
                   <MdClose style={{ fontSize: '2rem' }} />
                 )}

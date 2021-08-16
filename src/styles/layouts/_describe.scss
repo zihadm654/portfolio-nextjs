@@ -1,6 +1,6 @@
 .describe {
   @include grid;
-  padding: 4rem 7rem;
+  padding: 4rem 9rem;
   @include media(sm) {
     padding: 2.5rem;
   }
@@ -16,7 +16,7 @@
     grid-column: span 6;
     h2 {
       font-weight: 400;
-      font-size: $sbtl;
+      font-size: $xlr;
       line-height: 6.5rem;
       padding-bottom: 2.7rem;
     }
@@ -63,9 +63,10 @@
         }
       }
     }
-    p {
-      text-align: flex-start;
+    h5 {
+      color: #000;
       margin: 1.5rem 0;
+      font-weight: 600;
     }
   }
 }

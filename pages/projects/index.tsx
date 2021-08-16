@@ -1,0 +1,42 @@
+// import Loader from '../components/Loader'
+import { useState, useEffect } from 'react';
+import Cards from '../../src/components/Cards';
+import { db, store } from '../../src/firebase';
+import Head from 'next/head';
+const ProjectPage = () => {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    db.collection('projects').onSnapshot((snapshot) => {
+      setProjects(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
+  return (
+    <>
+      <Head>
+        <title>Projects</title>
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width"
+          key="title"
+        />
+      </Head>
+      <section className="project">
+        {/* <Loader /> */}
+        <div className="project__title">
+          <h3>
+            Shaping world class websites,
+            <br /> designs and experiences
+          </h3>
+          <p>
+            I can help you successfully take your business online while
+            assisting you throughout the building process.
+          </p>
+        </div>
+        <h3>Personal Projects</h3>
+        <Cards projects={projects} />
+      </section>
+    </>
+  );
+};
+
+export default ProjectPage;

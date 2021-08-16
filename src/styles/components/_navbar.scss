@@ -23,36 +23,39 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 0 7rem;
+    padding: 0 9rem;
     @include flex(space-between);
-    // a {
     z-index: 10;
     .logo {
       @include flex(center);
       img {
-        height: 3.7rem;
-        width: 3.7rem;
+        height: 3.3rem;
+        width: 3.3rem;
       }
       &:hover {
         cursor: pointer;
       }
       h4 {
-        font-size: $lr;
+        font-size: $md;
         padding-left: 1rem;
         padding-bottom: 0.5rem;
         font-family: $title-font;
+        color: $fontColor;
+        &:hover {
+          color: $dominant;
+        }
       }
-      // }
     }
     .menu {
       @include flex(center);
       z-index: 10;
       cursor: pointer;
-      p {
-        margin-right: 0.8rem;
-        margin-bottom: 0.4rem;
+      h5 {
+        margin-right: 0.5rem;
+        margin-bottom: 0.7rem;
         font-size: $sm;
-        font-weight: 600;
+        font-weight: 700;
+        color: $dominant;
       }
     }
   }
@@ -83,7 +86,7 @@ header {
             @include grid;
             position: relative;
             top: 8rem;
-            padding: 0 6rem;
+            padding: 0 8rem;
             .navbar {
               grid-column: span 6;
               @include media(sm) {
@@ -128,6 +131,7 @@ header {
               color: #fff;
               width: 100%;
               p {
+                color: #fff;
                 margin: 1rem auto;
               }
             }

@@ -15,7 +15,7 @@ function Hamburger({ menu }) {
                   </li>
                   <li>
                     <Link href="/projects">
-                      <a>Project</a>
+                      <a>Projects</a>
                     </Link>
                   </li>
                   <li>
@@ -26,6 +26,11 @@ function Hamburger({ menu }) {
                   <li>
                     <Link href="/blog">
                       <a>Blog</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/story">
+                      <a>Story</a>
                     </Link>
                   </li>
                 </ul>

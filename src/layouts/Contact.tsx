@@ -20,7 +20,7 @@ function Contact() {
           <Button
             site={'/contact'}
             className={'custom__btn'}
-            text={'or send an email me'}
+            text={'Send an email to me'}
           />
         </div>
         <div className="media">
@@ -55,7 +55,7 @@ function Contact() {
               </span>
             </p>
             <p className="lang">
-              {show ? 'Nextjs Scss JavaScript Gsap Html5' : ''}
+              {show ? 'Nextjs Scss Framer-Motion Firebase React-icons' : ''}
             </p>
           </div>
         </div>

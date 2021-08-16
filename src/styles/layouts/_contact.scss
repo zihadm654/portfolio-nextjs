@@ -1,5 +1,5 @@
 .contact {
-  padding: 4rem 7rem;
+  padding: 4rem 9rem;
   color: #000;
   @include grid;
   @include media(sm) {
@@ -29,8 +29,12 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       a {
-        color: #000;
-        font-size: $p;
+        font-size: $sm;
+        color: $fontColor;
+        font-weight: 500;
+        &:hover {
+          color: $dominant;
+        }
       }
     }
     hr {

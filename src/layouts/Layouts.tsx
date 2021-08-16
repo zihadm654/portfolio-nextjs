@@ -11,7 +11,7 @@ export default function Layouts() {
       <Hero />
       <Describe />
       <Projects />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Progress />
       <Skills />
       <About />

@@ -1,33 +1,35 @@
 h1 {
   font-size: $xxlr;
   font-weight: 700;
-  line-height: 8.6rem;
+  line-height: 7.8rem;
 }
 h2 {
-  letter-spacing: 0.02rem;
   font-size: $sbtl;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 6rem;
 }
 h3 {
   font-size: $xlr;
-  line-height: 4.5rem;
+  line-height: 5.6rem;
   font-weight: 500;
 }
 h4 {
-  line-height: 3.8rem;
+  line-height: 5.2rem;
   font-size: $lr;
   font-weight: 400;
 }
 h5 {
-  line-height: 2.592rem;
+  line-height: 2.8rem;
   font-size: $md;
   font-weight: 400;
 }
 p {
+  line-height: 2rem;
   font-size: $p;
+  color: $fontColor;
 }
 a {
   font-weight: 400;
-  font-size: $p;
+  font-size: $sm;
+  color: $fontColor;
 }

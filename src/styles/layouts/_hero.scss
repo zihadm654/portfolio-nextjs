@@ -1,5 +1,5 @@
 .hero__wrapper {
-  padding: 4rem 6rem;
+  padding: 4rem 8rem;
   @include grid;
   @include media(sm) {
     padding: 2.5rem;
@@ -20,14 +20,8 @@
     @include media(sm) {
       grid-column: 1/13;
     }
-    @include media(md) {
-      grid-column: 2/11;
-    }
-    @include media(xlg) {
-      grid-column: 2/11;
-    }
     // overflow: hidden;
-    grid-column: 2/11;
+    grid-column: 3/11;
     margin-top: 8rem;
     padding: 2.5rem 0;
     color: $dominant;

@@ -1,6 +1,6 @@
 .project {
   position: relative;
-  padding: 4rem 7rem;
+  padding: 4rem 9rem;
   @include media(sm) {
     padding: 2.5rem;
   }
@@ -13,5 +13,10 @@
     p {
       width: 50ch;
     }
+  }
+  button {
+    position: absolute;
+    margin: auto;
+    // bottom: 0;
   }
 }

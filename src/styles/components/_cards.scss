@@ -21,7 +21,7 @@
     text-align: left;
     position: relative;
     .image__container {
-      height: 70rem;
+      height: 60rem;
       img {
         width: 100%;
         height: 80%;
@@ -29,8 +29,8 @@
       }
     }
     .card__text {
-      position: absolute;
-      bottom: 0;
+      // position: absolute;
+      // bottom: 0;
       background: #fff;
       grid-column: 1/13;
       padding: 2rem 1.5rem;

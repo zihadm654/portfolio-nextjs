@@ -14,7 +14,7 @@
   background: gray;
 }
 html {
-  font-size: 70%;
+  font-size: 66.5%;
   @include media(sm) {
     font-size: 39%;
   }
@@ -36,7 +36,7 @@ a {
 }
 span {
   color: $dominant;
-  font-weight: 700;
+  font-weight: 600;
 }
 .hamburger,
 .secondary__background,

@@ -4,10 +4,9 @@
   a {
     color: #ffffff;
     font-weight: bold;
-    text-transform: uppercase;
   }
   background: $dominant;
-  padding: 2.3rem 3.5rem;
+  padding: 2.3rem 4rem;
   margin: 2rem 0;
   border-radius: 1.5rem;
   border: 3px solid rgba(255, 255, 255, 0.87);
@@ -27,15 +26,10 @@
 }
 .secondary__btn {
   position: relative;
-  @include media(sm) {
-    height: 6rem;
-    width: 18rem;
-  }
   box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 38%);
   outline: none;
   transition: transform ease-in-out 300ms;
-  height: 6.5rem;
-  width: 16.6rem;
+  padding: 2rem 4rem;
   margin: 3rem 0;
   background-color: $secondaryColor;
   border-radius: 1rem;
@@ -67,14 +61,14 @@ a {
   .icon {
     margin-top: 0.41rem;
     margin-left: 0.7rem;
-    font-size: 2.3rem;
+    font-size: $p;
+    color: $fontHighlight;
   }
 }
 .custom__btn {
   position: relative;
   box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 38%);
-  text-transform: uppercase;
-  border-radius: 1.5rem;
+  border-radius: 1.2rem;
   margin: 2rem 0;
   padding: 2rem 5rem;
   background: transparent;
