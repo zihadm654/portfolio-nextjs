@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/storage';
-const firebaseapp = firebase.initializeApp({
+const App = firebase.initializeApp({
   apiKey: 'AIzaSyAITQLz7ewSKRzzBI9yZo8bExX2qi8oYUU',
   authDomain: 'portfolio-next-50c1e.firebaseapp.com',
   projectId: 'portfolio-next-50c1e',

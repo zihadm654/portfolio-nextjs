@@ -52,6 +52,9 @@
         cursor: pointer;
       }
       .lang {
+        @include media(sm){
+          left: 0;
+        }
         position: absolute;
         bottom: 1rem;
         left: 8rem;

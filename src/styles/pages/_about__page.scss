@@ -12,6 +12,11 @@
     text-align: center;
     padding: 3rem;
     margin-top: 10rem;
+    a{
+      color: #050507;
+      font-weight: bold;
+      text-decoration: underline;
+    }
     @include media(sm) {
       padding: 1.2rem 0;
       text-align: left;
@@ -25,7 +30,6 @@
     }
     h3 {
       padding: 1.5rem 0;
-      line-height: 4.7rem;
       color: $dominant;
       font-weight: 400;
     }
@@ -50,13 +54,13 @@
     color: palevioletred;
   }
   .javascript {
-    color: yellow;
+    color: rgba(255, 255, 0, 0.84);
+  }
+  .firebase{
+    color: rgba(255, 255, 0, 0.84);
   }
   .react {
-    color: cyan;
-  }
-  .webpack {
-    color: rgb(22, 117, 206);
+    color: rgba(0, 255, 255, 0.73);
   }
   .gsap {
     color: green;
@@ -65,7 +69,7 @@
     .language__title {
       padding: 2rem;
       text-align: center;
-      h3 {
+      h4 {
         font-weight: 500;
         letter-spacing: 0.5rem;
         color: gray;
@@ -111,6 +115,20 @@
       }
       @include media(md) {
         grid-column: 1/13;
+      }
+    }
+  }
+  .principle{
+    h4{
+      color: $fontColor;
+    }
+    .content{
+      padding: 2.3rem 0;
+      article{
+        padding: .7rem 0;
+      h5{
+        padding: .6rem 0;
+      }
       }
     }
   }

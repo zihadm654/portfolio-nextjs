@@ -3,14 +3,14 @@ function Describe() {
   return (
     <div className="describe">
       <div className="describe__left">
-        <h2>
+        <h1>
           Your website should turn<strong> visitors</strong> into{' '}
           <strong>engaged</strong> customers
-        </h2>
-        <h4>
+        </h1>
+        <h5>
           These two extra things make all the difference between a visit and a
           sale in your buiness.
-        </h4>
+        </h5>
       </div>
       <div className="describe__right">
         <p>
@@ -41,7 +41,7 @@ function Describe() {
         <Button
           site={'/contact'}
           className="primary__btn"
-          text="Book a free consultant"
+          text="Book a free consultantion"
         />
       </div>
     </div>

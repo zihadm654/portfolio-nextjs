@@ -87,6 +87,9 @@ header {
             position: relative;
             top: 8rem;
             padding: 0 8rem;
+            @include media(sm){
+              padding: 0 2rem;
+            }
             .navbar {
               grid-column: span 6;
               @include media(sm) {

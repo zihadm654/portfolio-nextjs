@@ -1,15 +1,9 @@
 // import Loader from '../components/Loader'
-import { useState, useEffect } from 'react';
 import Cards from '../../src/components/Cards';
-import { db, store } from '../../src/firebase';
+
 import Head from 'next/head';
 const ProjectPage = () => {
-  const [projects, setProjects] = useState([]);
-  useEffect(() => {
-    db.collection('projects').onSnapshot((snapshot) => {
-      setProjects(snapshot.docs.map((doc) => doc.data()));
-    });
-  }, []);
+
   return (
     <>
       <Head>
@@ -33,7 +27,7 @@ const ProjectPage = () => {
           </p>
         </div>
         <h3>Personal Projects</h3>
-        <Cards projects={projects} />
+        <Cards />
       </section>
     </>
   );

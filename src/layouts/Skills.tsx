@@ -36,15 +36,15 @@ function Skills() {
 export default Skills;
 const data = [
   {
+    img: development,
+    title: 'Frontend Development',
+    description:
+      'custom Crafting Beautiful website redesign recreate from scretch',
+  },
+  {
     title: 'User Interface Design',
     img: ui,
     description: 'Mobile App & Web UI Design Micro-Interactions animation',
-  },
-  {
-    img: development,
-    title: 'Website Development',
-    description:
-      'custom Crafting Beautiful website redesign recreate from scretch',
   },
   {
     img: user,

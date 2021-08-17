@@ -29,15 +29,14 @@
       margin-bottom: 3rem;
     }
     .link {
-      a {
+
         @include media(sm) {
-          @include flex(center);
-        }
+            @include flex(center);
+          }
         @include media(md) {
           @include flex(center);
-        }
-      }
     }
+  }
     img {
       @include media(sm) {
         height: 180px;

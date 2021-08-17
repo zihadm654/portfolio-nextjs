@@ -1,19 +1,28 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { db, store } from '../../src/firebase';
+import {Icon} from '../utility/Button'
+const Cards = () => {
+  const [projects, setProjects] = useState([]);
 
-const Cards = ({ projects }) => {
+  useEffect(() => {
+    db.collection('projects').onSnapshot((snapshot) => {
+      setProjects(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
   return (
     <div className="cards">
       {projects.map((project) => {
         return (
           <div className="card__wrapper" key={project.name}>
-            <div className="image__container"></div>
+            <div className="image__container">
+            </div>
             <div className="card__text">
               <h5>{project.name}</h5>
               <p>{project.description}</p>
-              <Link href="/">
-                <a>see case study</a>
-              </Link>
+              <Icon
+                  site='/projects/slug'
+                  text='see case study'
+              />
             </div>
           </div>
         );

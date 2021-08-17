@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '../utility/Button';
-// import Cards from '../components/Cards';
+import Cards from '../components/Cards';
 
 function Projects() {
   return (
@@ -12,10 +12,10 @@ function Projects() {
           inspiring animations.
         </p>
       </div>
-      {/* <Cards projects={projects} /> */}
+       <Cards />
       <Button
         className={'secondary__btn'}
-        site={'/project'}
+        site={'/projects'}
         text={'see more'}
       />
     </section>

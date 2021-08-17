@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 // import { SlideData } from "../components/SlideData"
 // import Loader from "../components/Loader"
+import Link from 'next/link'
 import {
   SiHtml5,
   SiCss3,
@@ -9,13 +10,14 @@ import {
   SiReact,
   SiGithub,
   SiGit,
-  SiWebpack,
+  SiFirebase,
   SiGreensock,
-  SiStyledComponents,
+  SiNextDotJs,
 } from 'react-icons/si';
+
 const AboutPage = () => {
   useEffect(() => {
-    window.scroll(0, 0);
+    // window.scroll(0, 0);
   }, []);
   return (
     <section className="about__page">
@@ -34,43 +36,7 @@ const AboutPage = () => {
           spare time I enjoy to see sunset and adventures.
         </p>
       </div>
-      <div className="about__slider"></div>
-
-      <div className="language__container">
-        <div className="language__title">
-          <h3>LANGUAGES & TOOLS I DO USE</h3>
-        </div>
-        <div className="languages">
-          <SiHtml5 className="language html" />
-          <SiCss3 className="language css" />
-          <SiSass className="language scss" />
-          <SiJavascript className="language javascript" />
-          <SiReact className="language react" />
-          <SiGithub className="language" />
-          <SiGit className="language git" />
-          <SiWebpack className="language webpack" />
-          <SiGreensock className="language gsap" />
-          <SiStyledComponents className="language styled" />
-        </div>
-      </div>
-      <div className="tools">
-        <div className="tools__left">
-          <h5>DEVELOPER SERVICES</h5>
-          <h4>
-            Web & mobile / Front-end / Responsive / Animation / Functional
-          </h4>
-        </div>
-        <div className="tools__middle">
-          <h5>DESIGN SERVICES</h5>
-          <h4>
-            Art direction / Web & Mobile / UX & UI / Typography / Interface
-          </h4>
-        </div>
-        <div className="tools__right">
-          <h5>TOOLS I USE</h5>
-          <h4>VS code / Figma / Photoshop / Adobe XD / Pen & paper</h4>
-        </div>
-      </div>
+      {/*<div className="about__slider"></div>*/}
       <div className="experience">
         <h5>EXPERIENCE</h5>
         <h3>Over 3 years of experience</h3>
@@ -78,8 +44,65 @@ const AboutPage = () => {
           I’ve been lucky enough to establish relationships with amazing clients
           from all over the world, ranging from individual clients, through
           up-and-coming startups, to multinational companies. For more details,
-          head over to my<span> LinkedIn profile</span>.
+          head over to my <Link href={'https://www.linkedin.com/in/abdul-malek-a095031a4/'}>
+          <a>LinkedIn profile</a></Link>.
         </p>
+      </div>
+      <div className="language__container">
+        <div className="language__title">
+          <h4>LANGUAGES & TOOLS I DO USE</h4>
+        </div>
+        <div className="languages">
+          <SiNextDotJs className="language next-js" />
+          <SiReact className="language react" />
+          <SiHtml5 className="language html" />
+          <SiJavascript className="language javascript" />
+          <SiSass className="language scss" />
+          <SiCss3 className="language css" />
+          <SiGreensock className="language gsap" />
+          <SiFirebase className="language firebase" />
+          <SiGithub className="language" />
+          <SiGit className="language git" />
+        </div>
+      </div>
+      <div className="tools">
+        <div className="tools__left">
+          <h5>DEVELOPER SERVICES</h5>
+          <h4>
+            Website / Frontend / Responsive / Animation / Functional
+          </h4>
+        </div>
+        <div className="tools__middle">
+          <h5>DESIGN SERVICES</h5>
+          <h4>
+            Art direction / Web & Mobile / UX & UI / Redesign / Interface
+          </h4>
+        </div>
+        <div className="tools__right">
+          <h5>TOOLS I USE</h5>
+          <h4>VS code / Figma / Photoshop / Adobe XD / Pen & paper</h4>
+        </div>
+      </div>
+      <div className="principle">
+        <h4>Principles I do use?</h4>
+        <div className="content">
+          <h5>For design purposes</h5>
+          <article>
+          <h5>Grid System</h5>
+            <p>
+              I use mostly grid system. <span>Grid system</span> is a way which can make your design so much clean and align can be so much perfect.
+              I use the <span>12 grid.</span> So, it helps me to divide the design into<span> 3 parts.</span>
+            </p>
+          </article>
+          <h5>For Development purposes</h5>
+          <article>
+            <h5>Bem naming convention</h5>
+            <p>
+              In development part. When i write Html i probably use <span>BEM</span> naming convention to call the classes of html elements.
+              It helps me when i style website with SCSS. I can use nested style and <span>& percentage</span> .
+            </p>
+          </article>
+        </div>
       </div>
     </section>
   );

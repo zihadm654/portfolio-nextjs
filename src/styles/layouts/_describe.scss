@@ -14,13 +14,11 @@
     align-self: center;
     padding: 2rem 0rem;
     grid-column: span 6;
-    h2 {
+    h1 {
       font-weight: 400;
-      font-size: $xlr;
-      line-height: 6.5rem;
       padding-bottom: 2.7rem;
     }
-    h4 {
+    h5 {
       padding: 2rem 0;
     }
   }
@@ -45,7 +43,7 @@
         }
       }
       ul {
-        text-align: flex-start;
+        text-align: start;
         width: 75%;
         h5 {
           font-weight: 600;

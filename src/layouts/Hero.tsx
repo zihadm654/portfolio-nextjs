@@ -14,7 +14,7 @@ function Hero() {
           <svg width="40px" height="1" color="#8f00ff">
             <path fillRule="evenodd" d="M0 0h66v4H0z" />
           </svg>
-          Available For Freelance Work
+          🚀 Available For Freelance Work
         </h5>
         <h1>Taking your vision and serving as a reality</h1>
         <p>
