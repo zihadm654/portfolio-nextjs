@@ -1,12 +1,15 @@
+// import {withRouter} from "next/router";
+
 import Link from 'next/link';
 function Hamburger({ menu }) {
+  /*const router = useRouter()*/
   return (
     <div className={menu ? 'hamburger menu' : 'hamburger'}>
       <div className="menu__layer">
         <div className="container">
           <div className="wrapper">
             <div className="menu__links">
-              <nav className="navbar">
+              <nav className="nav">
                 <ul className="nav__links">
                   <li>
                     <Link href="/">
@@ -46,12 +49,20 @@ function Hamburger({ menu }) {
             </div>
           </div>
           <div className="social__media">
-            <Link href={'https://dribbble.com/zihadm654'}>Dribbble</Link>
-            <Link href={'https://behance.net/zihadm654'}>Behance</Link>
-            <Link href={'https://instagram.com/zihadm654'}>Instagram</Link>
-            <Link href={'https://github.com/zihadm654'}>Github</Link>
+            <Link href={'https://dribbble.com/zihadm654'}>
+              <a>Dribble</a>
+            </Link>
+            <Link href={'https://behance.net/zihadm654'}>
+              <a>Behance</a>
+            </Link>
+            <Link href={'https://instagram.com/zihadm654'}>
+              <a>Instagram</a>
+            </Link>
+            <Link href={'https://github.com/zihadm654'}>
+              <a>Github</a>
+            </Link>
             <Link href={'https://www.linkedin.com/in/Abdul -malek-a095031a4/'}>
-              Linkdin
+              <a>Linkedin</a>
             </Link>
           </div>
         </div>

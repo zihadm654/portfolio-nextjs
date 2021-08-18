@@ -5,13 +5,14 @@ import Progress from './Progress';
 import Skills from './Skills';
 import Testimonial from './Testimonial';
 import Projects from './Projects';
+
 export default function Layouts() {
   return (
     <>
       <Hero />
       <Describe />
       <Projects />
-      {/* <Testimonial /> */}
+      <Testimonial />
       <Progress />
       <Skills />
       <About />

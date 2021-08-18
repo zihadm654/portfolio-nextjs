@@ -10,7 +10,7 @@ function Hero() {
           <Image src={Available} alt="available" />
         </div>
         <h5>
-          Hello,I am Abdul Malik
+          Hello, I am Abdul Malik
           <svg width="40px" height="1" color="#8f00ff">
             <path fillRule="evenodd" d="M0 0h66v4H0z" />
           </svg>

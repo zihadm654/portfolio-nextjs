@@ -1,13 +1,9 @@
 import { Icon } from '../utility/Button';
 // import { HorizontalScroll } from '../helpers/Animation'
-import Head from 'next/head';
+
 function About() {
   return (
     <>
-      <Head>
-        <title>About</title>
-        <meta property="og:title" content="about page" key="title" />
-      </Head>
       <div className="about">
         <div className="about__wrapper">
           <div className="img__wrapper"></div>

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 // import { SlideData } from "../components/SlideData"
 // import Loader from "../components/Loader"
 import Link from 'next/link'
+import Head from 'next/head'
 import {
   SiHtml5,
   SiCss3,
@@ -20,6 +21,11 @@ const AboutPage = () => {
     // window.scroll(0, 0);
   }, []);
   return (
+      <>
+        <Head>
+          <title>About</title>
+          <meta name='description' content='this is about page of this porfolio. It describe everything about this portfolio'/>
+        </Head>
     <section className="about__page">
       <div className="about__description">
         <h5>A FEW WORDS ABOUT ME</h5>
@@ -105,6 +111,7 @@ const AboutPage = () => {
         </div>
       </div>
     </section>
+      </>
   );
 };
 

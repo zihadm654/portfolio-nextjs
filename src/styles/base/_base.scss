@@ -33,6 +33,9 @@ body {
 }
 a {
   color: $dominant;
+  &:hover {
+    color: $fontHighlight;
+  }
 }
 span {
   color: $dominant;

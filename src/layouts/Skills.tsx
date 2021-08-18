@@ -38,8 +38,7 @@ const data = [
   {
     img: development,
     title: 'Frontend Development',
-    description:
-      'custom Crafting Beautiful website redesign recreate from scretch',
+    description: 'creating custom website with Reactjs.',
   },
   {
     title: 'User Interface Design',

@@ -3,12 +3,18 @@ import { useState, useEffect } from 'react';
 // import Loader from "../components/Loader";
 // import { describe } from "../helpers/Animation"
 // import { Blogs } from "../data/blogs.js"
+import Head from 'next/head'
 const BlogPage = () => {
   // const [blogs, setBlogs] = useState(null);
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
   return (
+      <>
+          <Head>
+              <title>Blog</title>
+              <meta name="blog" content="This is the blogpage. It describe the blogs of this website "/>
+          </Head>
     <div className="blog__page">
       {/* <Loader /> */}
       <h4>Welcome to my personal blog</h4>
@@ -39,6 +45,7 @@ const BlogPage = () => {
         ))} */}
       </div>
     </div>
+      </>
   );
 };
 export default BlogPage;
