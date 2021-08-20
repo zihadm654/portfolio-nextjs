@@ -1,23 +1,24 @@
-// import { useState, useEffect } from 'react';
-// import { db, store } from '../../src/firebase';
+import { useState, useEffect } from 'react';
+import { db, store } from '../../firebase';
 import { Icon } from '../utility/Button';
 import { SiGithub, SiDribbble } from 'react-icons/si';
 import Link from 'next/link';
-import { projectData } from '../data/projectData';
+// import { cardData } from '../../data/projectData';
 import Image from 'next/image';
 const Cards = () => {
-  // const [projects, setProjects] = useState([]);
+  const [cards, setCards] = useState([]);
 
-  // useEffect(() => {
-  //   db.collection('projects').onSnapshot((snapshot) => {
-  //     setProjects(snapshot.docs.map((doc) => doc.data()));
-  //   });
-  // }, []);
+  useEffect(() => {
+    db.collection('projects').onSnapshot((snapshot) => {
+      setCards(snapshot.docs.map((doc) => doc.data()));
+    });
+  }, []);
+
   return (
     <div className="cards">
-      {projectData.map((project) => {
+      {cards.map((card) => {
         return (
-          <div className="wrapper" key={project.name}>
+          <div className="wrapper" key={card.name}>
             <div className="card">
               <div className="image__container">
                 <div className="overlay">
@@ -41,13 +42,13 @@ const Cards = () => {
                     </Link>
                   </div>
                 </div>
-                <Image src={project.Img} alt={project.name} />
+                {/* <Image src={card.Img} alt={card.name} /> */}
               </div>
             </div>
             <div className="card__text">
-              <h5>{project.name}</h5>
-              <p>{project.description}</p>
-              <Icon site="/projects/slug" text="see case study" />
+              <h5>{card.name}</h5>
+              <p>{card.description}</p>
+              <Icon site="/cards/slug" text="see case study" />
             </div>
           </div>
         );

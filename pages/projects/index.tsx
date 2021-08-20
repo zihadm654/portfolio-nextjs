@@ -1,9 +1,6 @@
-// import Loader from '../components/Loader'
 import Cards from '../../src/components/Cards';
-
 import Head from 'next/head';
 const ProjectPage = () => {
-
   return (
     <>
       <Head>
@@ -15,7 +12,6 @@ const ProjectPage = () => {
         />
       </Head>
       <section className="project">
-        {/* <Loader /> */}
         <div className="project__title">
           <h3>
             Shaping world class websites,
@@ -28,6 +24,7 @@ const ProjectPage = () => {
         </div>
         <h3>Personal Projects</h3>
         <Cards />
+        <h2></h2>
       </section>
     </>
   );

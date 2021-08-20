@@ -1,10 +1,4 @@
-import React, { useState, useEffect } from 'react';
-// import { useParams } from "react-router-dom"
-// import { projectData } from '../data/projectData.js'
 const CaseDetails = () => {
-  const [project, setProject] = useState(null);
-  // const { slug } = useParams()
-
   return (
     <section className="case__details">
       <div className="case__study">

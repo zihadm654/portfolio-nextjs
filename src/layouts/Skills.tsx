@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import celebration from '../assets/celebration.svg';
-import ui from '../assets/UI.svg';
-import user from '../assets/user.svg';
-import animation from '../assets/animation.svg';
-import development from '../assets/development.svg';
+import celebration from '../../public/assets/celebration.svg';
+import ui from '../../public/assets/UI.svg';
+import user from '../../public/assets/user.svg';
+import animation from '../../public/assets/animation.svg';
+import development from '../../public/assets/development.svg';
 import { Icon } from '../utility/Button';
 function Skills() {
   return (

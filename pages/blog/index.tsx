@@ -1,51 +1,60 @@
-import { useState, useEffect } from 'react';
-// import { Link } from "react-router-dom";
-// import Loader from "../components/Loader";
-// import { describe } from "../helpers/Animation"
-// import { Blogs } from "../data/blogs.js"
-import Head from 'next/head'
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
+import { db } from '../../firebase';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 const BlogPage = () => {
-  // const [blogs, setBlogs] = useState(null);
+  const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
     window.scroll(0, 0);
+    db.collection('blogs').onSnapshot((snapshot) => {
+      setBlogs(snapshot.docs.map((doc) => doc.data()));
+    });
   }, []);
+
   return (
-      <>
-          <Head>
-              <title>Blog</title>
-              <meta name="blog" content="This is the blogpage. It describe the blogs of this website "/>
-          </Head>
-    <div className="blog__page">
-      {/* <Loader /> */}
-      <h4>Welcome to my personal blog</h4>
-      <div className="container">
-        {/* {Blogs.map((blog, index) => (
-          <article
-            key={index}
-            className="content">
-            <Link to={"/blogs/" + blog.slug} key={blog.slug}>
-              <div className="blog__img">
-                <img src={blog.img} alt={blog.img} />
-              </div>
-              <div className="description">
-                <h5 >{blog.title}</h5>
-                <div className="author__container">
-                  <div className="author__img">
-                    <img src={blog.authorImage} alt={blog.name} />
-                  </div>
-                  <div className="author__info">
-                    <span>{blog.author}</span>
-                    <span>{blog.place}</span>
-                  </div>
-                </div>
-                <p>{blog.breif}</p>
-              </div>
-            </Link>
-          </article>
-        ))} */}
+    <>
+      <Head>
+        <title>Blog</title>
+        <meta
+          name="blog"
+          content="This is the blogpage. It describe the blogs of this website "
+        />
+      </Head>
+      <div className="blog__page">
+        <h4>Welcome to my personal blog</h4>
+        <div className="container">
+          {blogs.map((blog) => {
+            return (
+              <article className="content" key={blog.id}>
+                <Link href={'/blog/' + blog.slug}>
+                  <a>
+                    <div className="blog__img">
+                      {/* <img src={blog.img} alt={blog.img} /> */}
+                    </div>
+                    <div className="description">
+                      <h5>{blog.title}</h5>
+                      <div className="author__container">
+                        <div className="author__img">
+                          {/* <img src={blog.authorImage} alt={blog.name} /> */}
+                        </div>
+                        <div className="author__info">
+                          <span>{blog.author}</span>
+                          <span>{blog.location}</span>
+                        </div>
+                      </div>
+                      <p>{blog.subTitle}</p>
+                    </div>
+                  </a>
+                </Link>
+              </article>
+            );
+          })}
+        </div>
       </div>
-    </div>
-      </>
+    </>
   );
 };
 export default BlogPage;

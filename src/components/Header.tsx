@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../assets/logo.png';
+import logo from '../../public/assets/logo.png';
 import Hamburger from './Hamburger';
 import { CgMenuMotion } from 'react-icons/cg';
 import { MdClose } from 'react-icons/md';

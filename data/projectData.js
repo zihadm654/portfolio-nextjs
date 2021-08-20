@@ -1,6 +1,6 @@
-import Img1 from '../assets/Slice5.jpg';
-import Img2 from '../assets/single-page.jpg';
-import Img3 from '../assets/Slice7.jpg';
+import Img1 from '../public/assets/Slice5.jpg';
+import Img2 from '../public/assets/single-page.jpg';
+import Img3 from '../public/assets/Slice7.jpg';
 
 export const projectData = [
   {

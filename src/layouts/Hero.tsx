@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Available from '../assets/available.svg';
+import Available from '../../public/assets/available.svg';
 import { Button } from '../utility/Button';
 
 function Hero() {

@@ -1,39 +1,25 @@
-import React, { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom'
-// import { Blogs } from "../data/blogs.js"
-
+import { useRouter } from 'next/router';
 function BlogDetails() {
-  // const [blog, setBlog] = useState(null);
-  // const { slug } = useParams(null)
-
-  useEffect(() => {
-    // const newArray = Blogs.find(array => array.slug === slug)
-    // setBlog(newArray)
-  }, []);
-
-  // if (!blog) return <div>Loading...</div>;
+  const router = useRouter();
   return (
     <div className="blog__details">
       <article>
         <h4></h4>
-        <div className="img__container">{/* <img src="" /> */}</div>
+        <div className="img__container"></div>
         <div className="description">
           <div className="author__container">
-            <div className="author__img">{/* <img src="" /> */}</div>
+            <div className="author__img"></div>
             <div className="author__info">
-              <h5>-</h5>
+              <h5></h5>
               <span></span>
             </div>
           </div>
           <h5></h5>
         </div>
-        {/* {blog.descriptions.map((desc, index) => {
-          return ( */}
         <article>
           <h5></h5>
           <p></p>
         </article>
-        ){/* })} */}
       </article>
       <div className="conclution">
         <h4>Conclusion:-</h4>
