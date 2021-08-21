@@ -11,6 +11,9 @@ function Slider() {
   const prevHandler = () => {
     setActiveItem(activeItem === 0 ? slidedata.length - 1 : activeItem - 1);
   };
+  const moveDot = (i) => {
+    setActiveItem(i);
+  };
   return (
     <section className="slider">
       <div className="clientInfo">
@@ -31,6 +34,15 @@ function Slider() {
         <button className="btn next" onClick={nextHandler}>
           <BsArrowRight />
         </button>
+      </div>
+      <div className="dots">
+        {Array.from({ length: 4 }).map((item, i) => (
+          <div
+            key={i}
+            onClick={() => moveDot(i)}
+            className={activeItem === i ? 'dot active' : 'dot'}
+          ></div>
+        ))}
       </div>
     </section>
   );

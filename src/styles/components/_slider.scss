@@ -3,7 +3,7 @@
   margin: 4.5rem 0;
   @include grid;
   background-color: $dominant;
-  height: 65rem;
+  height: 58rem;
   padding: 8rem;
   .clientInfo {
     grid-column: 1/6;
@@ -72,6 +72,23 @@
       &:hover {
         color: $fontColor;
         background: rgba(255, 255, 255, 0.202);
+      }
+    }
+  }
+  .dots {
+    @include flex(center);
+    position: absolute;
+    bottom: 3%;
+    left: 40%;
+    .dot {
+      width: 4rem;
+      height: 0.6rem;
+      margin-left: 1rem;
+      // border: 3px solid #f1f1f1;
+      background: $fontColor;
+      cursor: pointer;
+      &.active {
+        background: #fff;
       }
     }
   }

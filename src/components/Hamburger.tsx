@@ -3,6 +3,7 @@
 import Link from 'next/link';
 function Hamburger({ menu }) {
   /*const router = useRouter()*/
+
   return (
     <div className={menu ? 'hamburger menu' : 'hamburger'}>
       <div className="menu__layer">
