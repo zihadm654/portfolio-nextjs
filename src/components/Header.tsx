@@ -10,9 +10,10 @@ function Header() {
   const [menu, setMenu] = useState(false);
   // useEffect(() => {});
   const handleClick = () => {
-    setMenu((prev) => !prev);
+    menu ? setMenu((prev) => !prev) : setMenu((prev) => !prev);
     /*router.push(href)*/
   };
+  const hide = () => setMenu(!menu);
   return (
     <>
       <div className="navbar">
@@ -25,20 +26,6 @@ function Header() {
               </div>
             </a>
           </Link>
-          <div className="navbar__links">
-            <Link href="/projects">
-              <a>Projects</a>
-            </Link>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-            <Link href="/blog">
-              <a>Blog</a>
-            </Link>
-            <Link href="/contact">
-              <a>Contact</a>
-            </Link>
-          </div>
         </div>
         <div className="menu" onClick={handleClick}>
           <h5>{!menu ? 'menu' : 'close'}</h5>
@@ -51,7 +38,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <Hamburger menu={menu} />
+      <Hamburger menu={menu} hide={hide} />
     </>
   );
 }

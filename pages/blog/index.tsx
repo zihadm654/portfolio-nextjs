@@ -1,57 +1,57 @@
-import { useEffect, useState } from 'react';
-import Head from 'next/head';
-import { db } from '../../firebase';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { onSnapshot, collection } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 const BlogPage = () => {
-  const [blogs, setBlogs] = useState([]);
-
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  typeof {
+    blogs: Object,
+  };
   useEffect(() => {
-    window.scroll(0, 0);
-    db.collection('blogs').onSnapshot((snapshot) => {
-      setBlogs(snapshot.docs.map((doc) => doc.data()));
-    });
+    onSnapshot(
+      collection(db, 'blogs'),
+      (snap) => {
+        setPosts(snap.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setLoading(false);
+      },
+      (error) => {
+        console.log('failed to get data from firebase');
+      }
+    );
   }, []);
+  console.log(posts);
 
+  if (loading) return <div>loading...</div>;
   return (
     <>
-      <Head>
-        <title>Blog</title>
-        <meta
-          name="blog"
-          content="This is the blogpage. It describe the blogs of this website "
-        />
-      </Head>
       <div className="blog__page">
-        <h4>Welcome to my personal blog</h4>
+        <h3>Blog</h3>
+        <p>
+          I&apos;ve been writing online since 2014, mostly about web development
+          and tech careers. In total, I&apos;ve written 68 articles on this
+          site. Use the search below to filter by title.
+        </p>
         <div className="container">
-          {blogs.map((blog) => {
-            return (
-              <article className="content" key={blog.id}>
-                <Link href={'/blog/' + blog.slug}>
-                  <a>
-                    <div className="blog__img">
-                      {/* <img src={blog.img} alt={blog.img} /> */}
-                    </div>
-                    <div className="description">
-                      <h5>{blog.title}</h5>
-                      <div className="author__container">
-                        <div className="author__img">
-                          {/* <img src={blog.authorImage} alt={blog.name} /> */}
+          <h3>All Posts</h3>
+          {!posts
+            ? loading
+            : posts.map((blog) => {
+                return (
+                  <article className="content" key={blog.id}>
+                    <Link href="/blog/[slug]" as={'/blog/' + blog.title}>
+                      <a>
+                        <div className="description">
+                          <h5>{blog.title}</h5>
+                          {/* <span>12pm</span> */}
+                          <p>{blog.subTitle}</p>
                         </div>
-                        <div className="author__info">
-                          <span>{blog.author}</span>
-                          <span>{blog.location}</span>
-                        </div>
-                      </div>
-                      <p>{blog.subTitle}</p>
-                    </div>
-                  </a>
-                </Link>
-              </article>
-            );
-          })}
+                      </a>
+                    </Link>
+                  </article>
+                );
+              })}
         </div>
       </div>
     </>

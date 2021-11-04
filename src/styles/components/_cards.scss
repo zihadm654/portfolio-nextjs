@@ -22,6 +22,7 @@
     .card {
       .image__container {
         position: relative;
+        transition: visibility 500ms ease-out;
         &:hover {
           .overlay {
             visibility: visible;

@@ -1,26 +1,62 @@
+import { useEffect, useState } from 'react';
+// import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { db } from '../../firebase';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 function BlogDetails() {
+  const [blog, setBlog] = useState([]);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const { slug } = router.query;
+
+  useEffect(() => {
+    const q = query(collection(db, 'blogs'), where('title', '==', slug));
+    const post = [];
+    const getData = async () => {
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        post.push({
+          ...doc.data(),
+          id: doc.id,
+        });
+      });
+      setBlog(post);
+      setLoading(false);
+    };
+    getData();
+  }, [slug]);
+  if (loading) return <div>loading...</div>;
   return (
     <div className="blog__details">
-      <article>
-        <h4></h4>
-        <div className="img__container"></div>
-        <div className="description">
-          <div className="author__container">
-            <div className="author__img"></div>
-            <div className="author__info">
-              <h5></h5>
-              <span></span>
-            </div>
-          </div>
-          <h5></h5>
-        </div>
-        <article>
-          <h5></h5>
-          <p></p>
-        </article>
-      </article>
+      {!blog
+        ? loading
+        : blog.map((i) => (
+            <article key={i.id}>
+              <h3>{i.title}</h3>
+              <div className="description">
+                <div className="author__container">
+                  <div className="info__left">
+                    <div className="author__img"></div>
+                    <p>{i.author}</p>
+                    <span>/</span>
+                    <p>{i.place}</p>
+                  </div>
+                  <div className="info__right">
+                    <p>*12 min read</p>
+                    <p>{i.location}</p>
+                  </div>
+                </div>
+                <div className="img__container">
+                  {/* <Image src={blog.Img} alt={blog.id} /> */}
+                </div>
+              </div>
+              <article>
+                <p></p>
+                <p></p>
+              </article>
+            </article>
+          ))}
+
       <div className="conclution">
         <h4>Conclusion:-</h4>
         <p>

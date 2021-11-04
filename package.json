@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "@types/react": "^17.0.17",
-    "emailjs-com": "^3.2.0",
-    "firebase": "^8.9.1",
+    "firebase": "^9.0.1",
     "next": "11.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"

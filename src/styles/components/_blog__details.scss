@@ -2,19 +2,6 @@
   margin-top: 5rem;
   padding: 4rem 9rem;
   article {
-    h4 {
-      font-weight: 600;
-    }
-    .img__container {
-      padding-top: 2rem;
-      height: 45rem;
-      width: 100%;
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-      }
-    }
     .description {
       padding-top: 2rem;
       h5 {
@@ -22,23 +9,38 @@
       }
       .author__container {
         padding-bottom: 1rem;
-        @include flex(flex-start);
-        .author__img {
-          height: 5rem;
-          width: 5rem;
-          img {
-            border-radius: 50%;
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-          }
-        }
-        .author__info {
+        @include flex(space-between);
+        .info__left {
+          @include flex(space-between);
           margin-left: 1rem;
           font-size: $p;
-          p {
-            font-size: $sm;
+          .author__img {
+            height: 3rem;
+            width: 3rem;
+            background: red;
+            border-radius: 50%;
+            img {
+              object-fit: cover;
+              height: 100%;
+              width: 100%;
+            }
           }
+        }
+        .info__right {
+          @include flex(center);
+        }
+        p {
+          font-size: $sm;
+        }
+      }
+      .img__container {
+        padding-top: 2rem;
+        height: 45rem;
+        width: 100%;
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
         }
       }
     }

@@ -55,12 +55,11 @@ span {
 .about__page,
 .contact,
 .contact__page,
-.story__page,
 .case__details,
 .blog__details {
   @include media(xxlg) {
     width: 100%;
-    max-width: 1500px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 }

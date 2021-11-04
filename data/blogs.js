@@ -1,15 +1,15 @@
-import Img1 from '../assets/design.jpg';
-import Img2 from '../assets/design2.jpg';
-import authorImg from '../assets/IMG20210802121228450x600.jpg';
+// import Img1 from '../assets/design.jpg';
+// import Img2 from '../assets/design2.jpg';
+// import authorImg from '../assets/IMG20210802121228450x600.jpg';
 export const Blogs = [
   {
     id: 1,
     title: 'Top 5 Vscode tips & tricks',
     author: 'John',
-    authorImage: authorImg,
+    // authorImage: authorImg,
     slug: 'first-blog-post',
     place: 'Washinton D.C',
-    img: Img1,
+    // img: Img1,
     breif:
       "if you are a vscode user you might have know or heard about all the tips & tricks. Let's take a look at these thing",
     descriptions: [
@@ -43,10 +43,10 @@ export const Blogs = [
     id: 2,
     title: 'Top 5 sites to learn web development',
     author: 'Creay',
-    authorImage: authorImg,
+    // authorImage: authorImg,
     slug: 'second-blog-post',
     place: 'jercy usa',
-    img: Img2,
+    // img: Img2,
     breif:
       "if you are a vscode user you might have know or heard about all the tips & tricks. Let's take a look at these thing",
     descriptions: [

@@ -1,11 +1,7 @@
-// import {withRouter} from "next/router";
-
 import Link from 'next/link';
-function Hamburger({ menu }) {
-  /*const router = useRouter()*/
-
+function Hamburger({ menu, hide }) {
   return (
-    <div className={menu ? 'hamburger menu' : 'hamburger'}>
+    <div className={!menu ? 'hamburger' : 'hamburger menu'}>
       <div className="menu__layer">
         <div className="container">
           <div className="wrapper">
@@ -14,27 +10,22 @@ function Hamburger({ menu }) {
                 <ul className="nav__links">
                   <li>
                     <Link href="/">
-                      <a>Home</a>
+                      <a onClick={hide}>Home</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/projects">
-                      <a>Projects</a>
+                      <a onClick={hide}>Projects</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/about">
-                      <a>About</a>
+                      <a onClick={hide}>About</a>
                     </Link>
                   </li>
                   <li>
                     <Link href="/blog">
-                      <a>Blog</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/story">
-                      <a>Story</a>
+                      <a onClick={hide}>Blog</a>
                     </Link>
                   </li>
                 </ul>

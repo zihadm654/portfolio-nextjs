@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Button } from '../utility/Button';
 import Cards from '../components/Cards';
+// import blogs from '../../utils/blogs';
 
 function Projects() {
+  useEffect(() => {
+    // blogs();
+  });
   return (
     <section className="project">
       <div className="project__title">
@@ -12,7 +16,7 @@ function Projects() {
           inspiring animations.
         </p>
       </div>
-       <Cards />
+      <Cards />
       <Button
         className={'secondary__btn'}
         site={'/projects'}

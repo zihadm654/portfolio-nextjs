@@ -1,16 +1,7 @@
 import Cards from '../../src/components/Cards';
-import Head from 'next/head';
 const ProjectPage = () => {
   return (
     <>
-      <Head>
-        <title>Projects</title>
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width"
-          key="title"
-        />
-      </Head>
       <section className="project">
         <div className="project__title">
           <h3>

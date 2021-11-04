@@ -1,22 +1,13 @@
-import { useState, useEffect } from 'react';
-import { db, store } from '../../firebase';
 import { Icon } from '../utility/Button';
 import { SiGithub, SiDribbble } from 'react-icons/si';
 import Link from 'next/link';
-// import { cardData } from '../../data/projectData';
+import { projectData } from '../../data/projectData';
+
 import Image from 'next/image';
 const Cards = () => {
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    db.collection('projects').onSnapshot((snapshot) => {
-      setCards(snapshot.docs.map((doc) => doc.data()));
-    });
-  }, []);
-
   return (
     <div className="cards">
-      {cards.map((card) => {
+      {projectData.map((card) => {
         return (
           <div className="wrapper" key={card.name}>
             <div className="card">
@@ -42,7 +33,7 @@ const Cards = () => {
                     </Link>
                   </div>
                 </div>
-                {/* <Image src={card.Img} alt={card.name} /> */}
+                <Image src={card.Img} alt={card.name} />
               </div>
             </div>
             <div className="card__text">
