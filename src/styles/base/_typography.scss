@@ -1,31 +1,31 @@
 h1 {
   font-size: $xxlr;
   font-weight: 700;
-  line-height: 7.8rem;
+  line-height: 1.2;
 }
 h2 {
   font-size: $sbtl;
   font-weight: 600;
-  line-height: 6rem;
+  line-height: 1.1;
 }
 h3 {
   font-size: $xlr;
-  line-height: 5.6rem;
+  line-height: 1;
   font-weight: 500;
 }
 h4 {
-  line-height: 5.2rem;
+  line-height: 1;
   font-size: $lr;
   font-weight: 400;
 }
 h5 {
-  line-height: 2.8rem;
+  line-height: 1;
   font-size: $md;
   font-weight: 400;
 }
 p {
-  line-height: 2rem;
-  font-size: $sm;
+  line-height: 1;
+  font-size: $p;
   color: $fontColor;
 }
 a {

@@ -5,11 +5,31 @@ import { db } from '../../src/lib/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 function BlogDetails() {
   const [blog, setBlog] = useState([]);
+  const [article, setArticle] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { slug } = router.query;
 
   useEffect(() => {
+    // onSnapshot(collection(db, 'blogs', 'first-blog', 'articles'), (snap) => {
+    //   setArticle(snap.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    //   setLoading(false);
+    // });
+    const find = query(collection(db, 'blogs', 'first-blog', 'articles'));
+    // console.log(find.map());
+    const articles = [];
+    const getArticle = async () => {
+      const snap = await getDocs(find);
+      snap.forEach((doc) => {
+        articles.push({
+          ...doc.data(),
+          id: doc.id,
+        });
+        setArticle(articles);
+      });
+    };
+    getArticle();
+
     const q = query(collection(db, 'blogs'), where('title', '==', slug));
     const post = [];
     const getData = async () => {
@@ -50,10 +70,12 @@ function BlogDetails() {
                   {/* <Image src={blog.Img} alt={blog.id} /> */}
                 </div>
               </div>
-              <article>
-                <p></p>
-                <p></p>
-              </article>
+              {article.map((i) => (
+                <article key={i.title}>
+                  <h5>{i.title}</h5>
+                  <p>{i.body}</p>
+                </article>
+              ))}
             </article>
           ))}
 

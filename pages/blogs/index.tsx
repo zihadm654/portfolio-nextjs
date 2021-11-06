@@ -5,6 +5,7 @@ import { db } from '../../src/lib/firebase';
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
+  // const [article, setArticle] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,6 +16,7 @@ const BlogPage = () => {
   }, []);
   if (loading) return <div>loading...</div>;
   console.log(posts);
+  // console.log(article);
 
   return (
     <>
@@ -36,15 +38,7 @@ const BlogPage = () => {
                       <a>
                         <div className="description">
                           <h5>{blog.title}</h5>
-                          {/* <span>12pm</span> */}
                           <p>{blog.subTitle}</p>
-                          {/* <p>{blog.articles}</p> */}
-                          {/* {blog.articles.map((i) => (
-                            <article key={i.title}>
-                              <h5>{i.title}</h5>
-                              <p>{i.body}</p>
-                            </article>
-                          ))} */}
                         </div>
                       </a>
                     </Link>
@@ -57,3 +51,47 @@ const BlogPage = () => {
   );
 };
 export default BlogPage;
+
+// export const getStaticProps = async () => {
+//   let blogs = [];
+//   const querySnapshot = await collection(db, 'blogs'),
+//   (snap).forEach(snap)=>{
+//   // console.log(doc.data().title);
+
+// }
+// return (
+//   {
+
+//   }
+// )
+// };
+// export const getStaticProps = async () => {
+//   let posts = [];
+//   try {
+//     // await the promise
+//     const querySnapshot = await collection(db, 'posts')
+//     // "then" part after the await
+//     (snap)=>{
+//       snap.forEach({
+//         console.log(doc.data().title);
+//         console.log(doc.data().pid);
+//         posts.push({
+//           pid: doc.data().pid,
+//           title: doc.data().title,
+//         });
+//       })
+//     }
+
+//     console.log(posts);
+//   } catch (error) {
+//     // catch part using try/catch
+//     console.log('Error getting documents: ', error);
+//     // return something else here, or an empty props, or throw an exception or whatever
+//   }
+
+//   return {
+//     props: {
+//       posts,
+//     },
+//   };
+// };
