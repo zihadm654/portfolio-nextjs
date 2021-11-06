@@ -1,4 +1,6 @@
 .project {
+  @include flex(center);
+  flex-direction: column;
   position: relative;
   padding: 4rem 9rem;
   @include media(sm) {

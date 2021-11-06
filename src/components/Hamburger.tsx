@@ -24,8 +24,13 @@ function Hamburger({ menu, hide }) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog">
-                      <a onClick={hide}>Blog</a>
+                    <Link href="/blogs">
+                      <a onClick={hide}>Blogs</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/story">
+                      <a onClick={hide}>Story</a>
                     </Link>
                   </li>
                 </ul>

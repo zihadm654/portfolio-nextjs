@@ -1,10 +1,10 @@
 .case__details {
   margin-top: 4rem;
-  padding: 4rem 5rem;
+  padding: 4rem 8rem;
   .case__study {
     text-align: center;
-    h2 {
-      padding: 0.5rem 0;
+    h3 {
+      padding: 0.8rem 0;
     }
     p {
       color: $fontColor;
@@ -25,6 +25,7 @@
       padding: 3rem 0;
       h4 {
         font-weight: 500;
+        padding: 1rem 0;
       }
     }
   }

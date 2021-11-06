@@ -1,5 +1,5 @@
 .skills__container {
-  padding: 4rem 9rem;
+  padding: 4rem 8rem;
   @include media(sm) {
     padding: 4rem 2rem;
   }
@@ -29,14 +29,13 @@
       margin-bottom: 3rem;
     }
     .link {
-
-        @include media(sm) {
-            @include flex(center);
-          }
-        @include media(md) {
-          @include flex(center);
+      @include media(sm) {
+        @include flex(center);
+      }
+      @include media(md) {
+        @include flex(center);
+      }
     }
-  }
     img {
       @include media(sm) {
         height: 180px;

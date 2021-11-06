@@ -1,6 +1,6 @@
 .describe {
   @include grid;
-  padding: 4rem 9rem;
+  padding: 4rem 8rem;
   @include media(sm) {
     padding: 2.5rem;
   }

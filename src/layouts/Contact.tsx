@@ -37,7 +37,7 @@ function Contact() {
             <Link href={'https://github.com/zihadm654'}>
               <a>Github</a>
             </Link>
-            <Link href={'https://www.linkedin.com/in/Abdul -malek-a095031a4/'}>
+            <Link href={'https://www.linkedin.com/in/zihadm654'}>
               <a>Linkdin</a>
             </Link>
           </div>

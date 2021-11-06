@@ -33,7 +33,9 @@ body {
 }
 a {
   color: $dominant;
+  transition: transform 200ms ease-out;
   &:hover {
+    transform: scale(1.02);
     color: $fontHighlight;
   }
 }

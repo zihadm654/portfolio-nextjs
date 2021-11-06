@@ -1,5 +1,5 @@
 .contact {
-  padding: 4rem 9rem;
+  padding: 4rem 8rem;
   color: #000;
   @include grid;
   @include media(sm) {
@@ -52,7 +52,7 @@
         cursor: pointer;
       }
       .lang {
-        @include media(sm){
+        @include media(sm) {
           left: 0;
         }
         position: absolute;

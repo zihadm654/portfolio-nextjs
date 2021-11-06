@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 // import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { db } from '../../firebase';
+import { db } from '../../src/lib/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 function BlogDetails() {
   const [blog, setBlog] = useState([]);

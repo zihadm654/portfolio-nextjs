@@ -16,7 +16,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  padding: 0 9rem;
+  padding: 0 8rem;
   @include flex(space-between);
   .navbar__left {
     @include flex(center);
@@ -71,6 +71,7 @@
   }
 }
 .hamburger {
+  transition: all 200ms ease-out;
   display: none;
   z-index: 9;
   top: 0;
@@ -177,4 +178,5 @@
 }
 .hamburger.menu {
   display: block;
+  transition: ease-out 100ms;
 }

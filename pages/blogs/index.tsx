@@ -1,29 +1,21 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { onSnapshot, collection } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { db } from '../../src/lib/firebase';
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  typeof {
-    blogs: Object,
-  };
+
   useEffect(() => {
-    onSnapshot(
-      collection(db, 'blogs'),
-      (snap) => {
-        setPosts(snap.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        setLoading(false);
-      },
-      (error) => {
-        console.log('failed to get data from firebase');
-      }
-    );
+    onSnapshot(collection(db, 'blogs'), (snap) => {
+      setPosts(snap.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setLoading(false);
+    });
   }, []);
+  if (loading) return <div>loading...</div>;
   console.log(posts);
 
-  if (loading) return <div>loading...</div>;
   return (
     <>
       <div className="blog__page">
@@ -40,12 +32,19 @@ const BlogPage = () => {
             : posts.map((blog) => {
                 return (
                   <article className="content" key={blog.id}>
-                    <Link href="/blog/[slug]" as={'/blog/' + blog.title}>
+                    <Link href="/blogs/[slug]" as={'/blogs/' + blog.title}>
                       <a>
                         <div className="description">
                           <h5>{blog.title}</h5>
                           {/* <span>12pm</span> */}
                           <p>{blog.subTitle}</p>
+                          {/* <p>{blog.articles}</p> */}
+                          {/* {blog.articles.map((i) => (
+                            <article key={i.title}>
+                              <h5>{i.title}</h5>
+                              <p>{i.body}</p>
+                            </article>
+                          ))} */}
                         </div>
                       </a>
                     </Link>
