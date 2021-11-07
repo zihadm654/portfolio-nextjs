@@ -3,7 +3,7 @@ import { Icon } from '../utility/Button';
 import { SiGithub, SiDribbble } from 'react-icons/si';
 import Link from 'next/link';
 // import { projectData } from '../../data/projectData';
-import { db } from '../lib/firebase';
+import { db } from '../../lib/firebase';
 import { onSnapshot, collection } from 'firebase/firestore';
 import Image from 'next/image';
 const Cards = () => {

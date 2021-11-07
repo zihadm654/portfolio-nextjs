@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { onSnapshot, collection } from 'firebase/firestore';
-import { db } from '../../src/lib/firebase';
+import { db } from '../../lib/firebase';
 
 const BlogPage = () => {
   const [posts, setPosts] = useState([]);
@@ -54,7 +54,7 @@ export default BlogPage;
 
 // export const getStaticProps = async () => {
 //   let blogs = [];
-//   const querySnapshot = await collection(db, 'blogs'),
+//   const querySnapshot = await db.collection ('blogs')
 //   (snap).forEach(snap)=>{
 //   // console.log(doc.data().title);
 
@@ -69,18 +69,21 @@ export default BlogPage;
 //   let posts = [];
 //   try {
 //     // await the promise
-//     const querySnapshot = await collection(db, 'posts')
+//     const querySnapshot = await db
+//       .collection('posts')
+//       .where('title', '==', true)
+//       .get();
 //     // "then" part after the await
-//     (snap)=>{
-//       snap.forEach({
-//         console.log(doc.data().title);
-//         console.log(doc.data().pid);
-//         posts.push({
-//           pid: doc.data().pid,
-//           title: doc.data().title,
-//         });
-//       })
-//     }
+//     // (snap)=>{
+//     //   snap.forEach({
+//     //     console.log(doc.data().title);
+//     //     console.log(doc.data().pid);
+//     //     posts.push({
+//     //       pid: doc.data().pid,
+//     //       title: doc.data().title,
+//     //     });
+//     //   })
+//     // }
 
 //     console.log(posts);
 //   } catch (error) {
