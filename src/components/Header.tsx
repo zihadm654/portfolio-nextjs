@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../../public/assets/logo.png';
@@ -21,7 +21,9 @@ function Header() {
       setSticky(false);
     }
   };
-  window.addEventListener('scroll', stickyNav);
+  useEffect(() => {
+    window.addEventListener('scroll', stickyNav);
+  }, []);
   return (
     <>
       <nav className={sticky ? 'navbar sticky' : 'navbar'}>
