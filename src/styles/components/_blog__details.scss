@@ -1,3 +1,5 @@
+@use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
 .blog__details {
   margin-top: 5rem;
   padding: 4rem 9rem;
@@ -9,11 +11,11 @@
       }
       .author__container {
         padding-bottom: 1rem;
-        @include flex(space-between);
+        @include m.flex(space-between);
         .info__left {
-          @include flex(space-between);
+          @include m.flex(space-between);
           margin-left: 1rem;
-          font-size: $p;
+          font-size: v.$p;
           .author__img {
             height: 3rem;
             width: 3rem;
@@ -27,10 +29,10 @@
           }
         }
         .info__right {
-          @include flex(center);
+          @include m.flex(center);
         }
         p {
-          font-size: $sm;
+          font-size: v.$sm;
         }
       }
       .img__container {

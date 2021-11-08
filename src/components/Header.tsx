@@ -3,20 +3,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../../public/assets/logo.png';
 import Hamburger from './Hamburger';
-import { CgMenuMotion } from 'react-icons/cg';
+import { CgMenu } from 'react-icons/cg';
 import { MdClose } from 'react-icons/md';
 
 function Header() {
   const [menu, setMenu] = useState(false);
-  // useEffect(() => {});
+  const [sticky, setSticky] = useState(false);
   const handleClick = () => {
     menu ? setMenu((prev) => !prev) : setMenu((prev) => !prev);
-    /*router.push(href)*/
   };
   const hide = () => setMenu(!menu);
+
+  const stickyNav = () => {
+    if (window.scrollY >= 60) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+  window.addEventListener('scroll', stickyNav);
   return (
     <>
-      <div className="navbar">
+      <nav className={sticky ? 'navbar sticky' : 'navbar'}>
         <div className="navbar__left">
           <Link href="/">
             <a>
@@ -31,13 +39,13 @@ function Header() {
           <h5>{!menu ? 'menu' : 'close'}</h5>
           <div>
             {!menu ? (
-              <CgMenuMotion style={{ fontSize: '2rem' }} />
+              <CgMenu style={{ fontSize: '3rem' }} />
             ) : (
-              <MdClose style={{ fontSize: '2rem' }} />
+              <MdClose style={{ fontSize: '3rem' }} />
             )}
           </div>
         </div>
-      </div>
+      </nav>
       <Hamburger menu={menu} hide={hide} />
     </>
   );

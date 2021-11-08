@@ -1,5 +1,5 @@
-@import 'helpers/input';
-@import 'base/input';
-@import 'pages/input';
-@import 'components/input';
-@import 'layouts/input';
+@forward 'helpers/input';
+@forward 'base/input';
+@forward 'pages/input';
+@forward 'components/input';
+@forward 'layouts/input';

@@ -1,39 +1,39 @@
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
+@use '../helpers/variables' as v;
 .progress {
   padding: 4rem 8rem;
-  @include media(sm) {
+  @include m.media(sm) {
     padding: 3rem 2rem;
   }
-  @include media(md) {
+  @include m.media(md) {
     padding: 3rem;
   }
   .progress__description {
     text-align: center;
     h5 {
-      color: $fontColor;
+      color: c.$fontColor;
     }
     h2 {
       padding-top: 0.6rem;
-      color: $dominant;
+      color: c.$dominant;
     }
     .list {
       min-height: 20rem;
-      @include flex(space-evenly);
+      @include m.flex(space-evenly);
       padding: 3rem 2rem;
       span {
         .line {
-          @include media(sm) {
+          @include m.media(sm) {
             width: 2.6rem;
           }
         }
       }
     }
     h4 {
-      @include media(sm) {
-        font-size: $p;
+      @include m.media(sm) {
+        font-size: v.$p;
       }
-    }
-    p {
-      color: $fontColor;
     }
   }
   .link {

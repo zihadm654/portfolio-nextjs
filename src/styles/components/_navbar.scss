@@ -1,13 +1,16 @@
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
+@use '../helpers/variables' as v;
 .navbar.sticky {
   position: fixed;
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(45px);
 }
 .navbar {
-  @include media(sm) {
+  @include m.media(sm) {
     padding: 2.5rem;
   }
-  @include media(md) {
+  @include m.media(md) {
     padding: 2.5rem 3.7rem;
   }
   height: 7rem;
@@ -17,56 +20,52 @@
   top: 0;
   left: 0;
   padding: 0 8rem;
-  @include flex(space-between);
+  @include m.flex(space-between);
   .navbar__left {
-    @include flex(center);
+    @include m.flex(center);
     a {
       .logo {
-        @include flex(center);
+        @include m.flex(center);
         img {
-          height: 3.3rem;
-          width: 3.3rem;
+          height: 3.5rem;
+          width: 3.5rem;
         }
         &:hover {
           cursor: pointer;
         }
         h4 {
-          font-size: 2.5rem;
+          font-size: v.$lr;
           padding-left: 1rem;
-          font-family: $title-font;
-          color: $dominant;
+          font-family: v.$title-font;
+          color: c.$dominant;
           &:hover {
-            color: $dominant;
+            color: c.$dominant;
           }
         }
       }
     }
     .navbar__links {
-      @include media(sm) {
+      @include m.media(sm) {
         display: none;
       }
-      @include media(md) {
+      @include m.media(md) {
         display: none;
       }
       padding: 0 2rem;
       a {
-        font-size: $p;
-        font-weight: 600;
         padding-left: 1.5rem;
         transition: 300ms;
       }
     }
   }
   .menu {
-    @include flex(center);
+    @include m.flex(center);
     z-index: 10;
     cursor: pointer;
     h5 {
       margin-right: 0.5rem;
       margin-bottom: 0.7rem;
-      font-size: $sm;
-      font-weight: 700;
-      color: $dominant;
+      font-weight: 500;
     }
   }
 }
@@ -83,11 +82,11 @@
   overflow: hidden;
   .menu__layer {
     position: relative;
-    background: $red;
+    background: c.$red;
     height: 100%;
     overflow: hidden;
     .container {
-      @include grid;
+      @include m.grid;
       height: 100%;
       overflow: hidden;
       width: 100%;
@@ -96,20 +95,20 @@
         .menu__links {
           height: 100%;
           width: 100%;
-          @include grid;
+          @include m.grid;
           position: relative;
           top: 8rem;
           padding: 0 8rem;
-          @include media(sm) {
+          @include m.media(sm) {
             padding: 0 2rem;
           }
           .nav {
             grid-column: span 6;
-            @include media(sm) {
+            @include m.media(sm) {
               grid-column: 1/13;
               justify-self: start;
             }
-            @include media(md) {
+            @include m.media(md) {
               grid-column: 1/13;
             }
             .nav__links {
@@ -121,7 +120,7 @@
                 height: 9rem;
                 position: relative;
                 a {
-                  font-size: $xxlr;
+                  font-size: v.$xxlr;
                   font-weight: 700;
                   color: #ffffff;
                   text-decoration: none;
@@ -133,11 +132,11 @@
             }
           }
           .info {
-            @include media(sm) {
+            @include m.media(sm) {
               grid-column: 1/13;
               width: 60%;
             }
-            @include media(md) {
+            @include m.media(md) {
               grid-column: 1/13;
               width: 70%;
             }
@@ -147,8 +146,12 @@
             color: #fff;
             width: 100%;
             p {
+              padding-top: 2rem;
               color: #fff;
               margin: 1rem auto;
+              font-weight: 300;
+              line-height: 1.4;
+              font-size: v.$md;
             }
           }
         }
@@ -159,7 +162,7 @@
         justify-self: self-end;
         align-self: center;
         grid-column: 1/13;
-        @include media(sm) {
+        @include m.media(sm) {
           padding-right: 0rem;
           justify-self: center;
         }
@@ -168,7 +171,7 @@
           margin-right: 2rem;
           transition: all 0.3s;
           &:hover {
-            background: $dominant;
+            background: c.$dominant;
             padding: 1rem 2rem;
           }
         }

@@ -1,9 +1,10 @@
+@use '../helpers/mixins' as m;
 .project {
-  @include flex(center);
+  @include m.flex(center);
   flex-direction: column;
   position: relative;
   padding: 4rem 9rem;
-  @include media(sm) {
+  @include m.media(sm) {
     padding: 2.5rem;
   }
   .project__title {

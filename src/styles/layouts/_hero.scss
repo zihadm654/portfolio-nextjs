@@ -1,14 +1,16 @@
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
 .hero__wrapper {
   padding: 4rem 8rem;
-  @include grid;
-  @include media(sm) {
+  @include m.grid;
+  @include m.media(sm) {
     padding: 2.5rem;
   }
   &::before {
     content: '';
     position: absolute;
     z-index: -20;
-    background: $circle1;
+    background: c.$circle1;
     bottom: 0rem;
     left: 0rem;
     height: 100%;
@@ -17,22 +19,22 @@
   }
   .hero__container {
     position: relative;
-    @include media(sm) {
+    @include m.media(sm) {
       grid-column: 1/13;
     }
     // overflow: hidden;
-    grid-column: 2/11;
+    grid-column: 2/12;
     margin-top: 8rem;
     padding: 2.5rem 0;
-    color: $dominant;
+    color: c.$dominant;
     .circle__text {
       position: absolute;
       top: -7%;
       right: 1%;
-      @include media(sm) {
+      @include m.media(sm) {
         display: none;
       }
-      @include media(xxlg) {
+      @include m.media(xxlg) {
         right: -20%;
       }
       img {
@@ -42,15 +44,15 @@
       }
     }
     h1 {
-      padding: 2rem 0;
+      padding: 1rem 0;
       overflow: hidden;
     }
     h5 {
       overflow: hidden;
-      @include flex(space-around);
+      @include m.flex(space-around);
     }
     p {
-      overflow: hidden;
+      line-height: 1.4;
     }
     .primary__btn {
       margin-top: 5rem;

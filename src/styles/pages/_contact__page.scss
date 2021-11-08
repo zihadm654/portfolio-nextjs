@@ -1,13 +1,16 @@
+@use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
+@use '../helpers/colors' as c;
 .contact__page {
   margin-top: 9rem;
   padding: 4rem 8rem;
-  @include media(sm) {
+  @include m.media(sm) {
     padding: 3rem;
   }
   .content {
     padding: 10rem 0;
     h2 {
-      @include media(sm) {
+      @include m.media(sm) {
         width: 90%;
       }
       width: 50%;
@@ -26,26 +29,26 @@
         width: 65%;
         height: 5rem;
         font-weight: 500;
-        font-size: $md;
+        font-size: v.$md;
         outline: none;
         border: none;
-        border-bottom: 0.2rem solid $fontColor;
+        border-bottom: 0.2rem solid c.$fontColor;
         &:focus {
-          border-bottom: 0.2rem solid $dominant;
+          border-bottom: 0.2rem solid c.$dominant;
         }
         &:focus ~ label,
         &:valid ~ label {
-          font-size: $p;
+          font-size: v.$p;
           font-weight: 500;
           z-index: 2;
           transform: translateY(-3.5rem);
-          color: $dominant;
+          color: c.$dominant;
         }
       }
       label {
         z-index: -1;
-        color: $fontColor;
-        font-size: $md;
+        color: c.$fontColor;
+        font-size: v.$md;
         position: absolute;
         bottom: 1.2rem;
         left: 0;
@@ -54,7 +57,7 @@
       }
     }
     button {
-      background: $dominant;
+      background: c.$dominant;
       border: none;
       outline: none;
       padding: 1.3rem 2.3rem;

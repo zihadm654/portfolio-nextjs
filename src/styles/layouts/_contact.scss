@@ -1,8 +1,11 @@
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
+@use '../helpers/variables' as v;
 .contact {
   padding: 4rem 8rem;
   color: #000;
-  @include grid;
-  @include media(sm) {
+  @include m.grid;
+  @include m.media(sm) {
     padding: 3rem 2rem;
     text-align: center;
   }
@@ -17,10 +20,10 @@
   .callaction {
     justify-content: center;
     grid-column: 1/13;
-    @include flex(space-evenly);
+    @include m.flex(space-evenly);
   }
   .media {
-    @include grid;
+    @include m.grid;
     grid-column: 1/13;
     .social__media {
       grid-column: 1/13;
@@ -29,11 +32,10 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       a {
-        font-size: $sm;
-        color: $fontColor;
+        color: c.$fontColor;
         font-weight: 500;
         &:hover {
-          color: $dominant;
+          color: c.$dominant;
         }
       }
     }
@@ -52,7 +54,7 @@
         cursor: pointer;
       }
       .lang {
-        @include media(sm) {
+        @include m.media(sm) {
           left: 0;
         }
         position: absolute;

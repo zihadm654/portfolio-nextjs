@@ -1,4 +1,4 @@
-@import 'fonts';
-@import 'base';
-@import 'typography';
-@import 'loader';
+@forward 'fonts';
+@forward 'base';
+@forward 'typography';
+@forward 'loader';

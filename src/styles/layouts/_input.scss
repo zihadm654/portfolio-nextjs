@@ -1,8 +1,8 @@
-@import 'about';
-@import 'testimonial';
-@import 'progress';
-@import 'hero';
-@import 'projects';
-@import 'skills';
-@import 'contact';
-@import 'describe';
+@forward 'about';
+@forward 'testimonial';
+@forward 'progress';
+@forward 'hero';
+@forward 'projects';
+@forward 'skills';
+@forward 'contact';
+@forward 'describe';

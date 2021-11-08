@@ -1,4 +1,4 @@
-@import "colors";
-@import "variables";
-@import "mixins";
-@import "animation";
+@forward 'colors';
+@forward 'variables';
+@forward 'mixins';
+@forward 'animation';

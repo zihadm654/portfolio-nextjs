@@ -2,8 +2,8 @@ import Cards from '../../src/components/Cards';
 const ProjectPage = () => {
   return (
     <>
-      <section className="project">
-        <div className="project__title">
+      <section className="projects">
+        <div className="projects__title">
           <h3>
             Shaping world class websites,
             <br /> designs and experiences
@@ -13,9 +13,11 @@ const ProjectPage = () => {
             assisting you throughout the building process.
           </p>
         </div>
-        <h3>Personal Projects</h3>
-        <Cards />
-        <h2></h2>
+        <div className="container">
+          <h3>Personal Projects</h3>
+          <Cards />
+          <h2></h2>
+        </div>
       </section>
     </>
   );

@@ -2,7 +2,8 @@ import '../src/styles/globals.scss';
 import Header from '../src/components/Header';
 import Contact from '../src/layouts/Contact';
 import Head from 'next/head';
-function MyApp({ Component, pageProps }) {
+import { AnimatePresence } from 'framer-motion';
+function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <Head>
@@ -10,7 +11,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="Homepage" content="this is frontpage of this website" />
       </Head>
       <Header />
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
       <Contact />
     </>
   );

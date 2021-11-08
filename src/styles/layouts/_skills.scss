@@ -1,19 +1,21 @@
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
 .skills__container {
   padding: 4rem 8rem;
-  @include media(sm) {
+  @include m.media(sm) {
     padding: 4rem 2rem;
   }
-  @include media(md) {
+  @include m.media(md) {
     padding: 3rem;
   }
-  @include grid;
+  @include m.grid;
   .skills__description {
-    @include media(sm) {
+    @include m.media(sm) {
       grid-column: 1/13;
       text-align: center;
       padding: 0 3rem;
     }
-    @include media(md) {
+    @include m.media(md) {
       grid-column: 1/13;
       padding: 0 5rem;
       text-align: center;
@@ -21,7 +23,7 @@
     padding: 3rem 0rem;
     grid-column: 1/7;
     h3 {
-      color: $dominant;
+      color: c.$dominant;
       margin: 1.6rem 0;
       font-weight: 600;
     }
@@ -29,19 +31,19 @@
       margin-bottom: 3rem;
     }
     .link {
-      @include media(sm) {
-        @include flex(center);
+      @include m.media(sm) {
+        @include m.flex(center);
       }
-      @include media(md) {
-        @include flex(center);
+      @include m.media(md) {
+        @include m.flex(center);
       }
     }
     img {
-      @include media(sm) {
+      @include m.media(sm) {
         height: 180px;
         width: 180px;
       }
-      @include media(md) {
+      @include m.media(md) {
         height: 230px;
         width: 230px;
       }
@@ -52,11 +54,11 @@
   .skills__cards {
     overflow: hidden;
     grid-column: 7/13;
-    @include grid;
-    @include media(sm) {
+    @include m.grid;
+    @include m.media(sm) {
       grid-column: 1/13;
     }
-    @include media(md) {
+    @include m.media(md) {
       grid-column: 1/13;
     }
     img {
@@ -71,7 +73,7 @@
       box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
       grid-column: span 6;
       border-radius: 2rem;
-      background: $primaryGradient;
+      background: c.$primaryGradient;
       padding: 4rem 2rem;
       img {
         margin-bottom: 2.5rem;

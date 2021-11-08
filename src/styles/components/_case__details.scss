@@ -1,3 +1,4 @@
+@use '../helpers/colors' as c;
 .case__details {
   margin-top: 4rem;
   padding: 4rem 8rem;
@@ -5,9 +6,6 @@
     text-align: center;
     h3 {
       padding: 0.8rem 0;
-    }
-    p {
-      color: $fontColor;
     }
   }
   .container {

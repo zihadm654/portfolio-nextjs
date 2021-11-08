@@ -1,14 +1,17 @@
-.project {
-  padding: 6rem;
-  .project__title {
+.projects {
+  padding: 4rem 8rem;
+  .projects__title {
     padding: 0rem;
-    margin-top: 10rem;
+    margin-top: 7rem;
     p {
       padding: 2rem 0;
     }
   }
+  .container {
+    margin-top: 4rem;
+  }
   .personal__projects {
-    padding: 4rem 0;
+    padding-top: 8rem;
     h2 {
       text-align: left;
     }

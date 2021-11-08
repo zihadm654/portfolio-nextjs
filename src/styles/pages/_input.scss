@@ -1,4 +1,4 @@
-@import 'about__page';
-@import 'contact__page';
-@import 'projects__pages';
-@import 'blog__page';
+@forward 'about__page';
+@forward 'contact__page';
+@forward 'projects__pages';
+@forward 'blog__page';

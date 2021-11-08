@@ -1,3 +1,6 @@
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
+@use '../helpers/variables' as v;
 * {
   margin: 0%;
   padding: 0%;
@@ -15,32 +18,33 @@
 }
 html {
   font-size: 66.5%;
-  @include media(sm) {
+  @include m.media(sm) {
     font-size: 39%;
   }
-  @include media(md) {
+  @include m.media(md) {
     font-size: 44%;
   }
-  @include media(lg) {
+  @include m.media(lg) {
     font-size: 56.25%;
   }
-  @include media(xlg) {
+  @include m.media(xlg) {
     font-size: 62.5%;
   }
 }
 body {
-  color: $dominant;
+  color: c.$dominant;
+  font-family: v.$primary-font;
 }
 a {
-  color: $dominant;
+  color: c.$dominant;
   transition: transform 200ms ease-out;
   &:hover {
     transform: scale(1.02);
-    color: $fontHighlight;
+    color: c.$fontHighlight;
   }
 }
 span {
-  color: $dominant;
+  color: c.$dominant;
   font-weight: 600;
 }
 .hamburger,
@@ -59,7 +63,7 @@ span {
 .contact__page,
 .case__details,
 .blog__details {
-  @include media(xxlg) {
+  @include m.media(xxlg) {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
