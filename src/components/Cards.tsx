@@ -25,8 +25,7 @@ const Cards = () => {
             return (
               <div className="wrapper" key={card.name}>
                 <div className="card">
-                  {/* <Image src={card.img} alt={card.img} layout="fill" /> */}
-                  <img src={card.img} alt={card.img} />
+                  <Image src={card.img} alt={card.img} layout="fill" />
                 </div>
                 <div className="card__text">
                   <h5>{card.name}</h5>

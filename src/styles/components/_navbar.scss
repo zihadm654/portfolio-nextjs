@@ -3,7 +3,6 @@
 @use '../helpers/variables' as v;
 .navbar.sticky {
   position: fixed;
-  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(45px);
 }
 .navbar {
@@ -13,7 +12,7 @@
   @include m.media(md) {
     padding: 2.5rem 3.7rem;
   }
-  height: 7rem;
+  height: 9rem;
   width: 100%;
   z-index: 10;
   position: fixed;

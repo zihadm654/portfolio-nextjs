@@ -1,5 +1,7 @@
 // import { Button } from '../../src/utility/Button';
+import { useState } from 'react';
 function ContactPage() {
+  const [name, setName] = useState('');
   return (
     <>
       <section className="contact__page">

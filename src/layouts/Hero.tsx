@@ -24,14 +24,14 @@ function Hero() {
         <motion.h1 variants={items}>
           Taking your vision and serving as a reality
         </motion.h1>
-        <p>
+        <motion.p variants={items}>
           I am a self-taught Front-end-developer and UI/UX designer. Crafting
           Website Based on Simplicity and Performance that are{' '}
           <span>
             conversions-focused, brand-accurate, user-friendly, performance and
             minimalistic based.
           </span>
-        </p>
+        </motion.p>
         <Button
           className="primary__btn"
           text="Book a free consultation"
@@ -50,12 +50,12 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.5,
-      delayChildren: 0.3,
+      staggerChildren: 0.4,
+      delayChildren: 0.2,
     },
   },
 };
 const items = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 },
+  hidden: { opacity: 0, y: 100 },
+  show: { opacity: 1, y: 0 },
 };

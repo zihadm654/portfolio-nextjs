@@ -23,7 +23,7 @@
       grid-column: 1/13;
     }
     // overflow: hidden;
-    grid-column: 2/12;
+    grid-column: 2/11;
     margin-top: 8rem;
     padding: 2.5rem 0;
     color: c.$dominant;
@@ -52,6 +52,7 @@
       @include m.flex(space-around);
     }
     p {
+      overflow: hidden;
       line-height: 1.4;
     }
     .primary__btn {

@@ -15,7 +15,7 @@ function Header() {
   const hide = () => setMenu(!menu);
 
   const stickyNav = () => {
-    if (window.scrollY >= 60) {
+    if (window.scrollY >= 70) {
       setSticky(true);
     } else {
       setSticky(false);
