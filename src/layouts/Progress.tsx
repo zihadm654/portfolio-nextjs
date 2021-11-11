@@ -29,7 +29,7 @@ function Progress() {
         <p>
           Whatever the challenge, {`we'll`} deliver solution you will love it.
         </p>
-        <Icon site={'/about'} text={'learn more'} />
+        <Icon site={'/about'} text={'more story of me'} />
       </div>
     </section>
   );

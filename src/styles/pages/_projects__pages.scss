@@ -1,5 +1,9 @@
+@use '../helpers/mixins' as m;
 .projects {
   padding: 4rem 8rem;
+  @include m.media(sm) {
+    padding: 4rem 2.5rem;
+  }
   .projects__title {
     padding: 0rem;
     margin-top: 7rem;

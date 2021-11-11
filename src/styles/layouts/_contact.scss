@@ -32,7 +32,6 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       a {
-        color: c.$fontColor;
         font-weight: 500;
         &:hover {
           color: c.$dominant;

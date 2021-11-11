@@ -2,7 +2,10 @@
 @use '../helpers/variables' as v;
 .blog__details {
   margin-top: 5rem;
-  padding: 4rem 9rem;
+  padding: 4rem 8rem;
+  @include m.media(sm) {
+    padding: 4rem 2.5rem;
+  }
   article {
     .description {
       padding-top: 2rem;

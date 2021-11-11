@@ -14,7 +14,7 @@ function About() {
               My journey from an Arts Student to a Front-end developer with
               designing experience.
             </p>
-            <Icon site={'/about'} text={'learn more'} />
+            <Icon site={'/about'} text={'More about me'} />
           </div>
         </div>
       </div>

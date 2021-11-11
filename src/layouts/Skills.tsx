@@ -16,7 +16,7 @@ function Skills() {
           you throughout the building process. Building the best experiences &
           bringing value to the table through my animation expertise.
         </p>
-        <Icon site="/about" text="learn more" />
+        <Icon site="/about" text="more story of me" />
       </div>
       <div className="skills__cards">
         {data.map((skill, index) => {

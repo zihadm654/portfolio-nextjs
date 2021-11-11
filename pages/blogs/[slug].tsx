@@ -15,9 +15,9 @@ function BlogDetails() {
     //   setArticle(snap.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     //   setLoading(false);
     // });
+    const articles = [];
     const find = query(collection(db, 'blogs', 'first-blog', 'articles'));
     // console.log(find.map());
-    const articles = [];
     const getArticle = async () => {
       const snap = await getDocs(find);
       snap.forEach((doc) => {
@@ -30,9 +30,9 @@ function BlogDetails() {
     };
     getArticle();
 
-    const q = query(collection(db, 'blogs'), where('title', '==', slug));
     const post = [];
     const getData = async () => {
+      const q = query(collection(db, 'blogs'), where('title', '==', slug));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         post.push({
@@ -41,7 +41,6 @@ function BlogDetails() {
         });
       });
       setBlog(post);
-      setLoading(false);
     };
     getData();
   }, [slug]);
