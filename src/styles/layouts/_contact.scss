@@ -54,7 +54,7 @@
       }
       .lang {
         @include m.media(sm) {
-          left: 0;
+          left: -2rem;
         }
         position: absolute;
         bottom: 1rem;

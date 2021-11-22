@@ -9,13 +9,19 @@ const BlogPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    onSnapshot(collection(db, 'blogs'), (snap) => {
-      setPosts(snap.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    const unsub = onSnapshot(collection(db, 'blogs'), (snap) => {
+      setPosts(
+        snap.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+          timestamp: doc.data().timestamp?.toDate().getTime(),
+        }))
+      );
       setLoading(false);
     });
+    return unsub;
   }, []);
   if (loading) return <div>loading...</div>;
-  console.log(posts);
   // console.log(article);
 
   return (
@@ -34,10 +40,13 @@ const BlogPage = () => {
             : posts.map((blog) => {
                 return (
                   <article className="content" key={blog.id}>
-                    <Link href="/blogs/[slug]" as={'/blogs/' + blog.title}>
+                    <Link href="/blogs/[slug]" as={'/blogs/' + blog.id}>
                       <a>
                         <div className="description">
-                          <h5>{blog.title}</h5>
+                          <div className="blog__title">
+                            <h5>{blog.title}</h5>
+                            <p>{blog.timestamp}</p>
+                          </div>
                           <p>{blog.subTitle}</p>
                         </div>
                       </a>
@@ -51,50 +60,3 @@ const BlogPage = () => {
   );
 };
 export default BlogPage;
-
-// export const getStaticProps = async () => {
-//   let blogs = [];
-//   const querySnapshot = await db.collection ('blogs')
-//   (snap).forEach(snap)=>{
-//   // console.log(doc.data().title);
-
-// }
-// return (
-//   {
-
-//   }
-// )
-// };
-// export const getStaticProps = async () => {
-//   let posts = [];
-//   try {
-//     // await the promise
-//     const querySnapshot = await db
-//       .collection('posts')
-//       .where('title', '==', true)
-//       .get();
-//     // "then" part after the await
-//     // (snap)=>{
-//     //   snap.forEach({
-//     //     console.log(doc.data().title);
-//     //     console.log(doc.data().pid);
-//     //     posts.push({
-//     //       pid: doc.data().pid,
-//     //       title: doc.data().title,
-//     //     });
-//     //   })
-//     // }
-
-//     console.log(posts);
-//   } catch (error) {
-//     // catch part using try/catch
-//     console.log('Error getting documents: ', error);
-//     // return something else here, or an empty props, or throw an exception or whatever
-//   }
-
-//   return {
-//     props: {
-//       posts,
-//     },
-//   };
-// };

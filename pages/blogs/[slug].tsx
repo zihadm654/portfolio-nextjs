@@ -1,84 +1,39 @@
-import { useEffect, useState } from 'react';
 // import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { db } from '../../lib/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
-function BlogDetails() {
-  const [blog, setBlog] = useState([]);
-  const [article, setArticle] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
-  const { slug } = router.query;
+import { collection, getDoc, doc, getDocs } from 'firebase/firestore';
+function BlogDetails({ blogProps }) {
+  const blog = JSON.parse(blogProps);
+  let time = new Date(blog.timestamp.seconds * 1000).toDateString();
 
-  useEffect(() => {
-    // onSnapshot(collection(db, 'blogs', 'first-blog', 'articles'), (snap) => {
-    //   setArticle(snap.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    //   setLoading(false);
-    // });
-    const articles = [];
-    const find = query(collection(db, 'blogs', 'first-blog', 'articles'));
-    // console.log(find.map());
-    const getArticle = async () => {
-      const snap = await getDocs(find);
-      snap.forEach((doc) => {
-        articles.push({
-          ...doc.data(),
-          id: doc.id,
-        });
-        setArticle(articles);
-      });
-    };
-    getArticle();
-
-    const post = [];
-    const getData = async () => {
-      const q = query(collection(db, 'blogs'), where('title', '==', slug));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        post.push({
-          ...doc.data(),
-          id: doc.id,
-        });
-      });
-      setBlog(post);
-    };
-    getData();
-  }, [slug]);
-  if (loading) return <div>loading...</div>;
   return (
     <div className="blog__details">
-      {!blog
-        ? loading
-        : blog.map((i) => (
-            <article key={i.id}>
-              <h3>{i.title}</h3>
-              <div className="description">
-                <div className="author__container">
-                  <div className="info__left">
-                    <div className="author__img"></div>
-                    <p>{i.author}</p>
-                    <span>/</span>
-                    <p>{i.place}</p>
-                  </div>
-                  <div className="info__right">
-                    <p>*12 min read</p>
-                    <p>{i.location}</p>
-                  </div>
-                </div>
-                <div className="img__container">
-                  {/* <Image src={blog.Img} alt={blog.id} /> */}
-                </div>
-              </div>
-              {article.map((i) => (
-                <article key={i.title}>
-                  <h5>{i.title}</h5>
-                  <p>{i.body}</p>
-                </article>
-              ))}
-            </article>
-          ))}
-
       <div className="conclution">
+        <article>
+          <h3>{blog.title}</h3>
+          <div className="description">
+            <div className="author__container">
+              <div className="info__left">
+                <div className="author__img"></div>
+                <p>{blog.author}</p>
+                <span>/</span>
+                <p>{time}</p>
+              </div>
+              <div className="info__right">
+                <p>*12 min read</p>
+                <p>{blog.location}</p>
+              </div>
+            </div>
+            <div className="img__container">
+              {/* <Image src={blog.Img} alt={blog.id} layout="fill" /> */}
+            </div>
+          </div>
+          {/* {article.map((i) => (
+              <article key={i.title}>
+                <h5>{i.title}</h5>
+                <p>{i.body}</p>
+              </article>
+            ))} */}
+        </article>
         <h4>Conclusion:-</h4>
         <p>
           Learn by breaking things into parts and enjoying that you are doing
@@ -94,3 +49,25 @@ function BlogDetails() {
 }
 
 export default BlogDetails;
+
+export const getStaticPaths = async () => {
+  const snapshot = await getDocs(collection(db, 'blogs'));
+  const paths = snapshot.docs.map((doc) => {
+    return {
+      params: { slug: doc.id.toString() },
+    };
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async (context) => {
+  const id = context.params.slug;
+  const docRef = doc(db, 'blogs', id);
+  const docSnap = await getDoc(docRef);
+  return {
+    props: { blogProps: JSON.stringify(docSnap.data()) || null },
+  };
+};

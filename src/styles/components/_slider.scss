@@ -53,6 +53,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    // bottom: 0;
     @include m.flex(space-between);
     .btn {
       @include m.media(sm) {
@@ -77,11 +78,13 @@
     position: absolute;
     bottom: 3%;
     left: 40%;
+    @include m.media(sm) {
+      left: 25%;
+    }
     .dot {
       width: 4rem;
       height: 0.4rem;
       margin-left: 1rem;
-      // border: 3px solid #f1f1f1;
       background: c.$fontColor;
       cursor: pointer;
       &.active {

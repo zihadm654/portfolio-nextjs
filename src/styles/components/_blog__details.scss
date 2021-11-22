@@ -8,7 +8,7 @@
   }
   article {
     .description {
-      padding-top: 2rem;
+      padding-top: 0.7rem;
       h5 {
         font-weight: 500;
       }
@@ -16,6 +16,9 @@
         padding-bottom: 1rem;
         @include m.flex(space-between);
         .info__left {
+          p {
+            padding: 0 0.7rem;
+          }
           @include m.flex(space-between);
           margin-left: 1rem;
           font-size: v.$p;

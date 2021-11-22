@@ -46,7 +46,7 @@ const AboutPage = () => {
             clients from all over the world, ranging from individual clients,
             through up-and-coming startups, to multinational companies. For more
             details, head over to my{' '}
-            <Link href={'https://www.linkedin.com/in/abdul-malek-a095031a4/'}>
+            <Link href={'https://www.linkedin.com/in/zihadm654'}>
               <a>LinkedIn profile</a>
             </Link>
             .
