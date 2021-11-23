@@ -3,7 +3,8 @@ import { db } from '../../lib/firebase';
 import { collection, getDoc, doc, getDocs } from 'firebase/firestore';
 function BlogDetails({ blogProps }) {
   const blog = JSON.parse(blogProps);
-  let time = new Date(blog.timestamp.seconds * 1000).toDateString();
+  // let time = new Date(blog.timestamp.seconds * 1000).toDateString();
+  console.log(blog);
 
   return (
     <div className="blog__details">
@@ -16,7 +17,7 @@ function BlogDetails({ blogProps }) {
                 <div className="author__img"></div>
                 <p>{blog.author}</p>
                 <span>/</span>
-                <p>{time}</p>
+                <p>{new Date(blog.createdAt).toDateString()}</p>
               </div>
               <div className="info__right">
                 <p>*12 min read</p>

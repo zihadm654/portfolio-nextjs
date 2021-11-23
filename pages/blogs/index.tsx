@@ -1,29 +1,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { onSnapshot, collection } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../lib/firebase';
 
-const BlogPage = () => {
-  const [posts, setPosts] = useState([]);
-  // const [article, setArticle] = useState([]);
-  const [loading, setLoading] = useState(true);
+const BlogPage = ({ Blogs }) => {
+  const [posts, setPosts] = useState(Blogs);
 
-  useEffect(() => {
-    const unsub = onSnapshot(collection(db, 'blogs'), (snap) => {
-      setPosts(
-        snap.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-          timestamp: doc.data().timestamp?.toDate().getTime(),
-        }))
-      );
-      setLoading(false);
-    });
-    return unsub;
-  }, []);
-  if (loading) return <div>loading...</div>;
-  // console.log(article);
-
+  console.log(posts);
   return (
     <>
       <div className="blog__page">
@@ -35,28 +18,42 @@ const BlogPage = () => {
         </p>
         <div className="container">
           <h3>All Posts</h3>
-          {!posts
-            ? loading
-            : posts.map((blog) => {
-                return (
-                  <article className="content" key={blog.id}>
-                    <Link href="/blogs/[slug]" as={'/blogs/' + blog.id}>
-                      <a>
-                        <div className="description">
-                          <div className="blog__title">
-                            <h5>{blog.title}</h5>
-                            <p>{blog.timestamp}</p>
-                          </div>
-                          <p>{blog.subTitle}</p>
+          {posts &&
+            posts.map((blog) => {
+              return (
+                <article className="content" key={blog.id}>
+                  <Link href="/blogs/[slug]" as={'/blogs/' + blog.id}>
+                    <a>
+                      <div className="description">
+                        <div className="blog__title">
+                          <h5>{blog.title}</h5>
+                          <p>{new Date(blog.createdAt).toDateString()}</p>
                         </div>
-                      </a>
-                    </Link>
-                  </article>
-                );
-              })}
+                        <p>{blog.subTitle}</p>
+                      </div>
+                    </a>
+                  </Link>
+                </article>
+              );
+            })}
         </div>
       </div>
     </>
   );
 };
 export default BlogPage;
+
+export const getStaticProps = async () => {
+  const res = await getDocs(collection(db, 'blogs'));
+  const Blogs = res.docs.map((doc) => {
+    return {
+      ...doc.data(),
+      createdAt: doc.data().createdAt.toMillis(),
+      id: doc.id,
+    };
+  });
+
+  return {
+    props: { Blogs },
+  };
+};

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-// import Image from 'next/image';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { db } from '../../lib/firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
@@ -41,7 +41,7 @@ const CaseDetails = () => {
         : caseDetail.map((i) => (
             <div className="container" key={i.id}>
               <div className="img__wrapper">
-                <img src={i.img} alt={i.img} />
+                <Image src={i.img} alt={i.img} layout="fill" />
               </div>
               <div className="content">
                 <h4>{i.name}</h4>
