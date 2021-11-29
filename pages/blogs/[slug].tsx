@@ -1,10 +1,9 @@
-// import Image from 'next/image';
+import Image from 'next/image';
 import { db } from '../../lib/firebase';
 import { collection, getDoc, doc, getDocs } from 'firebase/firestore';
+
 function BlogDetails({ blogProps }) {
   const blog = JSON.parse(blogProps);
-  // let time = new Date(blog.timestamp.seconds * 1000).toDateString();
-  console.log(blog);
 
   return (
     <div className="blog__details">
@@ -25,15 +24,19 @@ function BlogDetails({ blogProps }) {
               </div>
             </div>
             <div className="img__container">
-              {/* <Image src={blog.Img} alt={blog.id} layout="fill" /> */}
+              <Image src={blog.img} alt={blog.img} layout="fill" />
+            </div>
+            <div className="articles">
+              {/* <article>
+                <h5>{blog.articles.article1[0]}</h5>
+                <p>{blog.articles.article1[1]}</p>
+              </article>
+              <article>
+                <h5>{blog.articles.article2[0]}</h5>
+                <p>{blog.articles.article2[1]}</p>
+              </article> */}
             </div>
           </div>
-          {/* {article.map((i) => (
-              <article key={i.title}>
-                <h5>{i.title}</h5>
-                <p>{i.body}</p>
-              </article>
-            ))} */}
         </article>
         <h4>Conclusion:-</h4>
         <p>
@@ -68,6 +71,9 @@ export const getStaticProps = async (context) => {
   const id = context.params.slug;
   const docRef = doc(db, 'blogs', id);
   const docSnap = await getDoc(docRef);
+  // const subCol = await getDoc(db,docRef,'articles');
+  // console.log(subCol);
+
   return {
     props: { blogProps: JSON.stringify(docSnap.data()) || null },
   };

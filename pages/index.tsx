@@ -28,6 +28,3 @@ export default function Home() {
     </motion.div>
   );
 }
-// export const getStaticProps ={
-// return({props:posts})
-// }

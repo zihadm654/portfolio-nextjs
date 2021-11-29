@@ -1,12 +1,8 @@
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../lib/firebase';
 
 const BlogPage = ({ Blogs }) => {
-  const [posts, setPosts] = useState(Blogs);
-
-  console.log(posts);
   return (
     <>
       <div className="blog__page">
@@ -18,8 +14,8 @@ const BlogPage = ({ Blogs }) => {
         </p>
         <div className="container">
           <h3>All Posts</h3>
-          {posts &&
-            posts.map((blog) => {
+          {Blogs &&
+            Blogs.map((blog) => {
               return (
                 <article className="content" key={blog.id}>
                   <Link href="/blogs/[slug]" as={'/blogs/' + blog.id}>

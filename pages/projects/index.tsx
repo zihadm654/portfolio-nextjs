@@ -1,6 +1,5 @@
 import { db } from '../../lib/firebase';
 import { query, getDocs, collection, orderBy, limit } from 'firebase/firestore';
-
 import Cards from '../../src/components/Cards';
 
 const ProjectPage = ({ projects }) => {

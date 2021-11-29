@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
 import { Icon } from '../utility/Button';
 import { SiGithub, SiDribbble } from 'react-icons/si';
 import Link from 'next/link';
-
+import { db } from '../../lib/firebase';
 import Image from 'next/image';
-const Cards = ({ projects }) => {
-  const [cases, setCases] = useState([]);
+import { getDocs, collection } from 'firebase/firestore';
 
+const Cards = ({ projects }) => {
   return (
     <div className="cards">
       {projects &&
@@ -29,3 +28,19 @@ const Cards = ({ projects }) => {
 };
 
 export default Cards;
+
+// export const getStaticProps = async () => {
+//   const res = await getDocs(collection(db, 'projects'));
+//   const projects = res.docs.map((doc) => {
+//     return {
+//       ...doc.data(),
+//       createdAt: doc.data().createdAt.toMillis(),
+//       id: doc.id,
+//     };
+//   });
+
+//   console.log(projects);
+//   return {
+//     props: { projects },
+//   };
+// };
