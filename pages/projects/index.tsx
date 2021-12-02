@@ -1,6 +1,5 @@
-import { db } from '../../lib/firebase';
-import { query, getDocs, collection, orderBy, limit } from 'firebase/firestore';
 import Cards from '../../src/components/Cards';
+import clientPromise from '../../lib/mongo';
 
 const ProjectPage = ({ projects }) => {
   return (
@@ -17,9 +16,8 @@ const ProjectPage = ({ projects }) => {
           </p>
         </div>
         <div className="container">
-          <h3>Personal Projects</h3>
+          <h3>Featured Projects</h3>
           <Cards projects={projects} />
-          <h2></h2>
         </div>
       </section>
     </>
@@ -29,16 +27,11 @@ const ProjectPage = ({ projects }) => {
 export default ProjectPage;
 
 export const getStaticProps = async () => {
-  const colRef = collection(db, 'projects');
+  const client = await clientPromise;
+  const db = client.db('portfolio_db');
 
-  const res = await getDocs(colRef);
-  const projects = res.docs.map((doc) => {
-    return {
-      id: doc.id,
-      ...doc.data(),
-      createdAt: doc.data().createdAt.toMillis(),
-    };
-  });
+  const data = await db.collection('projects').find().toArray();
+  const projects = JSON.parse(JSON.stringify(data));
 
   return {
     props: { projects },

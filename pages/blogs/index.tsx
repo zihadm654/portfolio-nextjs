@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../lib/firebase';
+import clientPromise from '../../lib/mongo';
 
-const BlogPage = ({ Blogs }) => {
+const BlogPage = ({ blogs }) => {
+  console.log(blogs);
+
   return (
     <>
       <div className="blog__page">
@@ -14,18 +15,18 @@ const BlogPage = ({ Blogs }) => {
         </p>
         <div className="container">
           <h3>All Posts</h3>
-          {Blogs &&
-            Blogs.map((blog) => {
+          {blogs &&
+            blogs.map((blog) => {
               return (
-                <article className="content" key={blog.id}>
-                  <Link href="/blogs/[slug]" as={'/blogs/' + blog.id}>
+                <article className="content" key={blog._id}>
+                  <Link href="/blogs/[slug]" as={'/blogs/' + blog._id}>
                     <a>
                       <div className="description">
                         <div className="blog__title">
                           <h5>{blog.title}</h5>
                           <p>{new Date(blog.createdAt).toDateString()}</p>
                         </div>
-                        <p>{blog.subTitle}</p>
+                        <p>{blog.sub}</p>
                       </div>
                     </a>
                   </Link>
@@ -40,16 +41,13 @@ const BlogPage = ({ Blogs }) => {
 export default BlogPage;
 
 export const getStaticProps = async () => {
-  const res = await getDocs(collection(db, 'blogs'));
-  const Blogs = res.docs.map((doc) => {
-    return {
-      ...doc.data(),
-      createdAt: doc.data().createdAt.toMillis(),
-      id: doc.id,
-    };
-  });
+  const client = await clientPromise;
+  const db = client.db('portfolio_db');
+
+  const data = await db.collection('blogs').find().toArray();
+  const blogs = JSON.parse(JSON.stringify(data));
 
   return {
-    props: { Blogs },
+    props: { blogs },
   };
 };

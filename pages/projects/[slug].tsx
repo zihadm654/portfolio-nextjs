@@ -1,56 +1,44 @@
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
-import { db } from '../../lib/firebase';
-import { collection, query, where, getDocs } from 'firebase/firestore';
 
-const CaseDetails = () => {
-  const [caseDetail, setCaseDetail] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
-  const { slug } = router.query;
-
-  useEffect(() => {
-    const q = query(collection(db, 'projects'), where('slug', '==', slug));
-    const post = [];
-    const getData = async () => {
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        post.push({
-          ...doc.data(),
-          id: doc.id,
-        });
-      });
-      setCaseDetail(post);
-      setLoading(false);
-    };
-    getData();
-  }, [slug]);
-
-  console.log(caseDetail);
-
-  if (loading) return <div>loading...</div>;
+const CaseDetails = ({ project }) => {
   return (
     <section className="case__details">
       <div className="case__study">
         <h3>Case Study</h3>
         <p>Dividing projects into parts</p>
       </div>
-      {!caseDetail
-        ? loading
-        : caseDetail.map((i) => (
-            <div className="container" key={i.id}>
-              <div className="img__wrapper">
-                <Image src={i.img} alt={i.img} layout="fill" />
-              </div>
-              <div className="content">
-                <h4>{i.name}</h4>
-                <p>{i.description}</p>
-              </div>
-            </div>
-          ))}
+      {project && (
+        <div className="container">
+          <div className="img__wrapper">
+            <Image src={project.img} alt={project.img} layout="fill" />
+          </div>
+          <div className="content">
+            <h4>{project.name}</h4>
+            <p>{project.description}</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
 
 export default CaseDetails;
+
+export const getStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true,
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const data = await fetch(
+    `http://localhost:3000/api/project_data?slug=${params.slug}`
+  );
+  const project = await data.json();
+
+  return {
+    props: { project },
+    revalidate: 1,
+  };
+};

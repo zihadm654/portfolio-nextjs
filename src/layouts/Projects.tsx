@@ -11,7 +11,7 @@ function Projects() {
           inspiring animations.
         </p>
       </div>
-      {/* <Cards projects={projects} /> */}
+      {/* <Cards /> */}
       <Button
         className={'secondary__btn'}
         site={'/projects'}
