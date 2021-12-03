@@ -30,7 +30,7 @@ export const getStaticProps = async () => {
   const client = await clientPromise;
   const db = client.db('portfolio_db');
 
-  const data = await db.collection('projects').find().toArray();
+  const data = await db.collection('projects').find({}).limit(4).toArray();
   const projects = JSON.parse(JSON.stringify(data));
 
   return {

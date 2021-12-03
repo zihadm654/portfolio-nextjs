@@ -3,20 +3,36 @@ import Image from 'next/image';
 const CaseDetails = ({ project }) => {
   return (
     <section className="case__details">
-      <div className="case__study">
-        <h3>Case Study</h3>
-        <p>Dividing projects into parts</p>
-      </div>
       {project && (
-        <div className="container">
+        <>
+          <div className="container">
+            <div className="case__study--left">
+              <div className="context">
+                <p>Case Study</p>
+                <h4>{project.title}</h4>
+              </div>
+              <div className="context">
+                <p>My Role</p>
+                <h4></h4>
+              </div>
+              <div className="context">
+                <p>Client</p>
+                <h4></h4>
+              </div>
+              <div className="context">
+                <p>Year</p>
+                <h4></h4>
+              </div>
+            </div>
+            <div className="case__study--right">
+              <h4>{project.name}</h4>
+              <h5>{project.sub}</h5>
+            </div>
+          </div>
           <div className="img__wrapper">
             <Image src={project.img} alt={project.img} layout="fill" />
           </div>
-          <div className="content">
-            <h4>{project.name}</h4>
-            <p>{project.description}</p>
-          </div>
-        </div>
+        </>
       )}
     </section>
   );

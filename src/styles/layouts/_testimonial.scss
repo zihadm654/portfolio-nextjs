@@ -1,7 +1,6 @@
 @use '../helpers/mixins' as m;
 .testimonial {
   padding: 4rem 9rem;
-  margin-top: 3rem;
   @include m.media(sm) {
     padding: 2rem;
   }

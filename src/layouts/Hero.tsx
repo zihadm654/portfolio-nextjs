@@ -22,15 +22,13 @@ function Hero() {
           🚀 Available For Freelance Work
         </motion.h5>
         <motion.h1 variants={items}>
-          Taking your vision and serving as a reality
+          Taking your vision and serving it as a reality
         </motion.h1>
         <motion.p variants={items}>
           I am a self-taught Front-end-developer and UI/UX designer. Crafting
-          Website Based on Simplicity and Performance that are{' '}
-          <span>
-            conversions-focused, brand-accurate, user-friendly, performance and
-            minimalistic based.
-          </span>
+          Website Based on <span>Simplicity and Performance</span> that are
+          conversions-focused, brand-accurate,
+          <span> user-friendly, and performent.</span>
         </motion.p>
         <Button
           className="primary__btn"

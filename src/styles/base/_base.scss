@@ -17,6 +17,7 @@
   background: gray;
 }
 html {
+  scroll-behavior: smooth;
   font-size: 66.5%;
   @include m.media(sm) {
     font-size: 39%;

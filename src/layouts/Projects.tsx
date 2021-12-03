@@ -1,7 +1,10 @@
 import { Button } from '../utility/Button';
 import Cards from '../components/Cards';
+import clientPromise from '../../lib/mongo';
 
-function Projects() {
+function Projects({}) {
+  // console.log(posts);
+
   return (
     <section className="project">
       <div className="project__title">

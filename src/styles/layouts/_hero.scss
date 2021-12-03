@@ -1,5 +1,6 @@
 @use '../helpers/mixins' as m;
 @use '../helpers/colors' as c;
+@use '../helpers/variables' as v;
 .hero__wrapper {
   padding: 4rem 8rem;
   @include m.grid;
@@ -22,7 +23,6 @@
     @include m.media(sm) {
       grid-column: 1/13;
     }
-    // overflow: hidden;
     grid-column: 2/11;
     margin-top: 8rem;
     padding: 2.5rem 0;
@@ -44,19 +44,19 @@
       }
     }
     h1 {
-      padding: 1rem 0;
-      overflow: hidden;
+      margin: 1rem 0;
     }
     h5 {
-      overflow: hidden;
       @include m.flex(space-around);
     }
     p {
-      overflow: hidden;
+      font-size: v.$md;
       line-height: 1.4;
+      font-weight: 500;
+      color: rgb(61, 61, 61);
     }
     .primary__btn {
-      margin-top: 5rem;
+      margin-top: 3rem;
     }
   }
 }

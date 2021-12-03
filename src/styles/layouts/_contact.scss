@@ -2,6 +2,7 @@
 @use '../helpers/colors' as c;
 @use '../helpers/variables' as v;
 .contact {
+  position: relative;
   padding: 4rem 8rem;
   color: #000;
   @include m.grid;
@@ -47,10 +48,10 @@
       justify-self: center;
       position: relative;
       grid-column: 1/13;
+      cursor: pointer;
       span {
         position: relative;
         text-decoration: underline;
-        cursor: pointer;
       }
       .lang {
         @include m.media(sm) {
@@ -68,6 +69,17 @@
           display: block;
         }
       }
+    }
+  }
+  .up {
+    cursor: pointer;
+    opacity: 1;
+    position: absolute;
+    bottom: 10%;
+    right: 3%;
+    z-index: 1000;
+    svg {
+      font-size: 3rem;
     }
   }
 }
