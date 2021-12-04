@@ -2,6 +2,8 @@ import Cards from '../../src/components/Cards';
 import clientPromise from '../../lib/mongo';
 
 const ProjectPage = ({ projects }) => {
+  console.log(projects);
+
   return (
     <>
       <section className="projects">
@@ -30,7 +32,7 @@ export const getStaticProps = async () => {
   const client = await clientPromise;
   const db = client.db('portfolio_db');
 
-  const data = await db.collection('projects').find({}).limit(4).toArray();
+  const data = await db.collection('projects').find({}).toArray();
   const projects = JSON.parse(JSON.stringify(data));
 
   return {

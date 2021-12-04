@@ -1,7 +1,5 @@
 @use '../helpers/mixins' as m;
 .project {
-  @include m.flex(center);
-  flex-direction: column;
   position: relative;
   padding: 4rem 9rem;
   @include m.media(sm) {
@@ -17,4 +15,7 @@
       width: 50ch;
     }
   }
+}
+.btn__container{
+  @include m.flex(center);
 }

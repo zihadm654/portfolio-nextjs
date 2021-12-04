@@ -16,7 +16,7 @@
       @content;
     }
   } @else if $size == xxlg {
-    @media (min-width: 1441px) and (max-width: 1800px) {
+    @media (min-width: 1441px) and (max-width: 2200px) {
       @content;
     }
   }

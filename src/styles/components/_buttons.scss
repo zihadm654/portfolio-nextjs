@@ -54,7 +54,7 @@ a {
   margin-top: 1.3rem;
   a {
     text-align: center;
-    color: c.$primaryColor;
+    color: c.$fontHighlight;
     font-weight: 500;
     // font-size: $p;
   }
@@ -65,7 +65,7 @@ a {
     margin-top: 0.41rem;
     margin-left: 0.7rem;
     font-size: v.$p;
-    color: c.$wildcard;
+    color: c.$fontHighlight;
   }
 }
 .custom__btn {

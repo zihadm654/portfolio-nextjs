@@ -5,9 +5,10 @@ import Hero from '../src/layouts/Hero';
 import Progress from '../src/layouts/Progress';
 import Projects from '../src/layouts/Projects';
 import Skills from '../src/layouts/Skills';
-import Testimonial from '../src/layouts/Testimonial';
 import { motion } from 'framer-motion';
-export default function Home() {
+import clientPromise from '../lib/mongo';
+
+export default function Home({ posts }) {
   return (
     <motion.div exit={{ opacity: 0 }}>
       <div className="container">
@@ -22,8 +23,7 @@ export default function Home() {
         <main>
           <Hero />
           <Describe />
-          <Projects />
-          <Testimonial />
+          <Projects posts={posts} />
           <Progress />
           <Skills />
           <About />
@@ -32,3 +32,15 @@ export default function Home() {
     </motion.div>
   );
 }
+
+export const getStaticProps = async () => {
+  const client = await clientPromise;
+  const db = client.db('portfolio_db');
+
+  const data = await db.collection('projects').find({}).limit(3).toArray();
+  const posts = JSON.parse(JSON.stringify(data));
+
+  return {
+    props: { posts },
+  };
+};

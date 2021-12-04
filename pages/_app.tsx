@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <Head>
-        <title>Abdul Malik</title>
+        <title>Portfolio || Abdul Malik</title>
         <meta name="Homepage" content="this is frontpage of this website" />
       </Head>
       <Header />

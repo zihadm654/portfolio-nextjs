@@ -1,26 +1,29 @@
 import { Button } from '../utility/Button';
-import Cards from '../components/Cards';
-import clientPromise from '../../lib/mongo';
+import { FeaturedCards } from '../components/Cards';
 
-function Projects({}) {
-  // console.log(posts);
+function Projects({ posts }) {
+  console.log(posts);
 
   return (
-    <section className="project">
-      <div className="project__title">
-        <h2>Featured Projects</h2>
-        <p>
-          Designed seamless interfaces, Built beautiful websites, & Composed
-          inspiring animations.
-        </p>
+    <>
+      <section className="project">
+        <div className="project__title">
+          <h2>Featured Projects</h2>
+          <p>
+            Designed seamless interfaces, Built beautiful websites, & Composed
+            inspiring animations.
+          </p>
+        </div>
+        <FeaturedCards posts={posts} />
+      </section>
+      <div className="btn__container">
+        <Button
+          className={'secondary__btn'}
+          site={'/projects'}
+          text={'see more'}
+        />
       </div>
-      {/* <Cards /> */}
-      <Button
-        className={'secondary__btn'}
-        site={'/projects'}
-        text={'see more'}
-      />
-    </section>
+    </>
   );
 }
 export default Projects;

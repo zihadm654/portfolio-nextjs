@@ -13,15 +13,15 @@ const CaseDetails = ({ project }) => {
               </div>
               <div className="context">
                 <p>My Role</p>
-                <h4></h4>
+                <h5>{project.role}</h5>
               </div>
               <div className="context">
                 <p>Client</p>
-                <h4></h4>
+                <h5>{project.client}</h5>
               </div>
               <div className="context">
                 <p>Year</p>
-                <h4></h4>
+                <h5>{project.time}</h5>
               </div>
             </div>
             <div className="case__study--right">
