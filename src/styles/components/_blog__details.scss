@@ -42,19 +42,18 @@
         }
       }
       .img__container {
-        position: relative;
         padding-top: 2rem;
         height: 45rem;
         width: 100%;
         img {
-          // object-fit: cover;
+          object-fit: cover;
           height: 100%;
-          width: 80%;
+          width: 100%;
         }
       }
     }
-    .articles {
-      padding: 3rem 0;
+    article {
+      padding-top: 1rem;
     }
   }
   .conclution {

@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+import { db } from '../../lib/firebase';
+import { query, getDocs, collection, orderBy, limit } from 'firebase/firestore';
+
+>>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
 import Cards from '../../src/components/Cards';
 import clientPromise from '../../lib/mongo';
 

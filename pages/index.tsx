@@ -32,6 +32,7 @@ export default function Home({ posts }) {
     </motion.div>
   );
 }
+<<<<<<< HEAD
 
 export const getStaticProps = async () => {
   const client = await clientPromise;
@@ -44,3 +45,8 @@ export const getStaticProps = async () => {
     props: { posts },
   };
 };
+=======
+// export const getStaticProps ={
+// return({props:posts})
+// }
+>>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)

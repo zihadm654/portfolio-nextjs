@@ -1,11 +1,21 @@
+<<<<<<< HEAD
 /* eslint-disable @next/next/link-passhref */
 import { Icon } from '../utility/Button';
 import { SiGithub, SiDribbble } from 'react-icons/si';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CgArrowDown } from 'react-icons/cg';
+=======
+import { useState, useEffect } from 'react';
+import { Icon } from '../utility/Button';
+import { SiGithub, SiDribbble } from 'react-icons/si';
+import Link from 'next/link';
+>>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
 
+import Image from 'next/image';
 const Cards = ({ projects }) => {
+  const [cases, setCases] = useState([]);
+
   return (
     <div className="cards">
       {projects &&
@@ -35,6 +45,7 @@ const Cards = ({ projects }) => {
 };
 
 export default Cards;
+<<<<<<< HEAD
 
 export const FeaturedCards = ({ posts }) => {
   return (
@@ -64,3 +75,5 @@ export const FeaturedCards = ({ posts }) => {
     </div>
   );
 };
+=======
+>>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)

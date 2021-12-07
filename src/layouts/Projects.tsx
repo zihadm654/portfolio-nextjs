@@ -23,7 +23,17 @@ function Projects({ posts }) {
           text={'see more'}
         />
       </div>
+<<<<<<< HEAD
     </>
+=======
+      <Cards />
+      <Button
+        className={'secondary__btn'}
+        site={'/projects'}
+        text={'see more'}
+      />
+    </section>
+>>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
   );
 }
 export default Projects;

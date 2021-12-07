@@ -1,9 +1,17 @@
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import clientPromise from '../../lib/mongo';
 
 const BlogPage = ({ blogs }) => {
   console.log(blogs);
 
+<<<<<<< HEAD
+=======
+const BlogPage = ({ Blogs }) => {
+  const [posts, setPosts] = useState(Blogs);
+
+  console.log(posts);
+>>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
   return (
     <>
       <div className="blog__page">
@@ -15,8 +23,13 @@ const BlogPage = ({ blogs }) => {
         </p>
         <div className="container">
           <h3>All Posts</h3>
+<<<<<<< HEAD
           {blogs &&
             blogs.map((blog) => {
+=======
+          {posts &&
+            posts.map((blog) => {
+>>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
               return (
                 <article className="content" key={blog._id}>
                   <Link href="/blogs/[slug]" as={'/blogs/' + blog._id}>
