@@ -1,6 +1,10 @@
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import Image from 'next/image';
+import { db } from '../../lib/firebase';
 
 const CaseDetails = ({ project }) => {
+  console.log(project);
+
   return (
     <section className="case__details">
       {project && (
@@ -9,7 +13,7 @@ const CaseDetails = ({ project }) => {
             <div className="case__study--left">
               <div className="context">
                 <p>Case Study</p>
-                <h4>{project.title}</h4>
+                <h4>{project.name}</h4>
               </div>
               <div className="context">
                 <p>My Role</p>
@@ -26,7 +30,7 @@ const CaseDetails = ({ project }) => {
             </div>
             <div className="case__study--right">
               <h4>{project.name}</h4>
-              <h5>{project.sub}</h5>
+              <h5>{project.description}</h5>
             </div>
           </div>
           <div className="img__wrapper">
@@ -41,20 +45,27 @@ const CaseDetails = ({ project }) => {
 export default CaseDetails;
 
 export const getStaticPaths = async () => {
+  const snapshot = await getDocs(collection(db, 'projects'));
+  const paths = snapshot.docs.map((doc) => {
+    return {
+      params: { slug: doc.id.toString() },
+    };
+  });
   return {
-    paths: [],
-    fallback: true,
+    paths,
+    fallback: false,
   };
 };
-
-export const getStaticProps = async ({ params }) => {
-  const data = await fetch(
-    `http://localhost:3000/api/project_data?slug=${params.slug}`
-  );
-  const project = await data.json();
-
+export const getStaticProps = async (context) => {
+  const id = context.params.slug;
+  const docRef = doc(db, 'projects', id);
+  const docSnap = await getDoc(docRef);
+  const project = {
+    id: docSnap.id,
+    ...docSnap.data(),
+    createdAt: docSnap.data().createdAt.toMillis(),
+  };
   return {
     props: { project },
-    revalidate: 1,
   };
 };

@@ -1,38 +1,23 @@
-<<<<<<< HEAD
-/* eslint-disable @next/next/link-passhref */
 import { Icon } from '../utility/Button';
 import { SiGithub, SiDribbble } from 'react-icons/si';
 import Link from 'next/link';
-import Image from 'next/image';
-import { CgArrowDown } from 'react-icons/cg';
-=======
-import { useState, useEffect } from 'react';
-import { Icon } from '../utility/Button';
-import { SiGithub, SiDribbble } from 'react-icons/si';
-import Link from 'next/link';
->>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
 
 import Image from 'next/image';
 const Cards = ({ projects }) => {
-  const [cases, setCases] = useState([]);
-
   return (
     <div className="cards">
       {projects &&
         projects.map((card) => {
           return (
-            <div className="wrapper" key={card._id}>
-              <Link href={`/projects/${card._id}`}>
+            <div className="wrapper" key={card.id}>
+              <Link href={`/projects/${card.id}`}>
                 {/* <a> */}
                 <div className="card">
                   <Image src={card.img} alt={card.img} layout="fill" />
                   <div className="card__text">
                     <p>{card.time}</p>
                     <h5>{card.title}</h5>
-                    <Icon
-                      site={`/projects/${card._id}`}
-                      text="see case study"
-                    />
+                    <Icon site={`/projects/${card.id}`} text="see case study" />
                   </div>
                 </div>
                 {/* </a> */}
@@ -45,35 +30,3 @@ const Cards = ({ projects }) => {
 };
 
 export default Cards;
-<<<<<<< HEAD
-
-export const FeaturedCards = ({ posts }) => {
-  return (
-    <div className="cards">
-      {posts &&
-        posts.map((card) => {
-          return (
-            <div className="wrapper" key={card._id}>
-              <Link href={`/projects/${card._id}`}>
-                {/* <a> */}
-                <div className="card">
-                  <Image src={card.img} alt={card.img} layout="fill" />
-                  <div className="card__text">
-                    <p>{card.time}</p>
-                    <h5>{card.title}</h5>
-                    <Icon
-                      site={`/projects/${card._id}`}
-                      text="see case study"
-                    />
-                  </div>
-                </div>
-                {/* </a> */}
-              </Link>
-            </div>
-          );
-        })}
-    </div>
-  );
-};
-=======
->>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)

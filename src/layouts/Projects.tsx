@@ -1,5 +1,5 @@
 import { Button } from '../utility/Button';
-import { FeaturedCards } from '../components/Cards';
+// import { FeaturedCards } from '../components/Cards';
 
 function Projects({ posts }) {
   console.log(posts);
@@ -14,7 +14,7 @@ function Projects({ posts }) {
             inspiring animations.
           </p>
         </div>
-        <FeaturedCards posts={posts} />
+        {/* <Cards /> */}
       </section>
       <div className="btn__container">
         <Button
@@ -23,17 +23,7 @@ function Projects({ posts }) {
           text={'see more'}
         />
       </div>
-<<<<<<< HEAD
     </>
-=======
-      <Cards />
-      <Button
-        className={'secondary__btn'}
-        site={'/projects'}
-        text={'see more'}
-      />
-    </section>
->>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
   );
 }
 export default Projects;

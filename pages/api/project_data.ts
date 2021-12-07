@@ -1,13 +1,10 @@
-import clientPromise from '../../lib/mongo';
-import { ObjectId } from 'mongodb';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
 
 export default async function handler(req, res) {
   const query = req.query.slug;
-  const client = await clientPromise;
-  const db = client.db('portfolio_db');
+  const ref = doc(db, 'projects', 'id');
+  const docSnap = await getDoc(ref);
 
-  const data = await db
-    .collection('projects')
-    .findOne({ _id: new ObjectId(query) });
-  res.json(data);
+  res.json(docSnap);
 }

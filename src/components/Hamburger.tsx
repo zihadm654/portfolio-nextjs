@@ -1,12 +1,8 @@
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 function Hamburger({ menu, hide }) {
   return (
-    <motion.div
-      className={!menu ? 'hamburger' : 'hamburger menu'}
-      variants={container}
-    >
+    <div className={!menu ? 'hamburger' : 'hamburger menu'}>
       <div className="menu__layer">
         <div className="container">
           <div className="wrapper">
@@ -69,22 +65,8 @@ function Hamburger({ menu, hide }) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export default Hamburger;
-
-const container = {
-  hidden: {
-    opacity: 0,
-    x: -100,
-    transition: {
-      ease: 'ease-out',
-    },
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-  },
-};

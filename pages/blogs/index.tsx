@@ -1,17 +1,9 @@
-import { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
 import Link from 'next/link';
-import clientPromise from '../../lib/mongo';
+import { db } from '../../lib/firebase';
 
-const BlogPage = ({ blogs }) => {
-  console.log(blogs);
-
-<<<<<<< HEAD
-=======
 const BlogPage = ({ Blogs }) => {
-  const [posts, setPosts] = useState(Blogs);
-
-  console.log(posts);
->>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
+  console.log(Blogs);
   return (
     <>
       <div className="blog__page">
@@ -23,16 +15,11 @@ const BlogPage = ({ Blogs }) => {
         </p>
         <div className="container">
           <h3>All Posts</h3>
-<<<<<<< HEAD
-          {blogs &&
-            blogs.map((blog) => {
-=======
-          {posts &&
-            posts.map((blog) => {
->>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
+          {Blogs &&
+            Blogs.map((blog) => {
               return (
-                <article className="content" key={blog._id}>
-                  <Link href="/blogs/[slug]" as={'/blogs/' + blog._id}>
+                <article className="content" key={blog.id}>
+                  <Link href="/blogs/[slug]" as={'/blogs/' + blog.id}>
                     <a>
                       <div className="description">
                         <div className="blog__title">
@@ -54,13 +41,17 @@ const BlogPage = ({ Blogs }) => {
 export default BlogPage;
 
 export const getStaticProps = async () => {
-  const client = await clientPromise;
-  const db = client.db('portfolio_db');
+  const res = await getDocs(collection(db, 'blogs'));
 
-  const data = await db.collection('blogs').find().toArray();
-  const blogs = JSON.parse(JSON.stringify(data));
+  const Blogs = res.docs.map((doc) => {
+    return {
+      ...doc.data(),
+      createdAt: doc.data().createdAt.toMillis(),
+      id: doc.id,
+    };
+  });
 
   return {
-    props: { blogs },
+    props: { Blogs },
   };
 };

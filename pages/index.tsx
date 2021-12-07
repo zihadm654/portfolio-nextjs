@@ -5,12 +5,10 @@ import Hero from '../src/layouts/Hero';
 import Progress from '../src/layouts/Progress';
 import Projects from '../src/layouts/Projects';
 import Skills from '../src/layouts/Skills';
-import { motion } from 'framer-motion';
-import clientPromise from '../lib/mongo';
 
 export default function Home({ posts }) {
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <div>
       <div className="container">
         <Head>
           <title>Abdul Malik</title>
@@ -29,24 +27,9 @@ export default function Home({ posts }) {
           <About />
         </main>
       </div>
-    </motion.div>
+    </div>
   );
 }
-<<<<<<< HEAD
-
-export const getStaticProps = async () => {
-  const client = await clientPromise;
-  const db = client.db('portfolio_db');
-
-  const data = await db.collection('projects').find({}).limit(3).toArray();
-  const posts = JSON.parse(JSON.stringify(data));
-
-  return {
-    props: { posts },
-  };
-};
-=======
 // export const getStaticProps ={
 // return({props:posts})
 // }
->>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)

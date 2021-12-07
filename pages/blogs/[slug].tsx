@@ -1,21 +1,15 @@
-<<<<<<< HEAD
 import Image from 'next/image';
-function BlogDetails({ blog }) {
-=======
-// import Image from 'next/image';
 import { db } from '../../lib/firebase';
-import { collection, getDoc, doc, getDocs } from 'firebase/firestore';
-function BlogDetails({ blogProps }) {
-  const blog = JSON.parse(blogProps);
-  // let time = new Date(blog.timestamp.seconds * 1000).toDateString();
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+
+function BlogDetails({ blog }) {
   console.log(blog);
 
->>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
   return (
     <div className="blog__details">
       <div className="conclution">
         {blog && (
-          <article>
+          <article key={blog.id}>
             <h3>{blog.title}</h3>
             <div className="description">
               <div className="author__container">
@@ -31,26 +25,11 @@ function BlogDetails({ blogProps }) {
                 </div>
               </div>
               <div className="img__container">
-                {/* <Image src={blog.img} alt={blog.img} layout="fill" /> */}
+                <Image src={blog.img} alt={blog.img} layout="fill" />
               </div>
-              <div className="articles">{}</div>
             </div>
-<<<<<<< HEAD
           </article>
         )}
-=======
-            <div className="img__container">
-              {/* <Image src={blog.Img} alt={blog.id} layout="fill" /> */}
-            </div>
-          </div>
-          {/* {article.map((i) => (
-              <article key={i.title}>
-                <h5>{i.title}</h5>
-                <p>{i.body}</p>
-              </article>
-            ))} */}
-        </article>
->>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
         <h4>Conclusion:-</h4>
         <p>
           Learn by breaking things into parts and enjoying that you are doing
@@ -68,27 +47,28 @@ function BlogDetails({ blogProps }) {
 export default BlogDetails;
 
 export const getStaticPaths = async () => {
+  const snapshot = await getDocs(collection(db, 'blogs'));
+  const paths = snapshot.docs.map((doc) => {
+    return {
+      params: { slug: doc.id.toString() },
+    };
+  });
   return {
-    paths: [],
-    fallback: true,
+    paths,
+    fallback: false,
   };
 };
-
-<<<<<<< HEAD
-export const getStaticProps = async ({ params }) => {
-  const data = await fetch(
-    `http://localhost:3000/api/blog_data?slug=${params.slug}`
-  );
-  const blog = await data.json();
-
-=======
 export const getStaticProps = async (context) => {
   const id = context.params.slug;
   const docRef = doc(db, 'blogs', id);
   const docSnap = await getDoc(docRef);
->>>>>>> parent of 8ee4bca (firebase setup finding solution of  ng solutions of maps)
+  const blog = {
+    ...docSnap.data(),
+    id: docSnap.id,
+    createdAt: docSnap.data().createdAt.toMillis(),
+  };
+
   return {
     props: { blog },
-    revalidate: 1,
   };
 };
