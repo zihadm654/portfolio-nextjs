@@ -1,8 +1,11 @@
 import Link from 'next/link';
-
+import { motion } from 'framer-motion';
 function Hamburger({ menu, hide }) {
   return (
-    <div className={!menu ? 'hamburger' : 'hamburger menu'}>
+    <motion.div
+      className={!menu ? 'hamburger' : 'hamburger menu'}
+      variants={transit}
+    >
       <div className="menu__layer">
         <div className="container">
           <div className="wrapper">
@@ -65,8 +68,17 @@ function Hamburger({ menu, hide }) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default Hamburger;
+
+const transit = {
+  initial: {
+    y: 100,
+  },
+  show: {
+    y: 0,
+  },
+};

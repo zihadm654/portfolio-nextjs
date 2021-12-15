@@ -5,10 +5,11 @@ import Hero from '../src/layouts/Hero';
 import Progress from '../src/layouts/Progress';
 import Projects from '../src/layouts/Projects';
 import Skills from '../src/layouts/Skills';
+import { motion } from 'framer-motion';
 
 export default function Home({ posts }) {
   return (
-    <div>
+    <motion.div exit={{ opacity: 0 }}>
       <div className="container">
         <Head>
           <title>Abdul Malik</title>
@@ -27,9 +28,6 @@ export default function Home({ posts }) {
           <About />
         </main>
       </div>
-    </div>
+    </motion.div>
   );
 }
-// export const getStaticProps ={
-// return({props:posts})
-// }

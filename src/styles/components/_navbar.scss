@@ -69,16 +69,14 @@
   }
 }
 .hamburger {
-  transition: all 200ms ease-out;
   display: none;
   z-index: 9;
-  top: 0;
+  top: -100%;
   left: 0;
   right: 0;
   position: fixed;
   height: 100%;
   width: 100%;
-  overflow: hidden;
   .menu__layer {
     position: relative;
     background: c.$red;
@@ -179,6 +177,7 @@
   }
 }
 .hamburger.menu {
+  top: 0%;
   display: block;
-  transition: ease-out 100ms;
+  transition: ease-out 200ms;
 }
