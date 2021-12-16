@@ -1,11 +1,9 @@
 import { db } from '../../lib/firebase';
-import { query, getDocs, collection, orderBy, limit } from 'firebase/firestore';
+import { getDocs, collection } from 'firebase/firestore';
 
 import Cards from '../../src/components/Cards';
 
 const ProjectPage = ({ projects }) => {
-  console.log(projects);
-
   return (
     <>
       <section className="projects">

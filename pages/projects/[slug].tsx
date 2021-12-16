@@ -3,8 +3,6 @@ import Image from 'next/image';
 import { db } from '../../lib/firebase';
 
 const CaseDetails = ({ project }) => {
-  console.log(project);
-
   return (
     <section className="case__details">
       {project && (

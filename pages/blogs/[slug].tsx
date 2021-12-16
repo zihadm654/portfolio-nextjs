@@ -3,8 +3,6 @@ import { db } from '../../lib/firebase';
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 
 function BlogDetails({ blog }) {
-  console.log(blog);
-
   return (
     <div className="blog__details">
       <div className="conclution">
@@ -28,14 +26,14 @@ function BlogDetails({ blog }) {
                 <Image src={blog.img} alt={blog.img} layout="fill" />
               </div>
               <div className="articles">
-                {blog.articles.map((i) => {
+                {/* {blog.articles.map((i) => {
                   return (
                     <article key={i.title}>
                       <h4>{i.title}</h4>
                       <p>{i.body}</p>
                     </article>
                   );
-                })}
+                })} */}
               </div>
             </div>
           </article>

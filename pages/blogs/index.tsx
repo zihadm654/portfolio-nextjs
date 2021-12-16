@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { db } from '../../lib/firebase';
 
 const BlogPage = ({ Blogs }) => {
-  console.log(Blogs);
   return (
     <>
       <div className="blog__page">
