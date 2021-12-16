@@ -1,7 +1,7 @@
-@use '../helpers/mixins' as m;
+// @use '../helpers/mixins' as m;
 .testimonial {
-  padding: 4rem 9rem;
-  @include m.media(sm) {
-    padding: 2rem;
-  }
+  padding: 2rem 0rem;
+  // @include m.media(sm) {
+  //   padding: 2rem;
+  // }
 }

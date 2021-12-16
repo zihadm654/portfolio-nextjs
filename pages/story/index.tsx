@@ -1,7 +1,7 @@
 const story = () => {
   return (
-    <div>
-      <h2>hello</h2>
+    <div className="story__page">
+      <h2>This story page will be updated soon</h2>
     </div>
   );
 };

@@ -52,15 +52,18 @@
           width: 100%;
         }
       }
-    }
-    article {
-      padding: 1rem 0;
+      .articles {
+        padding: 3rem 0;
+        article {
+          padding: 1rem 0;
+        }
+      }
     }
   }
   .conclution {
     padding-top: 3rem;
     p {
-      padding: 1rem 0;
+      padding: 0.5rem 0;
     }
     span {
       font-size: v.$p;

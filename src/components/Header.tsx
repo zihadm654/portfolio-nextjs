@@ -32,18 +32,18 @@ function Header() {
             <a>
               <div className="logo">
                 <Image src={logo} height="500" width="500" alt="" />
-                <h4>Abdul Malik</h4>
+                <h4 className={menu ? 'active' : ''}>Abdul Malik</h4>
               </div>
             </a>
           </Link>
         </div>
         <div className="menu" onClick={handleClick}>
-          <h5>{!menu ? 'menu' : 'close'}</h5>
+          <h5 className={menu ? 'active' : ''}>{!menu ? 'menu' : 'close'}</h5>
           <div>
             {!menu ? (
               <CgMenu style={{ fontSize: '3rem' }} />
             ) : (
-              <MdClose style={{ fontSize: '3rem' }} />
+              <MdClose style={{ fontSize: '3rem', color: '#fff' }} />
             )}
           </div>
         </div>

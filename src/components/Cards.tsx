@@ -3,6 +3,7 @@ import { SiGithub, SiDribbble } from 'react-icons/si';
 import Link from 'next/link';
 
 import Image from 'next/image';
+
 const Cards = ({ projects }) => {
   return (
     <div className="cards">
@@ -28,3 +29,32 @@ const Cards = ({ projects }) => {
 };
 
 export default Cards;
+
+export const FeaturedCard = ({ posts }) => {
+  return (
+    <>
+      <div className="cards">
+        {posts &&
+          posts.map((card) => {
+            return (
+              <div className="wrapper" key={card.id}>
+                <Link href={`/projects/${card.id}`}>
+                  <div className="card">
+                    <Image src={card.img} alt={card.img} layout="fill" />
+                    <div className="card__text">
+                      <p>{card.time}</p>
+                      <h5>{card.name}</h5>
+                      <Icon
+                        site={`/projects/${card.id}`}
+                        text="see case study"
+                      />
+                    </div>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
+      </div>
+    </>
+  );
+};

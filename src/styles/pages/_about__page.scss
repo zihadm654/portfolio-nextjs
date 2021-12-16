@@ -9,7 +9,6 @@
   @include m.media(md) {
     padding: 3.7rem;
   }
-  // background: black;
   .about__description,
   .experience {
     text-align: center;
@@ -43,8 +42,9 @@
       letter-spacing: 0.079rem;
     }
   }
-  // .about__slider {
-  // }
+  .experience {
+    margin: 3rem 0;
+  }
   .html,
   .git {
     color: orangered;
@@ -69,6 +69,7 @@
     color: green;
   }
   .language__container {
+    padding: 3rem 0;
     .language__title {
       padding: 2rem;
       text-align: center;
@@ -122,11 +123,20 @@
     }
   }
   .principle {
+    padding: 3rem 0;
     h4 {
+      text-align: center;
       color: c.$fontColor;
     }
     .content {
       padding: 2.3rem 0;
+      h4 {
+        text-align: left;
+        color: #000;
+        font-weight: 600;
+        font-size: v.$md;
+        padding: 2rem 0;
+      }
       article {
         padding: 0.7rem 0;
         h5 {

@@ -29,7 +29,6 @@ const CaseDetails = ({ project }) => {
               </div>
             </div>
             <div className="case__study--right">
-              <h4>{project.name}</h4>
               <h5>{project.description}</h5>
             </div>
           </div>

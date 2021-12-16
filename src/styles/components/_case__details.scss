@@ -4,11 +4,16 @@
 .case__details {
   margin-top: 6rem;
   padding: 4rem 8rem;
+  @include m.media(sm) {
+    padding: 4rem 3rem;
+  }
   .container {
-    @include m.flex(center);
-    align-items: flex-start;
+    @include m.grid;
     .case__study--left {
-      flex: 0.3;
+      grid-column: 1/6;
+      @include m.media(sm) {
+        grid-column: 1/13;
+      }
       .context {
         margin: 2rem 0;
         h4 {
@@ -25,14 +30,16 @@
       }
     }
     .case__study--right {
-      flex: 0.7;
+      grid-column: 6/13;
+      @include m.media(sm) {
+        grid-column: 1/13;
+      }
       @include m.media(xlg) {
-        margin-left: 15%;
+        margin-left: 16%;
         margin-top: 5.5rem;
       }
       h5 {
         color: gray;
-        font-weight: 600;
       }
     }
     padding: 5rem 0;
@@ -46,7 +53,7 @@
   }
   .img__wrapper {
     position: relative;
-    height: 40em;
+    height: 60rem;
     width: 100%;
     img {
       height: 100%;

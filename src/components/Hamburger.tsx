@@ -4,7 +4,9 @@ function Hamburger({ menu, hide }) {
   return (
     <motion.div
       className={!menu ? 'hamburger' : 'hamburger menu'}
-      variants={transit}
+      variants={container}
+      initial="hidden"
+      animate="show"
     >
       <div className="menu__layer">
         <div className="container">
@@ -74,11 +76,19 @@ function Hamburger({ menu, hide }) {
 
 export default Hamburger;
 
-const transit = {
-  initial: {
+const container = {
+  hidden: {
     y: 100,
+    scale: 0.7,
+    opacity: 0,
   },
   show: {
+    opacity: 1,
     y: 0,
+    scale: 1,
+    transition: {
+      ease: 'easeOut',
+      duration: 0.3,
+    },
   },
 };

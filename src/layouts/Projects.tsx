@@ -1,9 +1,9 @@
 import { Button } from '../utility/Button';
-// import { FeaturedCards } from '../components/Cards';
+import { FeaturedCard } from '../components/Cards';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
 
 function Projects({ posts }) {
-  console.log(posts);
-
   return (
     <>
       <section className="project">
@@ -14,7 +14,7 @@ function Projects({ posts }) {
             inspiring animations.
           </p>
         </div>
-        {/* <Cards /> */}
+        <FeaturedCard posts={posts} />
       </section>
       <div className="btn__container">
         <Button
@@ -27,3 +27,20 @@ function Projects({ posts }) {
   );
 }
 export default Projects;
+
+export const getStaticProps = async () => {
+  const colRef = collection(db, 'projects');
+
+  const res = await getDocs(colRef);
+
+  const posts = res.docs.map((doc) => {
+    return {
+      id: doc.id,
+      ...doc.data(),
+      createdAt: doc.data().createdAt.toMillis(),
+    };
+  });
+  return {
+    props: { posts },
+  };
+};

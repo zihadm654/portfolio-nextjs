@@ -1,0 +1,9 @@
+@use '../helpers/mixins' as m;
+
+.story__page {
+  margin-top: 4rem;
+  padding: 4rem 8rem;
+  @include m.media(sm) {
+    padding: 3rem;
+  }
+}

@@ -27,6 +27,16 @@ function BlogDetails({ blog }) {
               <div className="img__container">
                 <Image src={blog.img} alt={blog.img} layout="fill" />
               </div>
+              <div className="articles">
+                {blog.articles.map((i) => {
+                  return (
+                    <article key={i.title}>
+                      <h4>{i.title}</h4>
+                      <p>{i.body}</p>
+                    </article>
+                  );
+                })}
+              </div>
             </div>
           </article>
         )}

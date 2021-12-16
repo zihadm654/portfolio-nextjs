@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-// import { SlideData } from "../components/SlideData"
-// import Loader from "../components/Loader"
 import Link from 'next/link';
 import {
   SiHtml5,
@@ -14,11 +11,9 @@ import {
   SiGreensock,
   SiNextDotJs,
 } from 'react-icons/si';
+import Testimonial from '../../src/layouts/Testimonial';
 
 const AboutPage = () => {
-  useEffect(() => {
-    // window.scroll(0, 0);
-  }, []);
   return (
     <>
       <section className="about__page">
@@ -37,7 +32,7 @@ const AboutPage = () => {
             spare time I enjoy to see sunset and adventures.
           </p>
         </div>
-        {/*<div className="about__slider"></div>*/}
+        <Testimonial />
         <div className="experience">
           <h5>EXPERIENCE</h5>
           <h3>Over 3 years of experience</h3>
@@ -88,7 +83,7 @@ const AboutPage = () => {
         <div className="principle">
           <h4>Principles I do use?</h4>
           <div className="content">
-            <h5>For design purposes</h5>
+            <h4>For design purposes</h4>
             <article>
               <h5>Grid System</h5>
               <p>
@@ -98,7 +93,17 @@ const AboutPage = () => {
                 divide the design into<span> 3 parts.</span>
               </p>
             </article>
-            <h5>For Development purposes</h5>
+            <article>
+              <h5>Component Style</h5>
+              <p>
+                I like to use small components and resuse most of the time. That
+                way i can be consistent with design and make work easier. And
+                most importantly this approach can save time{' '}
+                <span>small components</span> And component is like varible if i
+                change one it will be changed all at one.
+              </p>
+            </article>
+            <h4>For Development purposes</h4>
             <article>
               <h5>Bem naming convention</h5>
               <p>
@@ -106,6 +111,15 @@ const AboutPage = () => {
                 <span>BEM</span> naming convention to call the classes of html
                 elements. It helps me when i style website with SCSS. I can use
                 nested style and <span>& percentage</span> .
+              </p>
+            </article>
+            <article>
+              <h5>Small components</h5>
+              <p>
+                By Small components i ment simply dividing my big problems into
+                small parts. Simpilicity is the king in every aspect of our
+                life. <span>small components</span> saves a lot of time and make
+                work more productive.
               </p>
             </article>
           </div>
