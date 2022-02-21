@@ -1,14 +1,35 @@
 // import { Button } from '../../src/utility/Button';
-import { useState } from 'react';
+import { addDoc, collection } from "firebase/firestore";
+import { useState } from "react";
+import { db } from "../../lib/firebase";
+
 function ContactPage() {
-  const initial = { name: '', email: '', message: '' };
-  const [formValue, setFormValue] = useState(initial);
-  const handleSubmit = (e) => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const ref = await addDoc(collection(db, "users"), {
+        name: user.name,
+        email: user.email,
+        message: user.message,
+      });
+      console.log("send successfully");
+    } catch (err) {
+      console.log(err);
+    }
+    setUser({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValue({ ...formValue, [name]: value });
+    setUser({ ...user, [name]: value });
   };
 
   return (
@@ -28,7 +49,7 @@ function ContactPage() {
               type="text"
               name="name"
               onChange={handleChange}
-              value={formValue.name}
+              value={user.name}
             />
             <label>What&apos;s your Name?</label>
           </div>
@@ -38,7 +59,7 @@ function ContactPage() {
               type="email"
               name="email"
               onChange={handleChange}
-              value={formValue.email}
+              value={user.email}
             />
             <label>Your Email </label>
           </div>
@@ -48,7 +69,7 @@ function ContactPage() {
               type="text-area"
               name="message"
               onChange={handleChange}
-              value={formValue.message}
+              value={user.message}
             />
             <label htmlFor="">Tell use about your project...</label>
           </div>
