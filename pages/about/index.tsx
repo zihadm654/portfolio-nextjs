@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 import {
   SiHtml5,
   SiCss3,
@@ -9,9 +9,9 @@ import {
   SiGit,
   SiFirebase,
   SiGreensock,
-  SiNextDotJs,
-} from 'react-icons/si';
-import Testimonial from '../../src/layouts/Testimonial';
+  SiNextdotjs,
+} from "react-icons/si";
+import Testimonial from "../../src/layouts/Testimonial";
 
 const AboutPage = () => {
   return (
@@ -20,7 +20,7 @@ const AboutPage = () => {
         <div className="about__description">
           <h5>A FEW WORDS ABOUT ME</h5>
           <h3>
-            I’m Abdul Malik, a{' '}
+            I’m Abdul Malik, a{" "}
             <span>Front-end-developer & UI/UX designer </span> who focuses on
             telling stories visually, through <span>minimalistic </span> and
             clear way. I design and develop <span>responsive websites </span>and
@@ -32,7 +32,6 @@ const AboutPage = () => {
             spare time I enjoy to see sunset and adventures.
           </p>
         </div>
-        <Testimonial />
         <div className="experience">
           <h5>EXPERIENCE</h5>
           <h3>Over 3 years of experience</h3>
@@ -40,8 +39,8 @@ const AboutPage = () => {
             I’ve been lucky enough to establish relationships with amazing
             clients from all over the world, ranging from individual clients,
             through up-and-coming startups, to multinational companies. For more
-            details, head over to my{' '}
-            <Link href={'https://www.linkedin.com/in/zihadm654'}>
+            details, head over to my{" "}
+            <Link href={"https://www.linkedin.com/in/zihadm654"}>
               <a>LinkedIn profile</a>
             </Link>
             .
@@ -52,7 +51,7 @@ const AboutPage = () => {
             <h4>LANGUAGES & TOOLS I DO USE</h4>
           </div>
           <div className="languages">
-            <SiNextDotJs className="language next-js" />
+            <SiNextdotjs className="language next-js" />
             <SiReact className="language react" />
             <SiHtml5 className="language html" />
             <SiJavascript className="language javascript" />
@@ -80,6 +79,7 @@ const AboutPage = () => {
             <h4>VS code / Figma / Photoshop / Adobe XD / Pen & paper</h4>
           </div>
         </div>
+        {/* <Testimonial /> */}
         <div className="principle">
           <h4>Principles I do use?</h4>
           <div className="content">
@@ -98,7 +98,7 @@ const AboutPage = () => {
               <p>
                 I like to use small components and resuse most of the time. That
                 way i can be consistent with design and make work easier. And
-                most importantly this approach can save time{' '}
+                most importantly this approach can save time{" "}
                 <span>small components</span> And component is like varible if i
                 change one it will be changed all at one.
               </p>
@@ -107,7 +107,7 @@ const AboutPage = () => {
             <article>
               <h5>Bem naming convention</h5>
               <p>
-                In development part. When i write Html i probably use{' '}
+                In development part. When i write Html i probably use{" "}
                 <span>BEM</span> naming convention to call the classes of html
                 elements. It helps me when i style website with SCSS. I can use
                 nested style and <span>& percentage</span> .

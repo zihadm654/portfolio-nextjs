@@ -1,53 +1,17 @@
-import Image from 'next/image';
-import { db } from '../../lib/firebase';
-import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
-
-function BlogDetails({ blog }) {
+import Image from "next/image";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+function BlogDetails({ frontMatter, mdxSource, slug }) {
   return (
     <div className="blog__details">
-      <div className="conclution">
-        {blog && (
-          <article key={blog.id}>
-            <h3>{blog.title}</h3>
-            <div className="description">
-              <div className="author__container">
-                <div className="info__left">
-                  <div className="author__img"></div>
-                  <p>{blog.author}</p>
-                  <span>/</span>
-                  <p>{new Date(blog.createdAt).toDateString()}</p>
-                </div>
-                <div className="info__right">
-                  <p>*12 min read</p>
-                  <p>{blog.location}</p>
-                </div>
-              </div>
-              <div className="img__container">
-                <Image src={blog.img} alt={blog.img} layout="fill" />
-              </div>
-              <div className="articles">
-                {/* {blog.articles.map((i) => {
-                  return (
-                    <article key={i.title}>
-                      <h4>{i.title}</h4>
-                      <p>{i.body}</p>
-                    </article>
-                  );
-                })} */}
-              </div>
-            </div>
-          </article>
-        )}
-        <h4>Conclusion:-</h4>
-        <p>
-          Learn by breaking things into parts and enjoying that you are doing
-          that is the effective way to get going with programming. Because
-          without understanding it you cant go long way. So, have fun
-        </p>
-        <h5>I am Abdul malik.</h5>
-        <span> Front-end-developer & UI/UX designer</span>
-        <p>I am there to make developer life easier.</p>
-      </div>
+      <article>
+        <Image src={frontMatter.cover_img} alt="banner" layout="fill" />
+        <h2>{frontMatter.title}</h2>
+        <MDXRemote {...mdxSource} />
+      </article>
     </div>
   );
 }
@@ -55,10 +19,12 @@ function BlogDetails({ blog }) {
 export default BlogDetails;
 
 export const getStaticPaths = async () => {
-  const snapshot = await getDocs(collection(db, 'blogs'));
-  const paths = snapshot.docs.map((doc) => {
+  const files = fs.readdirSync(path.join("data"));
+  const paths = files.map((file) => {
     return {
-      params: { slug: doc.id.toString() },
+      params: {
+        slug: file.replace(".mdx", ""),
+      },
     };
   });
   return {
@@ -66,17 +32,16 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
-export const getStaticProps = async (context) => {
-  const id = context.params.slug;
-  const docRef = doc(db, 'blogs', id);
-  const docSnap = await getDoc(docRef);
-  const blog = {
-    ...docSnap.data(),
-    id: docSnap.id,
-    createdAt: docSnap.data().createdAt.toMillis(),
-  };
+export const getStaticProps = async ({ params: { slug } }) => {
+  const markdown = fs.readFileSync(path.join("data", slug + ".mdx"), "utf-8");
+  const { data: frontMatter, content } = matter(markdown);
+  const mdxSource = await serialize(content);
 
   return {
-    props: { blog },
+    props: {
+      frontMatter,
+      slug,
+      mdxSource,
+    },
   };
 };

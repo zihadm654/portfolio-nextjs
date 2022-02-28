@@ -1,7 +1,7 @@
-import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
-import { ImQuotesLeft, ImQuotesRight } from 'react-icons/im';
-import { useState } from 'react';
-import slidedata from '../data/slidedata.json';
+import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+import { useState } from "react";
+import slidedata from "../../data/slideData/slidedata.json";
 function Slider() {
   const [activeItem, setActiveItem] = useState(0);
 
@@ -40,7 +40,7 @@ function Slider() {
           <div
             key={i}
             onClick={() => moveDot(i)}
-            className={activeItem === i ? 'dot active' : 'dot'}
+            className={activeItem === i ? "dot active" : "dot"}
           ></div>
         ))}
       </div>

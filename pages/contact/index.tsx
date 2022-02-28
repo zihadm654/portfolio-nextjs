@@ -39,7 +39,8 @@ function ContactPage() {
           <h5>LET&apos;S TALK</h5>
           <h2>Hello! We&apos;ve been waiting for you.</h2>
           <p>
-            Fill in the form or <span>Send us an email</span>
+            Fill in the form or{" "}
+            <a href="mailto:zihadm654@gmail.com">Send us an email</a>
           </p>
         </div>
         <form name="contact" onSubmit={handleSubmit}>

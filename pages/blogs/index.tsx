@@ -1,37 +1,37 @@
-import { collection, getDocs } from 'firebase/firestore';
-import Link from 'next/link';
-import { db } from '../../lib/firebase';
+import Link from "next/link";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
-const BlogPage = ({ Blogs }) => {
+const BlogPage = ({ posts }) => {
   return (
     <>
       <div className="blog__page">
-        <h3>Blog</h3>
+        <h3>My Blogs</h3>
         <p>
-          I&apos;ve been writing online since 2014, mostly about web development
-          and tech careers. In total, I&apos;ve written 68 articles on this
-          site. Use the search below to filter by title.
+          I&apos;ve been writing online since 2020, mostly about web development
+          and tech careers. In total, I&apos;ve written 10 articles on this
+          site.
         </p>
         <div className="container">
-          <h3>All Posts</h3>
-          {Blogs &&
-            Blogs.map((blog) => {
-              return (
-                <article className="content" key={blog.id}>
-                  <Link href="/blogs/[slug]" as={'/blogs/' + blog.id}>
-                    <a>
-                      <div className="description">
-                        <div className="blog__title">
-                          <h5>{blog.title}</h5>
-                          <p>{new Date(blog.createdAt).toDateString()}</p>
-                        </div>
-                        <p>{blog.sub}</p>
+          <h3>Featured Blogs</h3>
+          {posts?.map((blog) => {
+            return (
+              <article className="content" key={blog.slug}>
+                <Link href="/blogs/[slug]" as={"/blogs/" + blog.slug}>
+                  <a>
+                    <div className="description">
+                      <div className="blog__title">
+                        <h5>{blog.frontMatter.title}</h5>
+                        {/* <p>{new Date(blog.createdAt).toDateString()}</p> */}
                       </div>
-                    </a>
-                  </Link>
-                </article>
-              );
-            })}
+                      <p>{blog.sub}</p>
+                    </div>
+                  </a>
+                </Link>
+              </article>
+            );
+          })}
         </div>
       </div>
     </>
@@ -40,17 +40,21 @@ const BlogPage = ({ Blogs }) => {
 export default BlogPage;
 
 export const getStaticProps = async () => {
-  const res = await getDocs(collection(db, 'blogs'));
-
-  const Blogs = res.docs.map((doc) => {
-    return {
-      ...doc.data(),
-      createdAt: doc.data().createdAt.toMillis(),
-      id: doc.id,
-    };
-  });
-
+  let files = fs.readdirSync(path.join("data"));
+  files = files.filter((file) => file.split(".")[1] === "mdx");
+  const posts = await Promise.all(
+    files.map((file) => {
+      const mdWithData = fs.readFileSync(path.join("data", file), "utf-8");
+      const { data: frontMatter } = matter(mdWithData);
+      return {
+        frontMatter,
+        slug: file.split(".")[0],
+      };
+    })
+  );
   return {
-    props: { Blogs },
+    props: {
+      posts,
+    },
   };
 };
