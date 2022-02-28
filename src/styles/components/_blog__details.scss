@@ -1,5 +1,5 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/variables' as v;
+@use "../helpers/mixins" as m;
+@use "../helpers/variables" as v;
 .blog__details {
   margin-top: 5rem;
   padding: 4rem 8rem;
@@ -52,21 +52,9 @@
           width: 100%;
         }
       }
-      .articles {
-        padding: 3rem 0;
-        article {
-          padding: 1rem 0;
-        }
-      }
     }
   }
-  .conclution {
-    padding-top: 3rem;
-    p {
-      padding: 0.5rem 0;
-    }
-    span {
-      font-size: v.$p;
-    }
+  .markdown {
+    margin: 2rem 0;
   }
 }

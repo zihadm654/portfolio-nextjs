@@ -1,24 +1,24 @@
-@use '../helpers/variables' as v;
-@use '../helpers/colors' as c;
+@use "../helpers/variables" as v;
+@use "../helpers/colors" as c;
 h1 {
   font-size: v.$xxlr;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.3;
 }
 h2 {
   font-size: v.$sbtl;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.1;
 }
 h3 {
   font-size: v.$xlr;
-  line-height: 1;
+  line-height: 1.1;
   font-weight: 500;
 }
 h4 {
   line-height: 1;
   font-size: v.$lr;
-  font-weight: 400;
+  font-weight: 500;
 }
 h5 {
   line-height: 1;
@@ -28,7 +28,6 @@ h5 {
 p {
   line-height: 1.3;
   font-size: v.$p;
-  color: c.$fontColor;
 }
 a {
   font-weight: 400;

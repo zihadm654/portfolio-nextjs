@@ -2,10 +2,18 @@ import Link from "next/link";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import Head from "next/head";
 
 const BlogPage = ({ posts }) => {
   return (
     <>
+      <Head>
+        <title>Blog || Abdul Malek</title>
+        <meta
+          name="blog page"
+          content="this page is all about blogpost. It holds all the blogs inside this website contains."
+        />
+      </Head>
       <div className="blog__page">
         <h3>My Blogs</h3>
         <p>
@@ -22,10 +30,10 @@ const BlogPage = ({ posts }) => {
                   <a>
                     <div className="description">
                       <div className="blog__title">
-                        <h5>{blog.frontMatter.title}</h5>
-                        {/* <p>{new Date(blog.createdAt).toDateString()}</p> */}
+                        <h4>{blog.frontMatter.title}</h4>
+                        <p>{blog.frontMatter.created_at}</p>
                       </div>
-                      <p>{blog.sub}</p>
+                      <p>{blog.frontMatter.description}</p>
                     </div>
                   </a>
                 </Link>

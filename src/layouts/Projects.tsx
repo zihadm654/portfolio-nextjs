@@ -1,7 +1,7 @@
-import { Button } from '../utility/Button';
-import { FeaturedCard } from '../components/Cards';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../lib/firebase';
+import { Button } from "../utility/Button";
+import { FeaturedCard } from "../components/Cards";
+import { collection, getDocs, query, limit, orderBy } from "firebase/firestore";
+import { db } from "../../lib/firebase";
 
 function Projects({ posts }) {
   return (
@@ -18,9 +18,9 @@ function Projects({ posts }) {
       </section>
       <div className="btn__container">
         <Button
-          className={'secondary__btn'}
-          site={'/projects'}
-          text={'see more'}
+          className={"secondary__btn"}
+          site={"/projects"}
+          text={"see more"}
         />
       </div>
     </>
@@ -29,17 +29,17 @@ function Projects({ posts }) {
 export default Projects;
 
 export const getStaticProps = async () => {
-  const colRef = collection(db, 'projects');
-
-  const res = await getDocs(colRef);
-
-  const posts = res.docs.map((doc) => {
+  const colRef = collection(db, "projects");
+  const snap = await query(colRef, limit(6), orderBy("createdAt", "desc"));
+  const res = await getDocs(snap);
+  const posts = res?.docs.map((doc) => {
     return {
       id: doc.id,
       ...doc.data(),
       createdAt: doc.data().createdAt.toMillis(),
     };
   });
+
   return {
     props: { posts },
   };

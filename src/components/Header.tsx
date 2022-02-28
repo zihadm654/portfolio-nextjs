@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import logo from '../../public/assets/logo.png';
-import Hamburger from './Hamburger';
-import { CgMenu } from 'react-icons/cg';
-import { MdClose } from 'react-icons/md';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import logo from "../../public/assets/logo.png";
+import Hamburger from "./Hamburger";
+import { CgMenu } from "react-icons/cg";
+import { MdClose } from "react-icons/md";
 
 function Header() {
   const [menu, setMenu] = useState(false);
@@ -22,28 +22,28 @@ function Header() {
     }
   };
   useEffect(() => {
-    window.addEventListener('scroll', stickyNav);
+    window.addEventListener("scroll", stickyNav);
   }, []);
   return (
     <>
-      <nav className={sticky ? 'navbar sticky' : 'navbar'}>
+      <nav className={sticky ? "navbar sticky" : "navbar"}>
         <div className="navbar__left">
           <Link href="/">
             <a>
               <div className="logo">
                 <Image src={logo} height="500" width="500" alt="" />
-                <h4 className={menu ? 'active' : ''}>Abdul Malik</h4>
+                <h4 className={menu ? "active" : ""}>Abdul Malek</h4>
               </div>
             </a>
           </Link>
         </div>
         <div className="menu" onClick={handleClick}>
-          <h5 className={menu ? 'active' : ''}>{!menu ? 'menu' : 'close'}</h5>
+          <h5 className={menu ? "active" : ""}>{!menu ? "Menu" : "Close"}</h5>
           <div>
             {!menu ? (
-              <CgMenu style={{ fontSize: '3rem' }} />
+              <CgMenu style={{ fontSize: "3rem" }} />
             ) : (
-              <MdClose style={{ fontSize: '3rem', color: '#fff' }} />
+              <MdClose style={{ fontSize: "3rem", color: "#fff" }} />
             )}
           </div>
         </div>

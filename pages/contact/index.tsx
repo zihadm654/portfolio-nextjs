@@ -2,6 +2,7 @@
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../lib/firebase";
+import Head from "next/head";
 
 function ContactPage() {
   const [user, setUser] = useState({
@@ -34,6 +35,13 @@ function ContactPage() {
 
   return (
     <>
+      <Head>
+        <title>Contact || Abdul Malek</title>
+        <meta
+          name="Contact page "
+          content="this page is responsible for all the contact form and contact information for this website"
+        />
+      </Head>
       <section className="contact__page">
         <div className="content">
           <h5>LET&apos;S TALK</h5>

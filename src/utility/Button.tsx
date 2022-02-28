@@ -1,6 +1,6 @@
-import { BsArrowRight } from 'react-icons/bs';
+import { BsArrowRight } from "react-icons/bs";
 
-import Link from 'next/link';
+import Link from "next/link";
 export function Button({ text, className, site }) {
   return (
     <button type="button" className={className}>
@@ -17,7 +17,7 @@ export function Icon({ site, text }) {
       <Link href={site}>
         <a>{text}</a>
       </Link>
-      <BsArrowRight className={'icon'} />
+      <BsArrowRight className={"icon"} />
     </div>
   );
 }

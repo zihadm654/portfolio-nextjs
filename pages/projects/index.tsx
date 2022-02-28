@@ -1,11 +1,18 @@
-import { db } from '../../lib/firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import { db } from "../../lib/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
-import Cards from '../../src/components/Cards';
-
+import Cards from "../../src/components/Cards";
+import Head from "next/head";
 const ProjectPage = ({ projects }) => {
   return (
     <>
+      <Head>
+        <title>Projects page || Abdul Malek</title>
+        <meta
+          name="projects"
+          content="This project page holds all the projects completed for showcase."
+        ></meta>
+      </Head>
       <section className="projects">
         <div className="projects__title">
           <h3>
@@ -29,10 +36,10 @@ const ProjectPage = ({ projects }) => {
 export default ProjectPage;
 
 export const getStaticProps = async () => {
-  const colRef = collection(db, 'projects');
+  const colRef = collection(db, "projects");
 
   const res = await getDocs(colRef);
-  const projects = res.docs.map((doc) => {
+  const projects = res?.docs.map((doc) => {
     return {
       id: doc.id,
       ...doc.data(),

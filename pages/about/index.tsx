@@ -12,15 +12,22 @@ import {
   SiNextdotjs,
 } from "react-icons/si";
 import Testimonial from "../../src/layouts/Testimonial";
-
+import Head from "next/head";
 const AboutPage = () => {
   return (
     <>
+      <Head>
+        <title>About || Abdul Malek</title>
+        <meta
+          name="About page"
+          content="This about page holds all the necessary information about Abdul Malek"
+        ></meta>
+      </Head>
       <section className="about__page">
         <div className="about__description">
           <h5>A FEW WORDS ABOUT ME</h5>
           <h3>
-            I’m Abdul Malik, a{" "}
+            I&amp;m Abdul Malik, a{" "}
             <span>Front-end-developer & UI/UX designer </span> who focuses on
             telling stories visually, through <span>minimalistic </span> and
             clear way. I design and develop <span>responsive websites </span>and
@@ -36,7 +43,7 @@ const AboutPage = () => {
           <h5>EXPERIENCE</h5>
           <h3>Over 3 years of experience</h3>
           <p>
-            I’ve been lucky enough to establish relationships with amazing
+            I&amp;ve been lucky enough to establish relationships with amazing
             clients from all over the world, ranging from individual clients,
             through up-and-coming startups, to multinational companies. For more
             details, head over to my{" "}

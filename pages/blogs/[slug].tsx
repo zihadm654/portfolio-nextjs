@@ -4,15 +4,41 @@ import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-function BlogDetails({ frontMatter, mdxSource, slug }) {
+import Head from "next/head";
+
+function BlogDetails({ frontMatter, mdxSource }) {
   return (
-    <div className="blog__details">
-      <article>
-        <Image src={frontMatter.cover_img} alt="banner" layout="fill" />
-        <h2>{frontMatter.title}</h2>
-        <MDXRemote {...mdxSource} />
-      </article>
-    </div>
+    <>
+      <Head>
+        <title>{frontMatter.title}</title>
+        <meta name={frontMatter.title} content={frontMatter.description} />
+      </Head>
+      <div className="blog__details">
+        <article>
+          <h3>{frontMatter.title}</h3>
+          <div className="description">
+            <div className="author__container">
+              <div className="info__left">
+                <div className="author__img"></div>
+                <p>{frontMatter.author}</p>
+                <span>/</span>
+                <p>{frontMatter.created_at}</p>
+              </div>
+              <div className="info__right">
+                <p>{frontMatter.time}</p>
+              </div>
+            </div>
+            <div className="img__container">
+              <Image src={frontMatter.cover_img} alt="banner" layout="fill" />
+            </div>
+          </div>
+          <p>{frontMatter.description}</p>
+        </article>
+        <article className="markdown">
+          <MDXRemote {...mdxSource} />
+        </article>
+      </div>
+    </>
   );
 }
 
@@ -43,5 +69,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
       slug,
       mdxSource,
     },
+    revalidate: 10,
   };
 };
