@@ -49,11 +49,11 @@ const BlogPage = ({ posts }) => {
 export default BlogPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  let files = fs.readdirSync(path.join("data"));
-  files = files.filter((file) => file.split(".")[1] === "mdx");
+  let files = fs.readdirSync(path.join("data/blogs"));
+  files = files.filter((file) => file.split(".")[1] === "md");
   const posts = await Promise.all(
     files.map((file) => {
-      const mdWithData = fs.readFileSync(path.join("data", file), "utf-8");
+      const mdWithData = fs.readFileSync(path.join("data/blogs", file), "utf-8");
       const { data: frontMatter } = matter(mdWithData);
       return {
         frontMatter,

@@ -45,11 +45,11 @@ function BlogDetails({ frontMatter, mdxSource }) {
 export default BlogDetails;
 
 export const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("data"));
+  const files = fs.readdirSync(path.join("data/blogs"));
   const paths = files.map((file) => {
     return {
       params: {
-        slug: file.replace(".mdx", ""),
+        slug: file.replace(".md", ""),
       },
     };
   });
@@ -59,7 +59,10 @@ export const getStaticPaths = async () => {
   };
 };
 export const getStaticProps = async ({ params: { slug } }) => {
-  const markdown = fs.readFileSync(path.join("data", slug + ".mdx"), "utf-8");
+  const markdown = fs.readFileSync(
+    path.join("data/blogs", slug + ".md"),
+    "utf-8"
+  );
   const { data: frontMatter, content } = matter(markdown);
   const mdxSource = await serialize(content);
 
