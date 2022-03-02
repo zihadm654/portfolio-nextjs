@@ -1,26 +1,16 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/colors' as c;
-@use '../helpers/variables' as v;
+@use "../helpers/mixins" as m;
+@use "../helpers/colors" as c;
+@use "../helpers/variables" as v;
 * {
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
 }
-::-webkit-scrollbar {
-  width: 0.9rem !important;
-}
-::-webkit-scrollbar-thumb {
-  background: rgb(160, 160, 160);
-  border-radius: 0.8rem;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: gray;
-}
 html {
   scroll-behavior: smooth;
   font-size: 66.5%;
   @include m.media(sm) {
-    font-size: 39%;
+    font-size: 40%;
   }
   @include m.media(md) {
     font-size: 44%;
@@ -35,6 +25,7 @@ html {
 body {
   color: c.$dominant;
   font-family: v.$primary-font;
+  position: relative;
 }
 a {
   color: c.$dominant;

@@ -8,7 +8,7 @@ const CaseDetails = ({ project }) => {
     <>
       <Head>
         <title>{project.name}</title>
-        <meta name={project.name} content={project.description} />
+        <meta name="description" content={project.description} />
       </Head>
       <section className="case__details">
         {project && (

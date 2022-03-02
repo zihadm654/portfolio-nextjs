@@ -1,0 +1,15 @@
+@use "../helpers/mixins" as m;
+
+.loading {
+  top: 0%;
+  left: 0%;
+  position: absolute;
+  background-color: #000;
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
+  @include m.flex(center);
+  .circle {
+    font-size: larger;
+  }
+}

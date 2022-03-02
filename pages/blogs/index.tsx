@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Head from "next/head";
+import { GetStaticProps } from "next";
 
 const BlogPage = ({ posts }) => {
   return (
@@ -47,7 +48,7 @@ const BlogPage = ({ posts }) => {
 };
 export default BlogPage;
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   let files = fs.readdirSync(path.join("data"));
   files = files.filter((file) => file.split(".")[1] === "mdx");
   const posts = await Promise.all(

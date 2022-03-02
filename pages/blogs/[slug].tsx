@@ -11,7 +11,7 @@ function BlogDetails({ frontMatter, mdxSource }) {
     <>
       <Head>
         <title>{frontMatter.title}</title>
-        <meta name={frontMatter.title} content={frontMatter.description} />
+        <meta name="description" content={frontMatter.description} />
       </Head>
       <div className="blog__details">
         <article>
@@ -69,6 +69,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
       slug,
       mdxSource,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 };

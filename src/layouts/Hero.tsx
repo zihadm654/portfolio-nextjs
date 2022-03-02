@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Available from '../../public/assets/available.svg';
-import { Button } from '../utility/Button';
+import Image from "next/image";
+import Available from "../../public/assets/available.svg";
+import { Button } from "../utility/Button";
 function Hero() {
   return (
     <section id="hero" className="hero__wrapper">

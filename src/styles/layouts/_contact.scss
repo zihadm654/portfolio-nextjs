@@ -1,6 +1,6 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/colors' as c;
-@use '../helpers/variables' as v;
+@use "../helpers/mixins" as m;
+@use "../helpers/colors" as c;
+@use "../helpers/variables" as v;
 .contact {
   position: relative;
   padding: 4rem 8rem;
@@ -55,7 +55,7 @@
       }
       .lang {
         @include m.media(sm) {
-          left: -2rem;
+          left: -4rem;
         }
         position: absolute;
         bottom: 1rem;

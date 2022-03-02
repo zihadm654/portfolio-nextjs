@@ -1,8 +1,9 @@
 import { db } from "../../lib/firebase";
 import { getDocs, collection } from "firebase/firestore";
-
+import { GetStaticProps } from "next";
 import Cards from "../../src/components/Cards";
 import Head from "next/head";
+
 const ProjectPage = ({ projects }) => {
   return (
     <>
@@ -35,7 +36,7 @@ const ProjectPage = ({ projects }) => {
 
 export default ProjectPage;
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const colRef = collection(db, "projects");
 
   const res = await getDocs(colRef);
