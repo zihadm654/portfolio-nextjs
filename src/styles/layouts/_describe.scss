@@ -1,5 +1,5 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/variables' as v;
+@use "../helpers/mixins" as m;
+@use "../helpers/variables" as v;
 
 .describe {
   @include m.grid;
@@ -50,14 +50,9 @@
           margin-bottom: 1rem;
         }
         li {
-          background-size: 1em 1em;
-          padding-left: 3rem;
           margin-bottom: 0.5rem;
-          background-position: 0 50%;
           font-size: v.$p;
           list-style: none;
-          background-image: url('https://uploads-ssl.webflow.com/603a00d2496482478db36f56/6059b9ce9376de30a9282afd_icon-checkmark.svg');
-          background-repeat: no-repeat;
         }
       }
     }

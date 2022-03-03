@@ -9,7 +9,7 @@ function Hero() {
           <Image src={Available} alt="available" />
         </div>
         <h5>
-          Hello, I am Abdul Malik
+          Hello, I am Abdul Malek
           <svg width="40px" height="1" color="#8f00ff">
             <path fillRule="evenodd" d="M0 0h66v4H0z" />
           </svg>
@@ -18,9 +18,9 @@ function Hero() {
         <h1>Taking your vision and serving it as a reality</h1>
         <p>
           I am a self-taught Front-end-developer and UI/UX designer. Crafting
-          Website Based on <span>Simplicity and Performance</span> that are
+          Website Based on <strong>Simplicity and Performance</strong> that are
           conversions-focused, brand-accurate,
-          <span> user-friendly, and performent.</span>
+          <strong> user-friendly, and performent.</strong>
         </p>
         <Button
           className="primary__btn"

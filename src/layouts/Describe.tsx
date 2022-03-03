@@ -1,10 +1,10 @@
-import { Button } from '../utility/Button';
+import { Button } from "../utility/Button";
 function Describe() {
   return (
     <div className="describe">
       <div className="describe__left">
         <h1>
-          Your website should turn<strong> visitors</strong> into{' '}
+          Your website should turn<strong> visitors</strong> into{" "}
           <strong>engaged</strong> customers
         </h1>
         <h5>
@@ -18,8 +18,8 @@ function Describe() {
           looking website; although that is most definitely a part of it.
         </p>
         <div className="line__img">
+          <h5>What I mean by a high-performing website is:</h5>
           <ul>
-            <h5>What I mean by a high-performing website is:</h5>
             <li>LOOKING GOOD</li>
             <li>PLUS Getting discovered by your clients</li>
             <li>PLUS closing them</li>
@@ -40,7 +40,7 @@ function Describe() {
           connect with me by booking your free, 30-minute call below.
         </p>
         <Button
-          site={'/contact'}
+          site={"/contact"}
           className="primary__btn"
           text="Book a free consultantion"
         />

@@ -19,7 +19,7 @@ function Projects({ posts }) {
           <Button
             className={"secondary__btn"}
             site={"/projects"}
-            text={"see more"}
+            text={"see all projects"}
           />
         </div>
       </section>
