@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import Footer from '../components/Footer';
-import { Button } from '../utility/Button';
-import Link from 'next/link';
-import { BsArrowUp } from 'react-icons/bs';
+import { useState, useEffect } from "react";
+import Footer from "../components/Footer";
+import { Button } from "../utility/Button";
+import Link from "next/link";
+import { BsArrowUp } from "react-icons/bs";
 function Contact() {
   const [show, setShow] = useState(false);
   const [info, setInfo] = useState(false);
@@ -20,40 +20,40 @@ function Contact() {
         </div>
         <div className="callaction">
           <Button
-            site={'/contact'}
-            className={'primary__btn'}
-            text={'Book a free consultation'}
+            site={"/contact"}
+            className={"primary__btn"}
+            text={"Book a free consultation"}
           />
           <Button
-            site={'/contact'}
-            className={'custom__btn'}
-            text={'Send an email to me'}
+            site={"/contact"}
+            className={"custom__btn"}
+            text={"Send an email to me"}
           />
         </div>
         <div className="media">
           <div className="social__media">
-            <Link href={'https://dribbble.com/zihadm654'}>
+            <Link href={"https://dribbble.com/zihadm654"}>
               <a>Dribbble</a>
             </Link>
-            <Link href={'https://www.behance.net/zihadm654/'}>
+            <Link href={"https://www.behance.net/zihadm654/"}>
               <a>Behance</a>
             </Link>
-            <Link href={'https://instagram.com/zihadm65'}>
+            <Link href={"https://instagram.com/zihadm65"}>
               <a>Instagram</a>
             </Link>
-            <Link href={'https://github.com/zihadm654'}>
+            <Link href={"https://github.com/zihadm654"}>
               <a>Github</a>
             </Link>
-            <Link href={'https://www.linkedin.com/in/zihadm654'}>
+            <Link href={"https://www.linkedin.com/in/zihadm654"}>
               <a>Linkdin</a>
             </Link>
           </div>
           <hr />
           <div className="copyright">
             <p>
-              &copy; 2021 Abdul Malik || Made with{' '}
+              &copy; 2021 Abdul Malik || Made with{" "}
               <span
-                className={show ? 'active' : ''}
+                className={show ? "active" : null}
                 onClick={() => {
                   setShow(!show);
                 }}
@@ -62,7 +62,7 @@ function Contact() {
               </span>
             </p>
             <p className="lang">
-              {show ? 'Nextjs Scss Framer-Motion Firebase React-icons' : ''}
+              {show ? "Nextjs Scss Framer-Motion Firebase React-icons" : ""}
             </p>
           </div>
         </div>

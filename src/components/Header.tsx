@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/assets/logo.png";
 import Hamburger from "./Hamburger";
-import { CgMenu } from "react-icons/cg";
+import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 
 function Header() {
@@ -38,12 +38,12 @@ function Header() {
           </Link>
         </div>
         <div className="menu" onClick={handleClick}>
-          <h5 className={menu ? "active" : ""}>{!menu ? "Menu" : "Close"}</h5>
+          <h5 className={menu ? "active" : ""}></h5>
           <div>
             {!menu ? (
-              <CgMenu style={{ fontSize: "3rem" }} />
+              <HiOutlineMenuAlt4 style={{ fontSize: "3.5rem" }} />
             ) : (
-              <MdClose style={{ fontSize: "3rem", color: "#fff" }} />
+              <MdClose style={{ fontSize: "3.5rem", color: "#fff" }} />
             )}
           </div>
         </div>
