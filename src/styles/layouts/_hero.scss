@@ -1,62 +1,31 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/colors' as c;
-@use '../helpers/variables' as v;
-.hero__wrapper {
+@use "../helpers/mixins" as m;
+@use "../helpers/colors" as c;
+@use "../helpers/variables" as v;
+.hero {
+  background-color: #000000;
   padding: 4rem 8rem;
-  @include m.grid;
+  @include m.flex(center);
   @include m.media(sm) {
     padding: 2.5rem;
   }
-  &::before {
-    content: '';
-    position: absolute;
-    z-index: -20;
-    background: c.$circle1;
-    bottom: 0rem;
-    left: 0rem;
-    height: 100%;
-    width: 100%;
-    clip-path: circle(20vw at 10% 56%);
-  }
-  .hero__container {
+  &__left {
     position: relative;
-    @include m.media(sm) {
-      grid-column: 1/13;
-    }
-    grid-column: 2/11;
-    margin-top: 8rem;
+    margin-top: 2rem;
     padding: 2.5rem 0;
-    color: c.$dominant;
-    .circle__text {
-      position: absolute;
-      top: -7%;
-      right: 1%;
-      @include m.media(sm) {
-        display: none;
-      }
-      @include m.media(xxlg) {
-        right: -20%;
-      }
-      img {
-        height: 14rem;
-        width: 14rem;
-        animation: rotate 4s linear infinite;
-      }
-    }
+    color: #ffffff;
     h1 {
       margin: 1rem 0;
-    }
-    h5 {
-      @include m.flex(space-around);
     }
     p {
       font-size: v.$md;
       line-height: 1.4;
       font-weight: 500;
-      color: rgb(61, 61, 61);
     }
     .primary__btn {
       margin-top: 3rem;
     }
+  }
+  &__right {
+    flex: 1;
   }
 }

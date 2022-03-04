@@ -8,12 +8,12 @@
 }
 html {
   scroll-behavior: smooth;
-  font-size: 66.5%;
+  font-size: 64.5%;
   @include m.media(sm) {
-    font-size: 40%;
+    font-size: 44%;
   }
   @include m.media(md) {
-    font-size: 44%;
+    font-size: 48%;
   }
   @include m.media(lg) {
     font-size: 56.25%;
@@ -28,6 +28,9 @@ body {
   position: relative;
 }
 a {
+  font-family: v.$secondary-font;
+  font-weight: 500;
+  font-size: v.$md;
   color: c.$dominant;
   &:hover {
     color: c.$fontHighlight;
@@ -53,9 +56,7 @@ span {
 .contact__page,
 .case__details,
 .blog__details {
-  @include m.media(xxlg) {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }

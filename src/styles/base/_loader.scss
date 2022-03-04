@@ -1,5 +1,5 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/variables' as v;
+@use "../helpers/mixins" as m;
+@use "../helpers/variables" as v;
 .loader {
   display: none;
   .overlay {
@@ -16,7 +16,7 @@
       flex-direction: column;
     }
     .title {
-      font-family: v.$title-font;
+      font-family: v.$secondary-font;
       color: #fff;
       margin-right: 5rem;
     }

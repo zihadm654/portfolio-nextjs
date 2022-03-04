@@ -10,15 +10,15 @@
     padding: 2.5rem;
   }
   @include m.media(md) {
-    padding: 2.5rem 3.7rem;
+    padding: 2.5rem 3.5rem;
   }
-  height: 7rem;
+  height: 8rem;
   width: 100%;
   z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 0 8rem;
+  padding: 1rem 8rem;
   @include m.flex(space-between);
   .navbar__left {
     @include m.flex(center);
@@ -32,26 +32,22 @@
         &:hover {
           cursor: pointer;
         }
-        h4 {
-          font-size: v.$lr;
+        h5 {
+          font-family: v.$secondary-font;
+          font-size: v.$md;
           padding-left: 1rem;
-          font-family: v.$title-font;
-          color: #000;
+          font-weight: 500;
+          color: #fff;
           &.active {
-            color: #fff;
+            color: #000;
           }
         }
       }
     }
-    .navbar__links {
-      @include m.media(sm) {
-        display: none;
-      }
-      @include m.media(md) {
-        display: none;
-      }
-      padding: 0 2rem;
+    .links {
+      padding: 0 1.5rem;
       a {
+        color: #ffffff;
         padding-left: 1.5rem;
         transition: 300ms;
       }
@@ -64,10 +60,7 @@
     h5 {
       margin-right: 0.5rem;
       margin-bottom: 0.2rem;
-      font-weight: 500;
-      &.active {
-        color: #fff;
-      }
+      color: #fff;
     }
   }
 }

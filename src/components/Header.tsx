@@ -26,28 +26,40 @@ function Header() {
   }, []);
   return (
     <>
-      <nav className={sticky ? "navbar sticky" : "navbar"}>
+      <header className={sticky ? "navbar sticky" : "navbar"}>
         <div className="navbar__left">
           <Link href="/">
             <a>
               <div className="logo">
                 <Image src={logo} height="500" width="500" alt="" />
-                <h4 className={menu ? "active" : ""}>Abdul Malek</h4>
+                <h5 className={menu ? "active" : ""}>Abdul Malek</h5>
               </div>
             </a>
           </Link>
-        </div>
-        <div className="menu" onClick={handleClick}>
-          <h5 className={menu ? "active" : ""}></h5>
-          <div>
-            {!menu ? (
-              <HiOutlineMenuAlt4 style={{ fontSize: "3.5rem" }} />
-            ) : (
-              <MdClose style={{ fontSize: "3.5rem", color: "#fff" }} />
-            )}
+          <div className="links">
+            <Link href="/projects">
+              <a>Work</a>
+            </Link>
+            <Link href="/blogs">
+              <a>Blogs</a>
+            </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+            <Link href="/about">
+              <a>What&amp;s New</a>
+            </Link>
           </div>
         </div>
-      </nav>
+        <div className="menu" onClick={handleClick}>
+          <h5 className={menu ? "active" : ""}>{!menu ? "Menu" : "Close"}</h5>
+          {!menu ? (
+            <HiOutlineMenuAlt4 style={{ fontSize: "3.5rem", color: "#fff" }} />
+          ) : (
+            <MdClose style={{ fontSize: "3.5rem", color: "#fff" }} />
+          )}
+        </div>
+      </header>
       <Hamburger menu={menu} hide={hide} />
     </>
   );
