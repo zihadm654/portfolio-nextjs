@@ -1,22 +1,19 @@
-import Image from 'next/image';
-import celebration from '../../public/assets/celebration.svg';
-import ui from '../../public/assets/UI.svg';
-import user from '../../public/assets/user.svg';
-import animation from '../../public/assets/animation.svg';
-import development from '../../public/assets/development.svg';
-import { Icon } from '../utility/Button';
+import Image from "next/image";
+import celebration from "../../public/assets/celebration.svg";
+import ui from "../../public/assets/UI.svg";
+import user from "../../public/assets/user.svg";
+import animation from "../../public/assets/animation.svg";
+import development from "../../public/assets/development.svg";
 function Skills() {
   return (
     <div className="skills__container">
       <div className="skills__description">
-        <Image src={celebration} alt="celebration" />
-        <h3>3 years of Experience</h3>
+        <h5>SERVICES</h5>
+        <h2>We build digital brand & experiences that makes value</h2>
         <p>
-          I can help you successfully take your business online while assisting
-          you throughout the building process. Building the best experiences &
-          bringing value to the table through my animation expertise.
+          Whatever the challenge you&apos;re facing, we are there to help you
+          out & stand out on digital platforms.
         </p>
-        <Icon site="/about" text="more story of me" />
       </div>
       <div className="skills__cards">
         {data.map((skill, index) => {
@@ -24,7 +21,13 @@ function Skills() {
             <div key={index} className="skill">
               <Image src={skill.img} alt={skill.img} />
               <h5>{skill.title}</h5>
-              <p>{skill.description}</p>
+              <hr />
+              {skill.values.map((item, i) => (
+                <div key={i} className="values">
+                  <p>{item}</p>
+                  <hr />
+                </div>
+              ))}
             </div>
           );
         })}
@@ -37,22 +40,33 @@ export default Skills;
 const data = [
   {
     img: development,
-    title: 'Frontend Development',
-    description: 'creating custom website with Reactjs.',
+    title: "Our Values",
+    values: ["Brand strategy", "UI/UX design", "Branding", "Consulting"],
   },
   {
-    title: 'User Interface Design',
+    title: "UI Design",
     img: ui,
-    description: 'Mobile App & Web UI Design Micro-Interactions animation',
+    values: [
+      "UI/UX design",
+      "Responsive design",
+      "Frontend",
+      "Testing",
+      "Frontend Development",
+    ],
   },
   {
     img: user,
-    title: 'User Experience',
-    description: 'User Research UX Enhancements UX Audit',
+    title: "User Experience",
+    values: ["Mobile", "Tablet", "Laptop", "Destop", "Cross platform"],
   },
   {
     img: animation,
-    title: 'Motion & Animation',
-    description: '3D Animation Website Product design and website mockup',
+    title: "Motion & Animation",
+    values: [
+      "Simple animation",
+      "Custom animation",
+      "Interative animation",
+      "Page Transition",
+    ],
   },
 ];

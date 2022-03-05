@@ -45,6 +45,12 @@
       }
     }
     .links {
+      @include m.media(sm) {
+        display: none;
+      }
+      @include m.media(md) {
+        display: none;
+      }
       padding: 0 1.5rem;
       a {
         color: #ffffff;
@@ -58,9 +64,14 @@
     z-index: 10;
     cursor: pointer;
     h5 {
+      color: c.$primaryColor;
+      font-size: v.$p;
+      font-family: v.$secondary-font;
       margin-right: 0.5rem;
       margin-bottom: 0.2rem;
-      color: #fff;
+      &.active {
+        color: #000;
+      }
     }
   }
 }
@@ -73,30 +84,45 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  background: c.$dominant;
   overflow: hidden;
+  background-color: #ffffff;
+  color: #000;
   .wrapper {
-    padding: 4rem 2rem;
+    @include m.media(sm) {
+      padding: 8rem 2.5rem;
+    }
+    @include m.media(md) {
+      padding: 8rem 3.5rem;
+    }
+    padding: 8rem;
     height: 100%;
     .nav {
       height: 100%;
-      @include m.flex(space-around);
-      flex-direction: column;
+      width: 100%;
+      @include m.grid;
+      .nav__links,
+      .more__info,
+      .social__media {
+        grid-column: span 4;
+        @include m.media(sm) {
+          grid-column: 1/13;
+        }
+        @include m.media(md) {
+          grid-column: 1/13;
+        }
+      }
       .nav__links {
-        @include m.flex(center);
-        flex-direction: column;
-        width: 100%;
         margin: 0;
         padding: 0;
         li {
           list-style: none;
           cursor: pointer;
-          height: 9rem;
+          padding: 0.6rem 0;
           position: relative;
           a {
-            font-size: v.$xxlr;
+            font-family: v.$primary-font;
+            font-size: v.$xlr;
             font-weight: 700;
-            color: #ffffff;
             text-decoration: none;
             &:hover {
               color: c.$secondaryColor;
@@ -104,21 +130,38 @@
           }
         }
       }
-      .social__media {
-        z-index: 1000;
-        padding-right: 7rem;
-        justify-self: self-end;
-        align-self: center;
-        grid-column: 1/13;
-        @include m.media(sm) {
-          padding-right: 0rem;
-          justify-self: center;
+      .more__info {
+        p {
+          font-size: v.$md;
+          color: c.$primaryColor;
         }
         a {
-          color: #fff;
-          margin-right: 2rem;
-          transition: all 0.3s;
+          padding: 1rem 0;
+          font-size: v.$md;
+          text-decoration: underline;
+        }
+      }
+      .social__media {
+        @include m.flex(flex-start);
+        align-items: flex-start;
+        flex-direction: column;
+        z-index: 1000;
+        padding-right: 7rem;
+        @include m.media(sm) {
+          flex-direction: row;
+          justify-content: space-between;
+          padding-right: 0rem;
+        }
+        @include m.media(md) {
+          flex-direction: row;
+          justify-content: space-between;
+          padding-right: 0rem;
+        }
+        a {
+          margin: 2rem 0;
+          transition: all 0.3s ease-out;
           &:hover {
+            color: #fff;
             background: c.$secondaryColor;
             padding: 1rem 2rem;
           }

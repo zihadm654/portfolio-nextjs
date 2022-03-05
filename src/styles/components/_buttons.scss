@@ -1,6 +1,6 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/colors' as c;
-@use '../helpers/variables' as v;
+@use "../helpers/mixins" as m;
+@use "../helpers/colors" as c;
+@use "../helpers/variables" as v;
 .primary__btn {
   position: relative;
   overflow: hidden;
@@ -8,14 +8,14 @@
     color: #ffffff;
     font-weight: bold;
   }
-  background: c.$dominant;
-  padding: 2.3rem 4rem;
-  margin: 2rem 0;
+  background: #000000;
+  padding: 2rem 3.5rem;
+  margin: 1.5rem 0;
   border-radius: 1.5rem;
-  border: 3px solid rgba(255, 255, 255, 0.87);
+  border: 3px solid rgb(255, 255, 255);
   transition: transform ease-in-out 300ms;
   outline: none;
-  box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 44%);
+  box-shadow: -5px 30px 20px -20px rgba(30, 31, 32, 0.897);
   &:hover,
   &:focus {
     transform: translateY(-0.8rem);
@@ -32,10 +32,10 @@
   box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 38%);
   outline: none;
   transition: transform ease-in-out 300ms;
-  padding: 2rem 4rem;
+  padding: 2rem 3rem;
   margin: 3rem 0;
   background-color: c.$secondaryColor;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   border: none;
   a {
     color: #ffffff;
@@ -73,7 +73,7 @@ a {
   box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 38%);
   border-radius: 1.2rem;
   margin: 2rem 0;
-  padding: 2rem 5rem;
+  padding: 1.6rem 3.5rem;
   background: transparent;
   border: 3px solid #000000;
   transition: transform ease-in-out 300ms;

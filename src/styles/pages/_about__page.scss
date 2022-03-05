@@ -1,6 +1,6 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/colors' as c;
-@use '../helpers/variables' as v;
+@use "../helpers/mixins" as m;
+@use "../helpers/colors" as c;
+@use "../helpers/variables" as v;
 .about__page {
   padding: 4rem 8rem;
   @include m.media(sm) {
@@ -36,10 +36,9 @@
       font-weight: 400;
     }
     p {
-      // color: c.$fontColor;
+      // color: c.$primaryColor;
       padding: 1rem 0;
       font-weight: 400;
-      letter-spacing: 0.079rem;
     }
   }
   .experience {
@@ -126,7 +125,7 @@
     padding: 3rem 0;
     h4 {
       text-align: center;
-      color: c.$fontColor;
+      color: c.$primaryColor;
     }
     .content {
       padding: 2.3rem 0;

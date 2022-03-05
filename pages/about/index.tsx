@@ -27,7 +27,7 @@ const AboutPage = () => {
         <div className="about__description">
           <h5>A FEW WORDS ABOUT ME</h5>
           <h3>
-            I&amp;m Abdul Malik, a{" "}
+            I&apos;m Abdul Malek, a{" "}
             <span>Front-end-developer & UI/UX designer </span> who focuses on
             telling stories visually, through <span>minimalistic </span> and
             clear way. I design and develop <span>responsive websites </span>and
@@ -43,7 +43,7 @@ const AboutPage = () => {
           <h5>EXPERIENCE</h5>
           <h3>Over 3 years of experience</h3>
           <p>
-            I&amp;ve been lucky enough to establish relationships with amazing
+            I&apos;ve been lucky enough to establish relationships with amazing
             clients from all over the world, ranging from individual clients,
             through up-and-coming startups, to multinational companies. For more
             details, head over to my{" "}

@@ -41,9 +41,7 @@ export const FeaturedCard = ({ posts }) => {
                 </div>
               </Link>
               <div className="card__text">
-                <p>{card.time}</p>
                 <h5>{card.name}</h5>
-                <Icon site={`/projects/${card.id}`} text="see case study" />
               </div>
             </div>
           );

@@ -14,9 +14,10 @@ function Contact() {
   return (
     <>
       <section className="contact">
+        <div className="marquee-root"></div>
         <div className="contact__title">
           <h5>Got a project?</h5>
-          <h3>{`Let's`} work together</h3>
+          <h3>Let&apos;s work together</h3>
         </div>
         <div className="callaction">
           <Button
@@ -51,14 +52,14 @@ function Contact() {
           <hr />
           <div className="copyright">
             <p>
-              &copy; 2021 Abdul Malik || Made with{" "}
+              &copy; created by Abdul Malek || Made with{" "}
               <span
                 className={show ? "active" : null}
                 onClick={() => {
                   setShow(!show);
                 }}
               >
-                Info.
+                Info
               </span>
             </p>
             <p className="lang">

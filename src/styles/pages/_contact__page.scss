@@ -1,6 +1,6 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/variables' as v;
-@use '../helpers/colors' as c;
+@use "../helpers/mixins" as m;
+@use "../helpers/variables" as v;
+@use "../helpers/colors" as c;
 .contact__page {
   margin-top: 9rem;
   padding: 4rem 8rem;
@@ -32,7 +32,7 @@
         font-size: v.$md;
         outline: none;
         border: none;
-        border-bottom: 0.2rem solid c.$fontColor;
+        border-bottom: 0.2rem solid c.$primaryColor;
         &:focus {
           border-bottom: 0.2rem solid c.$dominant;
         }
@@ -47,7 +47,7 @@
       }
       label {
         z-index: -1;
-        color: c.$fontColor;
+        color: c.$primaryColor;
         font-size: v.$md;
         position: absolute;
         bottom: 1.2rem;

@@ -44,17 +44,26 @@ function Hamburger({ menu, hide }) {
               </Link>
             </li>
             <li>
-              <Link href="/story">
-                <a onClick={hide}>Story</a>
+              <Link href="/new">
+                <a onClick={hide}>What&apos;s new</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact">
+                <a onClick={hide}>Contact</a>
               </Link>
             </li>
           </ul>
+          <div className="more__info">
+            <p>More Stuff</p>
+            <a href="mailto:zihadm654@gmail.com">me@zihadm654.com</a>
+          </div>
           <div className="social__media">
             <Link href={"https://dribbble.com/zihadm654"}>
               <a>Dribble</a>
             </Link>
-            <Link href={"https://behance.net/zihadm654"}>
-              <a>Behance</a>
+            <Link href={"https://twitter.com/zihadm654"}>
+              <a>Twitter</a>
             </Link>
             <Link href={"https://instagram.com/zihadm654"}>
               <a>Instagram</a>

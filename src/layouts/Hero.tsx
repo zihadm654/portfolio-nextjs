@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Available from "../../public/assets/available.svg";
+// import Image from "next/image";
 import { Button } from "../utility/Button";
+
 function Hero() {
   return (
     <section id="hero" className="hero">
@@ -18,10 +18,8 @@ function Hero() {
         </motion.h5>
         <h1>Taking your vision and serving it as a reality</h1>
         <p>
-          I am a self-taught Front-end-developer and UI/UX designer. Crafting
-          Website Based on <strong>Simplicity and Performance</strong> that are
-          conversions-focused, brand-accurate,
-          <strong> user-friendly, and performent.</strong>
+          We help brands in building beautiful websites, web apps and helping
+          them carve their stories through engaging digital art experiences.
         </p>
         <Button
           className="primary__btn"

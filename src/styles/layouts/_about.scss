@@ -1,7 +1,7 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/colors' as c;
+@use "../helpers/mixins" as m;
+@use "../helpers/colors" as c;
 .about {
-  background: c.$dominant;
+  background: #000000;
   color: #ffffff;
   padding: 4rem 0;
   .about__wrapper {
@@ -11,7 +11,7 @@
       padding: 2rem;
     }
     @include m.media(md) {
-      padding: 4rem;
+      padding: 3.5rem;
     }
     .img__wrapper {
       width: 100%;

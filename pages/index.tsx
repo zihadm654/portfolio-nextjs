@@ -1,6 +1,5 @@
 import Head from "next/head";
 import About from "../src/layouts/About";
-import Describe from "../src/layouts/Describe";
 import Hero from "../src/layouts/Hero";
 import Progress from "../src/layouts/Progress";
 import Projects from "../src/layouts/Projects";
@@ -20,10 +19,9 @@ const Home: NextPage = ({ posts }: any) => {
         </Head>
         <main>
           <Hero />
-          <Describe />
           <Projects posts={posts} />
-          <Progress />
           <Skills />
+          {/* <Progress /> */}
           <About />
         </main>
       </div>

@@ -1,5 +1,5 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/colors' as c;
+@use "../helpers/mixins" as m;
+@use "../helpers/colors" as c;
 .blog__page {
   @include m.media(sm) {
     padding: 4rem 2.5rem;
@@ -22,7 +22,7 @@
         }
         p {
           font-weight: 500;
-          color: c.$fontColor;
+          color: c.$primaryColor;
           padding: 0.6rem 0;
         }
       }

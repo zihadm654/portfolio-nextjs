@@ -21,7 +21,9 @@ const CaseDetails = ({ project }) => {
                 </div>
                 <div className="context">
                   <p>My Role</p>
-                  <h5>{project.role}</h5>
+                  {project.role.map((item, i) => (
+                    <h5 key={i}>{item}</h5>
+                  ))}
                 </div>
                 <div className="context">
                   <p>Client</p>

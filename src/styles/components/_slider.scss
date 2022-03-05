@@ -1,6 +1,6 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/variables' as v;
-@use '../helpers/colors' as c;
+@use "../helpers/mixins" as m;
+@use "../helpers/variables" as v;
+@use "../helpers/colors" as c;
 .slider {
   position: relative;
   margin: 4.5rem 0;
@@ -72,7 +72,7 @@
       border: none;
       background: transparent;
       &:hover {
-        color: c.$fontColor;
+        color: c.$primaryColor;
         background: rgba(255, 255, 255, 0.202);
       }
     }
@@ -89,7 +89,7 @@
       width: 4rem;
       height: 0.4rem;
       margin-left: 1rem;
-      background: c.$fontColor;
+      background: c.$primaryColor;
       cursor: pointer;
       &.active {
         background: #fff;

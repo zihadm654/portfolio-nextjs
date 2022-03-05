@@ -1,8 +1,8 @@
-@use '../helpers/mixins' as m;
-@use '../helpers/colors' as c;
-@use '../helpers/variables' as v;
+@use "../helpers/mixins" as m;
+@use "../helpers/colors" as c;
+@use "../helpers/variables" as v;
 .progress {
-  padding: 4rem 8rem;
+  padding: 8rem;
   @include m.media(sm) {
     padding: 3rem 2rem;
   }
@@ -11,17 +11,13 @@
   }
   .progress__description {
     text-align: center;
-    h5 {
-      color: c.$fontColor;
-    }
     h2 {
-      padding-top: 0.6rem;
+      padding-top: 1rem;
       color: c.$dominant;
     }
     .list {
-      min-height: 20rem;
       @include m.flex(space-evenly);
-      padding: 3rem 2rem;
+      padding: 5rem 4rem;
       span {
         .line {
           @include m.media(sm) {

@@ -7,14 +7,23 @@
   @include m.flex(center);
   @include m.media(sm) {
     padding: 2.5rem;
+    flex-direction: column-reverse;
+  }
+  @include m.media(md) {
+    padding: 2.5rem;
+    flex-direction: column-reverse;
   }
   &__left {
+    @include m.media(sm) {
+      flex: 1;
+    }
+    flex: 0.6;
     position: relative;
     margin-top: 2rem;
     padding: 2.5rem 0;
     color: #ffffff;
     h1 {
-      margin: 1rem 0;
+      margin: 2.6rem 0;
     }
     p {
       font-size: v.$md;
@@ -26,6 +35,7 @@
     }
   }
   &__right {
-    flex: 1;
+    flex: 0.4;
+    width: 100%;
   }
 }

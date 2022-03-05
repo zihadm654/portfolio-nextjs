@@ -47,7 +47,7 @@ function Header() {
               <a>About</a>
             </Link>
             <Link href="/about">
-              <a>What&amp;s New</a>
+              <a>What&apos;s New</a>
             </Link>
           </div>
         </div>
@@ -56,7 +56,7 @@ function Header() {
           {!menu ? (
             <HiOutlineMenuAlt4 style={{ fontSize: "3.5rem", color: "#fff" }} />
           ) : (
-            <MdClose style={{ fontSize: "3.5rem", color: "#fff" }} />
+            <MdClose style={{ fontSize: "3.5rem", color: "#000" }} />
           )}
         </div>
       </header>
