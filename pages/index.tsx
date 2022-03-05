@@ -1,7 +1,6 @@
 import Head from "next/head";
 import About from "../src/layouts/About";
 import Hero from "../src/layouts/Hero";
-import Progress from "../src/layouts/Progress";
 import Projects from "../src/layouts/Projects";
 import Skills from "../src/layouts/Skills";
 import { motion } from "framer-motion";
@@ -21,7 +20,6 @@ const Home: NextPage = ({ posts }: any) => {
           <Hero />
           <Projects posts={posts} />
           <Skills />
-          {/* <Progress /> */}
           <About />
         </main>
       </div>
