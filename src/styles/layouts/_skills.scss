@@ -15,6 +15,17 @@
   .skills__description {
     padding: 3rem 0rem;
     max-width: 66%;
+    @include m.media(sm) {
+      max-width: 100%;
+      h2 {
+        font-size: v.$xlr;
+      }
+    }
+    @include m.media(md) {
+      h2 {
+        font-size: v.$xlr;
+      }
+    }
     h2 {
       color: c.$dominant;
       margin: 1.6rem 0;

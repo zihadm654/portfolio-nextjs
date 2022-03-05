@@ -1,9 +1,6 @@
 import Image from "next/image";
-import celebration from "../../public/assets/celebration.svg";
-import ui from "../../public/assets/UI.svg";
-import user from "../../public/assets/user.svg";
-import animation from "../../public/assets/animation.svg";
-import development from "../../public/assets/development.svg";
+import skills from "../../data/skills.json";
+
 function Skills() {
   return (
     <div className="skills__container">
@@ -37,15 +34,20 @@ function Skills() {
 }
 
 export default Skills;
+
+import ui from "../../public/assets/UI.svg";
+import user from "../../public/assets/user.svg";
+import animation from "../../public/assets/animation.svg";
+import development from "../../public/assets/development.svg";
 const data = [
   {
-    img: development,
+    img: ui,
     title: "Our Values",
     values: ["Brand strategy", "UI/UX design", "Branding", "Consulting"],
   },
   {
     title: "UI Design",
-    img: ui,
+    img: development,
     values: [
       "UI/UX design",
       "Responsive design",

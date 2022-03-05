@@ -44,7 +44,7 @@ function Hamburger({ menu, hide }) {
               </Link>
             </li>
             <li>
-              <Link href="/new">
+              <Link href="/tranding">
                 <a onClick={hide}>What&apos;s new</a>
               </Link>
             </li>

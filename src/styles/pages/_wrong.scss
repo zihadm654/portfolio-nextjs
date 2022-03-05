@@ -1,0 +1,12 @@
+@use "../helpers/mixins" as m;
+@use "../helpers/colors" as c;
+
+.wrong {
+  min-height: 70vh;
+  text-align: center;
+  @include m.flex(center);
+  flex-direction: column;
+  .description {
+    max-width: 60%;
+  }
+}

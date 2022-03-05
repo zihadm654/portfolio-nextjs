@@ -46,7 +46,7 @@ function Header() {
             <Link href="/about">
               <a>About</a>
             </Link>
-            <Link href="/about">
+            <Link href="/tranding">
               <a>What&apos;s New</a>
             </Link>
           </div>

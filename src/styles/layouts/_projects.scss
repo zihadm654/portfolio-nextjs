@@ -1,4 +1,5 @@
 @use "../helpers/mixins" as m;
+@use "../helpers/variables" as v;
 .project {
   position: relative;
   padding: 6rem 8rem;
@@ -11,6 +12,12 @@
   .project__title {
     padding: 2rem 0;
     text-align: center;
+    @include m.media(sm) {
+      text-align: left;
+      h2 {
+        font-size: v.$xlr;
+      }
+    }
     h2 {
       font-weight: 600;
       margin: 1.2rem 0;
