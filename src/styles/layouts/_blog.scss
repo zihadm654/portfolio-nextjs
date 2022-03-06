@@ -1,0 +1,20 @@
+@use "../helpers//mixins" as m;
+.blog {
+  padding: 2rem 8rem;
+  h3 {
+    padding: 2rem 0;
+  }
+  .container {
+    @include m.flex(space-between);
+    padding: 3rem 0;
+    gap: 2rem;
+    .content {
+      align-self: flex-start;
+      background-color: #fff;
+      border: 1rem solid #000;
+    }
+  }
+  a {
+    padding: 2rem 0;
+  }
+}

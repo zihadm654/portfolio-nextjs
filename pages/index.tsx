@@ -4,11 +4,15 @@ import Hero from "../src/layouts/Hero";
 import Projects from "../src/layouts/Projects";
 import Skills from "../src/layouts/Skills";
 import { motion } from "framer-motion";
-import { GetStaticProps, NextPage } from "next";
+import { GetStaticProps } from "next";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import { db } from "../lib/firebase";
+import Blogs from "../src/layouts/Blogs";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
-const Home: NextPage = ({ posts }: any) => {
+const Home = ({ posts, blogs }: any) => {
   return (
     <motion.div exit={{ opacity: 0 }}>
       <div className="container">
@@ -19,6 +23,7 @@ const Home: NextPage = ({ posts }: any) => {
         <main>
           <Hero />
           <Projects posts={posts} />
+          <Blogs blogs={blogs} />
           <Skills />
           <About />
         </main>
@@ -29,6 +34,7 @@ const Home: NextPage = ({ posts }: any) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
+  //fetching projects
   const res = query(
     collection(db, "projects"),
     limit(6),
@@ -42,7 +48,23 @@ export const getStaticProps: GetStaticProps = async () => {
       createdAt: doc.data().createdAt.toMillis(),
     };
   });
+  // fetching blogs
+  let files = fs.readdirSync(path.join("data/blogs"));
+  files = files.filter((file) => file.split(".")[1] === "md");
+  const blogs = await Promise.all(
+    files.map((file) => {
+      const mdWithData = fs.readFileSync(
+        path.join("data/blogs", file),
+        "utf-8"
+      );
+      const { data: frontMatter } = matter(mdWithData);
+      return {
+        frontMatter,
+        slug: file.split(".")[0],
+      };
+    })
+  );
   return {
-    props: { posts },
+    props: { posts, blogs },
   };
 };

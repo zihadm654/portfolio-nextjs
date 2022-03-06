@@ -26,8 +26,8 @@
       .logo {
         @include m.flex(center);
         img {
-          height: 3.5rem;
-          width: 3.5rem;
+          height: 3rem;
+          width: 3rem;
         }
         &:hover {
           cursor: pointer;
