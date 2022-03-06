@@ -2,15 +2,8 @@ import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import { Button } from "../utility/Button";
 import Link from "next/link";
-import { BsArrowUp } from "react-icons/bs";
 function Contact() {
   const [show, setShow] = useState(false);
-  const [info, setInfo] = useState(false);
-  // useEffect(() => {
-  // }, [])
-  const elevator = () => {
-    window.scroll(0, 0);
-  };
   return (
     <>
       <section className="contact">
@@ -66,9 +59,6 @@ function Contact() {
               {show ? "Nextjs Scss Framer-Motion Firebase React-icons" : ""}
             </p>
           </div>
-        </div>
-        <div onClick={elevator} className="up">
-          <BsArrowUp />
         </div>
       </section>
       <Footer />

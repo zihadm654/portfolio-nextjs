@@ -31,7 +31,7 @@ export default Home;
 export const getStaticProps: GetStaticProps = async () => {
   const res = query(
     collection(db, "projects"),
-    limit(4),
+    limit(6),
     orderBy("createdAt", "desc")
   );
   const snap = await getDocs(res);

@@ -12,13 +12,13 @@
   @include m.media(md) {
     padding: 2.5rem 3.5rem;
   }
-  height: 8rem;
+  height: 7rem;
   width: 100%;
   z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
-  padding: 1rem 8rem;
+  padding: 0 8rem;
   @include m.flex(space-between);
   .navbar__left {
     @include m.flex(center);
@@ -117,13 +117,11 @@
         li {
           list-style: none;
           cursor: pointer;
-          padding: 0.6rem 0;
           position: relative;
           a {
             font-family: v.$primary-font;
             font-size: v.$xlr;
             font-weight: 700;
-            text-decoration: none;
             &:hover {
               color: c.$secondaryColor;
             }

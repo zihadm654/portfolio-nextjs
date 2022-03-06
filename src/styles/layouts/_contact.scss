@@ -73,15 +73,4 @@
       }
     }
   }
-  .up {
-    cursor: pointer;
-    opacity: 1;
-    position: absolute;
-    bottom: 10%;
-    right: 3%;
-    z-index: 1000;
-    svg {
-      font-size: 3rem;
-    }
-  }
 }

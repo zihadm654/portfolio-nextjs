@@ -60,3 +60,17 @@ span {
   max-width: 1400px;
   margin: 0 auto;
 }
+.up {
+  background-color: rgba(27, 31, 37, 0.3);
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 1.2rem;
+  opacity: 1;
+  position: fixed;
+  bottom: 8%;
+  right: 3%;
+  z-index: 8;
+  svg {
+    font-size: 2.6rem;
+  }
+}

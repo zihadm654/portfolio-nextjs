@@ -12,6 +12,9 @@
   .project__title {
     padding: 2rem 0;
     text-align: center;
+    @include m.media(md) {
+      text-align: left;
+    }
     @include m.media(sm) {
       text-align: left;
       h2 {

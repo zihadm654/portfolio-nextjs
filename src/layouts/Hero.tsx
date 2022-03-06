@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-// import Image from "next/image";
-import { Button } from "../utility/Button";
-
+import Image from "next/image";
+// import img from "../../public/assets/IMG_20220101_115612-removebg-preview (1).png";
 function Hero() {
   return (
     <section id="hero" className="hero">
@@ -21,15 +20,8 @@ function Hero() {
           We help brands in building beautiful websites, web apps and helping
           them carve their stories through engaging digital art experiences.
         </p>
-        <Button
-          className="primary__btn"
-          text="Book a free consultation"
-          site="/contact"
-        />
       </div>
-      <div className="hero__right">
-        <img src="" alt="img" />
-      </div>
+      <div className="hero__right">{/* <Image src={img} alt="me" /> */}</div>
     </section>
   );
 }

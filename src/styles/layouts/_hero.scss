@@ -2,6 +2,7 @@
 @use "../helpers/colors" as c;
 @use "../helpers/variables" as v;
 .hero {
+  position: relative;
   background-color: #000000;
   padding: 4rem 8rem;
   @include m.flex(center);
@@ -35,7 +36,11 @@
     }
   }
   &__right {
+    @include m.media(sm) {
+      flex: 1;
+    }
     flex: 0.4;
+    height: 100%;
     width: 100%;
   }
 }
