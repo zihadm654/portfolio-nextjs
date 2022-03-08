@@ -11,8 +11,9 @@ import {
   SiGreensock,
   SiNextdotjs,
 } from "react-icons/si";
-import Testimonial from "../../src/layouts/Testimonial";
+// import Testimonial from "../../src/layouts/Testimonial";
 import Head from "next/head";
+import { motion } from "framer-motion";
 const AboutPage = () => {
   return (
     <>
@@ -23,7 +24,7 @@ const AboutPage = () => {
           content="This about page holds all the necessary information about Abdul Malek"
         ></meta>
       </Head>
-      <section className="about__page">
+      <motion.section exit={{ opacity: 0 }} className="about__page">
         <div className="about__description">
           <h5>A FEW WORDS ABOUT ME</h5>
           <h3>
@@ -131,7 +132,7 @@ const AboutPage = () => {
             </article>
           </div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

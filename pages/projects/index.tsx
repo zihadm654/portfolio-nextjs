@@ -3,6 +3,7 @@ import { getDocs, collection } from "firebase/firestore";
 import { GetStaticProps } from "next";
 import Cards from "../../src/components/Cards";
 import Head from "next/head";
+import { motion } from "framer-motion";
 
 const ProjectPage = ({ projects }) => {
   return (
@@ -14,7 +15,7 @@ const ProjectPage = ({ projects }) => {
           content="This project page holds all the projects completed for showcase."
         ></meta>
       </Head>
-      <section className="projects">
+      <motion.section exit={{ opacity: 0 }} className="projects">
         <div className="projects__title">
           <h3>
             Shaping world class websites,
@@ -29,7 +30,7 @@ const ProjectPage = ({ projects }) => {
           <h3>Featured Projects</h3>
           <Cards projects={projects} />
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

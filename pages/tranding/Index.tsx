@@ -1,11 +1,12 @@
+import { motion } from "framer-motion";
 const Index = () => {
   return (
-    <div className="tranding">
+    <motion.section exit={{ opacity: 0 }} className="tranding">
       <div className="recent">
         <h4>Recently Added</h4>
         <p>coming soon...</p>
       </div>
-    </div>
+    </motion.section>
   );
 };
 

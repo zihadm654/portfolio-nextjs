@@ -4,7 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import Head from "next/head";
 import { GetStaticProps } from "next";
-
+import { motion } from "framer-motion";
 const BlogPage = ({ posts }) => {
   return (
     <>
@@ -15,7 +15,7 @@ const BlogPage = ({ posts }) => {
           content="this page is all about blogpost. It holds all the blogs inside this website contains."
         />
       </Head>
-      <div className="blog__page">
+      <motion.section exit={{ opacity: 0 }} className="blog__page">
         <h3>My Blogs</h3>
         <p>
           I&apos;ve been writing online since 2020, mostly about web development
@@ -42,7 +42,7 @@ const BlogPage = ({ posts }) => {
             );
           })}
         </div>
-      </div>
+      </motion.section>
     </>
   );
 };
@@ -53,7 +53,10 @@ export const getStaticProps: GetStaticProps = async () => {
   files = files.filter((file) => file.split(".")[1] === "md");
   const posts = await Promise.all(
     files.map((file) => {
-      const mdWithData = fs.readFileSync(path.join("data/blogs", file), "utf-8");
+      const mdWithData = fs.readFileSync(
+        path.join("data/blogs", file),
+        "utf-8"
+      );
       const { data: frontMatter } = matter(mdWithData);
       return {
         frontMatter,

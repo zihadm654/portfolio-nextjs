@@ -12,19 +12,43 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+const easing = [0.6, -0.05, 0.01, 0.99];
+const fadeIn = {
+  initial: {
+    y: 60,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: easing,
+    },
+  },
+};
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
+
 const Home = ({ posts, blogs }: any) => {
   return (
-    <motion.div exit={{ opacity: 0 }}>
+    <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
       <div className="container">
         <Head>
           <title>HomePage || Abdul Malik</title>
           <meta name="description" content="Home page created with nextjs" />
         </Head>
         <main>
-          <Hero />
-          <Projects posts={posts} />
+          <Hero fadeIn={fadeIn} stagger={stagger} />
+          <Projects posts={posts} fadeIn={fadeIn} stagger={stagger} />
           <Blogs blogs={blogs} />
-          <Skills />
+          <Skills fadeIn={fadeIn} stagger={stagger} />
           <About />
         </main>
       </div>

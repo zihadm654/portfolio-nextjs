@@ -3,7 +3,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../lib/firebase";
 import Head from "next/head";
-
+import { motion } from "framer-motion";
 function ContactPage() {
   const [user, setUser] = useState({
     name: "",
@@ -42,7 +42,7 @@ function ContactPage() {
           content="this page is responsible for all the contact form and contact information for this website"
         />
       </Head>
-      <section className="contact__page">
+      <motion.section exit={{ opacity: 0 }} className="contact__page">
         <div className="content">
           <h5>LET&apos;S TALK</h5>
           <h2>Hello! We&apos;ve been waiting for you.</h2>
@@ -89,7 +89,7 @@ function ContactPage() {
           </div>
         </form>
         <div className="contact__container"></div>
-      </section>
+      </motion.section>
     </>
   );
 }

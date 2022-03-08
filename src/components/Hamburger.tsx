@@ -1,24 +1,11 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 function Hamburger({ menu, hide }) {
-  const container = {
-    visible: {
-      x: "100%",
-      opacity: 0,
-      transition: { ease: "easeOut", duration: 0.6 },
-    },
-    hidden: {
-      opacity: 1,
-      x: "0%",
-      transition: { ease: "easeOut", duration: 0.6 },
-    },
-  };
-
   return (
     <motion.div
       className={!menu ? "hamburger" : "hamburger menu"}
       animate={!menu ? "visible" : "hidden"}
-      variants={container}
+      // variants={container}
     >
       <div className="wrapper">
         <nav className="nav">

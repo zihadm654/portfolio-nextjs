@@ -1,20 +1,55 @@
 import Image from "next/image";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-function Skills() {
+function Skills({ stagger, fadeIn }) {
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    inView ? controls.start("animate") : null;
+  }, [controls, inView]);
+
   return (
-    <div className="skills__container">
+    <motion.section variants={stagger} className="skills__container">
       <div className="skills__description">
-        <h5>SERVICES</h5>
-        <h2>We build digital brand & experiences that makes value</h2>
-        <p>
+        <motion.h5
+          ref={ref}
+          animate={controls}
+          initial="initial"
+          variants={fadeIn}
+        >
+          SERVICES
+        </motion.h5>
+        <motion.h2
+          ref={ref}
+          animate={controls}
+          initial="initial"
+          variants={fadeIn}
+        >
+          We build digital brand & experiences that makes value
+        </motion.h2>
+        <motion.p
+          ref={ref}
+          animate={controls}
+          initial="initial"
+          variants={fadeIn}
+        >
           Whatever the challenge you&apos;re facing, we are there to help you
           out & stand out on digital platforms.
-        </p>
+        </motion.p>
       </div>
-      <div className="skills__cards">
-        {data.map((skill, index) => {
+      <motion.div variants={stagger} className="skills__cards">
+        {data.map((skill, i) => {
           return (
-            <div key={index} className="skill">
+            <motion.div
+              key={i}
+              ref={ref}
+              initial="initial"
+              animate={controls}
+              variants={fadeIn}
+              className="skill"
+            >
               <Image src={skill.img} alt={skill.img} />
               <h5>{skill.title}</h5>
               <hr />
@@ -24,11 +59,11 @@ function Skills() {
                   <hr />
                 </div>
               ))}
-            </div>
+            </motion.div>
           );
         })}
-      </div>
-    </div>
+      </motion.div>
+    </motion.section>
   );
 }
 
@@ -38,6 +73,7 @@ import ui from "../../public/assets/UI.svg";
 import user from "../../public/assets/user.svg";
 import animation from "../../public/assets/animation.svg";
 import development from "../../public/assets/development.svg";
+import { useEffect } from "react";
 const data = [
   {
     img: ui,

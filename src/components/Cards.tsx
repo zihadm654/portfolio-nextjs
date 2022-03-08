@@ -1,6 +1,6 @@
 import { Icon } from "../utility/Button";
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Cards = ({ projects }) => {
@@ -28,25 +28,23 @@ const Cards = ({ projects }) => {
 
 export default Cards;
 
-export const FeaturedCard = ({ posts }) => {
+export const FeaturedCard = ({ posts, stagger, fadeIn }) => {
   return (
-    <>
-      <div className="cards">
-        {posts?.map((card) => {
-          return (
-            <div className="wrapper" key={card.id}>
-              <Link href={`/projects/${card.id}`} passHref>
-                <div className="card">
-                  <Image src={card.img} alt={card.img} layout="fill" />
-                </div>
-              </Link>
-              <div className="card__text">
-                <h5>{card.name}</h5>
+    <motion.div variants={stagger} className="cards">
+      {posts?.map((card) => {
+        return (
+          <motion.div variants={fadeIn} className="wrapper" key={card.id}>
+            <Link href={`/projects/${card.id}`} passHref>
+              <div className="card">
+                <Image src={card.img} alt={card.img} layout="fill" />
               </div>
+            </Link>
+            <div className="card__text">
+              <h5>{card.name}</h5>
             </div>
-          );
-        })}
-      </div>
-    </>
+          </motion.div>
+        );
+      })}
+    </motion.div>
   );
 };

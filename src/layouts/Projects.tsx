@@ -1,7 +1,7 @@
 import { Button } from "../utility/Button";
 import { FeaturedCard } from "../components/Cards";
 
-function Projects({ posts }) {
+function Projects({ posts, fadeIn, stagger }) {
   return (
     <>
       <section className="project">
@@ -12,7 +12,7 @@ function Projects({ posts }) {
           <p>Interface Design & Develop in order to make experience better.</p>
         </div>
         <div className="project__container">
-          <FeaturedCard posts={posts} />
+          <FeaturedCard posts={posts} stagger={stagger} fadeIn={fadeIn} />
         </div>
         <div className="btn__container">
           <Button
