@@ -4,7 +4,7 @@
   @include m.media(sm) {
     padding: 4rem 2.5rem;
   }
-  margin-top: 8rem;
+  margin-top: 6rem;
   padding: 4rem 8rem;
   p {
     padding: 2rem 0;
@@ -12,8 +12,9 @@
   .container {
     padding: 2rem 0;
     .content {
+      margin: 1rem 0;
       .description {
-        padding-top: 2rem;
+        padding-top: 1rem;
         .blog__title {
           @include m.flex(space-between);
         }
@@ -22,7 +23,14 @@
         }
         p {
           font-weight: 500;
-          padding: 0.8rem 0;
+          padding: 0.5rem 0;
+        }
+        .tags {
+          @include m.flex(flex-start);
+          p {
+            color: c.$secondaryColor;
+            padding-right: 1rem;
+          }
         }
       }
     }

@@ -1,11 +1,10 @@
-import Link from "next/link";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { getAllPosts, PostMeta } from "../../src/utility/Functionality";
+import Articles from "../../src/components/Articles";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { motion } from "framer-motion";
-const BlogPage = ({ posts }) => {
+
+const BlogPage = ({ posts }: { posts: PostMeta[] }) => {
   return (
     <>
       <Head>
@@ -24,23 +23,7 @@ const BlogPage = ({ posts }) => {
         </p>
         <div className="container">
           <h3>Featured Blogs</h3>
-          {posts?.map((blog) => {
-            return (
-              <article className="content" key={blog.slug}>
-                <Link href="/blogs/[slug]" as={"/blogs/" + blog.slug}>
-                  <a>
-                    <div className="description">
-                      <div className="blog__title">
-                        <h4>{blog.frontMatter.title}</h4>
-                        <p>{blog.frontMatter.created_at}</p>
-                      </div>
-                      <p>{blog.frontMatter.description}</p>
-                    </div>
-                  </a>
-                </Link>
-              </article>
-            );
-          })}
+          <Articles posts={posts} />
         </div>
       </motion.section>
     </>
@@ -49,24 +32,9 @@ const BlogPage = ({ posts }) => {
 export default BlogPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  let files = fs.readdirSync(path.join("data/blogs"));
-  files = files.filter((file) => file.split(".")[1] === "md");
-  const posts = await Promise.all(
-    files.map((file) => {
-      const mdWithData = fs.readFileSync(
-        path.join("data/blogs", file),
-        "utf-8"
-      );
-      const { data: frontMatter } = matter(mdWithData);
-      return {
-        frontMatter,
-        slug: file.split(".")[0],
-      };
-    })
-  );
-  return {
-    props: {
-      posts,
-    },
-  };
+  const posts = getAllPosts()
+    .slice(0, 6)
+    .map((post) => post.meta);
+
+  return { props: { posts } };
 };

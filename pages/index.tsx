@@ -4,13 +4,11 @@ import Hero from "../src/layouts/Hero";
 import Projects from "../src/layouts/Projects";
 import Skills from "../src/layouts/Skills";
 import { motion } from "framer-motion";
-import { GetStaticProps } from "next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
-import { db } from "../lib/firebase";
+import { db } from "../src/lib/firebase";
 import Blogs from "../src/layouts/Blogs";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { getAllPosts } from "../src/utility/Functionality";
 
 const easing = [0.6, -0.05, 0.01, 0.99];
 const fadeIn = {
@@ -35,8 +33,12 @@ const stagger = {
     },
   },
 };
-
-const Home = ({ posts, blogs }: any) => {
+export type postItems = {
+  id: string;
+  name: string;
+  img: string;
+};
+const Home = ({ posts, blogs }) => {
   return (
     <motion.div exit={{ opacity: 0 }} initial="initial" animate="animate">
       <div className="container">
@@ -72,23 +74,12 @@ export const getStaticProps: GetStaticProps = async () => {
       createdAt: doc.data().createdAt.toMillis(),
     };
   });
-  // fetching blogs
-  let files = fs.readdirSync(path.join("data/blogs"));
-  files = files.filter((file) => file.split(".")[1] === "md");
-  const blogs = await Promise.all(
-    files.map((file) => {
-      const mdWithData = fs.readFileSync(
-        path.join("data/blogs", file),
-        "utf-8"
-      );
-      const { data: frontMatter } = matter(mdWithData);
-      return {
-        frontMatter,
-        slug: file.split(".")[0],
-      };
-    })
-  );
+  const projects = posts.slice(0, 4);
+  // blogs
+  const blogs = getAllPosts()
+    .slice(0, 3)
+    .map((blog) => blog.meta);
   return {
-    props: { posts, blogs },
+    props: { posts: projects, blogs },
   };
 };

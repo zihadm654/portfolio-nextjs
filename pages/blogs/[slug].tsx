@@ -1,77 +1,76 @@
+import type { GetStaticProps, GetStaticPaths } from "next";
 import Image from "next/image";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
 import Head from "next/head";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/atom-one-dark.css";
+import {
+  getPostFromSlug,
+  getSlugs,
+  PostMeta,
+} from "../../src/utility/Functionality";
+import "highlight.js/styles/atom-one-dark.css";
 
-function BlogDetails({ frontMatter, mdxSource }) {
+interface MDXPost {
+  source: MDXRemoteSerializeResult<Record<string, unknown>>;
+  meta: PostMeta;
+}
+
+export default function PostPage({ post }: { post: MDXPost }) {
   return (
     <>
       <Head>
-        <title>{frontMatter.title}</title>
-        <meta name="description" content={frontMatter.description} />
+        <title>{post.meta.title}</title>
       </Head>
       <div className="blog__details">
         <article>
-          <h3>{frontMatter.title}</h3>
+          <h3>{post.meta.title}</h3>
           <div className="description">
             <div className="author__container">
               <div className="info__left">
                 <div className="author__img"></div>
-                <p>{frontMatter.author}</p>
+                {/* <p>{post.meta.}</p> */}
                 <span>/</span>
-                <p>{frontMatter.created_at}</p>
+                <p>{post.meta.created_at}</p>
               </div>
-              <div className="info__right">
-                <p>{frontMatter.time}</p>
-              </div>
-            </div>
-            <div className="img__container">
-              <Image src={frontMatter.cover_img} alt="banner" layout="fill" />
+              <div className="info__right">{/* <p>{post.meta.}</p> */}</div>
             </div>
           </div>
-          <p>{frontMatter.description}</p>
+          <div className="img__container">
+            {/* <Image src={post.meta.cover_img} alt="banner" layout="fill" /> */}
+          </div>
+          <p>{post.meta.description}</p>
         </article>
         <article className="markdown">
-          <MDXRemote {...mdxSource} />
+          <MDXRemote {...post.source} />
         </article>
       </div>
     </>
   );
 }
 
-export default BlogDetails;
-
-export const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("data/blogs"));
-  const paths = files.map((file) => {
-    return {
-      params: {
-        slug: file.replace(".md", ""),
-      },
-    };
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params as { slug: string };
+  const { content, meta } = getPostFromSlug(slug);
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: "wrap" }],
+        rehypeHighlight,
+      ],
+    },
   });
+  return { props: { post: { source: mdxSource, meta } } };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getSlugs().map((slug) => ({ params: { slug } }));
   return {
     paths,
     fallback: false,
-  };
-};
-export const getStaticProps = async ({ params: { slug } }) => {
-  const markdown = fs.readFileSync(
-    path.join("data/blogs", slug + ".md"),
-    "utf-8"
-  );
-  const { data: frontMatter, content } = matter(markdown);
-  const mdxSource = await serialize(content);
-
-  return {
-    props: {
-      frontMatter,
-      slug,
-      mdxSource,
-    },
-    revalidate: 60,
   };
 };

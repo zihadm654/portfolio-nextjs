@@ -1,20 +1,36 @@
 @use "../helpers//mixins" as m;
 .blog {
   padding: 2rem 8rem;
+  @include m.media(sm) {
+    padding: 2rem;
+  }
+  @include m.media(md) {
+    padding: 3rem;
+  }
   h3 {
     padding: 2rem 0;
   }
   .container {
-    @include m.flex(space-between);
+    @include m.grid;
     padding: 3rem 0;
-    gap: 2rem;
-    .content {
-      align-self: flex-start;
-      background-color: #fff;
-      border: 1rem solid #000;
+    gap: 4rem;
+    @include m.media(sm) {
+      gap: 2rem;
     }
-  }
-  a {
-    padding: 2rem 0;
+    @include m.media(md) {
+      gap: 2rem;
+    }
+    .content {
+      border: 3px solid #d8b4fe;
+      border-radius: 1rem;
+      @include m.media(sm) {
+        grid-column: 1/13;
+      }
+      grid-column: span 4;
+      padding: 3rem 1.5rem;
+      h5 {
+        padding-bottom: 2rem;
+      }
+    }
   }
 }
