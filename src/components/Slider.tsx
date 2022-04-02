@@ -1,7 +1,7 @@
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 import { useState } from "react";
-import slidedata from "../../data/slidedata.json";
+import slidedata from "../data/slidedata.json";
 function Slider() {
   const [activeItem, setActiveItem] = useState(0);
 
