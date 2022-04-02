@@ -27,7 +27,11 @@ const Cards = ({ projects }) => {
 };
 
 export default Cards;
-
+type Props = {
+  id: string;
+  img: string;
+  name: string;
+};
 export const FeaturedCard = ({ posts, stagger, fadeIn }) => {
   return (
     <motion.div variants={stagger} className="cards">
@@ -41,6 +45,8 @@ export const FeaturedCard = ({ posts, stagger, fadeIn }) => {
             </Link>
             <div className="card__text">
               <h5>{card.name}</h5>
+              <p>{card.description}</p>
+              <p>{new Date(card.createdAt).toDateString()}</p>
             </div>
           </motion.div>
         );

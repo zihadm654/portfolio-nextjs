@@ -2,8 +2,7 @@
 @use "../helpers/variables" as v;
 @use "../helpers/colors" as c;
 .contact__page {
-  margin-top: 9rem;
-  padding: 4rem 8rem;
+  padding: 2rem 8rem;
   @include m.media(sm) {
     padding: 3rem;
   }

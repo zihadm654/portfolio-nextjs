@@ -11,7 +11,7 @@ function About() {
             <Image src={me} alt="me" />
           </div>
           <div className="about__description">
-            <h5>Hi, I’m Abdul Malek</h5>
+            <p>Hi, I&#39;m Abdul Malek</p>
             <h3>Frontend-developer & UI/UX designer Crafting projects</h3>
             <p>
               My journey from an Arts Student to a Front-end developer with

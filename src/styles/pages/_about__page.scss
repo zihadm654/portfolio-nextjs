@@ -2,7 +2,8 @@
 @use "../helpers/colors" as c;
 @use "../helpers/variables" as v;
 .about__page {
-  padding: 4rem 8rem;
+  margin-top: 6rem;
+  padding: 2rem 8rem;
   @include m.media(sm) {
     padding: 2.5rem;
   }
@@ -13,7 +14,7 @@
   .experience {
     text-align: center;
     padding: 3rem;
-    margin-top: 10rem;
+    margin-top: 3rem;
     a {
       color: #050507;
       font-weight: bold;
@@ -40,9 +41,6 @@
       padding: 1rem 0;
       font-weight: 400;
     }
-  }
-  .experience {
-    margin: 3rem 0;
   }
   .html,
   .git {

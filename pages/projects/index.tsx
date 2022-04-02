@@ -1,4 +1,4 @@
-import { db } from "../../lib/firebase";
+import { db } from "../../src/lib/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import { GetStaticProps } from "next";
 import Cards from "../../src/components/Cards";

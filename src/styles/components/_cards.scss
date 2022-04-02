@@ -15,6 +15,9 @@
     padding: 1rem 0;
     text-align: left;
     grid-column: span 6;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
     @include m.media(md) {
       grid-column: 1/13;
     }
@@ -25,7 +28,6 @@
       position: relative;
       height: 50rem;
       width: 100%;
-      box-shadow: 3px 6px 12px rgba(187, 185, 185, 0.356) inset;
       overflow: hidden;
       &:hover {
         cursor: pointer;
@@ -43,11 +45,9 @@
     .card__text {
       grid-column: 1/13;
       padding: 2rem;
-      h5 {
-        color: #000;
-      }
       p {
-        color: #fff;
+        margin: 1rem 0;
+        color: c.$primaryColor;
       }
     }
   }

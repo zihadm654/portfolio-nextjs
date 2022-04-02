@@ -1,5 +1,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  FaGithub,
+  FaDribbble,
+  FaLinkedin,
+  FaTwitter,
+  FaInstagram,
+} from "react-icons/fa";
 function Hamburger({ menu, hide }) {
   return (
     <motion.div
@@ -41,25 +48,31 @@ function Hamburger({ menu, hide }) {
               </Link>
             </li>
           </ul>
-          <div className="more__info">
-            <p>More Stuff</p>
-            <a href="mailto:zihadm654@gmail.com">me@zihadm654.com</a>
-          </div>
           <div className="social__media">
             <Link href={"https://dribbble.com/zihadm654"}>
-              <a>Dribble</a>
+              <a>
+                <FaDribbble />
+              </a>
             </Link>
             <Link href={"https://twitter.com/zihadm654"}>
-              <a>Twitter</a>
+              <a>
+                <FaTwitter />
+              </a>
             </Link>
             <Link href={"https://instagram.com/zihadm654"}>
-              <a>Instagram</a>
+              <a>
+                <FaInstagram />
+              </a>
             </Link>
             <Link href={"https://github.com/zihadm654"}>
-              <a>Github</a>
+              <a>
+                <FaGithub />
+              </a>
             </Link>
             <Link href={"https://www.linkedin.com/in/Abdul -malek-a095031a4/"}>
-              <a>Linkedin</a>
+              <a>
+                <FaLinkedin />
+              </a>
             </Link>
           </div>
         </nav>

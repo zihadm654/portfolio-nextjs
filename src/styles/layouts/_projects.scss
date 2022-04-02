@@ -2,7 +2,7 @@
 @use "../helpers/variables" as v;
 .project {
   position: relative;
-  padding: 6rem 8rem;
+  padding: 4rem 8rem;
   @include m.media(sm) {
     padding: 2.5rem;
   }

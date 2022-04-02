@@ -1,25 +1,27 @@
 @use "../helpers/mixins" as m;
 @use "../helpers/colors" as c;
 @use "../helpers/variables" as v;
-* {
+*,
+*::before,
+*::after {
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
 }
 html {
   scroll-behavior: smooth;
-  font-size: 64.5%;
+  font-size: 62.5%;
   @include m.media(sm) {
-    font-size: 44%;
+    font-size: 50%;
   }
   @include m.media(md) {
-    font-size: 48%;
+    font-size: 52%;
   }
   @include m.media(lg) {
     font-size: 56.25%;
   }
-  @include m.media(xlg) {
-    font-size: 62.5%;
+  @include m.media(xxlg) {
+    font-size: 65.5%;
   }
 }
 body {
@@ -28,17 +30,12 @@ body {
   position: relative;
 }
 a {
-  font-family: v.$secondary-font;
-  font-weight: 500;
   font-size: v.$md;
+  transition: color 200ms ease-out;
   color: c.$dominant;
   &:hover {
-    color: c.$fontHighlight;
+    color: c.$primaryColor;
   }
-}
-span {
-  color: c.$dominant;
-  font-weight: 600;
 }
 .hamburger,
 .secondary__background,
@@ -57,18 +54,21 @@ span {
 .case__details,
 .blog__details {
   width: 100%;
-  max-width: 1400px;
+  max-width: 140rem;
   margin: 0 auto;
+  @include m.media(xxlg) {
+    max-width: 160rem;
+  }
 }
 .up {
   background-color: rgba(27, 31, 37, 0.3);
   cursor: pointer;
   border-radius: 50%;
-  padding: 1.2rem;
+  padding: 1rem 1.2rem;
   opacity: 1;
   position: fixed;
   bottom: 8%;
-  right: 3%;
+  right: 6.3%;
   z-index: 8;
   svg {
     font-size: 2.6rem;

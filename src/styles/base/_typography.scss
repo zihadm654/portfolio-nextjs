@@ -1,7 +1,7 @@
 @use "../helpers/variables" as v;
 @use "../helpers/colors" as c;
 h1 {
-  font-size: v.$xxlr;
+  font-size: v.$xxxlr;
   font-weight: 700;
   line-height: 1.14;
 }
@@ -11,24 +11,24 @@ h2 {
   line-height: 1.1;
 }
 h3 {
-  font-size: v.$lr;
+  font-size: v.$xlr;
   line-height: 1.1;
-  font-weight: 500;
+  font-weight: 600;
 }
 h4 {
   line-height: 1;
   font-size: v.$lr;
-  font-weight: 500;
+  font-weight: 600;
 }
 h5 {
   line-height: 1;
   font-size: v.$md;
-  font-weight: 400;
+  font-weight: 600;
 }
 p {
-  font-family: v.$secondary-font;
   line-height: 1.2;
   font-size: v.$p;
+  font-weight: 500;
 }
 a {
   font-weight: 400;

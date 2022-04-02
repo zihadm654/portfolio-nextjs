@@ -1,6 +1,6 @@
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import Image from "next/image";
-import { db } from "../../lib/firebase";
+import { db } from "../../src/lib/firebase";
 import Head from "next/head";
 
 const CaseDetails = ({ project }) => {

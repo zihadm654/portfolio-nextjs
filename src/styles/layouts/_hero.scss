@@ -3,28 +3,26 @@
 @use "../helpers/variables" as v;
 .hero {
   position: relative;
-  background-color: #000000;
   padding: 4rem 8rem;
   @include m.flex(center);
   @include m.media(sm) {
-    padding: 2.5rem;
+    padding: 3rem 2.5rem;
     flex-direction: column-reverse;
   }
   @include m.media(md) {
-    padding: 2.5rem;
+    padding: 3rem;
     flex-direction: column-reverse;
   }
   &__left {
     @include m.media(sm) {
       flex: 1;
     }
-    flex: 0.6;
+    flex: 0.5;
     position: relative;
     margin-top: 2rem;
-    padding: 2.5rem 0;
-    color: #ffffff;
+    padding-top: 4rem;
     h1 {
-      margin: 2.6rem 0;
+      margin: 2rem 0;
     }
     p {
       font-size: v.$md;
@@ -39,7 +37,7 @@
     @include m.media(sm) {
       flex: 1;
     }
-    flex: 0.4;
+    flex: 0.5;
     height: 100%;
     width: 100%;
   }

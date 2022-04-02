@@ -1,22 +1,25 @@
 import { BsArrowRight } from "react-icons/bs";
 import Link from "next/link";
 
-// type Props = {
-//   text: String;
-//   style: String;
-//   site: String;
-// };
-export function Button({ text, className, site }) {
+type Props = {
+  text: string;
+  variants: string;
+  site: string;
+};
+export function Button({ text, variants, site }: Props) {
   return (
-    <button type="button" className={className}>
+    <button type="button" className={variants}>
       <Link href={site}>
         <a>{text}</a>
       </Link>
     </button>
   );
 }
-
-export function Icon({ site, text }) {
+type iconProps = {
+  site: string;
+  text: string;
+};
+export function Icon({ site, text }: iconProps) {
   return (
     <div className="link">
       <Link href={site}>

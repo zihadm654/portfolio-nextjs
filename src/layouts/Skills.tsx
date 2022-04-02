@@ -7,11 +7,19 @@ function Skills({ stagger, fadeIn }) {
   const [ref, inView] = useInView();
 
   useEffect(() => {
-    inView ? controls.start("animate") : null;
+    if (inView) {
+      controls.start("animate");
+    }
   }, [controls, inView]);
 
   return (
-    <motion.section variants={stagger} className="skills__container">
+    <motion.section
+      ref={ref}
+      initial="initial"
+      animate={controls}
+      variants={stagger}
+      className="skills__container"
+    >
       <div className="skills__description">
         <motion.h5
           ref={ref}
@@ -39,15 +47,21 @@ function Skills({ stagger, fadeIn }) {
           out & stand out on digital platforms.
         </motion.p>
       </div>
-      <motion.div variants={stagger} className="skills__cards">
+      <motion.div
+        // variants={stagger}
+        // ref={ref}
+        // initial="initial"
+        // animate={controls}
+        className="skills__cards"
+      >
         {data.map((skill, i) => {
           return (
             <motion.div
               key={i}
-              ref={ref}
-              initial="initial"
-              animate={controls}
-              variants={fadeIn}
+              // ref={ref}
+              // initial="initial"
+              // animate={controls}
+              // variants={fadeIn}
               className="skill"
             >
               <Image src={skill.img} alt={skill.img} />

@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../public/assets/logo.png";
+import logo from "../../public/logo.png";
 import Hamburger from "./Hamburger";
-import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import { MdClose } from "react-icons/md";
+import { MdClose, MdMenu } from "react-icons/md";
 
 function Header() {
   const [menu, setMenu] = useState(false);
@@ -36,28 +35,29 @@ function Header() {
               </div>
             </a>
           </Link>
-          <div className="links">
-            <Link href="/projects">
-              <a>Work</a>
-            </Link>
-            <Link href="/blogs">
-              <a>Blogs</a>
-            </Link>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-            <Link href="/tranding">
-              <a>What&apos;s New</a>
-            </Link>
-          </div>
+        </div>
+        <div className="links">
+          <Link href="/projects">
+            <a>Work</a>
+          </Link>
+          <Link href="/blogs">
+            <a>Blogs</a>
+          </Link>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+          <Link href="/tranding">
+            <a>What&apos;s New</a>
+          </Link>
         </div>
         <div className="menu" onClick={handleClick}>
-          <h5 className={menu ? "active" : ""}>{!menu ? "Menu" : "Close"}</h5>
-          {!menu ? (
-            <HiOutlineMenuAlt4 style={{ fontSize: "3.5rem", color: "#fff" }} />
-          ) : (
-            <MdClose style={{ fontSize: "3.5rem", color: "#000" }} />
-          )}
+          <div className="icon">
+            {!menu ? (
+              <MdMenu style={{ fontSize: "3rem", color: "#000" }} />
+            ) : (
+              <MdClose style={{ fontSize: "3rem", color: "#000" }} />
+            )}
+          </div>
         </div>
       </header>
       <Hamburger menu={menu} hide={hide} />

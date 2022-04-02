@@ -13,12 +13,12 @@
   margin: 1.5rem 0;
   border-radius: 1.5rem;
   border: 3px solid rgb(255, 255, 255);
-  transition: transform ease-in-out 300ms;
+  transition: transform ease-in-out 200ms;
   outline: none;
-  box-shadow: -5px 30px 20px -20px rgba(30, 31, 32, 0.897);
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
   &:hover,
   &:focus {
-    transform: translateY(-0.8rem);
+    transform: translateY(-0.5rem);
     cursor: pointer;
     background-color: c.$secondaryColor;
   }

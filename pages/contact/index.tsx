@@ -1,7 +1,7 @@
 // import { Button } from '../../src/utility/Button';
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
-import { db } from "../../lib/firebase";
+import { db } from "../../src/lib/firebase";
 import Head from "next/head";
 import { motion } from "framer-motion";
 function ContactPage() {

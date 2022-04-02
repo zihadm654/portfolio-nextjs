@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Footer from "../components/Footer";
 import { Button } from "../utility/Button";
 import Link from "next/link";
@@ -6,22 +6,22 @@ function Contact() {
   const [show, setShow] = useState(false);
   return (
     <>
+      <div className="marquee-root"></div>
       <section className="contact">
-        <div className="marquee-root"></div>
         <div className="contact__title">
-          <h5>Got a project?</h5>
+          <p>Got a project?</p>
           <h3>Let&apos;s work together</h3>
         </div>
         <div className="callaction">
           <Button
             site={"/contact"}
-            className={"primary__btn"}
+            variants={"primary__btn"}
             text={"Book a free consultation"}
           />
           <Button
             site={"/contact"}
-            className={"custom__btn"}
-            text={"Send an email to me"}
+            variants={"custom__btn"}
+            text={"Send email to me"}
           />
         </div>
         <div className="media">
@@ -56,7 +56,7 @@ function Contact() {
               </span>
             </p>
             <p className="lang">
-              {show ? "Nextjs Scss Framer-Motion Firebase React-icons" : ""}
+              {show ? "Nextjs Scss Framer-Motion Firebase Mdx" : ""}
             </p>
           </div>
         </div>
