@@ -1,6 +1,6 @@
-@use "../helpers/mixins" as m;
-@use "../helpers/colors" as c;
-@use "../helpers/variables" as v;
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
+@use '../helpers/variables' as v;
 .about__page {
   margin-top: 6rem;
   padding: 2rem 8rem;
@@ -13,7 +13,7 @@
   .about__description,
   .experience {
     text-align: center;
-    padding: 3rem;
+    padding: 3rem 6rem;
     margin-top: 3rem;
     a {
       color: #050507;
@@ -85,43 +85,50 @@
       padding: 2rem 1rem;
     }
   }
-  .tools {
+  .services {
+    .title {
+      letter-spacing: 0.4rem;
+      color: c.$primaryColor;
+    }
     text-align: center;
-    padding: 4rem 0rem;
-    @include m.grid;
-    gap: 4rem;
-    h5 {
-      letter-spacing: 0.15rem;
-      padding: 2rem 0;
-      font-weight: 600;
-    }
-    h4 {
-      font-size: v.$md;
-      line-height: 4rem;
-    }
-    &__left {
-      grid-column: 1/5;
-    }
-    &__middle {
-      grid-column: 5/9;
-    }
-    &__right {
-      grid-column: 9/13;
-    }
-    &__left,
-    &__middle,
-    &__right {
-      @include m.media(sm) {
-        grid-column: 1/13;
+    .tools {
+      padding: 4rem 0rem;
+      @include m.grid;
+      gap: 4rem;
+      h5 {
+        letter-spacing: 0.15rem;
+        padding: 2rem 0;
+        font-weight: 600;
       }
-      @include m.media(md) {
-        grid-column: 1/13;
+      h4 {
+        font-size: v.$md;
+        line-height: 4rem;
+      }
+      &__left {
+        grid-column: 1/5;
+      }
+      &__middle {
+        grid-column: 5/9;
+      }
+      &__right {
+        grid-column: 9/13;
+      }
+      &__left,
+      &__middle,
+      &__right {
+        @include m.media(sm) {
+          grid-column: 1/13;
+        }
+        @include m.media(md) {
+          grid-column: 1/13;
+        }
       }
     }
   }
   .principle {
     padding: 3rem 0;
-    h4 {
+    .title {
+      letter-spacing: 0.4rem;
       text-align: center;
       color: c.$primaryColor;
     }

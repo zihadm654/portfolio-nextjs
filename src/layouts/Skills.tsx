@@ -1,67 +1,52 @@
-import Image from "next/image";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import Image from 'next/image';
+import { useAnimation, motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
-function Skills({ stagger, fadeIn }) {
+function Skills() {
   const controls = useAnimation();
   const [ref, inView] = useInView();
 
   useEffect(() => {
     if (inView) {
-      controls.start("animate");
+      controls.start('show');
     }
   }, [controls, inView]);
 
   return (
     <motion.section
       ref={ref}
-      initial="initial"
+      initial="hidden"
       animate={controls}
       variants={stagger}
       className="skills__container"
     >
       <div className="skills__description">
-        <motion.h5
-          ref={ref}
-          animate={controls}
-          initial="initial"
-          variants={fadeIn}
-        >
+        <motion.h5 ref={ref} variants={fadeIn}>
           SERVICES
         </motion.h5>
-        <motion.h2
-          ref={ref}
-          animate={controls}
-          initial="initial"
-          variants={fadeIn}
-        >
+        <motion.h2 ref={ref} variants={fadeIn}>
           We build digital brand & experiences that makes value
         </motion.h2>
-        <motion.p
-          ref={ref}
-          animate={controls}
-          initial="initial"
-          variants={fadeIn}
-        >
+        <motion.p ref={ref} variants={fadeIn}>
           Whatever the challenge you&apos;re facing, we are there to help you
           out & stand out on digital platforms.
         </motion.p>
       </div>
       <motion.div
-        // variants={stagger}
-        // ref={ref}
-        // initial="initial"
-        // animate={controls}
+        variants={stagger}
+        ref={ref}
+        initial="initial"
+        animate={controls}
         className="skills__cards"
       >
         {data.map((skill, i) => {
           return (
             <motion.div
               key={i}
-              // ref={ref}
-              // initial="initial"
-              // animate={controls}
-              // variants={fadeIn}
+              ref={ref}
+              initial="initial"
+              animate={controls}
+              variants={fadeIn}
               className="skill"
             >
               <Image src={skill.img} alt={skill.img} />
@@ -83,41 +68,42 @@ function Skills({ stagger, fadeIn }) {
 
 export default Skills;
 
-import ui from "../../public/assets/UI.svg";
-import user from "../../public/assets/user.svg";
-import animation from "../../public/assets/animation.svg";
-import development from "../../public/assets/development.svg";
-import { useEffect } from "react";
+import ui from '../../public/assets/UI.svg';
+import user from '../../public/assets/user.svg';
+import animation from '../../public/assets/animation.svg';
+import development from '../../public/assets/development.svg';
+import { useEffect } from 'react';
+import { fadeIn, stagger } from '../utility/Animation';
 const data = [
   {
     img: ui,
-    title: "Our Values",
-    values: ["Brand strategy", "UI/UX design", "Branding", "Consulting"],
+    title: 'Our Values',
+    values: ['Brand strategy', 'UI/UX design', 'Branding', 'Consulting'],
   },
   {
-    title: "UI Design",
+    title: 'UI Design',
     img: development,
     values: [
-      "UI/UX design",
-      "Responsive design",
-      "Frontend",
-      "Testing",
-      "Frontend Development",
+      'UI/UX design',
+      'Responsive design',
+      'Frontend',
+      'Testing',
+      'Frontend Development',
     ],
   },
   {
     img: user,
-    title: "User Experience",
-    values: ["Mobile", "Tablet", "Laptop", "Destop", "Cross platform"],
+    title: 'User Experience',
+    values: ['Mobile', 'Tablet', 'Laptop', 'Destop', 'Cross platform'],
   },
   {
     img: animation,
-    title: "Motion & Animation",
+    title: 'Motion & Animation',
     values: [
-      "Simple animation",
-      "Custom animation",
-      "Interative animation",
-      "Page Transition",
+      'Simple animation',
+      'Custom animation',
+      'Interative animation',
+      'Page Transition',
     ],
   },
 ];

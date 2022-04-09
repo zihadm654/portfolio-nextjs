@@ -1,11 +1,17 @@
-import { motion } from "framer-motion";
-import { Button } from "../utility/Button";
+import { motion } from 'framer-motion';
+import { fadeIn, stagger } from '../utility/Animation';
+import { Button } from '../utility/Button';
 // import Image from "next/image";
 
-function Hero({ stagger, fadeIn }) {
+function Hero() {
   return (
     <section id="hero" className="hero">
-      <motion.div variants={stagger} className="hero__left">
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        animate="show"
+        className="hero__left"
+      >
         <motion.p variants={fadeIn}>
           We Design & Develop <span>Branding </span>
           <span>Commerce </span>

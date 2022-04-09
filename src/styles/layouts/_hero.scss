@@ -1,9 +1,9 @@
-@use "../helpers/mixins" as m;
-@use "../helpers/colors" as c;
-@use "../helpers/variables" as v;
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
+@use '../helpers/variables' as v;
 .hero {
   position: relative;
-  padding: 4rem 8rem;
+  padding: 6rem 8rem;
   @include m.flex(center);
   @include m.media(sm) {
     padding: 3rem 2.5rem;

@@ -1,7 +1,7 @@
-import { Icon } from "../utility/Button";
+import { Icon } from '../utility/Button';
 // import { HorizontalScroll } from '../helpers/Animation'
-import Image from "next/image";
-import me from "../../public/assets/IMG_20220101_115612.jpg";
+import Image from 'next/image';
+import me from '../../public/assets/IMG_20220101_115612.jpg';
 function About() {
   return (
     <>
@@ -17,7 +17,7 @@ function About() {
               My journey from an Arts Student to a Front-end developer with
               designing experience.
             </p>
-            <Icon site={"/about"} text={"More about me"} />
+            <Icon site={'/about'} text={'More about me'} />
           </div>
         </div>
       </div>

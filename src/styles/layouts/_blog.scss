@@ -1,4 +1,4 @@
-@use "../helpers//mixins" as m;
+@use '../helpers//mixins' as m;
 .blog {
   padding: 2rem 8rem;
   @include m.media(sm) {
@@ -20,7 +20,7 @@
     @include m.media(md) {
       gap: 2rem;
     }
-    .content {
+    .blog__container {
       border: 3px solid #d8b4fe;
       border-radius: 1rem;
       @include m.media(sm) {

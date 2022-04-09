@@ -1,11 +1,13 @@
-import Link from "next/link";
-import type { PostMeta } from "../utility/Functionality";
+import Link from 'next/link';
+import type { PostMeta } from '../utility/Functionality';
+import { motion } from 'framer-motion';
+import { fadeIn, stagger } from '../utility/Animation';
 
 export default function Articles({ posts }: { posts: PostMeta[] }) {
   return (
-    <>
+    <motion.div variants={stagger} animate="show">
       {posts?.map((post) => (
-        <article key={post.slug} className="content">
+        <motion.article variants={fadeIn} key={post.slug} className="content">
           <Link href={`/blogs/${post.slug}`}>
             <a>
               <div className="description">
@@ -22,8 +24,8 @@ export default function Articles({ posts }: { posts: PostMeta[] }) {
               </div>
             </a>
           </Link>
-        </article>
+        </motion.article>
       ))}
-    </>
+    </motion.div>
   );
 }

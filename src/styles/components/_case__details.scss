@@ -1,6 +1,6 @@
-@use "../helpers/colors" as c;
-@use "../helpers/mixins" as m;
-@use "../helpers/variables" as v;
+@use '../helpers/colors' as c;
+@use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
 .case__details {
   padding: 3rem 8rem;
   margin-top: 6rem;
@@ -25,7 +25,7 @@
           margin-bottom: 0.6rem;
           letter-spacing: 0.4rem;
           text-transform: uppercase;
-          color: gray;
+          color: c.$primaryColor;
         }
       }
     }
@@ -38,8 +38,8 @@
         margin-left: 16%;
         margin-top: 5.5rem;
       }
-      h5 {
-        color: gray;
+      p {
+        color: c.$primaryColor;
       }
     }
     padding: 5rem 0;

@@ -1,7 +1,7 @@
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
-import Image from "next/image";
-import { db } from "../../src/lib/firebase";
-import Head from "next/head";
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
+import Image from 'next/image';
+import { db } from '../../src/lib/firebase';
+import Head from 'next/head';
 
 const CaseDetails = ({ project }) => {
   return (
@@ -35,7 +35,7 @@ const CaseDetails = ({ project }) => {
                 </div>
               </div>
               <div className="case__study--right">
-                <h5>{project.description}</h5>
+                <p>{project.description}</p>
               </div>
             </div>
             <div className="img__wrapper">
@@ -51,7 +51,7 @@ const CaseDetails = ({ project }) => {
 export default CaseDetails;
 
 export const getStaticPaths = async () => {
-  const snapshot = await getDocs(collection(db, "projects"));
+  const snapshot = await getDocs(collection(db, 'projects'));
   const paths = snapshot.docs.map((doc) => {
     return {
       params: { slug: doc.id.toString() },
@@ -64,7 +64,7 @@ export const getStaticPaths = async () => {
 };
 export const getStaticProps = async (context) => {
   const id = context.params.slug;
-  const docRef = doc(db, "projects", id);
+  const docRef = doc(db, 'projects', id);
   const docSnap = await getDoc(docRef);
   const project = {
     id: docSnap.id,

@@ -1,9 +1,10 @@
-import { db } from "../../src/lib/firebase";
-import { getDocs, collection } from "firebase/firestore";
-import { GetStaticProps } from "next";
-import Cards from "../../src/components/Cards";
-import Head from "next/head";
-import { motion } from "framer-motion";
+import { db } from '../../src/lib/firebase';
+import { getDocs, collection } from 'firebase/firestore';
+import { GetStaticProps } from 'next';
+import Cards from '../../src/components/Cards';
+import Head from 'next/head';
+import { motion } from 'framer-motion';
+import { fadeIn, stagger } from '../../src/utility/Animation';
 
 const ProjectPage = ({ projects }) => {
   return (
@@ -16,18 +17,23 @@ const ProjectPage = ({ projects }) => {
         ></meta>
       </Head>
       <motion.section exit={{ opacity: 0 }} className="projects">
-        <div className="projects__title">
-          <h3>
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          animate="show"
+          className="projects__title"
+        >
+          <motion.h3 variants={fadeIn}>
             Shaping world class websites,
             <br /> designs and experiences
-          </h3>
-          <p>
+          </motion.h3>
+          <motion.p variants={fadeIn}>
             I can help you successfully take your business online while
             assisting you throughout the building process.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
         <div className="container">
-          <h3>Featured Projects</h3>
+          <motion.h3 variants={fadeIn}>Featured Projects</motion.h3>
           <Cards projects={projects} />
         </div>
       </motion.section>
@@ -38,7 +44,7 @@ const ProjectPage = ({ projects }) => {
 export default ProjectPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const colRef = collection(db, "projects");
+  const colRef = collection(db, 'projects');
 
   const res = await getDocs(colRef);
   const projects = res?.docs.map((doc) => {

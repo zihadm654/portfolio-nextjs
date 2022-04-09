@@ -1,11 +1,17 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import { fadeIn, stagger } from '../../src/utility/Animation';
 const Index = () => {
   return (
     <motion.section exit={{ opacity: 0 }} className="tranding">
-      <div className="recent">
-        <h4>Recently Added</h4>
-        <p>coming soon...</p>
-      </div>
+      <motion.div
+        className="recent"
+        variants={stagger}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.h4 variants={fadeIn}>Recently Added</motion.h4>
+        <motion.p variants={fadeIn}>coming soon...</motion.p>
+      </motion.div>
     </motion.section>
   );
 };
