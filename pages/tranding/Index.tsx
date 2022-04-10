@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { fadeIn, stagger } from '../../src/utility/Animation';
-const Index = () => {
+const TrandingPage = () => {
   return (
     <motion.section exit={{ opacity: 0 }} className="tranding">
       <motion.div
@@ -16,4 +16,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default TrandingPage;
