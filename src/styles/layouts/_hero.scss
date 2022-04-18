@@ -21,6 +21,14 @@
     position: relative;
     margin-top: 2rem;
     padding-top: 4rem;
+    .heading__info {
+      @include m.flex(flex-start);
+      div {
+        margin-left: 0.4rem;
+        font-size: v.$p;
+        align-self: center;
+      }
+    }
     h1 {
       margin: 2rem 0;
     }

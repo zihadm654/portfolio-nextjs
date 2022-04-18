@@ -45,11 +45,7 @@ const Cards = ({ projects }) => {
 };
 
 export default Cards;
-type Props = {
-  id: string;
-  img: string;
-  name: string;
-};
+
 export const FeaturedCard = ({ posts, stagger, fadeIn }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView();

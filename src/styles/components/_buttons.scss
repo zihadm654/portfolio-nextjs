@@ -1,6 +1,6 @@
-@use "../helpers/mixins" as m;
-@use "../helpers/colors" as c;
-@use "../helpers/variables" as v;
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
+@use '../helpers/variables' as v;
 .primary__btn {
   position: relative;
   overflow: hidden;
@@ -70,26 +70,23 @@ a {
 }
 .custom__btn {
   position: relative;
-  box-shadow: -5px 30px 20px -20px rgb(86 93 113 / 38%);
   border-radius: 1.2rem;
   margin: 2rem 0;
   padding: 1.6rem 3.5rem;
-  background: transparent;
-  border: 3px solid #000000;
+  background: #000;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  border: 3px solid rgb(255, 255, 255);
   transition: transform ease-in-out 300ms;
   outline: none;
   a {
     font-weight: bold;
+    color: #ffffff;
   }
   &:hover,
   &:focus {
     transform: translateY(-0.8rem);
     cursor: pointer;
-    background-color: c.$dominant;
-
-    a {
-      color: #ffffff;
-    }
+    background-color: c.$secondaryColor;
   }
   @include m.media(sm) {
     width: 100%;

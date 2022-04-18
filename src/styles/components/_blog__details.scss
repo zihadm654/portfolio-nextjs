@@ -1,10 +1,14 @@
-@use "../helpers/mixins" as m;
-@use "../helpers/variables" as v;
+@use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
+@use '../helpers/colors' as c;
 .blog__details {
   padding: 2rem 8rem;
   margin-top: 6rem;
   @include m.media(sm) {
     padding: 2.5rem;
+  }
+  @include m.media(md) {
+    padding: 2.5rem 3rem;
   }
   article {
     .description {
@@ -16,23 +20,8 @@
         padding-bottom: 1rem;
         @include m.flex(space-between);
         .info__left {
-          p {
-            padding: 0 0.7rem;
-          }
           @include m.flex(space-between);
-          margin-left: 1rem;
           font-size: v.$p;
-          .author__img {
-            height: 3rem;
-            width: 3rem;
-            background: red;
-            border-radius: 50%;
-            img {
-              object-fit: cover;
-              height: 100%;
-              width: 100%;
-            }
-          }
         }
         .info__right {
           @include m.flex(center);
@@ -53,5 +42,15 @@
   }
   .markdown {
     margin: 2rem 0;
+    h4 {
+      margin: 1rem 0;
+    }
+    a {
+      text-decoration: underline;
+      color: c.$secondaryColor;
+    }
+    code {
+      font-size: 1.6rem;
+    }
   }
 }

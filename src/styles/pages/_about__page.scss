@@ -29,7 +29,7 @@
     }
     h5 {
       letter-spacing: 1rem;
-      color: gray;
+      color: rgb(181, 181, 181);
     }
     h3 {
       padding: 1.5rem 0;
@@ -73,24 +73,27 @@
       h4 {
         font-weight: 500;
         letter-spacing: 0.5rem;
-        color: gray;
+        color: rgb(177, 177, 177);
       }
     }
     .languages {
       align-items: center;
       justify-items: center;
       @include m.grid;
-      grid-template-columns: repeat(10, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
       font-size: 3.2rem;
       padding: 2rem 1rem;
     }
   }
   .services {
+    text-align: center;
+    @include m.media(sm) {
+      text-align: left;
+    }
     .title {
       letter-spacing: 0.4rem;
       color: c.$primaryColor;
     }
-    text-align: center;
     .tools {
       padding: 4rem 0rem;
       @include m.grid;
@@ -136,7 +139,6 @@
       padding: 2.3rem 0;
       h4 {
         text-align: left;
-        color: #000;
         font-weight: 600;
         font-size: v.$md;
         padding: 2rem 0;

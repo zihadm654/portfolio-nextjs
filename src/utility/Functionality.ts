@@ -1,17 +1,17 @@
-import path from "path";
-import fs from "fs";
-import { sync } from "glob";
-import matter from "gray-matter";
+import path from 'path';
+import fs from 'fs';
+import { sync } from 'glob';
+import matter from 'gray-matter';
 
-const POSTS_PATH = path.join(process.cwd(), "posts");
+const POSTS_PATH = path.join(process.cwd(), 'posts');
 
 export const getSlugs = (): string[] => {
   const paths = sync(`${POSTS_PATH}/*.mdx`);
 
   return paths.map((path) => {
-    const parts = path.split("/");
+    const parts = path.split('/');
     const fileName = parts[parts.length - 1];
-    const [slug, _ext] = fileName.split(".");
+    const [slug, _ext] = fileName.split('.');
     return slug;
   });
 };
@@ -33,14 +33,15 @@ interface Post {
   meta: PostMeta;
 }
 
-export interface PostMeta {
+export type PostMeta = {
+  author: string;
   slug: string;
   title: string;
   tags: string[];
   created_at: string;
   description: string;
   cover_img: string;
-}
+};
 
 export const getPostFromSlug = (slug: string): Post => {
   const postPath = path.join(POSTS_PATH, `${slug}.mdx`);
@@ -51,6 +52,7 @@ export const getPostFromSlug = (slug: string): Post => {
     content,
     meta: {
       slug,
+      author: data.author ?? slug,
       title: data.title ?? slug,
       tags: (data.tags ?? []).sort(),
       created_at: (data.created_at ?? new Date()).toString(),

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import TypewriterComponent from 'typewriter-effect';
 import { fadeIn, stagger } from '../utility/Animation';
 import { Button } from '../utility/Button';
 // import Image from "next/image";
@@ -12,11 +13,22 @@ function Hero() {
         animate="show"
         className="hero__left"
       >
-        <motion.p variants={fadeIn}>
-          We Design & Develop <span>Branding </span>
-          <span>Commerce </span>
-          <span>UI/UX </span>
-        </motion.p>
+        <motion.div variants={fadeIn} className="heading__info">
+          <h5>We Design & Develop </h5>
+          <TypewriterComponent
+            options={{
+              strings: [
+                'Creative Design',
+                'Redesign & Recreate',
+                'Minimalistic Design',
+                'Personal Website',
+                'Brand Design',
+              ],
+              autoStart: true,
+              loop: true,
+            }}
+          />
+        </motion.div>
         <motion.h1 variants={fadeIn}>
           Taking your vision and serving it as a reality
         </motion.h1>

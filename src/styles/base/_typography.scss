@@ -1,5 +1,4 @@
-@use "../helpers/variables" as v;
-@use "../helpers/colors" as c;
+@use '../helpers/variables' as v;
 h1 {
   font-size: v.$xxxlr;
   font-weight: 700;

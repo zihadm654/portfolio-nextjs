@@ -1,8 +1,11 @@
-@use "../helpers/mixins" as m;
-@use "../helpers/colors" as c;
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
 .blog__page {
   @include m.media(sm) {
     padding: 4rem 2.5rem;
+  }
+  @include m.media(md) {
+    padding: 4rem 3rem;
   }
   margin-top: 6rem;
   padding: 4rem 8rem;

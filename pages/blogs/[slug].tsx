@@ -1,18 +1,18 @@
-import type { GetStaticProps, GetStaticPaths } from "next";
-import Image from "next/image";
-import Head from "next/head";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { serialize } from "next-mdx-remote/serialize";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/atom-one-dark.css";
+import type { GetStaticProps, GetStaticPaths } from 'next';
+import Image from 'next/image';
+import Head from 'next/head';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeHighlight from 'rehype-highlight';
+import 'highlight.js/styles/atom-one-dark.css';
 import {
   getPostFromSlug,
   getSlugs,
   PostMeta,
-} from "../../src/utility/Functionality";
-import "highlight.js/styles/atom-one-dark.css";
+} from '../../src/utility/Functionality';
+import 'highlight.js/styles/atom-one-dark.css';
 
 interface MDXPost {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
@@ -24,6 +24,7 @@ export default function PostPage({ post }: { post: MDXPost }) {
     <>
       <Head>
         <title>{post.meta.title}</title>
+        <meta name="description" content={post.meta.description} />
       </Head>
       <div className="blog__details">
         <article>
@@ -31,9 +32,8 @@ export default function PostPage({ post }: { post: MDXPost }) {
           <div className="description">
             <div className="author__container">
               <div className="info__left">
-                <div className="author__img"></div>
-                {/* <p>{post.meta.}</p> */}
-                <span>/</span>
+                <p>{post.meta.author}</p>
+                <span> / </span>
                 <p>{post.meta.created_at}</p>
               </div>
               <div className="info__right">{/* <p>{post.meta.}</p> */}</div>
@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     mdxOptions: {
       rehypePlugins: [
         rehypeSlug,
-        [rehypeAutolinkHeadings, { behavior: "wrap" }],
+        [rehypeAutolinkHeadings, { behavior: 'wrap' }],
         rehypeHighlight,
       ],
     },

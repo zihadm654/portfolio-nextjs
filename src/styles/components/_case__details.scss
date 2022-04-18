@@ -9,6 +9,10 @@
   }
   .container {
     @include m.grid;
+    padding: 5rem 0;
+    @include m.media(sm) {
+      padding: 1rem 0;
+    }
     .case__study--left {
       grid-column: 1/6;
       @include m.media(sm) {
@@ -27,6 +31,9 @@
           text-transform: uppercase;
           color: c.$primaryColor;
         }
+        h5 {
+          padding-bottom: 0.5rem;
+        }
       }
     }
     .case__study--right {
@@ -42,7 +49,6 @@
         color: c.$primaryColor;
       }
     }
-    padding: 5rem 0;
     .content {
       padding: 3rem 0;
       h4 {

@@ -1,9 +1,12 @@
-@use "../helpers/mixins" as m;
-@use "../helpers/variables" as v;
-@use "../helpers/colors" as c;
+@use '../helpers/mixins' as m;
+@use '../helpers/variables' as v;
+@use '../helpers/colors' as c;
 .contact__page {
   padding: 2rem 8rem;
   @include m.media(sm) {
+    padding: 3rem 2.5rem;
+  }
+  @include m.media(md) {
     padding: 3rem;
   }
   .content {
@@ -23,15 +26,21 @@
     .inputs {
       margin: 5rem 0;
       position: relative;
+      @include m.media(sm) {
+        margin: 3rem 0;
+      }
       input {
         background: transparent;
         width: 65%;
-        height: 5rem;
+        height: 4rem;
         font-weight: 500;
         font-size: v.$md;
         outline: none;
         border: none;
         border-bottom: 0.2rem solid c.$primaryColor;
+        @include m.media(sm) {
+          width: 100%;
+        }
         &:focus {
           border-bottom: 0.2rem solid c.$dominant;
         }
@@ -40,7 +49,7 @@
           font-size: v.$p;
           font-weight: 500;
           z-index: 2;
-          transform: translateY(-3.5rem);
+          transform: translateY(-3rem);
           color: c.$dominant;
         }
       }
@@ -56,7 +65,7 @@
       }
     }
     button {
-      background: c.$dominant;
+      background: c.$secondaryColor;
       border: none;
       outline: none;
       padding: 1.3rem 2.3rem;

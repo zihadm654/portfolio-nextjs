@@ -1,7 +1,13 @@
-@use "../helpers/mixins" as m;
+@use '../helpers/mixins' as m;
 
 .tranding {
   min-height: 85vh;
   padding: 2rem 8rem;
   margin-top: 6rem;
+  @include m.media(sm) {
+    padding: 2rem 2.5rem;
+  }
+  @include m.media(md) {
+    padding: 2rem 3rem;
+  }
 }

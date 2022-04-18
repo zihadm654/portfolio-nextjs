@@ -1,10 +1,10 @@
-@use "../helpers/mixins" as m;
-@use "../helpers/colors" as c;
-@use "../helpers/variables" as v;
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
+@use '../helpers/variables' as v;
 .contact {
   position: relative;
   padding: 4rem 8rem;
-  color: #000;
+  // color: #000;
   @include m.grid;
   @include m.media(sm) {
     padding: 3rem 2rem;
@@ -63,7 +63,7 @@
         bottom: 1.3rem;
         left: 0;
         background: transparent;
-        color: #000;
+        // color: #000;
         padding: 1rem;
         font-weight: 500;
         width: 45rem;
