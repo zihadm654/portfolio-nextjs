@@ -1,13 +1,15 @@
-import { useEffect } from "react";
-import "../src/styles/globals.scss";
-import Header from "../src/components/Header";
-import Contact from "../src/layouts/Contact";
-import Head from "next/head";
-import { AnimatePresence } from "framer-motion";
-import { BsArrowUp } from "react-icons/bs";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { AppProps } from "next/dist/shared/lib/router/router";
+import { useEffect } from 'react';
+import '../src/styles/globals.scss';
+import Header from '../src/components/Header';
+import Contact from '../src/layouts/Contact';
+import Head from 'next/head';
+import { AnimatePresence } from 'framer-motion';
+import { BsArrowUp } from 'react-icons/bs';
+import { useAnimation, motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { AppProps } from 'next/dist/shared/lib/router/router';
+import { ThemeProvider } from 'next-themes';
+import { fadeIn } from '../src/utility/Animation';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const elevator = () => {
@@ -17,7 +19,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   const [ref, inView] = useInView();
   useEffect(() => {
     if (inView) {
-      controls.start("animate");
+      controls.start('animate');
     }
   }, [controls, inView]);
   return (
@@ -26,25 +28,23 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <title>Portfolio || Abdul Malek</title>
         <meta name="description" content="this is frontpage of this website" />
       </Head>
-      <Header />
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
-      <Contact />
-      <motion.div ref={ref} variants={fade} onClick={elevator} className="up">
-        <BsArrowUp />
-      </motion.div>
+      <ThemeProvider attribute="class">
+        <Header />
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} key={router.route} />
+        </AnimatePresence>
+        <Contact />
+        <motion.div
+          ref={ref}
+          variants={fadeIn}
+          onClick={elevator}
+          className="up"
+        >
+          <BsArrowUp />
+        </motion.div>
+      </ThemeProvider>
     </>
   );
 }
 
 export default MyApp;
-
-const fade = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-  },
-};

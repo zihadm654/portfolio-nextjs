@@ -25,17 +25,12 @@ html {
   }
 }
 body {
-  color: c.$dominant;
   font-family: v.$primary-font;
   position: relative;
 }
 a {
   font-size: v.$md;
   transition: color 200ms ease-out;
-  color: c.$dominant;
-  &:hover {
-    color: c.$primaryColor;
-  }
 }
 .hamburger,
 .secondary__background,
@@ -75,4 +70,33 @@ a {
   svg {
     font-size: 2.4rem;
   }
+}
+:root {
+  /* Your default theme */
+  --background: #fff;
+  --foreground: #000;
+}
+
+[data-theme='dark'] {
+  --background: #000;
+  --foreground: #fff;
+}
+.dark {
+  & .hamburger {
+    background-color: #000;
+    a {
+      color: #fff;
+    }
+  }
+  li {
+    a {
+      color: #000;
+    }
+  }
+  a {
+    color: #fff;
+  }
+}
+.light a {
+  color: #000;
 }

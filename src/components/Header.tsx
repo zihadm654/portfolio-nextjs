@@ -3,8 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../../public/logo.png';
 import Hamburger from './Hamburger';
-import { MdClose, MdMenu } from 'react-icons/md';
-
+import { useTheme } from 'next-themes';
 function Header() {
   const [menu, setMenu] = useState(false);
   const [sticky, setSticky] = useState(false);
@@ -20,8 +19,11 @@ function Header() {
       setSticky(false);
     }
   };
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
   useEffect(() => {
     window.addEventListener('scroll', stickyNav);
+    setMounted(true);
   }, []);
   return (
     <>
@@ -50,14 +52,44 @@ function Header() {
             <a>What&apos;s New</a>
           </Link>
         </div>
-        <div className="menu" onClick={handleClick}>
-          <div className="icon">
-            {!menu ? (
-              <MdMenu style={{ fontSize: '3rem', color: '#000' }} />
-            ) : (
-              <MdClose style={{ fontSize: '3rem', color: '#000' }} />
+        <div className="container">
+          <button
+            aria-label="Toggle Dark Mode"
+            type="button"
+            className="toggle__btn"
+            onClick={() =>
+              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+            }
+          >
+            {mounted && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                {resolvedTheme === 'dark' ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  />
+                )}
+              </svg>
             )}
-          </div>
+          </button>
+          <div
+            className={menu ? 'menu active' : 'menu'}
+            onClick={handleClick}
+          ></div>
         </div>
       </header>
       <Hamburger menu={menu} hide={hide} />
