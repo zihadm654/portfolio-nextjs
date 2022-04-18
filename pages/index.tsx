@@ -9,29 +9,31 @@ import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
 import { db } from '../src/lib/firebase';
 import Blogs from '../src/layouts/Blogs';
 import { getAllPosts } from '../src/utility/Functionality';
+import { ProjectsTypes, BlogTypes } from '../src/utility/Types';
 
-export type postItems = {
-  id: string;
-  name: string;
-  img: string;
+type Props = {
+  posts: ProjectsTypes;
+  blogs: BlogTypes;
 };
-const Home = ({ posts, blogs }) => {
+
+const Home: React.FC<Props> = ({
+  posts,
+  blogs,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <>
-      <motion.div className="container" exit={{ opacity: 0 }}>
-        <Head>
-          <title>HomePage || Abdul Malik</title>
-          <meta name="description" content="Home page created with nextjs" />
-        </Head>
-        <>
-          <Hero />
-          <Projects posts={posts} />
-          <Blogs blogs={blogs} />
-          <Skills />
-          <About />
-        </>
-      </motion.div>
-    </>
+    <motion.div className="container" exit={{ opacity: 0 }}>
+      <Head>
+        <title>HomePage || Abdul Malik</title>
+        <meta name="description" content="Home page created with nextjs" />
+      </Head>
+      <>
+        <Hero />
+        <Projects posts={posts} />
+        <Blogs blogs={blogs} />
+        <Skills />
+        <About />
+      </>
+    </motion.div>
   );
 };
 export default Home;
@@ -44,19 +46,19 @@ export const getStaticProps: GetStaticProps = async () => {
     orderBy('createdAt', 'desc')
   );
   const snap = await getDocs(res);
-  const posts = snap?.docs.map((doc) => {
+  const projects = snap?.docs.map((doc) => {
     return {
       ...doc.data(),
       id: doc.id,
       createdAt: doc.data().createdAt.toMillis(),
     };
   });
-  const projects = posts.slice(0, 4);
+  const posts: ProjectsTypes = projects;
   // blogs
-  const blogs = getAllPosts()
+  const blogs: BlogTypes[] = getAllPosts()
     .slice(0, 3)
     .map((blog) => blog.meta);
   return {
-    props: { posts: projects, blogs },
+    props: { posts, blogs },
   };
 };
