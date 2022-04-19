@@ -1,9 +1,7 @@
 export type ProjectsTypes = {
-  id: string;
   img: string;
   name: string;
   description: string;
-  createdAt: number;
   time: string;
   client: string;
   repo: string;

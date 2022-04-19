@@ -26,13 +26,11 @@ const Home: React.FC<Props> = ({
         <title>HomePage || Abdul Malik</title>
         <meta name="description" content="Home page created with nextjs" />
       </Head>
-      <>
-        <Hero />
-        <Projects posts={posts} />
-        <Blogs blogs={blogs} />
-        <Skills />
-        <About />
-      </>
+      <Hero />
+      <Projects posts={posts} />
+      <Blogs blogs={blogs} />
+      <Skills />
+      <About />
     </motion.div>
   );
 };
@@ -53,7 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
       createdAt: doc.data().createdAt.toMillis(),
     };
   });
-  const posts: ProjectsTypes = projects;
+  const posts = projects;
   // blogs
   const blogs: BlogTypes[] = getAllPosts()
     .slice(0, 3)
