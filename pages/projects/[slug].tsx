@@ -7,7 +7,7 @@ const CaseDetails = ({ project }) => {
   return (
     <>
       <Head>
-        <title>{project.name}</title>
+        <title>{project.name} || Abdul Malek</title>
         <meta name="description" content={project.description} />
       </Head>
       <section className="case__details">

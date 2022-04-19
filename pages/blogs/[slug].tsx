@@ -23,7 +23,7 @@ export default function PostPage({ post }: { post: MDXPost }) {
   return (
     <>
       <Head>
-        <title>{post.meta.title}</title>
+        <title>{post.meta.title} || Abdul Malek</title>
         <meta name="description" content={post.meta.description} />
       </Head>
       <div className="blog__details">
