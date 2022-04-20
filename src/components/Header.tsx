@@ -37,20 +37,20 @@ function Header() {
               </div>
             </a>
           </Link>
-        </div>
-        <div className="links">
-          <Link href="/projects">
-            <a>Work</a>
-          </Link>
-          <Link href="/blogs">
-            <a>Blogs</a>
-          </Link>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-          <Link href="/tranding">
-            <a>What&apos;s New</a>
-          </Link>
+          <div className="links">
+            <Link href="/projects">
+              <a>Work</a>
+            </Link>
+            <Link href="/blogs">
+              <a>Blogs</a>
+            </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+            <Link href="/new">
+              <a>What&apos;s New</a>
+            </Link>
+          </div>
         </div>
         <div className="container">
           <button

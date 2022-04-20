@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import { fadeIn, stagger } from '../../src/utility/Animation';
-const TrandingPage = () => {
+const New = () => {
   return (
     <>
       <Head>
@@ -26,4 +26,4 @@ const TrandingPage = () => {
   );
 };
 
-export default TrandingPage;
+export default New;

@@ -3,6 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { fadeIn, stagger } from '../utility/Animation';
+import { Button } from '../utility/Button';
 
 const Blogs = ({ blogs }) => {
   const controls = useAnimation();
@@ -49,6 +50,13 @@ const Blogs = ({ blogs }) => {
           </motion.div>
         ))}
       </motion.div>
+      <div className="btn__container">
+        <Button
+          variants={'secondary__btn'}
+          site={'/new'}
+          text={'See all blogs'}
+        />
+      </div>
     </div>
   );
 };

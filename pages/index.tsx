@@ -24,7 +24,10 @@ const Home: React.FC<Props> = ({
     <motion.div className="container" exit={{ opacity: 0 }}>
       <Head>
         <title>HomePage || Abdul Malik</title>
-        <meta name="description" content="Home page created with nextjs" />
+        <meta
+          name="description"
+          content="Abdul malek personal site describing my work skills and many more aspect of who am i."
+        />
       </Head>
       <Hero />
       <Projects posts={posts} />

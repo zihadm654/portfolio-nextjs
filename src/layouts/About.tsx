@@ -8,7 +8,7 @@ function About() {
       <div className="about">
         <div className="about__wrapper">
           <div className="img__wrapper">
-            <Image src={me} alt="me" />
+            <Image src={me} alt="me" layout="fill" objectFit="cover" />
           </div>
           <div className="about__description">
             <p>Hi, I&#39;m Abdul Malek</p>

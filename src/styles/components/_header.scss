@@ -40,17 +40,17 @@
         }
       }
     }
-  }
-  .links {
-    @include m.media(sm) {
-      display: none;
-    }
-    @include m.media(md) {
-      display: none;
-    }
-    padding: 0 1.5rem;
-    a {
-      padding-left: 1.5rem;
+    .links {
+      @include m.media(sm) {
+        display: none;
+      }
+      @include m.media(md) {
+        display: none;
+      }
+      padding: 0 1.5rem;
+      a {
+        padding-left: 1.5rem;
+      }
     }
   }
   .container {
@@ -62,11 +62,11 @@
       }
     }
     .toggle__btn {
-      padding: 0.5rem;
+      padding: 0.8rem;
       @include m.flex(center);
       display: inline-flex;
-      width: 3.2rem;
-      height: 3.2rem;
+      width: 3.5rem;
+      height: 3.5rem;
       color: #000;
       border-radius: 1rem;
       background-color: rgb(234, 234, 234);
@@ -212,4 +212,11 @@
 }
 .hamburger.menu {
   display: block;
+}
+
+.dark .container .toggle__btn {
+  background-color: #333;
+  svg {
+    color: #fff;
+  }
 }

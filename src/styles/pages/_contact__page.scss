@@ -18,6 +18,12 @@
       width: 50%;
       padding: 3rem 0;
     }
+    p {
+      a {
+        font-weight: 600;
+        text-decoration: underline;
+      }
+    }
   }
   form {
     padding: 4rem 0;
@@ -53,6 +59,7 @@
           color: c.$dominant;
         }
       }
+
       label {
         z-index: -1;
         color: c.$primaryColor;
@@ -72,6 +79,17 @@
       color: #fff;
       cursor: pointer;
       border-radius: 0.3rem;
+    }
+  }
+}
+.dark form .inputs {
+  label {
+    background-color: transparent;
+  }
+  input {
+    &:focus ~ label,
+    &:valid ~ label {
+      color: c.$primaryColor;
     }
   }
 }
