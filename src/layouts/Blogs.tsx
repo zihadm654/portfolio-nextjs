@@ -53,7 +53,7 @@ const Blogs = ({ blogs }) => {
       <div className="btn__container">
         <Button
           variants={'secondary__btn'}
-          site={'/new'}
+          site={'/blogs'}
           text={'See all blogs'}
         />
       </div>
