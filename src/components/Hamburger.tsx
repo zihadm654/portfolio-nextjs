@@ -1,17 +1,17 @@
-import Link from "next/link";
-import { motion } from "framer-motion";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
   FaGithub,
   FaDribbble,
   FaLinkedin,
   FaTwitter,
   FaInstagram,
-} from "react-icons/fa";
+} from 'react-icons/fa';
 function Hamburger({ menu, hide }) {
   return (
     <motion.div
-      className={!menu ? "hamburger" : "hamburger menu"}
-      animate={!menu ? "visible" : "hidden"}
+      className={!menu ? 'hamburger' : 'hamburger menu'}
+      animate={!menu ? 'visible' : 'hidden'}
       // variants={container}
     >
       <div className="wrapper">
@@ -38,7 +38,7 @@ function Hamburger({ menu, hide }) {
               </Link>
             </li>
             <li>
-              <Link href="/tranding">
+              <Link href="/new">
                 <a onClick={hide}>What&apos;s new</a>
               </Link>
             </li>
@@ -49,27 +49,27 @@ function Hamburger({ menu, hide }) {
             </li>
           </ul>
           <div className="social__media">
-            <Link href={"https://dribbble.com/zihadm654"}>
+            <Link href={'https://dribbble.com/zihadm654'}>
               <a>
                 <FaDribbble />
               </a>
             </Link>
-            <Link href={"https://twitter.com/zihadm654"}>
+            <Link href={'https://twitter.com/zihadm654'}>
               <a>
                 <FaTwitter />
               </a>
             </Link>
-            <Link href={"https://instagram.com/zihadm654"}>
+            <Link href={'https://instagram.com/zihadm654'}>
               <a>
                 <FaInstagram />
               </a>
             </Link>
-            <Link href={"https://github.com/zihadm654"}>
+            <Link href={'https://github.com/zihadm654'}>
               <a>
                 <FaGithub />
               </a>
             </Link>
-            <Link href={"https://www.linkedin.com/in/Abdul -malek-a095031a4/"}>
+            <Link href={'https://www.linkedin.com/in/zihadm654'}>
               <a>
                 <FaLinkedin />
               </a>

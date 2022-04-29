@@ -30,7 +30,9 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
             rel="stylesheet"
           />
-          <link href="/static/favicon.ico" rel="shortcut icon" />
+          <link href="/favicon.ico" rel="apple-touch-icon" />
+          <link href="/favicon.ico" rel="shortcut icon" />
+          <link href="/favicon.ico" rel="favicon" />
           <meta content="#ffffff" name="theme-color" />
         </Head>
         <body>

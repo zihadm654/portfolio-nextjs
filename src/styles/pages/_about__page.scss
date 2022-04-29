@@ -47,7 +47,7 @@
     color: orangered;
   }
   .css {
-    color: blue;
+    color: rgb(0, 144, 234);
   }
   .scss,
   .styled {
@@ -57,7 +57,7 @@
     color: rgba(255, 255, 0, 0.84);
   }
   .firebase {
-    color: rgba(255, 255, 0, 0.84);
+    color: rgb(255, 255, 0);
   }
   .react {
     color: rgba(0, 255, 255, 0.73);
@@ -71,7 +71,7 @@
       padding: 2rem;
       text-align: center;
       h4 {
-        font-weight: 500;
+        font-weight: 400;
         letter-spacing: 0.5rem;
         color: rgb(177, 177, 177);
       }
@@ -101,7 +101,7 @@
       h5 {
         letter-spacing: 0.15rem;
         padding: 2rem 0;
-        font-weight: 600;
+        font-weight: 400;
       }
       h4 {
         font-size: v.$md;
