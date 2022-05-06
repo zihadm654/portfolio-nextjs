@@ -58,7 +58,7 @@ function Header() {
             type="button"
             className="toggle__btn"
             onClick={() =>
-              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+              setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
             }
           >
             {mounted && (

@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <title>Portfolio || Abdul Malek</title>
         <meta name="description" content="this is frontpage of this website" />
       </Head>
-      <ThemeProvider attribute="class">
+      <ThemeProvider defaultTheme="system">
         <Header />
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} key={router.route} />

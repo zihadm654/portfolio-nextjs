@@ -214,9 +214,13 @@
   display: block;
 }
 
-.dark .container .toggle__btn {
-  background-color: #333;
-  svg {
-    color: #fff;
+[data-theme='dark'] {
+  .container {
+    .toggle__btn {
+      background-color: #333;
+      svg {
+        color: #fff;
+      }
+    }
   }
 }
