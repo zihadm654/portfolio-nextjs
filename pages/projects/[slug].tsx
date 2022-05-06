@@ -2,8 +2,10 @@ import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import Image from 'next/image';
 import { db } from '../../src/lib/firebase';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const CaseDetails = ({ project }) => {
+  console.log(project);
   return (
     <>
       <Head>
@@ -18,6 +20,16 @@ const CaseDetails = ({ project }) => {
                 <div className="context">
                   <p>Case Study</p>
                   <h4>{project.name}</h4>
+                </div>
+                <div className="context links">
+                  <p>Links</p>
+                  <Link href={project.site}>
+                    <a target="_blank">Live Site</a>
+                  </Link>
+                  <br />
+                  <Link href={project.repo}>
+                    <a target="_blank">Source code</a>
+                  </Link>
                 </div>
                 <div className="context">
                   <p>My Role</p>
@@ -35,6 +47,7 @@ const CaseDetails = ({ project }) => {
                 </div>
               </div>
               <div className="case__study--right">
+                <h5>Project Description</h5>
                 <p>{project.description}</p>
               </div>
             </div>

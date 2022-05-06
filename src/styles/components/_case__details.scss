@@ -7,9 +7,12 @@
   @include m.media(sm) {
     padding: 3rem;
   }
+  @include m.media(md) {
+    padding: 3rem;
+  }
   .container {
     @include m.grid;
-    padding: 5rem 0;
+    padding: 3rem 0;
     @include m.media(sm) {
       padding: 1rem 0;
     }
@@ -18,10 +21,23 @@
       @include m.media(sm) {
         grid-column: 1/13;
       }
+      @include m.media(md) {
+        grid-column: 1/13;
+      }
+      .links {
+        a {
+          text-decoration: underline;
+          font-weight: 600;
+          &:hover {
+            color: c.$fontHighlight;
+          }
+        }
+      }
       .context {
-        margin: 2rem 0;
+        &:not(:nth-child(1)) {
+          margin: 2rem 0;
+        }
         h4 {
-          font-size: v.$xlr;
           font-weight: 600;
           padding: 0.8rem 0;
         }
@@ -41,19 +57,19 @@
       @include m.media(sm) {
         grid-column: 1/13;
       }
+      @include m.media(md) {
+        grid-column: 1/13;
+      }
       @include m.media(xlg) {
         margin-left: 16%;
-        margin-top: 5.5rem;
+        margin-top: 2rem;
+      }
+      h5 {
+        margin-bottom: 1.5rem;
       }
       p {
         color: c.$primaryColor;
-      }
-    }
-    .content {
-      padding: 3rem 0;
-      h4 {
-        font-weight: 500;
-        padding: 1rem 0;
+        font-size: v.$p;
       }
     }
   }

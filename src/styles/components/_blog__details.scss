@@ -42,6 +42,16 @@
   }
   .markdown {
     margin: 2rem 0;
+    p {
+      margin: 1rem 0;
+    }
+    h2 {
+      a {
+        text-decoration: none;
+        font-size: v.$xlr;
+        color: c.$dominant;
+      }
+    }
     h4 {
       margin: 1rem 0;
     }
@@ -51,6 +61,13 @@
     }
     code {
       font-size: 1.6rem;
+    }
+    ul {
+      margin: 1rem 0;
+      li {
+        list-style: none;
+        font-size: 1.6rem;
+      }
     }
   }
 }
