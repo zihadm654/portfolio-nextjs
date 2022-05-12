@@ -47,9 +47,6 @@
         @include m.media(sm) {
           width: 100%;
         }
-        &:focus {
-          border-bottom: 0.2rem solid c.$dominant;
-        }
         &:focus ~ label,
         &:valid ~ label {
           font-size: v.$p;
@@ -57,6 +54,7 @@
           z-index: 2;
           transform: translateY(-3rem);
           color: c.$dominant;
+          border-bottom: 0.2rem solid c.$dominant;
         }
       }
 
@@ -82,14 +80,16 @@
     }
   }
 }
-.dark form .inputs {
-  label {
-    background-color: transparent;
-  }
-  input {
-    &:focus ~ label,
-    &:valid ~ label {
-      color: c.$primaryColor;
+[data-theme='dark'] {
+  form .inputs {
+    label {
+      background-color: transparent;
+    }
+    input {
+      &:focus ~ label,
+      &:valid ~ label {
+        color: c.$primaryColor;
+      }
     }
   }
 }

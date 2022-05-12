@@ -86,15 +86,14 @@ const data = [
     values: [
       'UI/UX design',
       'Responsive design',
-      'Frontend',
-      'Testing',
-      'Frontend Development',
+      'Frontend Design',
+      'Interactive UI',
     ],
   },
   {
     img: user,
     title: 'User Experience',
-    values: ['Mobile', 'Tablet', 'Laptop', 'Destop', 'Cross platform'],
+    values: ['Cross Platform', 'User Research', 'Interaction', 'Cross Devices'],
   },
   {
     img: animation,

@@ -139,7 +139,7 @@
   overflow: hidden;
   background-color: #fff;
   color: #000;
-  animation: hamburger 300ms forwards;
+  animation: hamburger 300ms linear;
   .wrapper {
     @include m.media(sm) {
       padding: 3rem 2.5rem;
