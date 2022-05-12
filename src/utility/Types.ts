@@ -1,4 +1,6 @@
-export type ProjectsTypes = {
+export interface ProjectsTypes {
+  id: number;
+  createdAt: number;
   img: string;
   name: string;
   description: string;
@@ -7,12 +9,12 @@ export type ProjectsTypes = {
   repo: string;
   role: string[];
   site: string;
-};
-export type BlogTypes = {
+}
+export interface BlogTypes {
   title: string;
   cover_img: string;
   description: string;
   slug: string;
   tags: string[];
   created_at: string;
-};
+}

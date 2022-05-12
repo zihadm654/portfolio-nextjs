@@ -4,22 +4,21 @@ import Hero from '../src/layouts/Hero';
 import Projects from '../src/layouts/Projects';
 import Skills from '../src/layouts/Skills';
 import { motion } from 'framer-motion';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps } from 'next';
 import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore';
 import { db } from '../src/lib/firebase';
 import Blogs from '../src/layouts/Blogs';
 import { getAllPosts } from '../src/utility/Functionality';
 import { ProjectsTypes, BlogTypes } from '../src/utility/Types';
 
-type Props = {
-  posts: ProjectsTypes;
-  blogs: BlogTypes;
-};
+interface Props {
+  posts: ProjectsTypes[];
+  blogs: BlogTypes[];
+}
+const metaUrl =
+  'https://firebasestorage.googleapis.com/v0/b/portfolio-next-50c1e.appspot.com/o/LinkedIn%20cover%20-%201.jpg?alt=media&token=1a0aeaf9-e54b-4d60-99fe-86f2a2caaa1a';
 
-const Home: React.FC<Props> = ({
-  posts,
-  blogs,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Home: React.FC<Props> = ({ posts, blogs }: Props) => {
   return (
     <motion.div className="container" exit={{ opacity: 0 }}>
       <Head>
@@ -28,6 +27,25 @@ const Home: React.FC<Props> = ({
           name="description"
           content="Abdul malek personal site describing my work skills and many more aspect of who am i."
         />
+        <meta
+          property="og:url"
+          content="https://portfolio-nextjs-zihadm654.vercel.app"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="fb:app_id"
+          content="https://www.facebook.com/zihadm654"
+        />
+        <meta
+          property="og:title"
+          content="Abdul Malik personal website for professional work"
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          property="og:description"
+          content="Abdul malek personal site describing my work skills and many more aspect of who am i"
+        />
+        <meta property="og:image" content={metaUrl} />
       </Head>
       <Hero />
       <Projects posts={posts} />
@@ -56,7 +74,7 @@ export const getStaticProps: GetStaticProps = async () => {
   });
   const posts = projects;
   // blogs
-  const blogs: BlogTypes[] = getAllPosts()
+  const blogs = getAllPosts()
     .slice(0, 3)
     .map((blog) => blog.meta);
   return {

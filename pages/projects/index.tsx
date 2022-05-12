@@ -5,8 +5,12 @@ import Cards from '../../src/components/Cards';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { fadeIn, stagger } from '../../src/utility/Animation';
+import { ProjectsTypes } from '../../src/utility/Types';
 
-const ProjectPage = ({ projects }) => {
+interface Props {
+  projects: ProjectsTypes[];
+}
+const ProjectPage = ({ projects }: Props) => {
   return (
     <>
       <Head>

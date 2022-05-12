@@ -3,9 +3,12 @@ import Image from 'next/image';
 import { db } from '../../src/lib/firebase';
 import Head from 'next/head';
 import Link from 'next/link';
+import { ProjectsTypes } from '../../src/utility/Types';
 
-const CaseDetails = ({ project }) => {
-  console.log(project);
+interface Props {
+  project: ProjectsTypes;
+}
+const CaseDetails = ({ project }: Props) => {
   return (
     <>
       <Head>
