@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import TypewriterComponent from 'typewriter-effect';
 import { fadeIn, stagger } from '../utility/Animation';
 import { Button } from '../utility/Button';
-// import Image from "next/image";
 
 function Hero() {
   return (
@@ -42,7 +41,9 @@ function Hero() {
           text="Book a free Consultation"
         />
       </motion.div>
-      <div className="hero__right">{/* <Image src={img} alt="me" /> */}</div>
+      <div className="hero__right">
+        <img src="/assets/undraw_creation_re_d1mi.svg" alt="main__model" />
+      </div>
     </section>
   );
 }

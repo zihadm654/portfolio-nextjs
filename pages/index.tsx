@@ -16,7 +16,7 @@ interface Props {
   blogs: BlogTypes[];
 }
 const metaUrl =
-  'https://firebasestorage.googleapis.com/v0/b/portfolio-next-50c1e.appspot.com/o/LinkedIn%20cover%20-%201.jpg?alt=media&token=1a0aeaf9-e54b-4d60-99fe-86f2a2caaa1a';
+  'https://firebasestorage.googleapis.com/v0/b/portfolio-next-50c1e.appspot.com/o/Facebook%20cover%20-%202.jpg?alt=media&token=d7474dda-4d4e-44d1-bca3-110a75bcffe6';
 
 const Home: React.FC<Props> = ({ posts, blogs }: Props) => {
   return (

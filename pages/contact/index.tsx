@@ -1,31 +1,32 @@
 // import { Button } from '../../src/utility/Button';
-import { addDoc, collection } from "firebase/firestore";
-import { useState } from "react";
-import { db } from "../../src/lib/firebase";
-import Head from "next/head";
-import { motion } from "framer-motion";
+import { addDoc, collection } from 'firebase/firestore';
+import { useState } from 'react';
+import { db } from '../../src/lib/firebase';
+import Head from 'next/head';
+import { motion } from 'framer-motion';
+// import contactImg from '../public/assets/undraw_contact_us_re_4qqt.svg';
 function ContactPage() {
   const [user, setUser] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const ref = await addDoc(collection(db, "users"), {
+      const ref = await addDoc(collection(db, 'users'), {
         name: user.name,
         email: user.email,
         message: user.message,
       });
-      console.log("send successfully");
+      console.log('send successfully');
     } catch (err) {
       console.log(err);
     }
     setUser({
-      name: "",
-      email: "",
-      message: "",
+      name: '',
+      email: '',
+      message: '',
     });
   };
   const handleChange = (e) => {
@@ -44,12 +45,20 @@ function ContactPage() {
       </Head>
       <motion.section exit={{ opacity: 0 }} className="contact__page">
         <div className="content">
-          <h5>LET&apos;S TALK</h5>
-          <h2>Hello! We&apos;ve been waiting for you.</h2>
-          <p>
-            Fill in the form or{" "}
-            <a href="mailto:zihadm654@gmail.com">Send us an email</a>
-          </p>
+          <div className="content__left">
+            <h5>LET&apos;S TALK</h5>
+            <h2>Hello! We&apos;ve been waiting for you.</h2>
+            <p>
+              Fill in the form or{' '}
+              <a href="mailto:zihadm654@gmail.com">Send us an email</a>
+            </p>
+          </div>
+          <div className="content__img">
+            <img
+              src="/assets/undraw_contact_us_re_4qqt.svg"
+              alt="contact img"
+            />
+          </div>
         </div>
         <form name="contact" onSubmit={handleSubmit}>
           <div className="inputs">
