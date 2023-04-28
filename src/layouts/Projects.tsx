@@ -42,7 +42,10 @@ function Projects({ posts }) {
         </motion.p>
       </motion.div>
       <div className="project__container">
-        <FeaturedCard posts={posts} stagger={stagger} fadeIn={fadeIn} />
+        <FeaturedCard 
+        posts={posts} 
+        stagger={stagger} 
+        fadeIn={fadeIn} />
       </div>
       <div className="btn__container">
         <Button

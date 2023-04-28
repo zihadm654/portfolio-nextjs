@@ -10,7 +10,7 @@ export function Button({ text, variants, site }: Props) {
   return (
     <button type="button" className={variants}>
       <Link href={site}>
-        <a>{text}</a>
+        {text}
       </Link>
     </button>
   );
@@ -23,7 +23,7 @@ export function Icon({ site, text }: iconProps) {
   return (
     <div className="link">
       <Link href={site}>
-        <a>{text}</a>
+        {text}
       </Link>
       <BsArrowRight className={"icon"} />
     </div>

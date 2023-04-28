@@ -9,7 +9,6 @@ export default function Articles({ posts }: { posts: PostMeta[] }) {
       {posts?.map((post) => (
         <motion.article variants={fadeIn} key={post.slug} className="content">
           <Link href={`/blogs/${post.slug}`}>
-            <a>
               <div className="description">
                 <div className="blog__title">
                   <h4>{post.title}</h4>
@@ -22,7 +21,6 @@ export default function Articles({ posts }: { posts: PostMeta[] }) {
                   ))}
                 </div>
               </div>
-            </a>
           </Link>
         </motion.article>
       ))}

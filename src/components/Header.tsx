@@ -30,25 +30,23 @@ function Header() {
       <header className={sticky ? 'navbar sticky' : 'navbar'}>
         <div className="navbar__left">
           <Link href="/">
-            <a>
               <div className="logo">
                 <Image src={logo} height="500" width="500" alt="logo" />
                 <h5 className={menu ? 'active' : ''}>Abdul Malek</h5>
               </div>
-            </a>
           </Link>
           <div className="links">
             <Link href="/projects">
-              <a>Work</a>
+              Work
             </Link>
             <Link href="/blogs">
-              <a>Blogs</a>
+              Blogs
             </Link>
             <Link href="/about">
-              <a>About</a>
+              About
             </Link>
             <Link href="/new">
-              <a>What&apos;s New</a>
+              What&apos;s New
             </Link>
           </div>
         </div>

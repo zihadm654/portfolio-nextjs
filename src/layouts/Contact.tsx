@@ -25,19 +25,19 @@ function Contact() {
       <div className="media">
         <div className="social__media">
           <Link href={'https://dribbble.com/zihadm654'}>
-            <a>Dribbble</a>
+            Dribbble
           </Link>
           <Link href={'https://www.behance.net/zihadm654/'}>
-            <a>Behance</a>
+            Behance
           </Link>
           <Link href={'https://instagram.com/zihadm65'}>
-            <a>Instagram</a>
+            Instagram
           </Link>
           <Link href={'https://github.com/zihadm654'}>
-            <a>Github</a>
+            Github
           </Link>
           <Link href={'https://www.linkedin.com/in/zihadm654'}>
-            <a>Linkdin</a>
+            Linkdin
           </Link>
         </div>
         <hr />

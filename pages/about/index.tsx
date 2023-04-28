@@ -55,7 +55,7 @@ const AboutPage = () => {
             through up-and-coming startups, to multinational companies. For more
             details, head over to my{' '}
             <Link href={'https://www.linkedin.com/in/zihadm654'}>
-              <a>LinkedIn profile</a>
+              LinkedIn profile
             </Link>
             .
           </p>

@@ -4,6 +4,8 @@ import { db } from '../../src/lib/firebase';
 import Head from 'next/head';
 import Link from 'next/link';
 import { ProjectsTypes } from '../../src/utility/Types';
+import { SiGithub } from 'react-icons/si';
+import { VscLiveShare } from 'react-icons/vsc';
 
 interface Props {
   project: ProjectsTypes;
@@ -26,13 +28,16 @@ const CaseDetails = ({ project }: Props) => {
                 </div>
                 <div className="context links">
                   <p>Links</p>
-                  <Link href={project.site}>
-                    <a target="_blank">Live Site</a>
-                  </Link>
-                  <br />
-                  <Link href={project.repo}>
-                    <a target="_blank">Source code</a>
-                  </Link>
+                  <div className="button__links">
+                    <Link className="github" href={project.repo}>
+                        <p>Source Code</p>
+                        <SiGithub />
+                    </Link>
+                    <Link className="livesite" href={project.site}>
+                        <p>Live Site</p>
+                        <VscLiveShare />
+                    </Link>
+                  </div>
                 </div>
                 <div className="context">
                   <p>My Role</p>

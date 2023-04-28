@@ -42,10 +42,8 @@ const Blogs = ({ blogs }) => {
             className="blog__container"
           >
             <Link href={`/blogs/${blog.slug}`}>
-              <a>
                 <h5>{blog.title}</h5>
                 <p>{blog.description}</p>
-              </a>
             </Link>
           </motion.div>
         ))}

@@ -4,6 +4,9 @@ import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { SiGithub } from 'react-icons/si';
+import { VscLiveShare } from 'react-icons/vsc';
+
 const Cards = ({ projects }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView();
@@ -35,6 +38,16 @@ const Cards = ({ projects }) => {
               <p>{card.time}</p>
               <h5>{card.name}</h5>
               <p>{card.description}</p>
+              <div className="button__links">
+                <Link className="github" href={card.repo}>
+                    <p>Source Code</p>
+                    <SiGithub />
+                </Link>
+                <Link className="livesite" href={card.site}>
+                    <p>Live Site</p>
+                    <VscLiveShare />
+                </Link>
+              </div>
               <Icon site={`/projects/${card.id}`} text="see case study" />
             </div>
           </div>
@@ -90,6 +103,17 @@ export const FeaturedCard = ({ posts, stagger, fadeIn }) => {
               <h5>{card.name}</h5>
               <p>{card.description}</p>
               <p>{new Date(card.createdAt).toDateString()}</p>
+              <div className="button__links">
+                <Link className="github" href={card.repo}>
+                    <p>Source Code</p>
+                    <SiGithub />
+                </Link>
+                <Link className="livesite" href={card.site}>
+                    <p>Live Site</p>
+                    <VscLiveShare />
+                </Link>
+              </div>
+              <Icon site={`/projects/${card.id}`} text="see case study" />
             </div>
           </motion.div>
         );

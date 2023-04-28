@@ -18,61 +18,56 @@ function Hamburger({ menu, hide }) {
         <nav className="nav">
           <ul className="nav__links">
             <li>
-              <Link href="/">
-                <a onClick={hide}>Home</a>
+              <Link onClick={hide} href="/">
+                Home
               </Link>
             </li>
             <li>
-              <Link href="/projects">
-                <a onClick={hide}>Projects</a>
+              <Link onClick={hide} href="/projects">
+                Projects
               </Link>
             </li>
             <li>
-              <Link href="/about">
-                <a onClick={hide}>About</a>
+              <Link onClick={hide} href="/about">
+                About
               </Link>
             </li>
             <li>
-              <Link href="/blogs">
-                <a onClick={hide}>Blogs</a>
+              <Link onClick={hide} href="/blogs">
+                Blogs
               </Link>
             </li>
             <li>
-              <Link href="/new">
-                <a onClick={hide}>What&apos;s new</a>
+              <Link onClick={hide} href="/new">
+                What&apos;s new
               </Link>
             </li>
             <li>
-              <Link href="/contact">
-                <a onClick={hide}>Contact</a>
+              <Link onClick={hide} href="/contact">
+                Contact
               </Link>
             </li>
           </ul>
           <div className="social__media">
             <Link href={'https://dribbble.com/zihadm654'}>
-              <a>
+              
                 <FaDribbble />
-              </a>
             </Link>
             <Link href={'https://twitter.com/zihadm654'}>
-              <a>
+              
                 <FaTwitter />
-              </a>
             </Link>
             <Link href={'https://instagram.com/zihadm654'}>
-              <a>
+              
                 <FaInstagram />
-              </a>
             </Link>
             <Link href={'https://github.com/zihadm654'}>
-              <a>
+              
                 <FaGithub />
-              </a>
             </Link>
             <Link href={'https://www.linkedin.com/in/zihadm654'}>
-              <a>
+              
                 <FaLinkedin />
-              </a>
             </Link>
           </div>
         </nav>
