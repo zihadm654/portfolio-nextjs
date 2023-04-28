@@ -6,7 +6,7 @@
   padding: 6rem 8rem;
   max-height: 100vh;
   gap: 2.5rem;
-  @include m.flex(center);
+  // @include m.flex(center);
   @include m.media(sm) {
     padding: 3rem 2.5rem;
     flex-direction: column;
@@ -23,9 +23,10 @@
     @include m.media(sm) {
       flex: 1;
     }
+    max-width: 80%;
     flex: 1;
     position: relative;
-    margin-top: 2rem;
+    margin-top: 5rem;
     padding-top: 4rem;
     .heading__info {
       @include m.flex(flex-start);
@@ -37,6 +38,10 @@
     }
     h1 {
       margin: 2rem 0;
+    }
+    p{
+      font-size: 2.2rem;
+      padding-top: 4rem;
     }
     .primary__btn {
       margin-top: 3rem;

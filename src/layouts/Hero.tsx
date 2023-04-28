@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import TypewriterComponent from 'typewriter-effect';
 import { fadeIn, stagger } from '../utility/Animation';
 import { Button } from '../utility/Button';
@@ -35,15 +36,21 @@ function Hero() {
           We help brands in building beautiful websites, web apps and helping
           them carve their stories through engaging digital art experiences.
         </motion.p>
-        <Button
+        {/* <Button
           site="/contact"
           variants="primary__btn"
           text="Book a free Consultation"
         />
+        <Link style={{ backgroundColor: 'transparent', marginLeft: '1rem' }}
+            className="custom__btn"
+            target="_blank"
+            download href="/assets/Abdul Malek.pdf">
+            Download Resume
+        </Link> */}
       </motion.div>
-      <div className="hero__right">
+      {/* <div className="hero__right">
         <img src="/assets/undraw_creation_re_d1mi.svg" alt="main__model" />
-      </div>
+      </div> */}
     </section>
   );
 }
