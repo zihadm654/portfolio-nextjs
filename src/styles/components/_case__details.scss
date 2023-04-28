@@ -26,10 +26,22 @@
       }
       .links {
         a {
-          text-decoration: underline;
           font-weight: 600;
           &:hover {
             color: c.$fontHighlight;
+          }
+        }
+        .button__links {
+          margin: 1rem 0;
+          .github,
+          .livesite {
+            @include m.flex(flex-start);
+            p {
+              margin-right: 0.5rem;
+            }
+            svg {
+              font-size: 2rem;
+            }
           }
         }
       }

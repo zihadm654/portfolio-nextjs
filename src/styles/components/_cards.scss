@@ -1,5 +1,5 @@
-@use "../helpers/mixins" as m;
-@use "../helpers/colors" as c;
+@use '../helpers/mixins' as m;
+@use '../helpers/colors' as c;
 .cards {
   @include m.grid;
   padding: 4rem 0;
@@ -48,6 +48,20 @@
       p {
         margin: 1rem 0;
         color: c.$primaryColor;
+      }
+      .button__links {
+        @include m.flex(space-between);
+        .github,
+        .livesite {
+          @include m.flex(center);
+          & > p {
+            font-weight: 600;
+            margin-right: 1rem;
+          }
+        }
+      }
+      div > svg {
+        font-size: 2.2rem;
       }
     }
   }

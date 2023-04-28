@@ -38,7 +38,7 @@ const Home: React.FC<Props> = ({ posts, blogs }: Props) => {
         />
         <meta
           property="og:title"
-          content="Abdul Malik personal website for professional work"
+          content="Frontend web developer working with reactjs"
         />
         <meta name="twitter:card" content="summary" />
         <meta
