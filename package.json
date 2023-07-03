@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^9.1.4",
     "@types/glob": "^7.2.0",
     "@types/react": "^17.0.17",
     "firebase": "^9.6.0",
     "framer-motion": "^5.4.3",
     "glob": "^7.2.0",
     "gray-matter": "^4.0.3",
-    "next": "^13.1.6",
+    "mongoose": "^7.3.1",
+    "next": "^13.4.7",
+    "next-api-validation": "^1.0.5",
     "next-mdx-remote": "^4.0.0",
     "next-themes": "^0.1.1",
     "react": "^18.2.0",
@@ -29,7 +32,7 @@
   },
   "devDependencies": {
     "eslint": "7.32.0",
-    "eslint-config-next": "^13.1.6",
+    "eslint-config-next": "^13.4.7",
     "react-icons": "^4.2.0",
     "sass": "^1.37.5",
     "typescript": "^4.3.5"

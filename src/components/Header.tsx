@@ -1,9 +1,12 @@
+'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../../public/logo.png';
 import Hamburger from './Hamburger';
 import { useTheme } from 'next-themes';
+import { dancing_script } from '../utility/fonts';
+
 function Header() {
   const [menu, setMenu] = useState(false);
   const [sticky, setSticky] = useState(false);
@@ -30,24 +33,24 @@ function Header() {
       <header className={sticky ? 'navbar sticky' : 'navbar'}>
         <div className="navbar__left">
           <Link href="/">
-              <div className="logo">
-                <Image src={logo} height="500" width="500" alt="logo" />
-                <h5 className={menu ? 'active' : ''}>Abdul Malek</h5>
-              </div>
+            <div className="logo">
+              <Image src={logo} height="500" width="500" alt="logo" />
+              <h5
+                className={
+                  menu
+                    ? `active ${dancing_script.className}`
+                    : `${dancing_script.className}`
+                }
+              >
+                Abdul Malek
+              </h5>
+            </div>
           </Link>
           <div className="links">
-            <Link href="/projects">
-              Work
-            </Link>
-            <Link href="/blogs">
-              Blogs
-            </Link>
-            <Link href="/about">
-              About
-            </Link>
-            <Link href="/new">
-              What&apos;s New
-            </Link>
+            <Link href="/projects">Work</Link>
+            <Link href="/blogs">Blogs</Link>
+            <Link href="/about">About</Link>
+            <Link href="/new">What&apos;s New</Link>
           </div>
         </div>
         <div className="container">
