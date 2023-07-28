@@ -1,4 +1,4 @@
-import mongoose, { Document, model, Model, Schema } from 'mongoose';
+import mongoose, { Document, model, Model, models, Schema } from 'mongoose';
 
 export interface IProject extends Document {
   title: string;
@@ -16,8 +16,9 @@ const ProjectSchema: Schema = new Schema({
   },
   client: {
     type: String,
+    require:true
   },
-  sub: {
+  description: {
     type: String,
     require: true,
   },
@@ -31,8 +32,21 @@ const ProjectSchema: Schema = new Schema({
   },
   role: {
     type: Array,
+    require:true
   },
+  tags:{
+    type: Array,
+    require: true
+  },
+//  repo:{
+//    type:string,
+//    require:true
+//  },
+//  site:{
+//    type:string,
+//    require: true
+//  }
 });
 
-export const Project = (mongoose.models.Project ||
+export const Project = (models.Project ||
   model('Project', ProjectSchema)) as Model<IProject>;

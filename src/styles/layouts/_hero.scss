@@ -1,63 +1,69 @@
 @use '../helpers/mixins' as m;
 @use '../helpers/colors' as c;
 @use '../helpers/variables' as v;
+
 .hero {
-  position: relative;
-  padding: 6rem 8rem;
-  max-height: 100vh;
-  gap: 2.5rem;
-  // @include m.flex(center);
-  @include m.media(sm) {
-    padding: 3rem 2.5rem;
-    flex-direction: column;
-    gap: 0;
-    max-height: 100%;
-  }
-  @include m.media(md) {
-    padding: 3rem;
-    flex-direction: column;
-    gap: 0;
-    max-height: 100%;
-  }
-  &__left {
-    @include m.media(sm) {
-      flex: 1;
-    }
-    max-width: 80%;
-    flex: 1;
     position: relative;
-    margin-top: 5rem;
-    padding-top: 4rem;
-    .heading__info {
-      @include m.flex(flex-start);
-      div {
-        margin-left: 0.4rem;
-        font-size: v.$p;
-        align-self: center;
-      }
-    }
-    h1 {
-      margin: 2rem 0;
-    }
-    p{
-      font-size: 2.2rem;
-      padding-top: 4rem;
-    }
-    .primary__btn {
-      margin-top: 3rem;
-    }
-  }
-  &__right {
-    height: 100%;
-    width: 100%;
+    padding: 6rem 8rem;
+    min-height: 60vh;
+    gap: 2.5rem;
+    @include m.flex(center);
     @include m.media(sm) {
-      flex: 1;
+        padding: 3rem 2.5rem;
+        flex-direction: column;
+        gap: 0;
     }
-    flex: 1;
-    img {
-      height: 70%;
-      width: 70%;
-      object-fit: cover;
+    @include m.media(md) {
+        padding: 3rem;
+        flex-direction: column;
+        gap: 0;
     }
-  }
+
+    &__left {
+        @include m.media(sm) {
+            flex: 1;
+        }
+        max-width: 80%;
+        flex: 1;
+        position: relative;
+        padding-top: 4rem;
+
+        .heading__info {
+            @include m.flex(flex-start);
+
+            div {
+                margin-left: 0.4rem;
+                font-size: v.$p;
+                align-self: center;
+            }
+        }
+
+        h1 {
+            margin: 2rem 0;
+        }
+
+        p {
+            font-size: 1.8rem;
+            padding-top: 3rem;
+        }
+
+        .primary__btn {
+            margin-top: 3rem;
+        }
+    }
+
+    &__right {
+        height: 100%;
+        width: 100%;
+        @include m.media(sm) {
+            flex: 1;
+        }
+        flex: 1;
+
+        img {
+            height: 70%;
+            width: 70%;
+            object-fit: cover;
+        }
+    }
 }

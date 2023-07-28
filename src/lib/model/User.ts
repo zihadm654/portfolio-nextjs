@@ -22,9 +22,21 @@ const UserSchema: Schema = new Schema(
       type: String,
       require: true,
     },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    forgotPasswordToken: String,
+    forgotPasswordTokenExpiry: Date,
+    verifyToken: String,
+    verifyTokenExpiry: Date,
   },
   { timestamps: true }
 );
 
-export const User = (mongoose.models.User ||
-  model('User', UserSchema)) as Model<IUser>;
+export const User = (mongoose.models.users ||
+  model('users', UserSchema)) as Model<IUser>;

@@ -25,10 +25,8 @@
       grid-column: 1/13;
     }
     .card {
-      position: relative;
-      height: 50rem;
-      width: 100%;
-      overflow: hidden;
+      padding: 1rem 2rem;
+      overflow:hidden;
       &:hover {
         cursor: pointer;
         img {

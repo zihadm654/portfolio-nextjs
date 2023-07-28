@@ -36,11 +36,12 @@ function Header() {
             <div className="logo">
               <Image src={logo} height="500" width="500" alt="logo" />
               <h5
-                className={
-                  menu
-                    ? `active ${dancing_script.className}`
-                    : `${dancing_script.className}`
-                }
+//                className={
+//                  menu
+//                    ? `active ${dancing_script.className}`
+//                    : `${dancing_script.className}`
+//                }
+                className= {`${dancing_script.className}`}
               >
                 Abdul Malek
               </h5>

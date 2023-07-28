@@ -6,11 +6,11 @@ import { useInView } from 'react-intersection-observer';
 import { fadeIn, stagger } from '../utility/Animation';
 import { Button } from '../utility/Button';
 
-export const getData = async () => {
-  const res = await fetch('/api/projects');
-  console.log(res.json);
-  return res.json();
-};
+// export const getData = async () => {
+//   const res = await fetch('/api/projects');
+//   console.log(res.json);
+//   return res.json();
+// };
 const Blogs = ({ blogs }) => {
   // const controls = useAnimation();
   // const [ref, inView] = useInView();
@@ -38,7 +38,7 @@ const Blogs = ({ blogs }) => {
         // animate={controls}
         className="container"
       >
-        {blogs?.map((blog) => (
+        {/* {blogs?.map((blog) => (
           <div
             key={blog.slug}
             // ref={ref}
@@ -52,7 +52,7 @@ const Blogs = ({ blogs }) => {
               <p>{blog.description}</p>
             </Link>
           </div>
-        ))}
+        ))} */}
       </div>
       <div className="btn__container">
         <Button

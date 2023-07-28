@@ -30,6 +30,7 @@ body {
 }
 a {
   font-size: v.$md;
+  color: #000;
   transition: color 200ms ease-out;
 }
 .hamburger,
@@ -101,4 +102,7 @@ a {
   a {
     color: #000;
   }
+}
+.title {
+  font-family: var(--font-dancing-script);
 }

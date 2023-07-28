@@ -23,7 +23,7 @@ function Hamburger({ menu, hide }) {
               </Link>
             </li>
             <li>
-              <Link onClick={hide} href="/projects">
+              <Link onClick={hide} href='/projects'>
                 Projects
               </Link>
             </li>
@@ -43,31 +43,26 @@ function Hamburger({ menu, hide }) {
               </Link>
             </li>
             <li>
-              <Link onClick={hide} href="/contact">
+              <Link onClick={hide} href='/contact'>
                 Contact
               </Link>
             </li>
           </ul>
-          <div className="social__media">
+          <div className='social__media'>
             <Link href={'https://dribbble.com/zihadm654'}>
-              
-                <FaDribbble />
+              <FaDribbble />
             </Link>
             <Link href={'https://twitter.com/zihadm654'}>
-              
-                <FaTwitter />
+              <FaTwitter />
             </Link>
             <Link href={'https://instagram.com/zihadm654'}>
-              
-                <FaInstagram />
+              <FaInstagram />
             </Link>
             <Link href={'https://github.com/zihadm654'}>
-              
-                <FaGithub />
+              <FaGithub />
             </Link>
             <Link href={'https://www.linkedin.com/in/zihadm654'}>
-              
-                <FaLinkedin />
+              <FaLinkedin />
             </Link>
           </div>
         </nav>

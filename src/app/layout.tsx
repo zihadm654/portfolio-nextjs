@@ -1,16 +1,11 @@
-'use client';
-// import { useEffect } from 'react';
-import '../styles/globals.scss';
-import { AnimatePresence } from 'framer-motion';
-import { BsArrowUp } from 'react-icons/bs';
-// import { useAnimation, motion } from 'framer-motion';
-// import { useInView } from 'react-intersection-observer';
-// import { AppProps } from 'next/dist/shared/lib/router/router';
+import '@/styles/style.scss';
+//import { AnimatePresence } from 'framer-motion';
+//import { BsArrowUp } from 'react-icons/bs';
 import { ThemeProvider } from 'next-themes';
-import Header from '../components/Header';
-import Contact from '../sections/Contact';
+import Header from '@/components/Header';
+import Contact from '@/sections/Contact';
 // import { fadeIn } from '../utility/Animation';
-import { inter } from '../utility/fonts';
+import { inter } from '@/utility/fonts';
 import { Metadata } from 'next';
 
 export default function RootLayout({
@@ -19,50 +14,77 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.className} font-sans`}>
+    <html lang='en' className={`${inter.className} font-sans`}>
       <body>
-        <ThemeProvider defaultTheme="system">
-          <Header />
-          <main>{children}</main>
-          <Contact />
-          <div className="up">
-            <BsArrowUp />
-          </div>
-        </ThemeProvider>
+        {/*<ThemeProvider defaultTheme='system'>*/}
+        <Header />
+        <main>{children}</main>
+        <Contact />
+        {/*<div className='up'>*/}
+        {/*  <BsArrowUp />*/}
+        {/*</div>*/}
+        {/*</ThemeProvider>*/}
       </body>
     </html>
   );
 }
 
-const app_name = 'Abdul Malek Zihad';
-const app_default_title = 'Abdul Malek';
-const app_title_template = '%s - Abdul Malek';
-const app_description =
+const APP_NAME = 'Abdul Malek Zihad';
+const APP_DEFAULT_TITLE = 'Abdul Malek';
+const APP_TITLE_TEMPLATE = '%s - Abdul Malek';
+const APP_DESCRIPTION =
   'The portfolio site describes who is Abdul Malek Zihad and what he is specialized in. A self taught Frontend Reactjs/Nextjs developer.';
 
 export const metadata: Metadata = {
-  applicationName: app_name,
-  title: {
-    default: app_default_title,
-    template: app_title_template,
-  },
-  description: app_description,
+  applicationName: APP_NAME,
+  title: { default: APP_DEFAULT_TITLE, template: APP_TITLE_TEMPLATE },
+  description: APP_DESCRIPTION,
   manifest: '/manifest.json',
+  themeColor: '#ffffff',
+  metadataBase: new URL('https://portfolio-nextjs-zihadm654.vercel.app'),
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: app_default_title,
+    title: APP_DEFAULT_TITLE,
+    // startUpImage: [],
   },
   formatDetection: {
     telephone: false,
   },
   openGraph: {
     type: 'website',
-    siteName: app_name,
+    siteName: APP_NAME,
     title: {
-      default: app_default_title,
-      template: app_title_template,
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
     },
-    description: app_description,
+    description: APP_DESCRIPTION,
+    images: [
+      {
+        url: '/public/assets/Facebook cover - 2.jpg',
+        width: '800',
+        height: '600',
+        alt: APP_DEFAULT_TITLE,
+      },
+      {
+        url: '/public/assets/Facebook cover - 2.jpg',
+        width: '900',
+        height: '700',
+        alt: APP_DEFAULT_TITLE,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary',
+    site: 'https://portfolio-nextjs-zihadm654.vercel.app/',
+    title: {
+      default: APP_DEFAULT_TITLE,
+      template: APP_TITLE_TEMPLATE,
+    },
+    images: {
+      url: '/public/assets/Facebook cover - 2.jpg',
+      alt: APP_DEFAULT_TITLE,
+    },
+    description: APP_DESCRIPTION,
   },
 };

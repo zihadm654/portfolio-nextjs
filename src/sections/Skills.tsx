@@ -54,7 +54,7 @@ function Skills() {
               // initial="initial"
               // animate={controls}
               // variants={fadeIn}
-              className="skill"
+              className='skill'
             >
               <Image src={skill.img} alt={skill.img} />
               <h5>{skill.title}</h5>

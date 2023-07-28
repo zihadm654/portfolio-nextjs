@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .flxc {
+    @apply flex justify-center items-center;
+  }
+  .flxb {
+    @apply flex justify-between items-center;
+  }
+  .g12 {
+    @apply grid grid-cols-12 gap-[2rem];
+  }
+}
