@@ -2,7 +2,7 @@ export interface ProjectsTypes {
   id: number;
   createdAt: number;
   img: string;
-  name: string;
+  title: string;
   description: string;
   time: string;
   client: string;

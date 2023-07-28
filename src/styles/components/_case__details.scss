@@ -17,7 +17,7 @@
       padding: 1rem 0;
     }
     .case__study--left {
-      grid-column: 1/6;
+      grid-column: 1/4;
       @include m.media(sm) {
         grid-column: 1/13;
       }
@@ -36,7 +36,7 @@
           .github,
           .livesite {
             @include m.flex(flex-start);
-            p {
+            h5 {
               margin-right: 0.5rem;
             }
             svg {
@@ -58,6 +58,7 @@
           letter-spacing: 0.4rem;
           text-transform: uppercase;
           color: c.$primaryColor;
+          font-size: v.$md;
         }
         h5 {
           padding-bottom: 0.5rem;
@@ -65,7 +66,7 @@
       }
     }
     .case__study--right {
-      grid-column: 6/13;
+      grid-column: 4/13;
       @include m.media(sm) {
         grid-column: 1/13;
       }
@@ -76,23 +77,42 @@
         margin-left: 16%;
         margin-top: 2rem;
       }
-      h5 {
-        margin-bottom: 1.5rem;
+      .context {
+        &:not(:nth-child(1)) {
+          margin: 2rem 0;
+        }
+        h3 {
+          padding: 0.8rem 0;
+        }
+        p {
+          margin-bottom: 0.6rem;
+          letter-spacing: 0.4rem;
+          text-transform: uppercase;
+          color: c.$primaryColor;
+          font-size: v.$md;
+        }
       }
-      p {
-        color: c.$primaryColor;
-        font-size: v.$p;
+      .sub {
+        &:not(:nth-child(1)) {
+          margin: 2rem 0;
+        }
+        h5 {
+          letter-spacing: 0.4rem;
+          text-transform: uppercase;
+          color: c.$primaryColor;
+          font-size: v.$md;
+          padding-bottom: 0.5rem;
+          margin-bottom: 1.5rem;
+        }
+        p {
+          font-size: v.$md;
+        }
       }
     }
   }
-  .img__wrapper {
-    position: relative;
-    height: 60rem;
+  img {
+    height: fit-content;
     width: 100%;
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
+    object-fit: cover;
   }
 }

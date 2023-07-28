@@ -19,9 +19,9 @@ function Skills() {
       // initial="hidden"
       // animate={controls}
       // variants={stagger}
-      className="skills__container"
+      className='skills__container'
     >
-      <div className="skills__description">
+      <div className='skills__description'>
         <motion.h5
         // ref={ref} variants={fadeIn}
         >
@@ -44,7 +44,7 @@ function Skills() {
         // ref={ref}
         // initial="initial"
         // animate={controls}
-        className="skills__cards"
+        className='skills__cards'
       >
         {data.map((skill, i) => {
           return (
@@ -60,7 +60,7 @@ function Skills() {
               <h5>{skill.title}</h5>
               <hr />
               {skill.values.map((item, i) => (
-                <div key={i} className="values">
+                <div key={i} className='values'>
                   <p>{item}</p>
                   <hr />
                 </div>
@@ -85,7 +85,13 @@ const data = [
   {
     img: ui,
     title: 'Our Values',
-    values: ['Brand strategy', 'UI/UX design', 'Branding', 'Consulting'],
+    values: [
+      'Development',
+      'Quality Communication',
+      'Fully Functional',
+      'Web Security',
+      'Full Stack Solution',
+    ],
   },
   {
     title: 'UI Design',
@@ -93,23 +99,31 @@ const data = [
     values: [
       'UI/UX design',
       'Responsive design',
-      'Frontend Design',
       'Interactive UI',
+      'User Friendly Design',
+      'Hierarchy',
     ],
   },
   {
     img: user,
     title: 'User Experience',
-    values: ['Cross Platform', 'User Research', 'Interaction', 'Cross Devices'],
+    values: [
+      'Cross Platform',
+      'Secured',
+      'Interaction',
+      'Cross Devices',
+      'Progressive web app',
+    ],
   },
   {
     img: animation,
-    title: 'Motion & Animation',
+    title: 'Tools & Animation',
     values: [
-      'Simple animation',
-      'Custom animation',
-      'Interative animation',
-      'Page Transition',
+      'Nextjs / Reactjs, TYPESCRIPT',
+      'HTML, CSS, JS, SCSS, TAILWINDCSS',
+      'GIT, GITHUB, GITLAB, VERCEL',
+      'MONGODB, FIREBASE, PRISMA, NEXTAUTH, REDUX,',
+      'FIGMA, STYLE COMPS, JSON, ',
     ],
   },
 ];

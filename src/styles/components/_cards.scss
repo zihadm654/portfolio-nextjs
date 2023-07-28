@@ -26,7 +26,8 @@
     }
     .card {
       padding: 1rem 2rem;
-      overflow:hidden;
+      overflow: hidden;
+      max-height: 70vh;
       &:hover {
         cursor: pointer;
         img {

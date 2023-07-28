@@ -2,31 +2,32 @@
 h1 {
   font-size: v.$xxxlr;
   font-weight: 700;
-  line-height: 1.12;
+  line-height: 1.07;
 }
 h2 {
   font-size: v.$xxlr;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.1;
 }
 h3 {
   font-size: v.$xlr;
   line-height: 1.1;
-  font-weight: 600;
+  font-weight: 700;
 }
 h4 {
   line-height: 1;
   font-size: v.$lr;
-  font-weight: 600;
+  font-weight: 500;
 }
 h5 {
   line-height: 1;
   font-size: v.$md;
-  font-weight: 600;
+  font-weight: 500;
 }
 p {
   line-height: 1.3;
   font-size: v.$p;
+  font-weight: 400;
 }
 a {
   font-weight: 400;
