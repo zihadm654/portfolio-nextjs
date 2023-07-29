@@ -1,33 +1,61 @@
-// app/posts/[slug]/page.tsx
-import { format, parseISO } from 'date-fns';
-// import { allBlogs } from 'contentlayer/generated';
+import { Mdx } from '@/components/mdx-content';
+import { allBlogs } from '../../../../.contentlayer/generated';
+import { Metadata } from 'next';
 
-// export const generateStaticParams = async () => allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }));
+async function getBlogsFromParams(slug: string) {
+  const blog = allBlogs.find((doc) => doc.slugAsParams === slug);
+  if (!blog) return;
 
-// export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-//   const blog = allBlogs.find((post) => post._raw.flattenedPath === params.slug);
-//   if (!blog) throw new Error(`Post not found for slug: ${params.slug}`);
-//   return { title: blog.title };
-// };
+  return blog;
+}
 
-const BlogLayout = ({ params }: { params: { slug: string } }) => {
-  // const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
-  // if (!blog) throw new Error(`Post not found for slug: ${params.slug}`);
+export async function generateMetadata({
+  params,
+}): Promise<Metadata | undefined> {
+  const post = allBlogs.find((post) => post.slugAsParams === params.slug);
+  if (!post) {
+    return;
+  }
 
+  const { title, publishedAt: publishedTime, description, slug } = post;
+
+  // const ogImage = image
+  //   ? `https://leerob.io${image}`
+  //   : `https://leerob.io/og?title=${title}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      publishedTime,
+      // url: `https://leerob.io/blog/${slug}`,
+      // images: [
+      //   {
+      //     url: ogImage,
+      //   },
+      // ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      // images: [ogImage],
+    },
+  };
+}
+
+const page = async ({ params }: { params: { slug: string } }) => {
+  const data = await getBlogsFromParams(params.slug);
+  // console.log(params.slug);
+  // console.log(data?.body.code, 'data');
   return (
-    <article className='mx-auto max-w-xl py-8'>
-      {/* <div className='mb-8 text-center'>
-        <time dateTime={blog.date} className='mb-1 text-xs text-gray-600'>
-          {format(parseISO(blog.date), 'LLLL d, yyyy')}
-        </time>
-        <h1 className='text-3xl font-bold'>{blog.title}</h1>
-      </div>
-      <div
-        className='[&>*]:mb-3 [&>*:last-child]:mb-0'
-        dangerouslySetInnerHTML={{ __html: blog.body.html }}
-      /> */}
-    </article>
+    <div className='blog__details'>
+      <article>{<Mdx code={data?.body.code} />}</article>;
+    </div>
   );
 };
 
-export default BlogLayout;
+export default page;

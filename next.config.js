@@ -2,30 +2,30 @@
 //   PHASE_DEVELOPMENT_SERVER,
 //   PHASE_PRODUCTION_BUILD,
 // } from 'next/constants.js';
-const {withContentlayer} = require('next-contentlayer')
-const path = require('path')
+const { withContentlayer } = require('next-contentlayer');
+const path = require('path');
 /** @type{import("next").NextConfig} */
 
 const nextConfig = {
-    reactStrictMode: true,
-    swcMinify: true,
-    experimental: {
-        serverComponentsExternalPackages: ['mongoose'], // <-- and this
-    },
-    // and the following to enable top-level await support for Webpack
-    webpack: (config) => {
-        config.experiments = {
-            ...config.experiments,
-            topLevelAwait: true,
-        };
-        return config;
-    },
-    sassOptions: {
-        includePaths: [path.join(__dirname, 'styles')],
-    },
-    images: {
-        domains: ['storage.googleapis.com', 'firebasestorage.googleapis.com'],
-    },
+  reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    serverComponentsExternalPackages: ['mongoose'], // <-- and this
+  },
+  // and the following to enable top-level await support for Webpack
+  webpack: (config) => {
+    config.experiments = {
+      ...config.experiments,
+      topLevelAwait: true,
+    };
+    return config;
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
+  images: {
+    domains: ['storage.googleapis.com', 'firebasestorage.googleapis.com'],
+  },
 };
 
 // const nextConfigFunction = async (phase) => {
@@ -51,5 +51,5 @@ const nextConfig = {
 
 // module.exports = withContentlayer(nextConfig);
 
-//module.exports = withContentlayer(nextConfig);
-module.exports = nextConfig;
+module.exports = withContentlayer(nextConfig);
+// module.exports = nextConfig;

@@ -1,66 +1,45 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "lib": [
-            "dom",
-            "dom.iterable",
-            "esnext"
-        ],
-        "allowJs": true,
-        "skipLibCheck": true,
-        "strict": false,
-        "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
-        "esModuleInterop": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "jsx": "preserve",
-        "incremental": true,
-        "baseUrl": "src/",
-        "paths": {
-            "@/*": [
-                "./*"
-            ],
-            "contentlayer/generated": [
-                "./.contentlayer/generated"
-            ],
-            "@/styles/*": [
-                "styles/*"
-            ],
-            "@/components/*": [
-                "components/*"
-            ],
-            "@/app/*": [
-                "app/*"
-            ],
-            "@/lib/*": [
-                "lib/*"
-            ],
-            "@/utility/*": [
-                "utility/*"
-            ],
-            "@/sections/*": [
-                "sections/*"
-            ]
-        },
-        "plugins": [
-            {
-                "name": "next"
-            }
-        ],
-        "strictNullChecks": true
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": "src/",
+    "paths": {
+      "@/*": ["./*"],
+      "contentlayer/generated": ["./.contentlayer/generated"],
+      "@/styles/*": ["styles/*"],
+      "@/components/*": ["components/*"],
+      "@/app/*": ["app/*"],
+      "@/lib/*": ["lib/*"],
+      "@/utility/*": ["utility/*"],
+      "@/sections/*": ["sections/*"]
     },
-    "include": [
-        "next-env.d.ts",
-        "**/*.ts",
-        "**/*.tsx",
-        "src/lib/mongo.js",
-        ".next/types/**/*.ts",
-        ".contentlayer/generated"
+    "plugins": [
+      {
+        "name": "next"
+      }
     ],
-    "exclude": [
-        "node_modules"
-    ]
+    "strictNullChecks": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/lib/mongo.js",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated",
+    "contentlayer.config.js"
+  ],
+  "exclude": ["node_modules"]
 }

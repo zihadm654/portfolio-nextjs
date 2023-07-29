@@ -1,17 +1,12 @@
-'use client';
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 // import { useEffect } from 'react';
 import { fadeIn, stagger } from '../utility/Animation';
 import { Button } from '../utility/Button';
+import { allBlogs } from '../../.contentlayer/generated';
 
-// export const getData = async () => {
-//   const res = await fetch('/api/projects');
-//   console.log(res.json);
-//   return res.json();
-// };
-const Blogs = ({ blogs }) => {
+const Blogs = () => {
   // const controls = useAnimation();
   // const [ref, inView] = useInView();
 
@@ -22,7 +17,7 @@ const Blogs = ({ blogs }) => {
   // }, [controls, inView]);
 
   return (
-    <div className="blog">
+    <div className='blog'>
       <h3
       // ref={ref}
       // initial="hidden"
@@ -36,25 +31,24 @@ const Blogs = ({ blogs }) => {
         // variants={stagger}
         // initial="hidden"
         // animate={controls}
-        className="container"
+        className='container'
       >
-        {/* {blogs?.map((blog) => (
-          <div
-            key={blog.slug}
-            // ref={ref}
-            // variants={stagger}
-            // initial="hidden"
-            // animate={controls}
-            className="blog__container"
-          >
-            <Link href={`/blogs/${blog.slug}`}>
-              <h5>{blog.title}</h5>
-              <p>{blog.description}</p>
+        {allBlogs
+          ?.sort((a, b) => {
+            if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
+              return -1;
+            }
+            return 1;
+          })
+          .map((blog) => (
+            <Link key={blog.slug} href={`/blogs/${blog.slugAsParams}`}>
+              <div>
+                <h5>{blog.title}</h5>
+              </div>
             </Link>
-          </div>
-        ))} */}
+          ))}
       </div>
-      <div className="btn__container">
+      <div className='btn__container'>
         <Button
           variants={'secondary__btn'}
           site={'/blogs'}

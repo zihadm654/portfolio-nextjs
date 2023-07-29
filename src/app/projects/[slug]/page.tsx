@@ -4,11 +4,8 @@ import { ProjectsTypes } from '../../../utility/Types';
 import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
 
-const getData = async (slug) => {
+const getData = async (slug: string) => {
   const res = await fetch(`http://localhost:3000/api/projects/${slug}`);
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
   return res.json();
 };
 //export async function generateStaticParams() {
@@ -18,8 +15,11 @@ const getData = async (slug) => {
 //    slug: post.slug,
 //  }))
 //}
-const CaseDetails = async ({ params }: { params: { slug: string } }) => {
-  const { slug } = params;
+const CaseDetails = async ({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) => {
   const data: ProjectsTypes = await getData(slug);
   console.log('data', data);
   return (
@@ -89,9 +89,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = params.slug;
 
   // fetch data
-  const product = await fetch(`http://localhost:3000/api/projects/${id}`).then(
-    (res) => res.json()
-  );
+  const product = await fetch(`http://localhost:3000/api/projects/${id}`, {
+    cache: 'no-store',
+  }).then((res) => res.json());
 
   return {
     title: product.title,

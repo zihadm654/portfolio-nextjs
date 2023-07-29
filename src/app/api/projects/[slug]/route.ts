@@ -4,8 +4,8 @@ import { NextResponse } from 'next/server';
 
 export const GET = async ({ params }: { params: { slug: string } }) => {
   await connectMongo();
-  const { slug } = params;
   try {
+    const { slug } = params;
     const project = await Project.findById(slug);
     return NextResponse.json(project);
   } catch (err) {

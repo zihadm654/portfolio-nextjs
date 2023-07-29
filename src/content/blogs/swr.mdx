@@ -1,12 +1,7 @@
 ---
 title: How Does SWR Work?
-tags:
-  - react
-  - hooks
-  - javascript
-created_at: "2019-12-15"
-description: SWR is a great package from Zeit to help make it easier to fetch remote data with hooks. It is based on the stale-while-revalidate RFC.
-author: Abdul Malek
+description: SWR is a great package from Zeit to help make it easier to fetch remote data with hooks. It is based on the stale-while-revalidate RFC
+publishedAt: 2019-12-15
 ---
 
 [SWR](https://swr.now.sh/) is a great package from [Zeit](http://zeit.co/) to help make it easier to fetch remote data with hooks. It is based on the [stale-while-revalidate](https://tools.ietf.org/html/rfc5861) RFC, which in simple terms says to show stale (old) data while you are fetching a new version of the data. The idea is that it is better to show something old if you have it rather than a blank screen.
@@ -20,7 +15,7 @@ Code is available at: [https://github.com/leighhalliday/crime-mapping](https://g
 The `useSWR` hook requires two things to make it work:
 
 ```js
-useSWR("/crimes/passion", fetcher);
+useSWR('/crimes/passion', fetcher);
 ```
 
 - A key: This is a little vague, but think it if as something that uniquely identifies the data you want to fetch... which for a RESTful API endpoint can be the URL.
@@ -73,7 +68,7 @@ After dealing with error states and lack of data (loading state), we are now rea
 ```jsx
 function Crimes() {
   const url =
-    "https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10";
+    'https://data.police.uk/api/crimes-street/all-crime?lat=52.629729&lng=-1.131592&date=2019-10';
   const { data, error } = useSWR(url);
   if (error) return <div>Error...</div>;
   if (!data) return <div>Loading...</div>;
