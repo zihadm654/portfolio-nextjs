@@ -42,7 +42,7 @@ const Blogs = () => {
           })
           .map((blog) => (
             <Link key={blog.slug} href={`/blogs/${blog.slugAsParams}`}>
-              <div>
+              <div className='blog__container'>
                 <h5>{blog.title}</h5>
               </div>
             </Link>

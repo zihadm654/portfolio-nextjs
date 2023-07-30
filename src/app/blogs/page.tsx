@@ -13,7 +13,7 @@ export default function Page() {
             return 1;
           })
           .map((blog) => (
-            <Link key={blog.slug} href={`/blogs/${blog.slugAsParams}`}>
+            <Link key={blog.slug} href={`/${blog.slug}`}>
               <div>
                 <h5>{blog.title}</h5>
               </div>

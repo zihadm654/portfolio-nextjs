@@ -8,14 +8,12 @@ import remarkGfm from 'remark-gfm';
 const computedFields = {
   slug: {
     type: 'string',
-    resolve: (doc) => {
-      `/${doc._raw.flattenedPath}`;
-    },
+    resolve: (doc) => doc._raw.flattenedPath,
   },
-  slugAsParams: {
-    type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath.split('/').splice(1).join('/'),
-  },
+  // slugAsParams: {
+  //   type: 'string',
+  //   resolve: (doc) => doc._raw.flattenedPath.split('/').splice(1).join('/'),
+  // },
 };
 
 export const Blogs = defineDocumentType(() => ({

@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ducanh2912/next-pwa": "^9.1.4",
     "@tailwindcss/typography": "^0.5.9",
     "@types/glob": "^7.2.0",
     "@types/react": "^17.0.17",
