@@ -36,6 +36,9 @@
     "tailwind-merge": "^1.14.0",
     "typewriter-effect": "^2.18.2"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "eslint": "7.32.0",
