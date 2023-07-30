@@ -3,7 +3,7 @@ import { allBlogs } from '../../../../.contentlayer/generated';
 import { Metadata } from 'next';
 
 async function getBlogsFromParams(slug: string) {
-  const blog = allBlogs.find((doc) => doc.slugAsParams === slug);
+  const blog = allBlogs.find((doc) => doc.slug === slug);
   if (!blog) return;
 
   return blog;
@@ -12,7 +12,7 @@ async function getBlogsFromParams(slug: string) {
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
-  const post = allBlogs.find((post) => post.slugAsParams === params.slug);
+  const post = allBlogs.find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }

@@ -1,5 +1,5 @@
 export interface ProjectsTypes {
-  id: number;
+  _id: number;
   createdAt: number;
   img: string;
   title: string;

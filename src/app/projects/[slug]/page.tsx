@@ -3,25 +3,17 @@ import Link from 'next/link';
 import { ProjectsTypes } from '../../../utility/Types';
 import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
+import { Metadata } from 'next';
+import { config } from '@/lib/constant';
 
-const getData = async (slug: string) => {
-  const res = await fetch(`https://abdulmalekzihad.me/api/projects/${slug}`, {
+const getData = async (slug) => {
+  const URL = config.url;
+  const res = await fetch(`${URL}/api/projects/${slug}`, {
     cache: 'no-store',
   });
   return res.json();
 };
-//export async function generateStaticParams() {
-//  const projects = await fetch('http://localhost:3000/api/projects').then((res) => res.json())
-//
-//  return projects.map((post) => ({
-//    slug: post.slug,
-//  }))
-//}
-const CaseDetails = async ({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) => {
+const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
   const data: ProjectsTypes = await getData(slug);
   console.log('data', data);
   return (
@@ -78,9 +70,7 @@ const CaseDetails = async ({
   );
 };
 
-export default CaseDetails;
-
-import { Metadata } from 'next';
+export default Page;
 
 type Props = {
   params: { slug: string };
@@ -88,13 +78,13 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const id = params.slug;
-
+  const slug = params.slug;
+  const URL = config.url;
   // fetch data
-  const product = await fetch(`https://abdulmalekzihad.me/api/projects/${id}`, {
+  const product = await fetch(`${URL}/api/projects/${slug}`, {
     cache: 'no-store',
   }).then((res) => res.json());
-
+  // optionally access and extend (rather than replace) parent metadata
   return {
     title: product.title,
     openGraph: {

@@ -1,19 +1,20 @@
 //import { motion } from 'framer-motion';
 //import { fadeIn } from '../../utility/Animation';
+import { Metadata } from 'next/types';
 import Cards from '../../components/Cards';
 import { config } from '@/lib/constant';
-const URL = config.url;
+
 const getData = async () => {
+  const URL = config.url;
   const res = await fetch(`${URL}/api/projects`);
-  console.log(res);
+
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
   return res.json();
 };
-const ProjectPage = async () => {
+export default async function Page() {
   const data = await getData();
-  console.log(data);
   return (
     <>
       <section className='projects'>
@@ -52,11 +53,9 @@ const ProjectPage = async () => {
       </section>
     </>
   );
-};
+}
 
-export default ProjectPage;
-
-export const metadata = {
+export const metadata: Metadata = {
   title: 'projects',
   description:
     'This project page holds all the projects completed for showcase.',

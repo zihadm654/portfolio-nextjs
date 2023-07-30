@@ -1,3 +1,4 @@
+import { Metadata } from 'next/types';
 import Link from 'next/link';
 import { allBlogs } from '../../../.contentlayer/generated';
 export default function Page() {
@@ -23,3 +24,8 @@ export default function Page() {
     </div>
   );
 }
+export const metadata: Metadata = {
+  title: 'Blogs',
+  description:
+    'This about page holds all the necessary information about Abdul Malek Blogs',
+};

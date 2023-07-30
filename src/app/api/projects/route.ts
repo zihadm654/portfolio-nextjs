@@ -5,7 +5,8 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   await connectMongo();
   try {
-    const data = await Project.find();
+    const data = await Project.find({});
+    console.log(data);
     return NextResponse.json(data.reverse());
   } catch (error) {
     return NextResponse.json('error', { status: 500 });
@@ -14,7 +15,7 @@ export async function GET() {
 // export async function Post(req: Request) {
 //   await connectMongo();
 //   try {
-//     const body: IProject = await req.json();
+//     const body = await req.json();
 //     const newPost = new Project(body);
 //     const saved = await newPost.save();
 //     return NextResponse.json(saved);

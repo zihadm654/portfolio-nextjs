@@ -1,11 +1,11 @@
 import { Project } from '@/lib/model';
 import connectMongo from '@/lib/dbConfig';
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 
-export const GET = async ({ params }: { params: { slug: string } }) => {
+export const GET = async (request: NextRequest) => {
   await connectMongo();
   try {
-    const { slug } = params;
+    const slug = request.url.split('/')[5];
     const project = await Project.findById(slug);
     return NextResponse.json(project);
   } catch (err) {
@@ -13,13 +13,10 @@ export const GET = async ({ params }: { params: { slug: string } }) => {
   }
 };
 
-export async function DELETE(
-  req: Request,
-  { params }: { params: { slug: string } }
-) {
+export async function DELETE(request: NextRequest) {
   await connectMongo();
-  const { slug } = params;
   try {
+    const slug = request.url.split('/')[5];
     const deletedPost = await Project.findByIdAndDelete(slug);
     return NextResponse.json(deletedPost);
   } catch {

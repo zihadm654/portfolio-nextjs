@@ -1,8 +1,8 @@
 'use client';
 // import { Button } from '../../src/utility/Button';
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useState } from 'react';
 // import contactImg from '../public/assets/undraw_contact_us_re_4qqt.svg';
 function ContactPage() {
   const [user, setUser] = useState({
@@ -35,7 +35,7 @@ function ContactPage() {
 
   return (
     <>
-      <motion.section exit={{ opacity: 0 }} className='contact__page'>
+      <section className='contact__page'>
         <div className='content'>
           <div className='content__left'>
             <h5>LET&apos;S TALK</h5>
@@ -92,7 +92,7 @@ function ContactPage() {
           </div>
         </form>
         <div className='contact__container'></div>
-      </motion.section>
+      </section>
     </>
   );
 }

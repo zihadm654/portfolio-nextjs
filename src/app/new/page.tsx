@@ -1,38 +1,35 @@
-'use client';
-import { motion } from 'framer-motion';
-import Head from 'next/head';
+import { Metadata } from 'next/types';
+// import { motion } from 'framer-motion';
 // import { fadeIn, stagger } from '../../utility/Animation';
 const New = () => {
   return (
     <>
-      {/* <Head>
-        <title>Tranding || Abdul Malek</title>
-        <meta
-          name="Tranding page "
-          content="this page is responsible for all the Tranding stuff & information for this website"
-        />
-      </Head> */}
-      <motion.section className="tranding">
-        <motion.div
-          className="recent"
+      <section className='tranding'>
+        <div
+          className='recent'
           // variants={stagger}
           // initial="hidden"
           // animate="show"
         >
-          <motion.h4
+          <h4
           // variants={fadeIn}
           >
             Recently Added
-          </motion.h4>
-          <motion.p
+          </h4>
+          <p
           // variants={fadeIn}
           >
             coming soon...
-          </motion.p>
-        </motion.div>
-      </motion.section>
+          </p>
+        </div>
+      </section>
     </>
   );
 };
 
 export default New;
+export const metadata: Metadata = {
+  title: 'New',
+  description:
+    'This about page holds all the necessary information about What is new added',
+};
