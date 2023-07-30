@@ -5,7 +5,9 @@ import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
 
 const getData = async (slug: string) => {
-  const res = await fetch(`http://localhost:3000/api/projects/${slug}`);
+  const res = await fetch(`https://abdulmalekzihad.me/api/projects/${slug}`, {
+    cache: 'no-store',
+  });
   return res.json();
 };
 //export async function generateStaticParams() {
@@ -89,7 +91,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = params.slug;
 
   // fetch data
-  const product = await fetch(`http://localhost:3000/api/projects/${id}`, {
+  const product = await fetch(`https://abdulmalekzihad.me/api/projects/${id}`, {
     cache: 'no-store',
   }).then((res) => res.json());
 

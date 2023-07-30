@@ -4,9 +4,12 @@ import Hero from '../sections/Hero';
 import Projects from '../sections/Projects';
 import Skills from '../sections/Skills';
 import Blogs from '../sections/Blogs';
+import { config } from '@/lib/constant';
+
+const URL = config.url;
 
 const getData = async () => {
-  const res = await fetch('http://localhost:3000/api/projects', {
+  const res = await fetch(`${URL}/api/projects`, {
     next: { revalidate: 60 },
   });
   if (!res.ok) {
@@ -14,6 +17,7 @@ const getData = async () => {
   }
   return res.json();
 };
+
 const Home = async () => {
   const data = await getData();
   console.log(data, 'fetchdata');
