@@ -1,17 +1,19 @@
 //import { motion } from 'framer-motion';
 //import { fadeIn } from '../../utility/Animation';
 import Cards from '../../components/Cards';
+import { config } from '@/lib/constant';
+const URL = config.url;
 const getData = async () => {
-  const res = await fetch('http://localhost:3000/api/projects');
+  const res = await fetch(`${URL}/api/projects`);
   console.log(res);
-  if(!res.ok){
-    throw new Error('Failed to fetch data')
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
   }
-  return res.json()
+  return res.json();
 };
 const ProjectPage = async () => {
-    const data = await getData();
-    console.log(data);
+  const data = await getData();
+  console.log(data);
   return (
     <>
       <section className='projects'>

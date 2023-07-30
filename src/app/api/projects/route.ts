@@ -1,5 +1,5 @@
 import connectMongo from '@/lib/dbConfig';
-import { Project, IProject } from '@/lib/model';
+import { Project } from '@/lib/model';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
