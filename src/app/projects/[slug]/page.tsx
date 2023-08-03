@@ -13,9 +13,12 @@ const getData = async (slug) => {
   });
   return res.json();
 };
-const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
+export default async function Page({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
   const data: ProjectsTypes = await getData(slug);
-  console.log('data', data);
   return (
     <>
       <section className='case__details'>
@@ -68,9 +71,7 @@ const Page = async ({ params: { slug } }: { params: { slug: string } }) => {
       </section>
     </>
   );
-};
-
-export default Page;
+}
 
 type Props = {
   params: { slug: string };

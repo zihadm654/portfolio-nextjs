@@ -22,10 +22,8 @@ function Header() {
       setSticky(false);
     }
   };
-  const [mounted, setMounted] = useState(false);
   useEffect(() => {
     window.addEventListener('scroll', stickyNav);
-    setMounted(true);
   }, []);
   return (
     <>
@@ -47,7 +45,6 @@ function Header() {
         <div className='container'>
           <ThemeButton />
           <div className={menu ? 'menu active' : 'menu'} onClick={handleClick}>
-            T
           </div>
         </div>
       </header>

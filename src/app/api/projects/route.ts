@@ -1,27 +1,34 @@
-import connectMongo from '@/lib/dbConfig';
-import { Project } from '@/lib/model';
-import { NextResponse } from 'next/server';
+import prisma from '@/lib/prisma';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET() {
-  await connectMongo();
-  try {
-    const data = await Project.find({});
-    console.log(data);
-    return NextResponse.json(data.reverse());
-  } catch (error) {
-    return NextResponse.json('error', { status: 500 });
-  }
+export const GET = async () => {
+	try {
+  
+	  const projects = await prisma.projects.findMany({
+		orderBy:{
+		  id:'desc'
+		}
+	  })
+   
+	  return NextResponse.json(projects);
+	} catch (err) {
+	  return NextResponse.json({message:'Database Error', err},{status:500});
+	}
+  };
+
+export async function POST(request: NextRequest) {
+	try {
+		const body = await request.json()
+    	const {title,description,repo,site,time,img,role,tags,client} = body
+
+		const newProject = await prisma.projects.create({
+			data:{
+				title,description,time,site,repo,img,role,tags,client
+			}
+		});
+
+		return NextResponse.json(newProject);
+	} catch (error) {
+		return NextResponse.json({message: 'post error',error},{status:500})
+	}
 }
-// export async function Post(req: Request) {
-//   await connectMongo();
-//   try {
-//     const body = await req.json();
-//     const newPost = new Project(body);
-//     const saved = await newPost.save();
-//     return NextResponse.json(saved);
-//   } catch {
-//     return NextResponse.json('error', {
-//       status: 500,
-//     });
-//   }
-// }

@@ -14,27 +14,20 @@
   .container {
     @include m.grid;
     padding: 3rem 0;
-    gap: 4rem;
-    @include m.media(sm) {
-      gap: 2rem;
-    }
-    @include m.media(md) {
-      gap: 2rem;
-    }
-    .blog__container {
-      border: 3px solid #d8b4fe;
-      border-radius: 1rem;
+    a{
       @include m.media(sm) {
         grid-column: 1/13;
       }
       grid-column: span 4;
+      
+      .blog__container {
+        border: 3px solid #d8b4fe;
+      border-radius: 1rem;
       padding: 3rem 1.5rem;
       h5 {
         padding-bottom: 2rem;
       }
-      p {
-        color: c.$primaryColor;
-      }
+    }
     }
   }
 }

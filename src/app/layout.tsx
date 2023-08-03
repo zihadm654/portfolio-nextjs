@@ -4,9 +4,8 @@ import { AnimatePresence } from 'framer-motion';
 import Header from '@/components/Header';
 import Contact from '@/sections/Contact';
 // import { fadeIn } from '../utility/Animation';
-import { inter } from '@/utility/fonts';
+import { poppins } from '@/utility/fonts';
 import type { Metadata } from 'next';
-import clsx from 'clsx';
 import Providers from '@/lib/providers';
 
 export default function RootLayout({
@@ -15,13 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      suppressHydrationWarning
-      lang='en'
-      className={`${inter.className} ${clsx}(
-      'text-black bg-white dark:text-white dark:bg-[#111010]'`}
-    >
-      <body>
+    <html lang='en' className={`${poppins.className}`}>
+      <body >
         <Providers>
           <Header />
           <main>{children}</main>

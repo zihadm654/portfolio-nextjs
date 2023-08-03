@@ -1,6 +1,7 @@
 export interface ProjectsTypes {
-  _id: number;
-  createdAt: number;
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
   img: string;
   title: string;
   description: string;

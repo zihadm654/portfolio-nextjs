@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 
 const ThemeButton = () => {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -12,15 +12,14 @@ const ThemeButton = () => {
   if (!mounted) {
     return null;
   }
-
   return (
     <button
       aria-label='Toggle Dark Mode'
       type='button'
       className='toggle__btn'
-      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
-      {resolvedTheme === 'dark' ? (
+      {theme === 'dark' ? (
         <path
           strokeLinecap='round'
           strokeLinejoin='round'

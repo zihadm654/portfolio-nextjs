@@ -1,6 +1,6 @@
 import { Dancing_Script, Poppins } from 'next/font/google';
 
-export const inter = Poppins({
+export const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500', '700'],

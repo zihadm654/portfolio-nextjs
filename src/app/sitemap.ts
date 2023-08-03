@@ -14,7 +14,8 @@ const getData = async () => {
 
 export default async function sitemap() {
   const projectData = await getData();
-  const projects = projectData.map((project: any) => ({
+  console.log(projectData);
+  const projects = projectData?.map((project) => ({
     url: `https://abdulmalekzihad.me/projects/${project._id}`,
     lastModified: new Date().toISOString().split('T')[0],
   }));

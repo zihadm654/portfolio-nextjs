@@ -30,6 +30,9 @@
 
     .heading__info {
       @include m.flex(flex-start);
+      h1 {
+        font-size: v.$xxxlr;
+      }
       div {
         margin-left: 0.4rem;
         font-size: v.$p;

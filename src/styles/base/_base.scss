@@ -78,11 +78,11 @@ a {
   --foreground: #000;
 }
 
-[data-theme='dark'] {
+.dark{
   --background: #000;
   --foreground: #fff;
 }
-[data-theme='dark'] {
+.dark {
   & .hamburger {
     background-color: #000;
     a {
@@ -91,15 +91,10 @@ a {
   }
   li {
     a {
-      color: #000;
+      color: #fff;
     }
   }
   a {
     color: #fff;
-  }
-}
-[data-theme='light'] {
-  a {
-    color: #000;
   }
 }
