@@ -4,7 +4,6 @@ import { FeaturedCard } from '../components/Cards';
 import { motion, useAnimation } from 'framer-motion';
 import { fadeIn, stagger } from '../utility/Animation';
 // import { useEffect } from 'react';
-// import { useInView } from 'react-intersection-observer';
 
 function Projects({ data }) {
   // const controls = useAnimation();

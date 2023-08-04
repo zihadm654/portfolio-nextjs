@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 // import { useEffect } from 'react';
 import { fadeIn, stagger } from '../utility/Animation';
 import { Button } from '../utility/Button';

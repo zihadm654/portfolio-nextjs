@@ -3,7 +3,6 @@ import { Icon } from '../utility/Button';
 import Link from 'next/link';
 // import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
-// import { useInView } from 'react-intersection-observer';
 // import { useEffect } from 'react';
 import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';

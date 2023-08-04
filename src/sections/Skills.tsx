@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import { useAnimation, motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 
 function Skills() {
   // const controls = useAnimation();
