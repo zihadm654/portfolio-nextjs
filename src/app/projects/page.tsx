@@ -6,7 +6,7 @@ import { config } from '@/lib/constant';
 
 const getData = async () => {
   const URL = config.url;
-  const res = await fetch(`${URL}/api/projects`);
+  const res = await fetch(`${URL}/api/projects`,{next:{revalidate:3600}});
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -14,7 +14,7 @@ const getData = async () => {
   return res.json();
 };
 export default async function Page() {
-  // const data = await getData();
+  const data = await getData();
   return (
     <>
       <section className='projects'>
@@ -36,7 +36,7 @@ export default async function Page() {
         <div className='container'>
           <h3>Featured Projects</h3>
           <div className='cards'>
-            {/* {data?.map((item) => (
+            {data?.map((item) => (
               <Cards
               id={item.id}
                 key={item.id}
@@ -48,7 +48,7 @@ export default async function Page() {
                 img={item.img}
                 createdAt={item.createdAt}
               />
-            ))} */}
+            ))}
           </div>
         </div>
       </section>
@@ -60,10 +60,22 @@ export const metadata: Metadata = {
   title: 'projects',
   description:
     'This project page holds all the projects completed for showcase.',
+    openGraph: {
+      title: "products",
+      description: "This project page holds all the projects completed for showcase.",
+      images: [
+        {
+          url: '/og-bg.jpg',
+          width: '600',
+          height: '400',
+          alt: "title",
+        },
+        {
+          url: '/og-bg.jpg',
+          width: '800',
+          height: '600',
+          alt: "title",
+        },
+      ],
+    },
 };
-// export const dynamicParams = false
-// export const revalidate = true
-// export const fetchCache = 'auto'
-// export const runtime = 'nodejs'
-// export const preferredRegion = 'auto'
-// export const maxDuration = 5

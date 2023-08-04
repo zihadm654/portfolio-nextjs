@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-export const dynamic = "auto"
-export const dynamicParams = true
 
 export const GET = async (req:NextRequest) => {
   try {
@@ -26,22 +24,22 @@ export const GET = async (req:NextRequest) => {
   }
 };
 
-// export const Delete = async (req:NextRequest) => {
-//   try {
-//     const id = req.url.split('/').at(-1)
+export const DELETE = async (req:NextRequest) => {
+  try {
+    const id = req.url.split('/').at(-1)
 
 
-//     await prisma.projects.delete({
-//       where:{
-//         id
-//       }
-//     })
+    await prisma.projects.delete({
+      where:{
+        id
+      }
+    })
 
-//     return NextResponse.json("post has been deleted");
-//   } catch (err) {
-//     return NextResponse.json({message:'delete Error', err},{status:500});
-//   }
-// };
+    return NextResponse.json("post has been deleted");
+  } catch (err) {
+    return NextResponse.json({message:'delete Error', err},{status:500});
+  }
+};
 
 export const PATCH = async (request: Request) => {
   try {

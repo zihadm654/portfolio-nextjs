@@ -19,12 +19,11 @@ const getData = async () => {
 };
 
 export default async function Page() {
-  // const data = await getData();
-  // console.log(data);
+  const data = await getData();
   return (
     <div className='container'>
       <Hero />
-      {/* <Projects data={data} /> */}
+      <Projects data={data} />
       <Blogs />
       <Skills />
       <About />
@@ -36,6 +35,4 @@ export const metadata: Metadata = {
   title: 'Home Page',
   description:
     'This about page holds all the necessary information describing abdul malek zihad',
-  metadataBase: new URL('https://abdulmalekzihad.me'),
-
 };

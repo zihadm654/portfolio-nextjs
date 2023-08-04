@@ -12,7 +12,9 @@ export const GET = async () => {
    
 	  return NextResponse.json(projects);
 	} catch (err) {
-	  return NextResponse.json({message:'Database Error', err},{status:500});
+	  return NextResponse.json(
+		{message:'Database Error', err},
+		{status:500});
 	}
   };
 

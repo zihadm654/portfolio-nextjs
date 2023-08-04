@@ -5,9 +5,12 @@ import { VscLiveShare } from 'react-icons/vsc';
 import { Metadata } from 'next';
 import { config } from '@/lib/constant';
 
-export const dynamic = 'auto'
+
 // export async function generateStaticParams() {
-//   const projects = await fetch(`${URL}/api/projects`,{cache:'no-store'}).then((res) => res.json())
+//   const projects = await fetch(`${URL}/api/projects`, {
+//     next:{revalidate:3600}
+//   }).then((res) => res.json());
+//   console.log(projects, 'Projects');
  
 //   return projects.map((project) => ({
 //     slug: project.slug,
@@ -21,11 +24,12 @@ const getData = async (slug) => {
 };
 
 export default async function Page({
-  params: { slug },
+  params,
 }: {
   params: { slug: string };
 }) {
-  // const data = await getData(slug);
+  const slug = params.slug
+  const data = await getData(slug);
   return (
       <section className='case__details'>
             <div className='container'>
@@ -33,60 +37,56 @@ export default async function Page({
                 <div className='context links'>
                   <p>Links</p>
                   <div className='button__links'>
-                    {/* <Link className='github' href={data?.repo}> */}
+                    <Link className='github' href={data?.repo}>
                       <h5>Source Code</h5>
                       <SiGithub />
-                    {/* </Link> */}
-                    {/* <Link className='livesite' href={data?.site}> */}
+                    </Link>
+                    <Link className='livesite' href={data?.site}>
                       <h5>Live Site</h5>
                       <VscLiveShare />
-                    {/* </Link> */}
+                    </Link>
                   </div>
                 </div>
                 <div className='context'>
                   <p>My Role</p>
-                  {/* {data?.role.map((item, i) => (
+                  {data?.role.map((item, i) => (
                     <h5 key={i}>{item}</h5>
-                  ))} */}
+                  ))}
                 </div>
                 <div className='context'>
                   <p>Client</p>
-                  {/* <h5>{data.client}</h5> */}
+                  <h5>{data.client}</h5>
                 </div>
                 <div className='context'>
                   <p>Year</p>
-                  {/* <h5>{data.time}</h5> */}
+                  <h5>{data.time}</h5>
                 </div>
               </div>
               <div className='case__study--right'>
                 <div className='context'>
                   <p>Case Study</p>
-                  {/* <h3>{data.title}</h3> */}
+                  <h3>{data.title}</h3>
                 </div>
                 <div className='sub'>
                   <h5>Project Description</h5>
-                  {/* <p>{data.description}</p> */}
+                  <p>{data.description}</p>
                 </div>
               </div>
             </div>
-            {/* <Image src={data.img} alt={data.img} height={500} width={500} /> */}
+            <Image src={data.img} alt={data.img} height={500} width={500} />
       </section>
   );
 }
 
-type Props = {
-  params: { slug: string };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: {params:{slug:string}}): Promise<Metadata> {
   // read route params
   const {slug} = params;
   const URL = config.url;
   // fetch data
   const product = await fetch(`${URL}/api/projects/${slug}`, {
-    cache: 'no-store',
+    next:{revalidate:3600},
   }).then((res) => res.json());
-  console.log(product,'project');
+  console.log(product,"product");
   // optionally access and extend (rather than replace) parent metadata
   return {
     title: product.title,

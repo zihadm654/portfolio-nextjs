@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     template: APP_TITLE_TEMPLATE 
   },
   description: APP_DESCRIPTION,
-  manifest: 'https://abdulmalekzihad.me/manifest.json',
+  manifest: '/manifest.json',
   themeColor: '#ffffff',
   alternates: {
     canonical: '/',
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
       template: APP_TITLE_TEMPLATE,
     },
     images: {
-      url: '/public/ob-bg.jpg',
+      url: '/ob-bg.jpg',
       alt: APP_DEFAULT_TITLE,
     },
     description: APP_DESCRIPTION,

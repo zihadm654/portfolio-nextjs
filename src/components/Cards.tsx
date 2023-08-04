@@ -16,7 +16,6 @@ const Cards = ({id, img, description, time, title, repo, site,createdAt }) => {
   //     controls.start('show');
   //   }
   // }, [controls, inView]);
-console.log();
   return (
     <div className='wrapper'>
       <Link href={`/projects/${id}`} passHref>

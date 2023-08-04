@@ -8,7 +8,6 @@ const path = require('path');
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   experimental: {
     serverComponentsExternalPackages: ['@prisma/client'], // <-- and this
   },

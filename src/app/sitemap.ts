@@ -11,16 +11,16 @@ const getData = async () => {
 };
 
 export default async function sitemap() {
-  // const projectData = await getData();
-  // const projects = projectData?.map((project) => ({
-  //   url: `${URL}/projects/${project.id}`,
-  //   lastModified: new Date(project.createdAt).toISOString().split('T')[0],
-  // }));
+  const projectData = await getData();
+  const projects = projectData?.map(({id,createdAt}) => ({
+    url: `https://abdulmalekzihad.me/projects/${id}`,
+    lastModified: new Date(createdAt).toISOString().split('T')[0]
+  }));
 
-  // const blogs = allBlogs.map((post) => ({
-  //   url: `https://abdulmalekzihad.me/${post.slug}`,
-  //   lastModified: post.publishedAt,
-  // }));
+  const blogs = allBlogs.map((post) => ({
+    url: `https://abdulmalekzihad.me/${post.slug}`,
+    lastModified: post.publishedAt,
+  }));
 
   const routes = ['', '/projects', '/about', '/contact', '/blogs'].map(
     (route) => ({
@@ -29,5 +29,5 @@ export default async function sitemap() {
     })
   );
 
-  return [...routes];
+  return [...routes, ...projects,...blogs];
 }

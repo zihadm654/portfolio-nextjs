@@ -1,12 +1,11 @@
 import { Mdx } from '@/components/mdx-content';
 import type{ Metadata } from 'next';
 import { allBlogs } from '../../../../.contentlayer/generated';
-import {notFound} from 'next/navigation'
 
 async function getBlogsFromParams(slug) {
   const blog = allBlogs?.find((doc) => doc.slugAsParams === slug);
   if (!blog) return;
-
+console.log(blog);
   return blog;
 }
 export async function generateStaticParams() {
@@ -54,7 +53,7 @@ export async function generateMetadata({
     },
   };
 }
-function formatDate(date: string) {
+function formatDate(date) {
   const currentDate = new Date();
   const targetDate = new Date(date);
 
@@ -85,9 +84,6 @@ function formatDate(date: string) {
 const page = async ({ params }: { params: { slug: string } }) => {
   const data = await getBlogsFromParams(params.slug);
 
-  if(!data){
-    notFound()
-  }
   return (
     <div className='blog__details'>
        <article>
@@ -103,12 +99,12 @@ const page = async ({ params }: { params: { slug: string } }) => {
       </div>
        <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
         <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(data?.publishedAt)}
+          {formatDate(data?.publishedAt || '2022-06-22')}
         </p>
       </div>
         </div>
        </article>
-      {<Mdx code={data?.body.code} />}
+      {<Mdx code={data?.body.code || ""} />}
     </div>
   );
 };
