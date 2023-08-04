@@ -14,7 +14,7 @@ const getData = async () => {
   return res.json();
 };
 export default async function Page() {
-  const data = await getData();
+  // const data = await getData();
   return (
     <>
       <section className='projects'>
@@ -36,7 +36,7 @@ export default async function Page() {
         <div className='container'>
           <h3>Featured Projects</h3>
           <div className='cards'>
-            {data?.map((item) => (
+            {/* {data?.map((item) => (
               <Cards
               id={item.id}
                 key={item.id}
@@ -48,7 +48,7 @@ export default async function Page() {
                 img={item.img}
                 createdAt={item.createdAt}
               />
-            ))}
+            ))} */}
           </div>
         </div>
       </section>

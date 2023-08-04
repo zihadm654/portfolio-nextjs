@@ -19,12 +19,12 @@ const getData = async () => {
 };
 
 export default async function Page() {
-  const data = await getData();
+  // const data = await getData();
   // console.log(data);
   return (
     <div className='container'>
       <Hero />
-      <Projects data={data} />
+      {/* <Projects data={data} /> */}
       <Blogs />
       <Skills />
       <About />
