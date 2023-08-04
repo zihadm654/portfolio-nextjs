@@ -83,30 +83,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const {slug} = params;
   const URL = config.url;
   // fetch data
-  // const product = await fetch(`${URL}/api/projects/${slug}`, {
-  //   cache: 'no-store',
-  // }).then((res) => res.json());
-  // console.log(product,'project');
+  const product = await fetch(`${URL}/api/projects/${slug}`, {
+    cache: 'no-store',
+  }).then((res) => res.json());
+  console.log(product,'project');
   // optionally access and extend (rather than replace) parent metadata
   return {
-    // title: product.title,
-    // openGraph: {
-    //   title: product.title,
-    //   description: product.description,
-    //   images: [
-    //     {
-    //       url: product.img,
-    //       width: '600',
-    //       height: '400',
-    //       alt: product.title,
-    //     },
-    //     {
-    //       url: product.img,
-    //       width: '800',
-    //       height: '600',
-    //       alt: product.title,
-    //     },
-    //   ],
-    // },
+    title: product.title,
+    openGraph: {
+      title: product.title,
+      description: product.description,
+      images: [
+        {
+          url: product.img,
+          width: '600',
+          height: '400',
+          alt: product.title,
+        },
+        {
+          url: product.img,
+          width: '800',
+          height: '600',
+          alt: product.title,
+        },
+      ],
+    },
   };
 }

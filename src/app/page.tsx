@@ -8,7 +8,7 @@ import { config } from '@/lib/constant';
 
 const getData = async () => {
   const URL = config.url;
-  const res = await fetch(`http://localhost:3000/api/projects`, {
+  const res = await fetch(`${URL}/api/projects`, {
     next: { revalidate: 1060 },
   });
   if (!res.ok) {

@@ -6,7 +6,7 @@ import { config } from '@/lib/constant';
 
 const getData = async () => {
   const URL = config.url;
-  const res = await fetch(`http://localhost:3000/api/projects`);
+  const res = await fetch(`${URL}/api/projects`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
