@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
 
-const Cards = ({ id, img, description, time, title, repo, site }) => {
+const Cards = ({id, img, description, time, title, repo, site,createdAt }) => {
   // const controls = useAnimation();
   // const [ref, inView] = useInView();
 
@@ -17,9 +17,9 @@ const Cards = ({ id, img, description, time, title, repo, site }) => {
   //     controls.start('show');
   //   }
   // }, [controls, inView]);
-
+console.log();
   return (
-    <div className='wrapper' key={id}>
+    <div className='wrapper'>
       <Link href={`/projects/${id}`} passHref>
         <div className='card'>
           <Image
@@ -47,6 +47,7 @@ const Cards = ({ id, img, description, time, title, repo, site }) => {
             <VscLiveShare />
           </Link>
         </div>
+        <p>{new Date(createdAt).toISOString().split('T')[0]}</p>
         <Icon site={`/projects/${id}`} text='see case study' />
       </div>
     </div>
@@ -81,7 +82,6 @@ export const FeaturedCard = ({
       // animate={controls}
       // variants={fadeIn}
       className='wrapper'
-      key={id}
     >
       <Link href={`/projects/${id}`} passHref>
         <div className='card'>

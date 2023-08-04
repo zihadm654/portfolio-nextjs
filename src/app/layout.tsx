@@ -36,12 +36,28 @@ const APP_DESCRIPTION =
   'The portfolio site describes who is Abdul Malek Zihad and what he is specialized in. A self taught Frontend Reactjs/Nextjs developer.';
 
 export const metadata: Metadata = {
-  applicationName: APP_NAME,
-  title: { default: APP_DEFAULT_TITLE, template: APP_TITLE_TEMPLATE },
-  description: APP_DESCRIPTION,
-  manifest: '/manifest.json',
-  themeColor: '#ffffff',
   metadataBase: new URL('https://abdulmalekzihad.me'),
+  referrer: 'origin-when-cross-origin',
+  applicationName: APP_NAME,
+  title: { 
+    default: APP_DEFAULT_TITLE, 
+    template: APP_TITLE_TEMPLATE 
+  },
+  description: APP_DESCRIPTION,
+  manifest: 'https://abdulmalekzihad.me/manifest.json',
+  themeColor: '#ffffff',
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+      'de-DE': '/de-DE',
+    },
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -61,13 +77,13 @@ export const metadata: Metadata = {
     description: APP_DESCRIPTION,
     images: [
       {
-        url: '/public/og-bg.jpg',
+        url: '/og-bg.jpg',
         width: '800',
         height: '600',
         alt: APP_DEFAULT_TITLE,
       },
       {
-        url: '/public/og-bg.jpg',
+        url: '/og-bg.jpg',
         width: '900',
         height: '700',
         alt: APP_DEFAULT_TITLE,
@@ -76,7 +92,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    site: 'https://abdulmalekzihad.me/',
+    site: 'https://abdulmalekzihad.me',
     title: {
       default: APP_DEFAULT_TITLE,
       template: APP_TITLE_TEMPLATE,

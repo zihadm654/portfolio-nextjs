@@ -10,7 +10,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
-    serverComponentsExternalPackages: ['mongoose'], // <-- and this
+    serverComponentsExternalPackages: ['@prisma/client'], // <-- and this
   },
   // and the following to enable top-level await support for Webpack
   webpack: (config) => {

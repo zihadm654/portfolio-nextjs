@@ -1,11 +1,9 @@
 import { config } from '@/lib/constant';
-// import { allBlogs } fro../../.contentlayer/generatedted';
+import { allBlogs } from '../../.contentlayer/generated';
 
 const getData = async () => {
   const URL = config.url;
-  const res = await fetch(`${URL}/api/projects`, {
-    cache: 'no-store',
-  });
+  const res = await fetch(`${URL}/api/projects`);
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
@@ -13,12 +11,11 @@ const getData = async () => {
 };
 
 export default async function sitemap() {
-  const projectData = await getData();
-  console.log(projectData);
-  const projects = projectData?.map((project) => ({
-    url: `https://abdulmalekzihad.me/projects/${project._id}`,
-    lastModified: new Date().toISOString().split('T')[0],
-  }));
+  // const projectData = await getData();
+  // const projects = projectData?.map((project) => ({
+  //   url: `${URL}/projects/${project.id}`,
+  //   lastModified: new Date(project.createdAt).toISOString().split('T')[0],
+  // }));
 
   // const blogs = allBlogs.map((post) => ({
   //   url: `https://abdulmalekzihad.me/${post.slug}`,
@@ -32,5 +29,5 @@ export default async function sitemap() {
     })
   );
 
-  return [...routes, ...projects];
+  return [...routes];
 }

@@ -1,10 +1,13 @@
-import { NextResponse, NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
-export const GET = async (request:NextRequest,{params}) => {
+export const dynamic = "auto"
+export const dynamicParams = true
+
+export const GET = async (req:NextRequest) => {
   try {
-    const {slug} = params;
-    const id = slug
+    const id = req.url.split('/').at(-1)
+
 
     const project = await prisma.projects.findUnique({
       where:{
@@ -23,27 +26,26 @@ export const GET = async (request:NextRequest,{params}) => {
   }
 };
 
-export const Delete = async ({params}) => {
+// export const Delete = async (req:NextRequest) => {
+//   try {
+//     const id = req.url.split('/').at(-1)
+
+
+//     await prisma.projects.delete({
+//       where:{
+//         id
+//       }
+//     })
+
+//     return NextResponse.json("post has been deleted");
+//   } catch (err) {
+//     return NextResponse.json({message:'delete Error', err},{status:500});
+//   }
+// };
+
+export const PATCH = async (request: Request) => {
   try {
-    const {slug} = params;
-    const id = slug
-
-    await prisma.projects.delete({
-      where:{
-        id
-      }
-    })
-
-    return NextResponse.json("post has been deleted");
-  } catch (err) {
-    return NextResponse.json({message:'delete Error', err},{status:500});
-  }
-};
-
-export const PATCH = async (request: NextRequest,{params}) => {
-  try {
-    const {slug} = params;
-    const id = slug
+    const id = request.url.split('/').at(-1)
     const body = await request.json()
     const {title,description,repo,site,time,img,role,tags,client} = body    
 

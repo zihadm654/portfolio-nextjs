@@ -5,10 +5,14 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
-const computedFields = {
+const computedFields:any = {
   slug: {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath,
+  },
+  slugAsParams: {
+    type: "string",
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
 };
 

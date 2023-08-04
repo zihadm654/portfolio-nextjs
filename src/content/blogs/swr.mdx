@@ -10,7 +10,7 @@ We will show how to use SWR, how to configure it globally, and a pattern I like 
 
 Code is available at: [https://github.com/leighhalliday/crime-mapping](https://github.com/leighhalliday/crime-mapping)
 
-## An SWR Fetcher
+#### An SWR Fetcher
 
 The `useSWR` hook requires two things to make it work:
 
@@ -27,7 +27,7 @@ The fetcher we'll be working with receives the incoming arguments (in our case t
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 ```
 
-## Global Config Provider
+#### Global Config Provider
 
 Rather than having to pass the `fetcher` function, and any other config options you may want to set on every call to the `useSWR` hook, you can wrap your components with a provider called `SWRConfig`. This allows you to globally set config options to be used with every `useSWR` hook call. In our example we'll pass the fetcher function to it so it can be used globally.
 
@@ -41,7 +41,7 @@ export default function App() {
 }
 ```
 
-## Separating Data From Display
+#### Separating Data From Display
 
 When working with data, be it GraphQL or data from a REST API, I like to separate out data fetching logic from display logic. We'll be doing the same here in this example, and the psuedo-code/logic looks like:
 
@@ -59,7 +59,7 @@ function DisplayCrimes({ crimes }) {
 
 Separating data from display also allows you to test visual changes in isolation, useful for testing or showing how the component would look like in [Storybook](https://storybook.js.org/) without having to mock all of your API calls.
 
-## Fetching Data
+#### Fetching Data
 
 Because we are using `SWRConfig` to configure our `useSWR` hook calls globally, we don't have to worry about passing the fetcher function to this hook, we only have to worry about passing our "key" (URL to fetch the data). As a response we get an object that we can extract `{data, error}` from.
 
@@ -81,7 +81,7 @@ function Crimes() {
 }
 ```
 
-### Unique Values in JavaScript
+#### Unique Values in JavaScript
 
 In order to display (and filter) the crime data, I want a unique list of the crime categories. JavaScript doesn't have a way to do this out of the box like you might do `values.uniq` in Ruby. We can make our own very quickly though using a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set).
 
@@ -96,7 +96,7 @@ const categories = [...categorySet];
 [...new Set(data.map((crime) => crime.category))];
 ```
 
-## Displaying & Filtering Data
+#### Displaying & Filtering Data
 
 Displaying the data really has nothing to do with SWR at this point, but that is sort of the point. The display logic shouldn't really care where the data comes from, only how to display it to the user.
 
@@ -135,6 +135,6 @@ function DisplayCrimes({ crimes, categories }) {
 }
 ```
 
-## Conclusion
+### Conclusion
 
 Based on my experience with the SWR package, I think it would be my go-to approach when working with RESTful APIs in React. That said, I don't think I would switch from Apollo if my data were coming from GraphQL. Apollo provides a lot of nice utilities specific to GraphQL that you wouldn't get with SWR, which admittedly is a lower-level tool that you could build on top of.

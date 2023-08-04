@@ -40,15 +40,19 @@
       }
     }
   }
-  .markdown {
+  .mdx {
     margin: 2rem 0;
+    pre{
+      white-space: pre-wrap;
+      font-size: v.$lr;
+    }
     p {
       margin: 1rem 0;
     }
     h2 {
       a {
         text-decoration: none;
-        font-size: v.$xlr;
+        font-size: v.$md;
         color: c.$dominant;
       }
     }

@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
       },
     ],
-    // sitemap: 'https://abdulmalekzihad.me/sitemap.xml',
-    // host: 'https://abdulmalekzihad.me',
+    sitemap: 'https://abdulmalekzihad.me/sitemap.xml',
+    host: 'https://abdulmalekzihad.me',
   };
 }

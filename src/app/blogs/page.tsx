@@ -15,9 +15,10 @@ export default function Page() {
           })
           .map((blog) => (
             <Link key={blog.slug} href={`/${blog.slug}`}>
-              <div>
+              <article className='content'>
                 <h5>{blog.title}</h5>
-              </div>
+                <p>{blog.description}</p>
+              </article>
             </Link>
           ))}
       </div>

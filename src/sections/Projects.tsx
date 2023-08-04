@@ -46,8 +46,8 @@ function Projects({ data }) {
         <div className='cards'>
           {sliceData?.map((item) => (
             <FeaturedCard
-              key={item._id}
-              id={item._id}
+              key={item.id}
+              id={item.id}
               time={item.time}
               description={item.description}
               title={item.title}

@@ -6,7 +6,7 @@ import { config } from '@/lib/constant';
 
 const getData = async () => {
   const URL = config.url;
-  const res = await fetch(`${URL}/api/projects`);
+  const res = await fetch(`http://localhost:3000/api/projects`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -38,14 +38,15 @@ export default async function Page() {
           <div className='cards'>
             {data?.map((item) => (
               <Cards
-                key={item._id}
-                id={item._id}
+              id={item.id}
+                key={item.id}
                 time={item.time}
                 description={item.description}
                 title={item.title}
                 repo={item.repo}
                 site={item.site}
                 img={item.img}
+                createdAt={item.createdAt}
               />
             ))}
           </div>
@@ -60,3 +61,9 @@ export const metadata: Metadata = {
   description:
     'This project page holds all the projects completed for showcase.',
 };
+// export const dynamicParams = false
+// export const revalidate = true
+// export const fetchCache = 'auto'
+// export const runtime = 'nodejs'
+// export const preferredRegion = 'auto'
+// export const maxDuration = 5
