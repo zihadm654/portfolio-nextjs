@@ -3,6 +3,7 @@
 import { Metadata } from 'next/types';
 import Cards from '../../components/Cards';
 import { config } from '@/lib/constant';
+import { PageWrapper } from '@/utility/page-warpper';
 
 const getData = async () => {
   const URL = config.url;
@@ -16,7 +17,7 @@ const getData = async () => {
 export default async function Page() {
   const data = await getData();
   return (
-    <>
+    <PageWrapper className='h-screenHeightWithoutHeader'>
       <section className='projects'>
         <div
           // variants={stagger}
@@ -52,7 +53,7 @@ export default async function Page() {
           </div>
         </div>
       </section>
-    </>
+    </PageWrapper>
   );
 }
 

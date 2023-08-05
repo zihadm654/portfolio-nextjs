@@ -46,9 +46,23 @@
       @include m.media(md) {
         display: none;
       }
+      @include m.flex(space-between);
       padding: 0 1.5rem;
-      a {
+      li{
+        list-style: none;
         padding-left: 1.5rem;
+        a {
+          position: relative;
+          .active__underline{
+            position: absolute;
+            left:0;
+            bottom:0;
+            height:0.2rem;
+            width:100%; 
+            background-color: #000;
+            display: inline;
+          }
+        }
       }
     }
   }

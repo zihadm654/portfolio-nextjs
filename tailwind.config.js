@@ -16,6 +16,15 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        poppins: ['var(--font-poppins)']
+      },
+      minHeight: {
+        screenHeightWithoutHeader: 'calc(100vh - 101px)'
+      },
+      height: {
+        screenHeightWithoutHeader: 'calc(100vh - 101px)'
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

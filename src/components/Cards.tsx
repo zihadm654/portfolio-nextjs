@@ -58,11 +58,10 @@ export const FeaturedCard = ({
   id,
   img,
   description,
-  createdAt,
   title,
   repo,
   site,
-  time,
+  tags
 }) => {
   // const controls = useAnimation();
   // const [ref, inView] = useInView();
@@ -97,6 +96,11 @@ export const FeaturedCard = ({
       <div className='card__text'>
         <h5>{title}</h5>
         <p>{description}</p>
+        <article>
+          {tags?.map(tag=>(
+            <span className='text-2xl ml-2' key={tag}>{tag}</span>
+          ))}
+        </article>
         <div className='button__links'>
           <Link className='github' href={repo}>
             <p>Source Code</p>

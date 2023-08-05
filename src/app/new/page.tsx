@@ -1,9 +1,11 @@
+import { PageWrapper } from '@/utility/page-warpper';
 import { Metadata } from 'next/types';
 // import { motion } from 'framer-motion';
 // import { fadeIn, stagger } from '../../utility/Animation';
 const New = () => {
   return (
-    <>
+    <PageWrapper className='h-screenHeightWithoutHeader'>
+
       <section className='tranding'>
         <div
           className='recent'
@@ -23,7 +25,7 @@ const New = () => {
           </p>
         </div>
       </section>
-    </>
+      </PageWrapper>
   );
 };
 

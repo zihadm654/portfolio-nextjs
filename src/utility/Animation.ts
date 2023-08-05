@@ -3,7 +3,7 @@ export const fadeIn = {
   hidden: {
     y: 35,
     opacity: 0,
-    scale: 0.98,
+    scale: 0.90,
   },
   show: {
     scale: 1,
@@ -23,7 +23,8 @@ export const stagger = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3,
+      staggerChildren: 0.5,
+      ease: easing,
     },
   },
 };

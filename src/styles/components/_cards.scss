@@ -48,6 +48,20 @@
         margin: 1rem 0;
         color: c.$primaryColor;
       }
+      article{
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        span{
+          background: rebeccapurple;
+          font-size: 1.6rem;
+          padding: .8rem;
+          margin: .5rem;
+          &:not(:first-child){
+            margin: .5rem;
+          }
+        }
+      }
       .button__links {
         @include m.flex(space-between);
         .github,

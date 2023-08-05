@@ -6,6 +6,8 @@ import logo from '../../public/logo.png';
 import Hamburger from './Hamburger';
 import { dancing_script } from '../utility/fonts';
 import ThemeButton from './ThemeButton';
+import {motion} from 'framer-motion'
+import {usePathname} from 'next/navigation'
 
 function Header() {
   const [menu, setMenu] = useState(false);
@@ -25,6 +27,7 @@ function Header() {
   useEffect(() => {
     window.addEventListener('scroll', stickyNav);
   }, []);
+  const path = usePathname()
   return (
     <>
       <header className={sticky ? 'navbar sticky' : 'navbar'}>
@@ -35,12 +38,21 @@ function Header() {
               <h5 className={`${dancing_script.className}`}>Abdul Malek</h5>
             </div>
           </Link>
-          <div className='links'>
-            <Link href='/projects'>Work</Link>
-            <Link href='/blogs'>Blogs</Link>
-            <Link href='/about'>About</Link>
-            <Link href='/new'>What&apos;s New</Link>
-          </div>
+          <ul className='links'>
+            {links?.map(link=>(
+              <li key={link.href}>
+                <Link className='relative' href={link.href}>
+                  {link.href === path && (
+                    <motion.span 
+                    layoutId="underline"
+                    className='active__underline '/>
+                    )}
+                  {link.label}
+                </Link>
+              </li>
+
+            ))}
+          </ul>
         </div>
         <div className='container'>
           <ThemeButton />
@@ -53,3 +65,11 @@ function Header() {
   );
 }
 export default Header;
+
+const links = [
+  {href: "/", label: "Home"},
+  {href: "/projects", label: "Projects"},
+  {href: "/blogs", label: "Blogs"},
+  {href: "/about", label: "About"},
+  {href: "/new", label: "New"},
+]

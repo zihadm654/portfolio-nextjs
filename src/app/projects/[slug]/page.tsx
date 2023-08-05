@@ -4,18 +4,7 @@ import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
 import { Metadata } from 'next';
 import { config } from '@/lib/constant';
-
-
-// export async function generateStaticParams() {
-//   const projects = await fetch(`${URL}/api/projects`, {
-//     next:{revalidate:3600}
-//   }).then((res) => res.json());
-//   console.log(projects, 'Projects');
- 
-//   return projects.map((project) => ({
-//     slug: project.slug,
-//   }))
-// }
+import { PageWrapper } from '@/utility/page-warpper';
 
 const getData = async (slug) => {
   const URL = config.url;
@@ -31,6 +20,8 @@ export default async function Page({
   const slug = params.slug
   const data = await getData(slug);
   return (
+    <PageWrapper>
+
       <section className='case__details'>
             <div className='container'>
               <div className='case__study--left'>
@@ -75,6 +66,7 @@ export default async function Page({
             </div>
             <Image src={data.img} alt={data.img} height={500} width={500} />
       </section>
+    </PageWrapper>
   );
 }
 

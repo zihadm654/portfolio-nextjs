@@ -96,5 +96,8 @@ a {
   }
   a {
     color: #fff;
+    &:hover{
+      color: #4b3eff;
+    }
   }
 }

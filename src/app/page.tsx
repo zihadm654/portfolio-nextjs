@@ -5,6 +5,7 @@ import Projects from '../sections/Projects';
 import Skills from '../sections/Skills';
 import Blogs from '../sections/Blogs';
 import { config } from '@/lib/constant';
+import { PageWrapper } from '@/utility/page-warpper';
 
 const getData = async () => {
   const URL = config.url;
@@ -21,6 +22,7 @@ const getData = async () => {
 export default async function Page() {
   const data = await getData();
   return (
+    <PageWrapper className='h-screenHeightWithoutHeader'>
     <div className='container'>
       <Hero />
       <Projects data={data} />
@@ -28,6 +30,7 @@ export default async function Page() {
       <Skills />
       <About />
     </div>
+    </PageWrapper>
   );
 }
 

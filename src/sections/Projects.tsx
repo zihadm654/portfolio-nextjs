@@ -14,7 +14,7 @@ function Projects({ data }) {
   //     controls.start('show');
   //   }
   // }, [controls, inView]);
-  const sliceData = data?.slice(0, 5);
+  const sliceData = data?.slice(0, 6);
   return (
     <section className='project'>
       <motion.div
@@ -46,14 +46,13 @@ function Projects({ data }) {
           {sliceData?.map((item) => (
             <FeaturedCard
               key={item.id}
+              tags={item.tags}
               id={item.id}
-              time={item.time}
               description={item.description}
               title={item.title}
               repo={item.repo}
               site={item.site}
               img={item.img}
-              createdAt={item.createdAt}
             />
           ))}
         </div>

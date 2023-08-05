@@ -15,9 +15,10 @@ import {
 // import Testimonial from "../../src/layouts/Testimonial";
 import { motion } from 'framer-motion';
 import { fadeIn, stagger } from '../../utility/Animation';
-const AboutPage = () => {
+import { PageWrapper } from '@/utility/page-warpper';
+const Page = () => {
   return (
-    <>
+    <PageWrapper className='h-screenHeightWithoutHeader'>
       <section className='about__page'>
         <div
           className='about__description'
@@ -136,11 +137,11 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-    </>
+    </PageWrapper>
   );
 };
 
-export default AboutPage;
+export default Page;
 
 export const metadata: Metadata = {
   title: 'About',

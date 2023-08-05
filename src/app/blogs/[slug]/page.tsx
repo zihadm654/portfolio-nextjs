@@ -1,6 +1,7 @@
 import { Mdx } from '@/components/mdx-content';
 import type{ Metadata } from 'next';
 import { allBlogs } from '../../../../.contentlayer/generated';
+import { PageWrapper } from '@/utility/page-warpper';
 
 async function getBlogsFromParams(slug) {
   const blog = allBlogs?.find((doc) => doc.slugAsParams === slug);
@@ -85,6 +86,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const data = await getBlogsFromParams(params.slug);
 
   return (
+    <PageWrapper className='h-screenHeightWithoutHeader'>
     <div className='blog__details'>
        <article>
         <h3 className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -106,6 +108,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
        </article>
       {<Mdx code={data?.body.code || ""} />}
     </div>
+    </PageWrapper>
   );
 };
 
