@@ -35,9 +35,10 @@ a {
 }
 .hamburger,
 .secondary__background,
-.hero__wrapper,
+.hero,
 .describe,
 .project,
+.blog,
 .testimonial,
 .testimonial__title,
 .progress,
@@ -99,5 +100,11 @@ a {
     &:hover{
       color: #4b3eff;
     }
+  }
+  .active__underline{
+    background-color: #fff !important;
+  }
+  label{
+    color: #fff !important;
   }
 }

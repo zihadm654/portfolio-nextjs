@@ -4,6 +4,7 @@ import { Metadata } from 'next/types';
 import Cards from '../../components/Cards';
 import { config } from '@/lib/constant';
 import { PageWrapper } from '@/utility/page-warpper';
+import { Suspense } from 'react';
 
 const getData = async () => {
   const URL = config.url;
@@ -36,10 +37,11 @@ export default async function Page() {
         </div>
         <div className='container'>
           <h3>Featured Projects</h3>
+          <Suspense fallback={<p>Loading...</p>}>
           <div className='cards'>
             {data?.map((item) => (
               <Cards
-              id={item.id}
+                id={item.id}
                 key={item.id}
                 time={item.time}
                 description={item.description}
@@ -48,9 +50,11 @@ export default async function Page() {
                 site={item.site}
                 img={item.img}
                 createdAt={item.createdAt}
+                tags={item.tags}
               />
             ))}
           </div>
+          </Suspense>
         </div>
       </section>
     </PageWrapper>

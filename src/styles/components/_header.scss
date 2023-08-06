@@ -85,9 +85,8 @@
       background-color: rgb(234, 234, 234);
       border: none;
       cursor: pointer;
-      transition-property: all;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-duration: 0.15s;
+      transition: all ;
+      transition-property: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
       &:hover {
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
       }
@@ -110,6 +109,7 @@
       width: 3.5rem;
       height: 3.5rem;
       @include m.flex(center);
+      transition: 850ms;
       display: none;
       //active state
       &.active {
@@ -152,7 +152,9 @@
   overflow: hidden;
   background-color: #fff;
   color: #000;
+  transition: 850ms;
   animation: hamburger 300ms linear;
+  transition: 700ms;
   .wrapper {
     @include m.media(sm) {
       padding: 3rem 2.5rem;
@@ -225,6 +227,7 @@
 }
 .hamburger.menu {
   display: block;
+  transition: 350ms;
 }
 
 [data-theme='dark'] {

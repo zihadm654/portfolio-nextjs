@@ -9,21 +9,24 @@
   gap: 2.5rem;
   @include m.flex(center);
   @include m.media(sm) {
-    padding: 3rem 2.5rem;
+    padding: 3rem 2rem;
     flex-direction: column;
-    gap: 0;
+    gap: 1.5;
   }
   @include m.media(md) {
     padding: 3rem;
     flex-direction: column;
-    gap: 0;
+    gap: 1.5;
   }
 
   &__left {
     @include m.media(sm) {
       flex: 1;
     }
-    max-width: 80%;
+    @include m.media(xlr) {
+      flex: 1;
+      max-width: 80%;
+    }
     flex: 1;
     position: relative;
     padding-top: 4rem;

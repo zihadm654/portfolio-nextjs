@@ -70,26 +70,29 @@ a {
 }
 .custom__btn {
   position: relative;
-  border-radius: 1.2rem;
-  margin: 2rem 0;
-  padding: 1.6rem 3.5rem;
-  background: #000;
-  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
-  border: 3px solid rgb(255, 255, 255);
-  transition: transform ease-in-out 300ms;
-  outline: none;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  margin-left: 1rem;
   a {
-    font-weight: bold;
     color: #ffffff;
+    font-weight: bold;
   }
+  background: #000000;
+  padding: 2rem 3.5rem;
+  border-radius: 1.5rem;
+  border: 3px solid rgb(255, 255, 255);
+  transition: transform ease-in-out 200ms;
+  outline: none;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
   &:hover,
   &:focus {
-    transform: translateY(-0.8rem);
+    transform: translateY(-0.5rem);
     cursor: pointer;
     background-color: c.$secondaryColor;
   }
   @include m.media(sm) {
     width: 100%;
-    padding: 1.5rem 2rem;
+    padding: 1.7rem 2rem;
+    margin: 0.3rem 0 0 0;
   }
 }

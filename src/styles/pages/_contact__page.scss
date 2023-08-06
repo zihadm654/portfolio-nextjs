@@ -76,7 +76,6 @@
           color: c.$dominant;
         }
       }
-
       label {
         z-index: -1;
         color: c.$primaryColor;
@@ -85,7 +84,7 @@
         bottom: 1.2rem;
         left: 0;
         transition: 300ms transform ease-out;
-        background: #fff;
+        background: transparent; 
       }
     }
     button {

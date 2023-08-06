@@ -11,7 +11,7 @@ function Hamburger({ menu, hide }) {
   return (
     <motion.div
       className={!menu ? 'hamburger' : 'hamburger menu'}
-      animate={!menu ? 'visible' : 'hidden'}
+      // animate={!menu ? 'visible' : 'hidden'}
       // variants={container}
     >
       <div className="wrapper">

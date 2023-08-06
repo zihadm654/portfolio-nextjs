@@ -3,7 +3,7 @@ import { Button } from '../utility/Button';
 import { FeaturedCard } from '../components/Cards';
 import { motion, useAnimation } from 'framer-motion';
 import { fadeIn, stagger } from '../utility/Animation';
-// import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 
 function Projects({ data }) {
   // const controls = useAnimation();
@@ -43,6 +43,7 @@ function Projects({ data }) {
       </motion.div>
       <div className='project__container'>
         <div className='cards'>
+          <Suspense fallback={<p>Loading...</p>}>
           {sliceData?.map((item) => (
             <FeaturedCard
               key={item.id}
@@ -53,8 +54,9 @@ function Projects({ data }) {
               repo={item.repo}
               site={item.site}
               img={item.img}
-            />
-          ))}
+              />
+              ))}
+              </Suspense>
         </div>
       </div>
       <div className='btn__container'>

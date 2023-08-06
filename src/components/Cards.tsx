@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
 
-const Cards = ({id, img, description, time, title, repo, site,createdAt }) => {
+const Cards = ({id, img, description, time, title, repo, site,createdAt,tags }) => {
   // const controls = useAnimation();
   // const [ref, inView] = useInView();
 
@@ -46,6 +46,11 @@ const Cards = ({id, img, description, time, title, repo, site,createdAt }) => {
           </Link>
         </div>
         <p>{new Date(createdAt).toISOString().split('T')[0]}</p>
+        <article>
+          {tags?.map(tag=>(
+            <span className='text-2xl ml-2' key={tag}>{tag}</span>
+          ))}
+        </article>
         <Icon site={`/projects/${id}`} text='see case study' />
       </div>
     </div>

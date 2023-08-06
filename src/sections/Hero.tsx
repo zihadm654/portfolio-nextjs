@@ -43,15 +43,18 @@ function Hero() {
           variants="primary__btn"
           text="Book a free Consultation"
         />
+        <button
+          className="custom__btn ml-4"
+        >
         <Link
-          style={{ backgroundColor: 'transparent', marginLeft: '1rem' }}
-          className="custom__btn"
+          style={{ backgroundColor: 'transparent' }}
           target="_blank"
           download
           href="/assets/Abdul Malek.pdf"
-        >
+          >
           Download Resume
         </Link>
+          </button>
       </motion.div>
       <div className="hero__right">
         <Image

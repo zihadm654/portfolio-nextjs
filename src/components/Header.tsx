@@ -12,9 +12,8 @@ import {usePathname} from 'next/navigation'
 function Header() {
   const [menu, setMenu] = useState(false);
   const [sticky, setSticky] = useState(false);
-  const handleClick = () => {
-    menu ? setMenu((prev) => !prev) : setMenu((prev) => !prev);
-  };
+  
+  const showSidebar = ()=> setMenu(!menu)
   const hide = () => setMenu(!menu);
 
   const stickyNav = () => {
@@ -56,7 +55,7 @@ function Header() {
         </div>
         <div className='container'>
           <ThemeButton />
-          <div className={menu ? 'menu active' : 'menu'} onClick={handleClick}>
+          <div className={menu ? 'menu active' : 'menu'} onClick={showSidebar}>
           </div>
         </div>
       </header>
