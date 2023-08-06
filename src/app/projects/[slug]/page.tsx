@@ -62,6 +62,10 @@ export default async function Page({
                   <h5>Project Description</h5>
                   <p>{data.description}</p>
                 </div>
+                <div className='sub'>
+                  <h5>Project Created Time</h5>
+                  <p>{new Date(data.description).toISOString().split('/')[0]}</p>
+                </div>
               </div>
             </div>
             <Image src={data.img} alt={data.img} height={500} width={500} />
