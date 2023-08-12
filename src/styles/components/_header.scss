@@ -48,17 +48,17 @@
       }
       @include m.flex(space-between);
       padding: 0 1.5rem;
-      li{
+      li {
         list-style: none;
         padding-left: 1.5rem;
         a {
           position: relative;
-          .active__underline{
+          .active__underline {
             position: absolute;
-            left:0;
-            bottom:0;
-            height:0.2rem;
-            width:100%; 
+            left: 0;
+            bottom: 0;
+            height: 0.2rem;
+            width: 100%;
             background-color: #000;
             display: inline;
           }
@@ -85,7 +85,7 @@
       background-color: rgb(234, 234, 234);
       border: none;
       cursor: pointer;
-      transition: all ;
+      transition: all;
       transition-property: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
       &:hover {
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
@@ -109,7 +109,7 @@
       width: 3.5rem;
       height: 3.5rem;
       @include m.flex(center);
-      transition: 850ms;
+      transition: 650ms;
       display: none;
       //active state
       &.active {
@@ -144,7 +144,6 @@
   }
 }
 .hamburger {
-  display: none;
   z-index: 9;
   top: 0%;
   right: 0%;
@@ -155,7 +154,9 @@
   transition: 850ms;
   animation: hamburger 300ms linear;
   transition: 700ms;
-  .wrapper {
+  height: 100vh;
+  width: 45%;
+  .nav {
     @include m.media(sm) {
       padding: 3rem 2.5rem;
       padding-top: 7rem;
@@ -165,78 +166,100 @@
       padding-top: 7rem;
     }
     padding: 3rem;
-    .nav {
-      height: 100%;
-      width: 100%;
-      @include m.grid;
-      .nav__links,
-      .social__media {
-        grid-column: span 4;
-        @include m.media(sm) {
-          grid-column: 1/13;
-        }
-        @include m.media(md) {
-          grid-column: 1/13;
-        }
+    height: 100%;
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    @include m.grid;
+    .nav__links,
+    .social__media {
+      grid-column: span 4;
+      @include m.media(sm) {
+        grid-column: 1/13;
       }
-      .nav__links {
-        margin: 0;
-        padding: 0;
-        li {
-          list-style: none;
-          cursor: pointer;
-          border-bottom: 1px solid c.$primaryColor;
-          a {
-            font-family: v.$primary-font;
-            font-size: v.$xlr;
-            font-weight: 700;
-            &:hover {
-              color: c.$secondaryColor;
-            }
-          }
-        }
+      @include m.media(md) {
+        grid-column: 1/13;
       }
-      .social__media {
-        @include m.flex(center);
-        flex-direction: column;
-        z-index: 1000;
-        padding-right: 7rem;
-        @include m.media(sm) {
-          flex-direction: row;
-          justify-content: space-evenly;
-          padding-right: 0rem;
+    }
+    .nav__links {
+      margin: 0;
+      padding: 0;
+      .link {
+        position: relative;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid c.$primaryColor;
+
+        .indicator {
+          width: 10px;
+          height: 10px;
+          background-color: white;
+          border-radius: 50%;
+          position: absolute;
+          left: -30px;
         }
-        @include m.media(md) {
-          flex-direction: row;
-          justify-content: space-between;
-          padding-right: 0rem;
-        }
+
         a {
-          margin: 2rem 0;
-          transition: color 0.3s ease-out;
+          font-family: v.$primary-font;
+          font-size: v.$xxlr;
+          font-weight: 700;
           &:hover {
             color: c.$secondaryColor;
-          }
-          svg {
-            font-size: v.$lr;
           }
         }
       }
     }
+    .social__media {
+      @include m.flex(center);
+      flex-direction: column;
+      z-index: 1000;
+      padding-right: 7rem;
+      @include m.media(sm) {
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-right: 0rem;
+      }
+      @include m.media(md) {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 0rem;
+      }
+      a {
+        margin: 2rem 0;
+        transition: color 0.3s ease-out;
+        &:hover {
+          color: c.$secondaryColor;
+        }
+        svg {
+          font-size: v.$lr;
+        }
+      }
+    }
+  }
+  .curve__burger {
+    position: absolute;
+    top: 0;
+    left: -99px;
+    width: 100px;
+    height: 100%;
+    fill: rgb(41, 41, 41);
+    stroke: none;
   }
 }
-.hamburger.menu {
-  display: block;
-  transition: 350ms;
-}
 
-[data-theme='dark'] {
+.dark {
   .container {
     .toggle__btn {
       background-color: #333;
       svg {
         color: #fff;
       }
+    }
+  }
+  .menu {
+    &::before,
+    &::after {
+      background: #fff !important;
     }
   }
 }

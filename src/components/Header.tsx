@@ -6,14 +6,14 @@ import logo from '../../public/logo.png';
 import Hamburger from './Hamburger';
 import { dancing_script } from '../utility/fonts';
 import ThemeButton from './ThemeButton';
-import {motion} from 'framer-motion'
-import {usePathname} from 'next/navigation'
+import { AnimatePresence, motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 function Header() {
   const [menu, setMenu] = useState(false);
   const [sticky, setSticky] = useState(false);
-  
-  const showSidebar = ()=> setMenu(!menu)
+
+  const showSidebar = () => setMenu(!menu);
   const hide = () => setMenu(!menu);
 
   const stickyNav = () => {
@@ -26,7 +26,7 @@ function Header() {
   useEffect(() => {
     window.addEventListener('scroll', stickyNav);
   }, []);
-  const path = usePathname()
+  const path = usePathname();
   return (
     <>
       <header className={sticky ? 'navbar sticky' : 'navbar'}>
@@ -38,37 +38,38 @@ function Header() {
             </div>
           </Link>
           <ul className='links'>
-            {links?.map(link=>(
+            {links?.map((link) => (
               <li key={link.href}>
                 <Link className='relative' href={link.href}>
                   {link.href === path && (
-                    <motion.span 
-                    layoutId="underline"
-                    className='active__underline '/>
-                    )}
+                    <motion.span
+                      layoutId='underline'
+                      className='active__underline '
+                    />
+                  )}
                   {link.label}
                 </Link>
               </li>
-
             ))}
           </ul>
         </div>
         <div className='container'>
           <ThemeButton />
-          <div className={menu ? 'menu active' : 'menu'} onClick={showSidebar}>
-          </div>
+          <div
+            className={menu ? 'menu active' : 'menu'}
+            onClick={showSidebar}
+          ></div>
         </div>
       </header>
-      <Hamburger menu={menu} hide={hide} />
+      <AnimatePresence>{menu && <Hamburger hide={hide} />}</AnimatePresence>
     </>
   );
 }
 export default Header;
-
 const links = [
-  {href: "/", label: "Home"},
-  {href: "/projects", label: "Projects"},
-  {href: "/blogs", label: "Blogs"},
-  {href: "/about", label: "About"},
-  {href: "/new", label: "New"},
-]
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/blogs', label: 'Blogs' },
+  { href: '/about', label: 'About' },
+  { href: '/new', label: 'New' },
+];

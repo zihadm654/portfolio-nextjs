@@ -12,25 +12,19 @@
     @include m.media(md) {
       padding: 3.5rem;
     }
-    .img__wrapper {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      height: 38rem;
+    img {
       grid-column: span 6;
       @include m.media(sm) {
-        height: 35rem;
+        height: 40rem;
         grid-column: 1/13;
       }
       @include m.media(md) {
-        height: 35rem;
+        height: 42rem;
         grid-column: 1/13;
       }
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-      }
+      width: 100%;
+      height: 46rem;
+      object-fit: cover;
     }
     .about__description {
       align-self: center;
