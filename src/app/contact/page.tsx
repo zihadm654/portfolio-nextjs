@@ -4,35 +4,39 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 // import contactImg from '../public/assets/undraw_contact_us_re_4qqt.svg';
-function ContactPage() {
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // try {
-    //   const ref = await addDoc(collection(db, 'users'), {
-    //     name: user.name,
-    //     email: user.email,
-    //     message: user.message,
-    //   });
-    //   console.log('send successfully');
-    // } catch (err) {
-    //   console.log(err);
-    // }
-    // setUser({
-    //   name: '',
-    //   email: '',
-    //   message: '',
-    // });
-  };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-  };
 
+function isInputNamedElement(
+  e: Element
+): e is HTMLInputElement & { name: string } {
+  return 'value' in e && 'name' in e;
+}
+
+function ContactPage() {
+  const [state, setState] = useState<string>();
+  async function handleOnSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const formData: Record<string, string> = {};
+
+    Array.from(e.currentTarget.elements)
+      .filter(isInputNamedElement)
+      .forEach((field) => {
+        if (!field.name) return;
+        formData[field.name] = field.value;
+      });
+
+    setState('loading');
+
+    await fetch('/api/email', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+      }),
+    });
+
+    setState('ready');
+  }
   return (
     <>
       <section className='contact__page'>
@@ -54,41 +58,17 @@ function ContactPage() {
             />
           </div>
         </div>
-        <form name='contact' onSubmit={handleSubmit}>
+        <form onSubmit={handleOnSubmit}>
           <div className='inputs'>
-            <input
-              required
-              type='text'
-              name='name'
-              onChange={handleChange}
-              value={user.name}
-            />
+            <input required type='text' name='name' />
             <label>What&apos;s your Name?</label>
           </div>
           <div className='inputs'>
-            <input
-              required
-              type='email'
-              name='email'
-              onChange={handleChange}
-              value={user.email}
-            />
+            <input required type='email' name='email' />
             <label>Your Email </label>
           </div>
-          <div className='inputs'>
-            <input
-              required
-              type='text-area'
-              name='message'
-              onChange={handleChange}
-              value={user.message}
-            />
-            <label htmlFor=''>Tell use about your project...</label>
-          </div>
           <div>
-            <button type='submit' value='submit'>
-              Send Email
-            </button>
+            <button value='send email'>Send Email</button>
           </div>
         </form>
         <div className='contact__container'></div>

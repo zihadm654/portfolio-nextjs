@@ -29,7 +29,7 @@
     }
     flex: 1;
     position: relative;
-    padding-top: 4rem;
+    padding-top: 3rem;
 
     .heading__info {
       @include m.flex(flex-start);
@@ -44,7 +44,7 @@
     }
 
     h1 {
-      margin: 2rem 0;
+      margin: 1.5rem 0;
     }
 
     p {
@@ -52,7 +52,7 @@
     }
 
     .primary__btn {
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
   }
 

@@ -9,7 +9,8 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    serverComponentsExternalPackages: ['@prisma/client'], // <-- and this
+    serverActions: true,
+    // serverComponentsExternalPackages: ['@prisma/client'], // <-- and this
   },
   // and the following to enable top-level await support for Webpack
   webpack: (config) => {

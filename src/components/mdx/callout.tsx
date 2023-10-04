@@ -1,4 +1,5 @@
 import { cn } from '@/utility/utils';
+import React from 'react';
 
 interface CalloutProps {
   icon?: string;

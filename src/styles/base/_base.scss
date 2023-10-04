@@ -33,6 +33,7 @@ a {
   color: #000;
   transition: color 200ms ease-out;
 }
+.dashboard,
 .secondary__background,
 .hero,
 .describe,
@@ -52,6 +53,7 @@ a {
   width: 100%;
   max-width: 140rem;
   margin: 0 auto;
+  min-height: 50vh;
   @include m.media(xxlg) {
     max-width: 160rem;
   }

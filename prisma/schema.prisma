@@ -19,7 +19,5 @@ model projects {
   time        String
   client      String
   repo        String
-  role        String[]
   site        String
-  tags        String[]
 }

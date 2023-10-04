@@ -6,7 +6,7 @@ import Skills from '../sections/Skills';
 import Blogs from '../sections/Blogs';
 import { config } from '@/lib/constant';
 import { PageWrapper } from '@/utility/page-warpper';
-
+// import { getProjects } from '@/actions/add-project';
 const getData = async () => {
   const URL = config.url;
   const res = await fetch(`${URL}/api/projects`, {
@@ -21,15 +21,16 @@ const getData = async () => {
 
 export default async function Page() {
   const data = await getData();
+  console.log(data, 'data');
   return (
     <PageWrapper className='h-screenHeightWithoutHeader'>
-    <div className='container'>
-      <Hero />
-      <Projects data={data} />
-      <Blogs />
-      <Skills />
-      <About />
-    </div>
+      <div className='container'>
+        <Hero />
+        <Projects data={data} />
+        <Blogs />
+        <Skills />
+        <About />
+      </div>
     </PageWrapper>
   );
 }
