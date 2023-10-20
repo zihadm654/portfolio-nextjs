@@ -1,39 +1,37 @@
-import UploadButton from './upload-button';
-import cloudinary from 'cloudinary';
-import GalleryGrid from './gallery-grid';
-import { SearchForm } from './search-form';
+'use client';
 
-export type SearchResult = {
-  public_id: string;
-  tags: string[];
+import { CldImage } from 'next-cloudinary';
+import { CldUploadButton } from 'next-cloudinary';
+import { useState } from 'react';
+
+export type UploadResult = {
+  info: {
+    public_id: string;
+  };
+  event: 'success';
 };
 
-export default async function GalleryPage({
-  searchParams: { search },
-}: {
-  searchParams: {
-    search: string;
-  };
-}) {
-  const results = (await cloudinary.v2.search
-    .expression(`resource_type:image${search ? ` AND tags=${search}` : ''}`)
-    .sort_by('created_at', 'desc')
-    .with_field('tags')
-    .max_results(30)
-    .execute()) as { resources: SearchResult[] };
+export default function Home() {
+  const [imageId, setImageId] = useState('');
 
   return (
-    <section>
-      <div className='flex flex-col gap-8'>
-        <div className='flex justify-between'>
-          <h1 className='text-4xl font-bold'>Gallery</h1>
-          <UploadButton />
-        </div>
+    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+      <CldUploadButton
+        onUpload={(result: UploadResult) => {
+          setImageId(result.info.public_id);
+        }}
+        uploadPreset='giomsr4s'
+      />
 
-        <SearchForm initialSearch={search} />
-
-        <GalleryGrid images={results.resources} />
-      </div>
-    </section>
+      {imageId && (
+        <CldImage
+          width='500'
+          height='300'
+          src={imageId}
+          sizes='100vw'
+          alt='Description of my image'
+        />
+      )}
+    </main>
   );
 }

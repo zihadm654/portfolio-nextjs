@@ -2,10 +2,12 @@
 module.exports = {
   darkMode: ['class'],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+
+    // Or if using `src` directory:
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     container: {
@@ -17,13 +19,13 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        poppins: ['var(--font-poppins)']
+        poppins: ['var(--font-poppins)'],
       },
       minHeight: {
-        screenHeightWithoutHeader: 'calc(100vh - 101px)'
+        screenHeightWithoutHeader: 'calc(100vh - 101px)',
       },
       height: {
-        screenHeightWithoutHeader: 'calc(100vh - 101px)'
+        screenHeightWithoutHeader: 'calc(100vh - 101px)',
       },
       colors: {
         border: 'hsl(var(--border))',

@@ -3,6 +3,7 @@
 //   PHASE_PRODUCTION_BUILD,
 // } from 'next/constants.js';
 const { withContentlayer } = require('next-contentlayer');
+// import { withContentlayer } from 'next-contentlayer';
 const path = require('path');
 /** @type{import("next").NextConfig} */
 
@@ -24,7 +25,11 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   images: {
-    domains: ['storage.googleapis.com', 'firebasestorage.googleapis.com'],
+    domains: [
+      'storage.googleapis.com',
+      'firebasestorage.googleapis.com',
+      'res.cloudinary.com',
+    ],
   },
 };
 
@@ -51,5 +56,5 @@ const nextConfig = {
 
 // module.exports = withContentlayer(nextConfig);
 
+// export default withContentlayer(nextConfig);
 module.exports = withContentlayer(nextConfig);
-// module.exports = nextConfig;

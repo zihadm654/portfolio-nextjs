@@ -8,15 +8,15 @@ import Image from 'next/image';
 
 function Hero() {
   return (
-    <section id="hero" className="hero">
+    <section id='hero' className='hero'>
       <motion.div
         variants={stagger}
-        initial="hidden"
-        animate="show"
-        className="hero__left"
+        initial='hidden'
+        animate='show'
+        className='hero__left'
       >
-        <motion.div variants={fadeIn} className="heading__info">
-          <h5>We Design & Develop </h5>
+        <motion.div variants={fadeIn} className='heading__info'>
+          <h5 className='caret-yellow-400'>We Design & Develop </h5>
           <TypewriterComponent
             options={{
               strings: [
@@ -39,29 +39,27 @@ function Hero() {
           them carve their stories through engaging digital art experiences.
         </motion.p>
         <Button
-          site="/contact"
-          variants="primary__btn"
-          text="Book a free Consultation"
+          site='/contact'
+          variants='primary__btn'
+          text='Book a free Consultation'
         />
-        <button
-          className="custom__btn ml-4"
-        >
-        <Link
-          style={{ backgroundColor: 'transparent' }}
-          target="_blank"
-          download
-          href="/assets/Abdul Malek.pdf"
+        <button className='custom__btn ml-4'>
+          <Link
+            style={{ backgroundColor: 'transparent' }}
+            target='_blank'
+            download
+            href='/assets/Abdul Malek.pdf'
           >
-          Download Resume
-        </Link>
-          </button>
+            Download Resume
+          </Link>
+        </button>
       </motion.div>
-      <div className="hero__right">
+      <div className='hero__right'>
         <Image
-          src="/assets/undraw_creation_re_d1mi.svg"
+          src='/assets/undraw_creation_re_d1mi.svg'
           height={500}
           width={500}
-          alt="main__model"
+          alt='main__model'
         />
       </div>
     </section>

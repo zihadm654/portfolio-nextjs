@@ -1,25 +1,25 @@
-import { Mdx } from '@/components/mdx-content';
-import type{ Metadata } from 'next';
+import { Mdx } from '@/components/mdx/mdx-content';
+import type { Metadata } from 'next';
 import { allBlogs } from '../../../../.contentlayer/generated';
 import { PageWrapper } from '@/utility/page-warpper';
 
-async function getBlogsFromParams(slug) {
+async function getBlogsFromParams(slug: any) {
   const blog = allBlogs?.find((doc) => doc.slugAsParams === slug);
   if (!blog) return;
-console.log(blog);
+  console.log(blog);
   return blog;
 }
 export async function generateStaticParams() {
-  const blogs = allBlogs
- 
+  const blogs = allBlogs;
+
   return blogs.map((blog) => ({
     slug: blog.slugAsParams,
-  }))
+  }));
 }
 
 export async function generateMetadata({
   params,
-}): Promise<Metadata | undefined> {
+}: any): Promise<Metadata | undefined> {
   const post = allBlogs?.find((post) => post.slugAsParams === params.slug);
 
   if (!post) {
@@ -54,7 +54,7 @@ export async function generateMetadata({
     },
   };
 }
-function formatDate(date) {
+function formatDate(date: any) {
   const currentDate = new Date();
   const targetDate = new Date(date);
 
@@ -87,27 +87,24 @@ const page = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <PageWrapper className='h-screenHeightWithoutHeader'>
-    <div className='blog__details'>
-       <article>
-        <h3 className="text-sm text-neutral-600 dark:text-neutral-400">
-          {data?.title}
-        </h3>
-        <div className="description">
-
-       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-        <p>
-        {data?.description}
-        </p>
+      <div className='blog__details'>
+        <article>
+          <h3 className='text-sm text-neutral-600 dark:text-neutral-400'>
+            {data?.title}
+          </h3>
+          <div className='description'>
+            <div className='flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]'>
+              <p>{data?.description}</p>
+            </div>
+            <div className='flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]'>
+              <p className='text-sm text-neutral-600 dark:text-neutral-400'>
+                {formatDate(data?.publishedAt || '2022-06-22')}
+              </p>
+            </div>
+          </div>
+        </article>
+        {<Mdx code={data?.body.code || ''} />}
       </div>
-       <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(data?.publishedAt || '2022-06-22')}
-        </p>
-      </div>
-        </div>
-       </article>
-      {<Mdx code={data?.body.code || ""} />}
-    </div>
     </PageWrapper>
   );
 };

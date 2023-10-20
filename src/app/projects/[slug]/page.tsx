@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { config } from '@/lib/constant';
 import { PageWrapper } from '@/utility/page-warpper';
 
-const getData = async (slug) => {
+const getData = async (slug: string) => {
   const URL = config.url;
   const res = await fetch(`${URL}/api/projects/${slug}`, {
     next: { revalidate: 3600 },
@@ -37,9 +37,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
             <div className='context'>
               <p>My Role</p>
-              {data?.role.map((item, i) => (
+              {/* {data?.role?.map((item, i) => (
                 <h5 key={i}>{item}</h5>
-              ))}
+              ))} */}
             </div>
             <div className='context'>
               <p>Client</p>

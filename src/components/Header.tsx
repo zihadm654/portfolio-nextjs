@@ -34,13 +34,15 @@ function Header() {
           <Link href='/'>
             <div className='logo'>
               <Image src={logo} height='500' width='500' alt='logo' />
-              <h5 className={`${dancing_script.className}`}>Abdul Malek</h5>
+              <h5 className={`${dancing_script.className} caret-lime-400`}>
+                Abdul Malek
+              </h5>
             </div>
           </Link>
           <ul className='links'>
             {links?.map((link) => (
               <li key={link.href}>
-                <Link className='relative' href={link.href}>
+                <Link className='relative caret-violet-950' href={link.href}>
                   {link.href === path && (
                     <motion.span
                       layoutId='underline'
