@@ -4,7 +4,7 @@ import prisma from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 
 export const addProject = async (formData: FormData) => {
-  const title = formData.get('title')?.toString();
+  const title = formData.get('title');
   const description = formData.get('description');
   const repo = formData.get('repo');
   const site = formData.get('site');

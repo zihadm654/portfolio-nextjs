@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 import { v2 as cloudinary } from 'cloudinary';
 
 import CldImage from '@/components/gallery/CldImage';
-
+import { addProject } from '@/actions/add-project';
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -27,18 +27,13 @@ export default async function Home({ searchParams }: { searchParams: any }) {
     redirect(`/?query=${data.get('query')}`);
   };
 
-  async function clear() {
-    'use server';
-    redirect(`/`);
-  }
-
   return (
     <main
       // style={{ marginTop: '8rem' }}
       className='container my-24 mx-auto md:px-6'
     >
       <div className='max-w-lg mx-auto mb-3'>
-        <form
+        {/* <form
           action={search}
           className='relative mb-4 flex w-full flex-wrap items-stretch'
         >
@@ -69,17 +64,16 @@ export default async function Home({ searchParams }: { searchParams: any }) {
               />
             </svg>
           </span>
+        </form> */}
+        <form>
+          <input name='title' type='text' />
+          <input name='description' type='text' />
+          <input name='img' type='text' />
+          <input name='client' type='text' />
+          <input name='time' type='text' />
+          <input name='site' type='text' />
+          <input name='repo' type='text' />
         </form>
-        {query && (
-          <form action={clear}>
-            <button
-              type='submit'
-              className='inline-block rounded bg-slate-600 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]'
-            >
-              Clear
-            </button>
-          </form>
-        )}
       </div>
       <div className='container mx-auto px-5 py-2 lg:px-32 lg:pt-12'>
         <div className='-m-1 flex flex-wrap md:-m-2'>
