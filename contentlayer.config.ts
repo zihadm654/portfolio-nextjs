@@ -5,14 +5,14 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
-const computedFields:any = {
+const computedFields: any = {
   slug: {
     type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath,
+    resolve: (doc: any) => doc._raw.flattenedPath,
   },
   slugAsParams: {
-    type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+    type: 'string',
+    resolve: (doc: any) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
   },
 };
 
@@ -39,17 +39,17 @@ export default makeSource({
         rehypePrettyCode,
         {
           theme: 'github-dark',
-          onVisitLine(node) {
+          onVisitLine(node: any) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
             if (node.children.length === 0) {
               node.children = [{ type: 'text', value: ' ' }];
             }
           },
-          onVisitHighlightedLine(node) {
+          onVisitHighlightedLine(node: any) {
             node.properties.className.push('line--highlighted');
           },
-          onVisitHighlightedWord(node) {
+          onVisitHighlightedWord(node: any) {
             node.properties.className = ['word--highlighted'];
           },
         },
