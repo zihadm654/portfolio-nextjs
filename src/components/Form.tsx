@@ -17,10 +17,10 @@ const Form = () => {
     <>
       <form
         ref={ref}
-        action={async (formData: FormData) => {
-          ref.current?.reset();
-          await addProject(formData);
-        }}
+        // action={async (formData: FormData) => {
+        //   ref.current?.reset();
+        //   await addProject(formData);
+        // }}
       >
         <input name='title' placeholder='title' type='text' />
         <input name='description' placeholder='description' type='text' />
