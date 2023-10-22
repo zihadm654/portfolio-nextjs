@@ -9,6 +9,7 @@ export type ProjectsTypes = {
   role?: string[];
   site: string;
   tags?: string[];
+  createdAt: string;
 };
 export type BlogTypes = {
   title: string;

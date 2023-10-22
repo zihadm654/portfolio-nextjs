@@ -5,10 +5,13 @@ import Cards from '../../components/Cards';
 import { config } from '@/lib/constant';
 import { PageWrapper } from '@/utility/page-warpper';
 import { Suspense } from 'react';
+import { ProjectsTypes } from '@/utility/Types';
 
 const getData = async () => {
   const URL = config.url;
-  const res = await fetch(`${URL}/api/projects`,{next:{revalidate:3600}});
+  const res = await fetch(`${URL}/api/projects`, {
+    next: { revalidate: 3600 },
+  });
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');
@@ -38,22 +41,22 @@ export default async function Page() {
         <div className='container'>
           <h3>Featured Projects</h3>
           <Suspense fallback={<p>Loading...</p>}>
-          <div className='cards'>
-            {data?.map((item) => (
-              <Cards
-                id={item.id}
-                key={item.id}
-                time={item.time}
-                description={item.description}
-                title={item.title}
-                repo={item.repo}
-                site={item.site}
-                img={item.img}
-                createdAt={item.createdAt}
-                tags={item.tags}
-              />
-            ))}
-          </div>
+            <div className='cards'>
+              {data?.map((item: ProjectsTypes) => (
+                <Cards
+                  id={item.id}
+                  key={item.id}
+                  time={item.time}
+                  description={item.description}
+                  title={item.title}
+                  repo={item.repo}
+                  site={item.site}
+                  img={item.img}
+                  createdAt={item.createdAt}
+                  tags={item.tags}
+                />
+              ))}
+            </div>
           </Suspense>
         </div>
       </section>
@@ -65,22 +68,23 @@ export const metadata: Metadata = {
   title: 'projects',
   description:
     'This project page holds all the projects completed for showcase.',
-    openGraph: {
-      title: "products",
-      description: "This project page holds all the projects completed for showcase.",
-      images: [
-        {
-          url: '/og-bg.jpg',
-          width: '600',
-          height: '400',
-          alt: "title",
-        },
-        {
-          url: '/og-bg.jpg',
-          width: '800',
-          height: '600',
-          alt: "title",
-        },
-      ],
-    },
+  openGraph: {
+    title: 'products',
+    description:
+      'This project page holds all the projects completed for showcase.',
+    images: [
+      {
+        url: '/og-bg.jpg',
+        width: '600',
+        height: '400',
+        alt: 'title',
+      },
+      {
+        url: '/og-bg.jpg',
+        width: '800',
+        height: '600',
+        alt: 'title',
+      },
+    ],
+  },
 };

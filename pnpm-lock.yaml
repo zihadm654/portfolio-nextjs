@@ -119,7 +119,7 @@ devDependencies:
     specifier: ^3.3.3
     version: 3.3.3
   typescript:
-    specifier: ^4.3.5
+    specifier: ^4.9.5
     version: 4.9.5
 
 packages:
