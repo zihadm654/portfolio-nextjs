@@ -16,8 +16,6 @@ export async function createProject(
   site,
   time,
   img,
-  role,
-  tags,
   client
 ) {
   try {
@@ -29,8 +27,6 @@ export async function createProject(
         site,
         repo,
         img,
-        role,
-        tags,
         client,
       },
     });
