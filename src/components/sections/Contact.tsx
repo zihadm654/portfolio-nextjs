@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import Footer from '../components/Footer';
-import { Button } from '../utility/Button';
+import Footer from '../Footer';
+import { Button } from '../../utility/Button';
 import Link from 'next/link';
 function Contact() {
   const [show, setShow] = useState(false);

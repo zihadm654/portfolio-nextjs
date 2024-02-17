@@ -1,9 +1,10 @@
 'use client';
-import { Button } from '../utility/Button';
-import { FeaturedCard } from '../components/Cards';
+import { Button } from '../../utility/Button';
+import { FeaturedCard } from '../Cards';
 import { motion, useAnimation } from 'framer-motion';
-import { fadeIn, stagger } from '../utility/Animation';
-import { Suspense, useEffect } from 'react';
+import { fadeIn, stagger } from '../../utility/Animation';
+import { Suspense } from 'react';
+import { SkeletonCard } from '@/components/Skeleton';
 
 function Projects({ data }) {
   // const controls = useAnimation();
@@ -43,20 +44,20 @@ function Projects({ data }) {
       </motion.div>
       <div className='project__container'>
         <div className='cards'>
-          <Suspense fallback={<p>Loading...</p>}>
-          {sliceData?.map((item) => (
-            <FeaturedCard
-              key={item.id}
-              tags={item.tags}
-              id={item.id}
-              description={item.description}
-              title={item.title}
-              repo={item.repo}
-              site={item.site}
-              img={item.img}
+          <Suspense fallback={<SkeletonCard />}>
+            {sliceData?.map((item) => (
+              <FeaturedCard
+                key={item.id}
+                tags={item.tags}
+                id={item.id}
+                description={item.description}
+                title={item.title}
+                repo={item.repo}
+                site={item.site}
+                img={item.img}
               />
-              ))}
-              </Suspense>
+            ))}
+          </Suspense>
         </div>
       </div>
       <div className='btn__container'>

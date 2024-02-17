@@ -55,7 +55,7 @@ function Skills() {
               // variants={fadeIn}
               className='skill'
             >
-              <Image src={skill.img} alt={skill.img} />
+              <Image src={skill.img} alt={skill.img} height={500} width={500} />
               <h5>{skill.title}</h5>
               <hr />
               {skill.values.map((item, i) => (
@@ -74,15 +74,11 @@ function Skills() {
 
 export default Skills;
 
-import ui from '../../public/assets/UI.svg';
-import user from '../../public/assets/user.svg';
-import animation from '../../public/assets/animation.svg';
-import development from '../../public/assets/development.svg';
 // import { useEffect } from 'react';
-import { fadeIn, stagger } from '../utility/Animation';
+import { fadeIn, stagger } from '../../utility/Animation';
 const data = [
   {
-    img: ui,
+    img: '/assets/UI.svg',
     title: 'Our Values',
     values: [
       'Development',
@@ -94,7 +90,7 @@ const data = [
   },
   {
     title: 'UI Design',
-    img: development,
+    img: '/assets/development.svg',
     values: [
       'UI/UX design',
       'Responsive design',
@@ -104,7 +100,7 @@ const data = [
     ],
   },
   {
-    img: user,
+    img: '/assets/user.svg',
     title: 'User Experience',
     values: [
       'Cross Platform',
@@ -115,7 +111,7 @@ const data = [
     ],
   },
   {
-    img: animation,
+    img: '/assets/animation.svg',
     title: 'Tools & Animation',
     values: [
       'Nextjs / Reactjs, TYPESCRIPT',

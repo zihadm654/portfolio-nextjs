@@ -1,5 +1,5 @@
 'use client';
-import { Icon } from '../utility/Button';
+import { Icon } from '../../utility/Button';
 // import { HorizontalScroll } from '../helpers/Animation'
 import Image from 'next/image';
 import me from '/public/assets/IMG_20220929_091011_664.jpg';

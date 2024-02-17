@@ -33,20 +33,24 @@ a {
   color: #000;
   transition: color 200ms ease-out;
 }
+.navbar {
+  width: 100%;
+  max-width: 140rem;
+  margin: 0 auto;
+  @include m.media(xxlg) {
+    max-width: 160rem;
+  }
+}
 .dashboard,
-.secondary__background,
-.hero,
-.describe,
-.project,
-.blog,
-.testimonial,
-.testimonial__title,
-.progress,
+.container,
 .slider,
-.skills__container,
 .about__wrapper,
+.consultation,
 .about__page,
+.blog__page,
+.projects,
 .contact,
+.tranding,
 .contact__page,
 .case__details,
 .blog__details {
@@ -56,22 +60,6 @@ a {
   min-height: 50vh;
   @include m.media(xxlg) {
     max-width: 160rem;
-  }
-}
-.up {
-  background-color: rgba(78, 74, 74, 0.4);
-  color: #fff;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 1.1rem 1.3rem;
-  opacity: 1;
-  position: fixed;
-  bottom: 8%;
-  right: 6%;
-  z-index: 8;
-  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
-  svg {
-    font-size: 2.4rem;
   }
 }
 :root {
