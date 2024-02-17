@@ -20,7 +20,7 @@ function Contact() {
         <Button
           site={'mailto:zihadm654@gmail.com'}
           variants={'custom__btn'}
-          text={'Send email to me'}
+          text={'Send email'}
         />
       </div>
       <div className='media'>

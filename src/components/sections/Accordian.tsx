@@ -9,7 +9,7 @@ const FAQS = () => {
   return (
     <div
       className='faq bg-[#f6f5f4] w-full
-      rounded-5xl px-[6rem] py-6'
+      rounded-5xl px-[6rem] md:px[2rem] sm:px[2rem] py-6'
     >
       <div className='py-15 px-24 md:p-6 md:px-30'>
         <div className='text-4xl md:text-7xl font-bold text-black'>

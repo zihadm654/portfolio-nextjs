@@ -9,14 +9,10 @@
   @include m.flex(center);
   @include m.media(sm) {
     padding: 3rem 2rem;
-    margin-top: 3rem;
-    // flex-direction: column;
     gap: 1.5;
   }
   @include m.media(md) {
     padding: 3rem;
-    margin-top: 3rem;
-    flex-direction: column;
     gap: 1.5;
   }
 
