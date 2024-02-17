@@ -1,5 +1,5 @@
-import { BsArrowRight } from "react-icons/bs";
-import Link from "next/link";
+import { BsArrowRight } from 'react-icons/bs';
+import Link from 'next/link';
 
 type Props = {
   text: string;
@@ -8,10 +8,8 @@ type Props = {
 };
 export function Button({ text, variants, site }: Props) {
   return (
-    <button type="button" className={variants}>
-      <Link href={site}>
-        {text}
-      </Link>
+    <button type='button' className={variants}>
+      <Link href={site}>{text}</Link>
     </button>
   );
 }
@@ -21,11 +19,9 @@ type iconProps = {
 };
 export function Icon({ site, text }: iconProps) {
   return (
-    <div className="link">
-      <Link href={site}>
-        {text}
-      </Link>
-      <BsArrowRight className={"icon"} />
+    <div className='link'>
+      <Link href={site}>{text}</Link>
+      <BsArrowRight className={'icon'} />
     </div>
   );
 }

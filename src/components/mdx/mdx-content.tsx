@@ -28,7 +28,7 @@ const components = {
   h3: ({ className, ...props }) => (
     <h3
       className={cn(
-        'mt-8 scroll-m-20 text-2xl font-semibold tracking-tight',
+        'mt-4 scroll-m-20 text-8xl font-semibold tracking-tight',
         className
       )}
       {...props}
@@ -45,10 +45,7 @@ const components = {
   ),
   h5: ({ className, ...props }) => (
     <h5
-      className={cn(
-        'mt-8 scroll-m-20 text-lg font-semibold tracking-tight',
-        className
-      )}
+      className={cn('mt-8 scroll-m-20 text-4xl font-semibold ', className)}
       {...props}
     />
   ),
@@ -69,7 +66,7 @@ const components = {
   ),
   p: ({ className, ...props }) => (
     <p
-      className={cn('leading-7 [&:not(:first-child)]:mt-6', className)}
+      className={cn('leading-9 [&:not(:first-child)]:mt-6', className)}
       {...props}
     />
   ),
@@ -157,7 +154,8 @@ export function Mdx({ code }) {
 
   return (
     <div className='mdx'>
-      <Component components={components} />
+      {/* <Component components={components} /> */}
+      <Component />
     </div>
   );
 }

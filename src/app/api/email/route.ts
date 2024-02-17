@@ -1,41 +1,56 @@
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
 
-import WelcomeEmail from '@/emails/welcome';
+import nodemailer from 'nodemailer';
 
-const resend = new Resend(process.env.NEXT_RESEND_KEY);
+export async function POST(req: Request) {
+  if (req.method === 'POST') {
+    try {
+      const {
+        first_name,
+        last_name,
+        email,
 
-export async function POST(request: Request) {
-  const { name, email } = await request.json();
+        company_name,
+        help,
+        company_size,
+        info,
+      } = await req.json();
 
-  try {
-    await resend.sendEmail({
-      from: 'zihadm654@gmail.com' || '',
-      to: email,
-      subject: 'hello world',
-      react: WelcomeEmail({
-        name,
-      }),
-    });
-    return NextResponse.json(
-      {
-        status: 'Ok',
-      },
-      {
-        status: 200,
-      }
-    );
-  } catch (e: unknown) {
-    if (e instanceof Error) {
-      console.log(`Failed to send email: ${e.message}`);
+      const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user: 'tasicigor123@gmail.com',
+          pass: 'bsel kcxt drvb srcx',
+        },
+      });
+
+      const mailOptions = {
+        from: email,
+        to: 'zihadm654@gmail.com',
+        subject: 'Contact Form Submission',
+        html: `
+                    <h1>Contact Form</h1>
+                    <p>First Name: ${first_name}</p>
+                    <p>Last Name: ${last_name}</p>
+                    <p>Work Email: ${email}</p>
+                
+                    <p>Company Name: ${company_name}</p>
+                    <p>Company Size: ${company_size}</p>
+                    <p>Help: ${help}</p>
+                
+                    <p>Info: ${info}</p>
+                `,
+      };
+
+      await transporter.sendMail(mailOptions);
+
+      return NextResponse.json('email has been sent');
+    } catch (error) {
+      return NextResponse.json('email has not been sent');
     }
-    return NextResponse.json(
-      {
-        error: 'Internal server error.',
-      },
-      {
-        status: 500,
-      }
-    );
+  } else {
+    return NextResponse.json('method not allowed');
   }
 }

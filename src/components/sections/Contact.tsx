@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Footer from '../Footer';
+import Footer from '../navigation/Footer';
 import { Button } from '../../utility/Button';
 import Link from 'next/link';
 function Contact() {

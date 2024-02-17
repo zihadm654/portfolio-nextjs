@@ -3,7 +3,6 @@
 @use '../helpers/variables' as v;
 .case__details {
   padding: 3rem 8rem;
-  margin-top: 6rem;
   @include m.media(sm) {
     padding: 3rem;
   }

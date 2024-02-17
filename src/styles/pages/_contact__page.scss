@@ -46,56 +46,9 @@
     }
   }
   form {
-    padding: 4rem 0;
-    height: 100%;
-    width: 100%;
-    .inputs {
-      margin: 5rem 0;
-      position: relative;
-      @include m.media(sm) {
-        margin: 3rem 0;
-      }
-      input {
-        background: transparent;
-        width: 65%;
-        height: 4rem;
-        font-weight: 500;
-        font-size: v.$md;
-        outline: none;
-        border: none;
-        border-bottom: 0.2rem solid c.$primaryColor;
-        @include m.media(sm) {
-          width: 100%;
-        }
-        &:focus ~ label,
-        &:valid ~ label {
-          font-size: v.$p;
-          font-weight: 500;
-          z-index: 2;
-          transform: translateY(-3rem);
-          color: c.$dominant;
-        }
-      }
-      label {
-        z-index: -1;
-        color: c.$primaryColor;
-        font-size: v.$md;
-        position: absolute;
-        bottom: 1.2rem;
-        left: 0;
-        transition: 300ms transform ease-out;
-        background: transparent; 
-      }
-    }
-    button {
-      background: c.$secondaryColor;
-      border: none;
-      outline: none;
-      padding: 1.3rem 2.3rem;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 0.3rem;
-    }
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid gray;
   }
 }
 [data-theme='dark'] {

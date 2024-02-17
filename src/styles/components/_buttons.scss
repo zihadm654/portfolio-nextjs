@@ -9,9 +9,9 @@
     font-weight: bold;
   }
   background: #000000;
-  padding: 2rem 3.5rem;
+  padding: 2rem 3rem;
   margin: 1.5rem 0;
-  border-radius: 1.5rem;
+  border-radius: 3rem;
   border: 3px solid rgb(255, 255, 255);
   transition: transform ease-in-out 200ms;
   outline: none;
@@ -35,7 +35,7 @@
   padding: 2rem 3rem;
   margin: 3rem 0;
   background-color: c.$secondaryColor;
-  border-radius: 1.5rem;
+  border-radius: 3rem;
   border: none;
   a {
     color: #ffffff;
@@ -79,7 +79,7 @@ a {
   }
   background: #000000;
   padding: 2rem 3.5rem;
-  border-radius: 1.5rem;
+  border-radius: 3rem;
   border: 3px solid rgb(255, 255, 255);
   transition: transform ease-in-out 200ms;
   outline: none;

@@ -2,31 +2,19 @@
 module.exports = {
   darkMode: ['class'],
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-
-    // Or if using `src` directory:
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
   theme: {
     container: {
       center: true,
-      padding: '2rem',
       screens: {
         '2xl': '1400px',
       },
     },
     extend: {
-      fontFamily: {
-        poppins: ['var(--font-poppins)'],
-      },
-      minHeight: {
-        screenHeightWithoutHeader: 'calc(100vh - 101px)',
-      },
-      height: {
-        screenHeightWithoutHeader: 'calc(100vh - 101px)',
-      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -62,6 +50,9 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      // fontFamily: {
+      //   sans: ['var(--font-sans)', ...fontFamily.sans],
+      // },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -83,5 +74,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 };

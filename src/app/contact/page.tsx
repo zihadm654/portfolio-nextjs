@@ -1,4 +1,5 @@
 'use client';
+import ContactForm from '@/components/forms/ContactForm';
 // import { Button } from '../../src/utility/Button';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -55,22 +56,11 @@ function ContactPage() {
               alt='contact img'
               height={500}
               width={500}
+              className='bg-cover'
             />
           </div>
         </div>
-        <form onSubmit={handleOnSubmit}>
-          <div className='inputs'>
-            <input required type='text' name='name' />
-            <label>What&apos;s your Name?</label>
-          </div>
-          <div className='inputs'>
-            <input required type='email' name='email' />
-            <label>Your Email </label>
-          </div>
-          <div>
-            <button value='send email'>Send Email</button>
-          </div>
-        </form>
+        <ContactForm />
         <div className='contact__container'></div>
       </section>
     </>

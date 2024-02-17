@@ -2,7 +2,8 @@ import { redirect } from 'next/navigation';
 import { v2 as cloudinary } from 'cloudinary';
 
 import CldImage from '@/components/gallery/CldImage';
-import { addProject } from '@/actions/add-project';
+import Form from '@/components/forms/Form';
+import { getProjects } from '@/lib/projects';
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -28,11 +29,9 @@ export default async function Home({ searchParams }: { searchParams: any }) {
   };
 
   return (
-    <main
-      // style={{ marginTop: '8rem' }}
-      className='container my-24 mx-auto md:px-6'
-    >
-      <div className='max-w-lg mx-auto mb-3'>
+    <main className='dashboard'>
+      <div className='container'>
+        <Form />
         {/* <form
           action={search}
           className='relative mb-4 flex w-full flex-wrap items-stretch'
@@ -65,17 +64,8 @@ export default async function Home({ searchParams }: { searchParams: any }) {
             </svg>
           </span>
         </form> */}
-        <form>
-          <input name='title' type='text' />
-          <input name='description' type='text' />
-          <input name='img' type='text' />
-          <input name='client' type='text' />
-          <input name='time' type='text' />
-          <input name='site' type='text' />
-          <input name='repo' type='text' />
-        </form>
       </div>
-      <div className='container mx-auto px-5 py-2 lg:px-32 lg:pt-12'>
+      {/* <div className='container mx-auto px-5 py-2 lg:px-32 lg:pt-12'>
         <div className='-m-1 flex flex-wrap md:-m-2'>
           {resources.map((resource: any) => {
             return (
@@ -90,13 +80,12 @@ export default async function Home({ searchParams }: { searchParams: any }) {
                     alt=''
                     sizes='25vw'
                   />
-                  <p style={{ margin: '2rem' }}>{resource.secure_url}</p>
                 </div>
               </div>
             );
           })}
         </div>
-      </div>
+      </div> */}
     </main>
   );
 }

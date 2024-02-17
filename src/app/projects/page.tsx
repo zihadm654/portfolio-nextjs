@@ -3,9 +3,9 @@
 import { Metadata } from 'next/types';
 import Cards from '../../components/Cards';
 import { config } from '@/lib/constant';
-import { PageWrapper } from '@/utility/page-warpper';
 import { Suspense } from 'react';
 import { ProjectsTypes } from '@/utility/Types';
+import { SkeletonCard } from '@/components/Skeleton';
 
 const getData = async () => {
   const URL = config.url;
@@ -21,46 +21,44 @@ const getData = async () => {
 export default async function Page() {
   const data = await getData();
   return (
-    <PageWrapper className='h-screenHeightWithoutHeader'>
-      <section className='projects'>
-        <div
-          // variants={stagger}
-          // initial="hidden"
-          // animate="show"
-          className='projects__title'
-        >
-          <h3>
-            Shaping world class websites,
-            <br /> designs and experiences
-          </h3>
-          <p>
-            I can help you successfully take your business online while
-            assisting you throughout the building process.
-          </p>
-        </div>
-        <div className='container'>
-          <h3>Featured Projects</h3>
-          <Suspense fallback={<p>Loading...</p>}>
-            <div className='cards'>
-              {data?.map((item: ProjectsTypes) => (
-                <Cards
-                  id={item.id}
-                  key={item.id}
-                  time={item.time}
-                  description={item.description}
-                  title={item.title}
-                  repo={item.repo}
-                  site={item.site}
-                  img={item.img}
-                  createdAt={item.createdAt}
-                  tags={item.tags}
-                />
-              ))}
-            </div>
-          </Suspense>
-        </div>
-      </section>
-    </PageWrapper>
+    <section className='projects'>
+      <div
+        // variants={stagger}
+        // initial="hidden"
+        // animate="show"
+        className='projects__title'
+      >
+        <h3>
+          Shaping world class websites,
+          <br /> designs and experiences
+        </h3>
+        <p>
+          I can help you successfully take your business online while assisting
+          you throughout the building process.
+        </p>
+      </div>
+      <div className='container'>
+        <h3>Featured Projects</h3>
+        <Suspense fallback={<SkeletonCard />}>
+          <div className='cards'>
+            {data?.map((item: ProjectsTypes) => (
+              <Cards
+                id={item.id}
+                key={item.id}
+                time={item.time}
+                description={item.description}
+                title={item.title}
+                repo={item.repo}
+                site={item.site}
+                img={item.img}
+                createdAt={item.createdAt}
+                tags={item.tags}
+              />
+            ))}
+          </div>
+        </Suspense>
+      </div>
+    </section>
   );
 }
 

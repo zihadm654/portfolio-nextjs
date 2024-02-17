@@ -4,38 +4,31 @@
 
 .hero {
   position: relative;
-  padding: 6rem 8rem;
-  min-height: 60vh;
+  padding: 2rem 8rem;
   gap: 2.5rem;
   @include m.flex(center);
   @include m.media(sm) {
     padding: 3rem 2rem;
-    flex-direction: column;
+    margin-top: 3rem;
+    // flex-direction: column;
     gap: 1.5;
   }
   @include m.media(md) {
     padding: 3rem;
+    margin-top: 3rem;
     flex-direction: column;
     gap: 1.5;
   }
 
   &__left {
-    @include m.media(sm) {
-      flex: 1;
-    }
-    @include m.media(xlr) {
-      flex: 1;
-      max-width: 80%;
-    }
-    flex: 1;
     position: relative;
     padding-top: 3rem;
-
+    @include m.flex(center);
+    flex-direction: column;
+    text-align: center;
+    max-width: 80rem;
     .heading__info {
-      @include m.flex(flex-start);
-      h1 {
-        font-size: v.$xxxlr;
-      }
+      @include m.flex(center);
       div {
         margin-left: 0.4rem;
         font-size: v.$p;
@@ -45,26 +38,15 @@
 
     h1 {
       margin: 1.5rem 0;
+      font-weight: 500;
+      span {
+        font-weight: 700;
+        color: c.$secondaryColor;
+      }
     }
 
     p {
-      padding-top: 3rem;
-    }
-
-    .primary__btn {
-      margin-top: 2rem;
-    }
-  }
-
-  &__right {
-    height: 100%;
-    width: 100%;
-    flex: 1;
-
-    img {
-      height: 70%;
-      width: 70%;
-      object-fit: cover;
+      padding: 1rem 0;
     }
   }
 }

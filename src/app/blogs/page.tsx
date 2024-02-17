@@ -1,11 +1,8 @@
 import { Metadata } from 'next/types';
 import Link from 'next/link';
 import { allBlogs } from '../../../.contentlayer/generated';
-import { PageWrapper } from '@/utility/page-warpper';
 export default function Page() {
   return (
-    <PageWrapper className='h-screenHeightWithoutHeader'>
-
     <div className='blog__page'>
       <h2>Blogs</h2>
       <div className='container'>
@@ -26,7 +23,6 @@ export default function Page() {
           ))}
       </div>
     </div>
-    </PageWrapper>
   );
 }
 export const metadata: Metadata = {

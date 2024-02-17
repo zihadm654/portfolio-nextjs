@@ -1,11 +1,12 @@
 'use client';
 import { Icon } from '../utility/Button';
 import Link from 'next/link';
-// import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
+import { fadeIn, stagger } from '@/utility/Animation';
 
 const Cards = ({
   id,

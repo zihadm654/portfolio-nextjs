@@ -1,31 +1,27 @@
-import { PageWrapper } from '@/utility/page-warpper';
 import { Metadata } from 'next/types';
 // import { motion } from 'framer-motion';
 // import { fadeIn, stagger } from '../../utility/Animation';
 const New = () => {
   return (
-    <PageWrapper className='h-screenHeightWithoutHeader'>
-
-      <section className='tranding'>
-        <div
-          className='recent'
-          // variants={stagger}
-          // initial="hidden"
-          // animate="show"
+    <section className='tranding'>
+      <div
+        className='recent'
+        // variants={stagger}
+        // initial="hidden"
+        // animate="show"
+      >
+        <h4
+        // variants={fadeIn}
         >
-          <h4
-          // variants={fadeIn}
-          >
-            Recently Added
-          </h4>
-          <p
-          // variants={fadeIn}
-          >
-            coming soon...
-          </p>
-        </div>
-      </section>
-      </PageWrapper>
+          Recently Added
+        </h4>
+        <p
+        // variants={fadeIn}
+        >
+          coming soon...
+        </p>
+      </div>
+    </section>
   );
 };
 

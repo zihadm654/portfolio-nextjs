@@ -1,8 +1,8 @@
+import '@/styles/globals.css';
 import '@/styles/style.scss';
-import { AnimatePresence } from 'framer-motion';
 //import { BsArrowUp } from 'react-icons/bs';
-import Header from '@/components/Header';
-import Contact from '@/sections/Contact';
+import Header from '@/components/navigation/Header';
+import Contact from '@/components/sections/Contact';
 // import { fadeIn } from '../utility/Animation';
 import { poppins } from '@/utility/fonts';
 import type { Metadata } from 'next';
@@ -15,14 +15,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={`${poppins.className}`}>
-      <body >
+      <body>
         <Providers>
-          <Header />
-          <main>{children}</main>
-          <Contact />
-          {/*<div className='up'>*/}
-          {/*  <BsArrowUp />*/}
-          {/*</div>*/}
+          <div className='min-h-screen relative'>
+            <Header />
+            <main>{children}</main>
+            <Contact />
+          </div>
         </Providers>
       </body>
     </html>
@@ -39,24 +38,19 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://abdulmalekzihad.me'),
   referrer: 'origin-when-cross-origin',
   applicationName: APP_NAME,
-  title: { 
-    default: APP_DEFAULT_TITLE, 
-    template: APP_TITLE_TEMPLATE 
+  title: {
+    default: APP_DEFAULT_TITLE,
+    template: APP_TITLE_TEMPLATE,
   },
   description: APP_DESCRIPTION,
   manifest: '/manifest.json',
-  themeColor: '#ffffff',
+  // themeColor: '#ffffff',
   alternates: {
     canonical: '/',
     languages: {
       'en-US': '/en-US',
       'de-DE': '/de-DE',
     },
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
   },
   appleWebApp: {
     capable: true,

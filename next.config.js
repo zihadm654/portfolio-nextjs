@@ -1,3 +1,7 @@
+/**
+ * @type{import("next").NextConfig}
+ *
+ */
 // import {
 //   PHASE_DEVELOPMENT_SERVER,
 //   PHASE_PRODUCTION_BUILD,
@@ -5,30 +9,36 @@
 const { withContentlayer } = require('next-contentlayer');
 // import { withContentlayer } from 'next-contentlayer';
 const path = require('path');
-/** @type{import("next").NextConfig} */
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    serverActions: true,
-    // serverComponentsExternalPackages: ['@prisma/client'], // <-- and this
-  },
+  // experimental: {
+  //   serverActions: true,
+  //   // serverComponentsExternalPackages: ['@prisma/client'], // <-- and this
+  // },
+  // serverActions,
   // and the following to enable top-level await support for Webpack
-  webpack: (config) => {
-    config.experiments = {
-      ...config.experiments,
-      topLevelAwait: true,
-    };
-    return config;
-  },
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
+  // webpack: (config) => {
+  //   config.experiments = {
+  //     ...config.experiments,
+  //     topLevelAwait: true,
+  //   };
+  //   return config;
+  // },
+  // sassOptions: {
+  //   includePaths: [path.join(__dirname, 'styles')],
+  // },
   images: {
-    domains: [
-      'storage.googleapis.com',
-      'firebasestorage.googleapis.com',
-      'res.cloudinary.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        // port: '',
+        // pathName: '/dxadtnltj/image/upload/**',
+      },
+      // 'storage.googleapis.com',
+      // 'firebasestorage.googleapis.com',
+      // 'res.cloudinary.com',
     ],
   },
 };

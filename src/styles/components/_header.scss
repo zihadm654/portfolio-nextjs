@@ -1,10 +1,6 @@
 @use '../helpers/mixins' as m;
 @use '../helpers/colors' as c;
 @use '../helpers/variables' as v;
-.navbar.sticky {
-  position: fixed;
-  backdrop-filter: blur(45px);
-}
 .navbar {
   @include m.media(sm) {
     padding: 2.5rem 2rem;
@@ -12,13 +8,13 @@
   @include m.media(md) {
     padding: 2.5rem 3rem;
   }
-  height: 8rem;
+  backdrop-filter: blur(45px);
   width: 100%;
   z-index: 10;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  padding: 0 8rem;
+  padding: 2rem 8rem;
   @include m.flex(space-between);
   .navbar__left {
     @include m.flex(center);
@@ -66,7 +62,7 @@
       }
     }
   }
-  .container {
+  .navbar__right {
     @include m.flex(center);
     .toggle__btn .dark {
       background-color: #000;
@@ -115,7 +111,7 @@
       &.active {
         &::before {
           transform: translateY(0) rotate(45deg);
-          box-shadow: 0 0 #555;
+          box-shadow: 0 0 #000;
         }
         &::after {
           transform: translateY(0) rotate(-45deg);
@@ -126,7 +122,7 @@
         position: absolute;
         width: 3.2rem;
         height: 0.2rem;
-        background: #555;
+        background: #000;
         transform: translateY(-1rem);
         box-shadow: 0 1rem #555;
         transition: 300ms;
@@ -136,117 +132,118 @@
         position: absolute;
         width: 3.2rem;
         height: 0.2rem;
-        background: #555;
+        background: #000;
         transform: translateY(1rem);
         transition: 300ms;
       }
     }
   }
 }
-.hamburger {
-  z-index: 9;
-  top: 0%;
-  right: 0%;
-  position: fixed;
-  overflow: hidden;
-  background-color: #fff;
-  color: #000;
-  transition: 850ms;
-  animation: hamburger 300ms linear;
-  transition: 700ms;
-  height: 100vh;
-  width: 45%;
-  .nav {
-    @include m.media(sm) {
-      padding: 3rem 2.5rem;
-      padding-top: 7rem;
-    }
-    @include m.media(md) {
-      padding: 4rem 3.5rem;
-      padding-top: 7rem;
-    }
-    padding: 3rem;
-    height: 100%;
-    width: 100%;
-    height: 100%;
-    width: 100%;
-    @include m.grid;
-    .nav__links,
-    .social__media {
-      grid-column: span 4;
+.burger__wrapper {
+  position: relative;
+  .hamburger {
+    z-index: 9;
+    top: 0%;
+    right: 0%;
+    position: fixed;
+    overflow: hidden;
+    background-color: #fff;
+    color: #000;
+    transition: 850ms;
+    animation: hamburger 300ms forwards;
+    transition: 700ms;
+    height: 100vh;
+    max-width: 45%;
+    .nav {
       @include m.media(sm) {
-        grid-column: 1/13;
+        padding: 3rem 2.5rem;
+        padding-top: 7rem;
       }
       @include m.media(md) {
-        grid-column: 1/13;
+        padding: 4rem 3.5rem;
+        padding-top: 7rem;
       }
-    }
-    .nav__links {
-      margin: 0;
-      padding: 0;
-      .link {
-        position: relative;
-        display: flex;
+      padding: 3rem;
+      height: 100%;
+      width: 100%;
+      height: 100%;
+      width: 100%;
+      @include m.grid;
+      h5 {
+        align-self: center;
+      }
+      .nav__links,
+      .social__media {
         align-items: center;
-        border-bottom: 1px solid c.$primaryColor;
-
-        .indicator {
-          width: 10px;
-          height: 10px;
-          background-color: white;
-          border-radius: 50%;
-          position: absolute;
-          left: -30px;
+        grid-column: span 4;
+        @include m.media(sm) {
+          grid-column: 1/13;
         }
+        @include m.media(md) {
+          grid-column: 1/13;
+        }
+      }
+      .nav__links {
+        margin: 0;
+        padding: 0;
+        .link {
+          position: relative;
+          display: flex;
+          align-items: center;
 
+          .indicator {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            left: -20px;
+          }
+
+          a {
+            font-family: v.$primary-font;
+            font-size: v.$xxlr;
+            color: #000;
+            font-weight: 700;
+            &:hover {
+              color: c.$secondaryColor;
+            }
+          }
+        }
+      }
+      .social__media {
+        @include m.flex(flex-start);
+        z-index: 1000;
+        // padding-right: 7rem;
+        @include m.media(sm) {
+          padding-right: 0rem;
+        }
+        @include m.media(md) {
+          padding-right: 0rem;
+        }
         a {
-          font-family: v.$primary-font;
-          font-size: v.$xxlr;
-          font-weight: 700;
+          margin: 2rem 0.8rem;
+          transition: color 0.3s ease-out;
           &:hover {
             color: c.$secondaryColor;
+          }
+          svg {
+            font-size: v.$lr;
           }
         }
       }
     }
-    .social__media {
-      @include m.flex(center);
-      flex-direction: column;
-      z-index: 1000;
-      padding-right: 7rem;
-      @include m.media(sm) {
-        flex-direction: row;
-        justify-content: space-evenly;
-        padding-right: 0rem;
-      }
-      @include m.media(md) {
-        flex-direction: row;
-        justify-content: space-between;
-        padding-right: 0rem;
-      }
-      a {
-        margin: 2rem 0;
-        transition: color 0.3s ease-out;
-        &:hover {
-          color: c.$secondaryColor;
-        }
-        svg {
-          font-size: v.$lr;
-        }
-      }
+    .curve__burger {
+      position: absolute;
+      top: 0;
+      left: -99px;
+      width: 100px;
+      height: 100%;
+      fill: rgb(41, 41, 41);
+      stroke: none;
     }
   }
-  .curve__burger {
-    position: absolute;
-    top: 0;
-    left: -99px;
-    width: 100px;
-    height: 100%;
-    fill: rgb(41, 41, 41);
-    stroke: none;
-  }
 }
-
 .dark {
   .container {
     .toggle__btn {
@@ -260,6 +257,21 @@
     &::before,
     &::after {
       background: #fff !important;
+    }
+  }
+  .hamburger {
+    background-color: #000;
+    nav {
+      .nav__title {
+        color: #fff;
+      }
+      .nav__links {
+        .link {
+          a {
+            color: #fff !important;
+          }
+        }
+      }
     }
   }
 }

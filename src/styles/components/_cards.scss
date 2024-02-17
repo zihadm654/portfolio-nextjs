@@ -25,8 +25,8 @@
       grid-column: 1/13;
     }
     .card {
-      padding: 1rem 2rem;
       overflow: hidden;
+      height: 30rem;
       max-height: 70vh;
       &:hover {
         cursor: pointer;
@@ -48,19 +48,19 @@
         margin: 1rem 0;
         color: c.$primaryColor;
       }
-      article{
+      article {
         overflow: hidden;
         display: flex;
         flex-wrap: wrap;
-        span{
+        span {
           background-color: c.$secondaryColor;
           color: #fff;
           border-radius: 2rem;
           font-size: 1.6rem;
-          padding: .8rem;
-          margin: .5rem;
-          &:not(:first-child){
-            margin: .5rem;
+          padding: 0.8rem;
+          margin: 0.5rem;
+          &:not(:first-child) {
+            margin: 0.5rem;
           }
         }
       }

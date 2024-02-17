@@ -2,7 +2,6 @@
 @use '../helpers/colors' as c;
 @use '../helpers/variables' as v;
 .about__page {
-  margin-top: 6rem;
   padding: 2rem 8rem;
   @include m.media(sm) {
     padding: 2.5rem;

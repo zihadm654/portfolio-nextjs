@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import About from '../sections/About';
-import Hero from '../sections/Hero';
-import Projects from '../sections/Projects';
-import Skills from '../sections/Skills';
-import Blogs from '../sections/Blogs';
+import About from '../components/sections/About';
+import Hero from '../components/sections/Hero';
+import Projects from '../components/sections/Projects';
+import Skills from '../components/sections/Skills';
+import Blogs from '../components/sections/Blogs';
 import { config } from '@/lib/constant';
-import { PageWrapper } from '@/utility/page-warpper';
-// import { getProjects } from '@/actions/add-project';
+import FAQS from '@/components/sections/Accordian';
 const getData = async () => {
   const URL = config.url;
   const res = await fetch(`${URL}/api/projects`, {
@@ -23,15 +22,14 @@ export default async function Page() {
   const data = await getData();
   console.log(data, 'data');
   return (
-    <PageWrapper className='h-screenHeightWithoutHeader'>
-      <div className='container'>
-        <Hero />
-        <Projects data={data} />
-        <Blogs />
-        <Skills />
-        <About />
-      </div>
-    </PageWrapper>
+    <div className='container'>
+      <Hero />
+      <Projects data={data} />
+      <Blogs />
+      <Skills />
+      <About />
+      <FAQS />
+    </div>
   );
 }
 

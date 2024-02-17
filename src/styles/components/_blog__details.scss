@@ -3,7 +3,6 @@
 @use '../helpers/colors' as c;
 .blog__details {
   padding: 2rem 8rem;
-  margin-top: 6rem;
   @include m.media(sm) {
     padding: 2.5rem;
   }
@@ -42,7 +41,7 @@
   }
   .mdx {
     margin: 2rem 0;
-    pre{
+    pre {
       white-space: pre-wrap;
       font-size: v.$lr;
     }

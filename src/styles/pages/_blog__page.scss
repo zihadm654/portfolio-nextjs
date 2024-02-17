@@ -2,13 +2,12 @@
 @use '../helpers/colors' as c;
 .blog__page {
   @include m.media(sm) {
-    padding: 4rem 2.5rem;
+    padding: 3rem 2.5rem;
   }
   @include m.media(md) {
-    padding: 4rem 3rem;
+    padding: 3rem 3rem;
   }
-  margin-top: 6rem;
-  padding: 4rem 8rem;
+  padding: 3rem 8rem;
   p {
     padding: 1rem 0;
   }
@@ -16,19 +15,19 @@
     padding: 2rem 0;
     .content {
       margin: 1.6rem 0;
-        h5 {
-          font-weight: 500;
-        }
+      h5 {
+        font-weight: 500;
+      }
+      p {
+        padding: 0.5rem 0;
+      }
+      .tags {
+        @include m.flex(flex-start);
         p {
-          padding: 0.5rem 0;
-        }
-        .tags {
-          @include m.flex(flex-start);
-          p {
-            color: c.$secondaryColor;
-            padding-right: 1rem;
-          }
+          color: c.$secondaryColor;
+          padding-right: 1rem;
         }
       }
+    }
   }
 }

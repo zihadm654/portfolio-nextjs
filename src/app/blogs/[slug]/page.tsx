@@ -1,7 +1,6 @@
 import { Mdx } from '@/components/mdx/mdx-content';
 import type { Metadata } from 'next';
 import { allBlogs } from '../../../../.contentlayer/generated';
-import { PageWrapper } from '@/utility/page-warpper';
 
 async function getBlogsFromParams(slug: any) {
   const blog = allBlogs?.find((doc) => doc.slugAsParams === slug);
@@ -86,26 +85,24 @@ const page = async ({ params }: { params: { slug: string } }) => {
   const data = await getBlogsFromParams(params.slug);
 
   return (
-    <PageWrapper className='h-screenHeightWithoutHeader'>
-      <div className='blog__details'>
-        <article>
-          <h3 className='text-sm text-neutral-600 dark:text-neutral-400'>
-            {data?.title}
-          </h3>
-          <div className='description'>
-            <div className='flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]'>
-              <p>{data?.description}</p>
-            </div>
-            <div className='flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]'>
-              <p className='text-sm text-neutral-600 dark:text-neutral-400'>
-                {formatDate(data?.publishedAt || '2022-06-22')}
-              </p>
-            </div>
+    <div className='blog__details'>
+      <article>
+        <h3 className='text-sm text-neutral-600 dark:text-neutral-400'>
+          {data?.title}
+        </h3>
+        <div className='description'>
+          <div className='flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]'>
+            <p>{data?.description}</p>
           </div>
-        </article>
-        {<Mdx code={data?.body.code || ''} />}
-      </div>
-    </PageWrapper>
+          <div className='flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]'>
+            <p className='text-sm text-neutral-600 dark:text-neutral-400'>
+              {formatDate(data?.publishedAt || '2022-06-22')}
+            </p>
+          </div>
+        </div>
+      </article>
+      {<Mdx code={data?.body.code || ''} />}
+    </div>
   );
 };
 
