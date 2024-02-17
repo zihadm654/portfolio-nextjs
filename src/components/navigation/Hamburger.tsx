@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import Links from '@/components/Link';
+import Links from '@/components/navigation/Link';
 import { motion } from 'framer-motion';
 import {
   FaGithub,
@@ -12,7 +12,7 @@ import {
 import { usePathname } from 'next/navigation';
 import { menuSlide } from '@/utility/Animation';
 import { useState } from 'react';
-import Curve from '@/components/Curve';
+import Curve from '@/components/navigation/Curve';
 function Hamburger({ hide }) {
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
@@ -31,7 +31,7 @@ function Hamburger({ hide }) {
         }}
         className='nav'
       >
-        <h5>Navigation</h5>
+        <h5 className='nav__title'>Navigation</h5>
         <ul className='nav__links'>
           {links.map((data, index) => {
             return (
@@ -41,7 +41,7 @@ function Hamburger({ hide }) {
                 menu={selectedIndicator == data.href}
                 setSelectedIndicator={setSelectedIndicator}
                 hide={hide}
-              ></Links>
+              />
             );
           })}
         </ul>

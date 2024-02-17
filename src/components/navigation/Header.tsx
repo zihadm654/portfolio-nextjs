@@ -2,38 +2,24 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '../../public/logo.png';
 import Hamburger from './Hamburger';
-import { dancing_script } from '../utility/fonts';
-import ThemeButton from './ThemeButton';
-import { AnimatePresence, motion } from 'framer-motion';
+import { dancing_script } from '../../utility/fonts';
+import ThemeButton from '../ThemeButton';
+import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
 function Header() {
   const [menu, setMenu] = useState(false);
-  const [sticky, setSticky] = useState(false);
 
   const showSidebar = () => setMenu(!menu);
-  const hide = () => setMenu(!menu);
-
-  const stickyNav = () => {
-    if (window.scrollY >= 70) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener('scroll', stickyNav);
-  }, []);
   const path = usePathname();
   return (
     <>
-      <header className={sticky ? 'navbar sticky' : 'navbar'}>
+      <header className='navbar'>
         <div className='navbar__left'>
           <Link href='/'>
             <div className='logo'>
-              <Image src={logo} height='500' width='500' alt='logo' />
+              <Image src={'/logo.png'} height='500' width='500' alt='logo' />
               <h5 className={`${dancing_script.className} caret-lime-400`}>
                 Abdul Malek
               </h5>
@@ -55,7 +41,7 @@ function Header() {
             ))}
           </ul>
         </div>
-        <div className='container'>
+        <div className='navbar__right'>
           <ThemeButton />
           <div
             className={menu ? 'menu active' : 'menu'}
@@ -63,7 +49,13 @@ function Header() {
           ></div>
         </div>
       </header>
-      <AnimatePresence>{menu && <Hamburger hide={hide} />}</AnimatePresence>
+      {/* <AnimatePresence> */}
+      {menu && (
+        <div className='burger__wrapper'>
+          <Hamburger hide={showSidebar} />
+        </div>
+      )}
+      {/* </AnimatePresence> */}
     </>
   );
 }
