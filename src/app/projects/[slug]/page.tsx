@@ -4,11 +4,9 @@ import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
 import { Metadata } from 'next';
 import { getProject } from '@/actions/getProjects';
-import { config } from '@/lib/constant';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
-  // const data = await getData(slug);
   const data = await getProject(slug);
   console.log(data, 'data');
   return (
@@ -70,11 +68,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   // read route params
   const { slug } = params;
-  const URL = config.url;
-  // fetch data
-  const product = await fetch(`${URL}/api/projects/${slug}`, {
-    next: { revalidate: 3600 },
-  }).then((res) => res.json());
+  const product = await getProject(slug);
   console.log(product, 'product');
   // optionally access and extend (rather than replace) parent metadata
   return {

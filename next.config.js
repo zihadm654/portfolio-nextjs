@@ -4,8 +4,8 @@ const {
 } = require('next/constants');
 const { withContentlayer } = require('next-contentlayer');
 const path = require('path');
-const withPWA = require('@ducanh2912/next-pwa').default;
 
+/** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
@@ -21,34 +21,26 @@ const nextConfig = {
   },
   // Add any other Next.js config options here
 };
+const withPWA = require('@ducanh2912/next-pwa').default({
+  // Customize PWA options here
+  dest: 'public',
+  register: true,
+  cacheOnFrontEndNav: true,
+  reloadOnOnline: true,
+  swcMinify: true,
+  disable: process.env.NODE_ENV === 'development',
+  workboxOptions: {
+    disableDevLogs: true,
+  },
+  scope: '/app',
+  sw: 'service-worker.js',
+  customWorkerDir: 'serviceworker',
+  fallbacks: {
+    document: '/~offline',
+    data: '/fallback.json',
+    image: '/fallback.webp',
+    font: '/fallback-font.woff2',
+  },
+});
 
-module.exports = (phase) => {
-  const isDev = phase === PHASE_DEVELOPMENT_SERVER; // Check dev environment explicitly
-
-  return withContentlayer(
-    withPWA({
-      ...nextConfig,
-      pwa: {
-        // Customize PWA options here
-        dest: 'public',
-        disable: isDev, // Disable PWA in development
-        register: true,
-        cacheOnFrontEndNav: true,
-        reloadOnOnline: true,
-        swcMinify: true,
-        workboxOptions: {
-          disableDevLogs: true,
-        },
-        scope: '/app',
-        sw: 'service-worker.js',
-        customWorkerDir: 'serviceworker',
-        fallbacks: {
-          document: '/~offline',
-          data: '/fallback.json',
-          image: '/fallback.webp',
-          font: '/fallback-font.woff2',
-        },
-      },
-    })
-  );
-};
+module.exports = withContentlayer(withPWA(nextConfig));

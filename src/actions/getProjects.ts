@@ -9,7 +9,7 @@ export const getProjects = async () => {
       },
     });
 
-    return await projects;
+    return projects;
   } catch (err) {
     console.log(err);
   }
@@ -22,7 +22,7 @@ export const getProject = async (id) => {
       },
     });
 
-    return await project;
+    return project;
   } catch (err) {
     console.log(err);
   }
