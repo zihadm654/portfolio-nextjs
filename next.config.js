@@ -4,10 +4,7 @@ const {
 } = require('next/constants');
 const { withContentlayer } = require('next-contentlayer');
 const path = require('path');
-/**
- * @type{import("next").NextConfig}
- *
- */
+const withPWA = require('@ducanh2912/next-pwa').default;
 
 const nextConfig = {
   reactStrictMode: true,
@@ -19,36 +16,39 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
-        // port: '',
-        // pathName: '/dxadtnltj/image/upload/**',
       },
     ],
   },
+  // Add any other Next.js config options here
 };
 
 module.exports = (phase) => {
-  if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD) {
-    const withPWA = require('@ducanh2912/next-pwa').default({
-      dest: 'public',
-      disable: process.env.NODE_ENV === 'development',
-      register: true,
-      cacheOnFrontEndNav: true,
-      reloadOnOnline: true,
-      swcMinify: true,
-      workboxOptions: {
-        disableDevLogs: true,
+  const isDev = phase === PHASE_DEVELOPMENT_SERVER; // Check dev environment explicitly
+
+  return withContentlayer(
+    withPWA({
+      ...nextConfig,
+      pwa: {
+        // Customize PWA options here
+        dest: 'public',
+        disable: isDev, // Disable PWA in development
+        register: true,
+        cacheOnFrontEndNav: true,
+        reloadOnOnline: true,
+        swcMinify: true,
+        workboxOptions: {
+          disableDevLogs: true,
+        },
+        scope: '/app',
+        sw: 'service-worker.js',
+        customWorkerDir: 'serviceworker',
+        fallbacks: {
+          document: '/~offline',
+          data: '/fallback.json',
+          image: '/fallback.webp',
+          font: '/fallback-font.woff2',
+        },
       },
-      scope: '/app',
-      sw: 'service-worker.js',
-      customWorkerDir: 'serviceworker',
-      fallbacks: {
-        document: '/~offline',
-        data: '/fallback.json',
-        image: '/fallback.webp',
-        font: '/fallback-font.woff2',
-      },
-    });
-    return withPWA(nextConfig);
-  }
-  return withContentlayer(nextConfig);
+    })
+  );
 };
