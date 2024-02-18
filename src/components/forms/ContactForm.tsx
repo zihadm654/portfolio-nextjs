@@ -30,7 +30,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { PiCheckLight, PiSmiley } from 'react-icons/pi';
 import { Button } from '../ui/button';
-
+import { toast } from 'sonner';
 const FormSchema = z.object({
   first_name: z.string(),
   last_name: z.string(),
@@ -69,7 +69,6 @@ type FormValues = {
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  // const { toast } = useToast();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(FormSchema),
@@ -100,10 +99,7 @@ const ContactForm = () => {
 
       setSubmitted(true);
     } catch (error) {
-      // toast({
-      //   title: 'Error',
-      //   description: 'Something went wrong',
-      // });
+      toast('Something went wrong');
     } finally {
       setLoading(false);
     }

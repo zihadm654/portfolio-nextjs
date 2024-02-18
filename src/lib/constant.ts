@@ -1,6 +1,6 @@
 // Constants.js
 const production = {
-  url: 'https://abdulmalekzihad.me',
+  url: 'https://www.abdulmalekzihad.me',
 };
 const development = {
   url: 'http://localhost:3000',

@@ -6,20 +6,10 @@ import Skills from '../components/sections/Skills';
 import Blogs from '../components/sections/Blogs';
 import { config } from '@/lib/constant';
 import FAQS from '@/components/sections/Accordian';
-const getData = async () => {
-  const URL = config.url;
-  const res = await fetch(`${URL}/api/projects`, {
-    next: { revalidate: 1060 },
-  });
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-};
+import { getProjects } from '@/actions/getProjects';
 
 export default async function Page() {
-  const data = await getData();
+  const data = await getProjects();
   console.log(data, 'data');
   return (
     <div className='container'>

@@ -5,9 +5,10 @@ import Header from '@/components/navigation/Header';
 import Contact from '@/components/sections/Contact';
 // import { fadeIn } from '../utility/Animation';
 import { poppins } from '@/utility/fonts';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Providers from '@/lib/providers';
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Toaster } from '@/components/ui/sonner';
 export default function RootLayout({
   children,
 }: {
@@ -22,6 +23,8 @@ export default function RootLayout({
             <main>{children}</main>
             <Contact />
           </div>
+          <SpeedInsights />
+          <Toaster />
         </Providers>
       </body>
     </html>
@@ -35,7 +38,7 @@ const APP_DESCRIPTION =
   'The portfolio site describes who is Abdul Malek Zihad and what he is specialized in. A self taught Frontend Reactjs/Nextjs developer.';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://abdulmalekzihad.me'),
+  metadataBase: new URL('https://www.abdulmalekzihad.me'),
   referrer: 'origin-when-cross-origin',
   applicationName: APP_NAME,
   title: {
@@ -97,4 +100,7 @@ export const metadata: Metadata = {
     },
     description: APP_DESCRIPTION,
   },
+};
+export const viewport: Viewport = {
+  themeColor: '#FFFFFF',
 };

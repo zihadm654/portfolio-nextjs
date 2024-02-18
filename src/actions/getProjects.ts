@@ -1,13 +1,29 @@
 'use server';
+import prisma from '@/lib/prisma';
 
-import { config } from '@/lib/constant';
+export const getProjects = async () => {
+  try {
+    const projects = await prisma.projects.findMany({
+      orderBy: {
+        id: 'desc',
+      },
+    });
 
-export const getData = async () => {
-  const URL = config.url;
-  const res = await fetch(`${URL}/api/projects`);
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
+    return await projects;
+  } catch (err) {
+    console.log(err);
   }
+};
+export const getProject = async (id) => {
+  try {
+    const project = await prisma.projects.findUnique({
+      where: {
+        id: id,
+      },
+    });
 
-  return res.json();
+    return await project;
+  } catch (err) {
+    console.log(err);
+  }
 };

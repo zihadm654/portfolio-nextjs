@@ -7,17 +7,12 @@ import {
 
 const FAQS = () => {
   return (
-    <div
-      className='faq bg-[#f6f5f4] w-full
-      rounded-5xl px-[6rem] md:px[2rem] sm:px[2rem] py-6'
-    >
-      <div className='py-15 px-24 md:p-6 md:px-30'>
-        <div className='text-4xl md:text-7xl font-bold text-black'>
-          Have questions ?
-        </div>
-        <div className='  font-semibold text-5xl md:text-6xl text-gradient bg-gradient-to-r from-emerald-600 to-blue-300 bg-clip-text text-transparent'>
+    <div className='faq'>
+      <div>
+        <h3>Have questions ?</h3>
+        <h4 className='  font-semibold text-gradient bg-gradient-to-r from-emerald-600 to-blue-300 bg-clip-text text-transparent'>
           Get answers.
-        </div>
+        </h4>
         <Accordion type='single' collapsible className='py-6'>
           <AccordionItem value='item-1'>
             <AccordionTrigger>What is Bird?</AccordionTrigger>

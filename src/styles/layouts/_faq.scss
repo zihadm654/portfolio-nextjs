@@ -1,0 +1,10 @@
+@use '../helpers/mixins' as m;
+.faq {
+  padding: 3rem 6rem;
+  @include m.media(sm) {
+    padding: 3rem;
+  }
+  @include m.media(md) {
+    padding: 3rem;
+  }
+}

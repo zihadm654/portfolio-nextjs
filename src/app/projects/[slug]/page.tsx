@@ -3,19 +3,14 @@ import Link from 'next/link';
 import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
 import { Metadata } from 'next';
+import { getProject } from '@/actions/getProjects';
 import { config } from '@/lib/constant';
-
-const getData = async (slug: string) => {
-  const URL = config.url;
-  const res = await fetch(`${URL}/api/projects/${slug}`, {
-    next: { revalidate: 3600 },
-  });
-  return res.json();
-};
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
-  const data = await getData(slug);
+  // const data = await getData(slug);
+  const data = await getProject(slug);
+  console.log(data, 'data');
   return (
     <section className='case__details'>
       <div className='container'>
@@ -23,11 +18,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div className='context links'>
             <p>Links</p>
             <div className='button__links'>
-              <Link className='github' href={data.repo}>
+              <Link className='github' href={data?.repo}>
                 <h5>Source Code</h5>
                 <SiGithub />
               </Link>
-              <Link className='livesite' href={data.site}>
+              <Link className='livesite' href={data?.site}>
                 <h5>Live Site</h5>
                 <VscLiveShare />
               </Link>
