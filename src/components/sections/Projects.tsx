@@ -7,14 +7,6 @@ import { Suspense } from 'react';
 import { SkeletonCard } from '@/components/Skeleton';
 
 function Projects({ data }) {
-  // const controls = useAnimation();
-  // const [ref, inView] = useInView();
-
-  // useEffect(() => {
-  //   if (inView) {
-  //     controls.start('show');
-  //   }
-  // }, [controls, inView]);
   const sliceData = data?.slice(0, 6);
   return (
     <section className='project'>

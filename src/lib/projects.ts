@@ -1,8 +1,8 @@
-import prisma from './prisma';
+import { db } from './db';
 
 export async function getProjects() {
   try {
-    const projects = await prisma.projects.findMany();
+    const projects = await db.projects.findMany();
     return { projects };
   } catch (error) {
     console.error(error, 'error');
@@ -19,7 +19,7 @@ export async function createProject(
   client
 ) {
   try {
-    const newProject = await prisma.projects.create({
+    const newProject = await db.projects.create({
       data: {
         title,
         description,

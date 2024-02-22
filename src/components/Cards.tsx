@@ -1,9 +1,9 @@
 'use client';
 import { Icon } from '../utility/Button';
 import Link from 'next/link';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useRef } from 'react';
 import { SiGithub } from 'react-icons/si';
 import { VscLiveShare } from 'react-icons/vsc';
 import { fadeIn, stagger } from '@/utility/Animation';
@@ -19,27 +19,16 @@ const Cards = ({
   createdAt,
   tags,
 }) => {
-  // const controls = useAnimation();
-  // const [ref, inView] = useInView();
-
-  // useEffect(() => {
-  //   if (inView) {
-  //     controls.start('show');
-  //   }
-  // }, [controls, inView]);
+  const ref = useRef(null);
+  useScroll({
+    target: ref,
+    offset: ['0 1', '1.33 1'],
+  });
   return (
-    <div className='wrapper'>
+    <motion.div ref={() => ref} className='wrapper'>
       <Link href={`/projects/${id}`} passHref>
         <div className='card'>
-          <Image
-            src={
-              img ||
-              'https://firebasestorage.googleapis.com/v0/b/portfolio-next-50c1e.appspot.com/o/desktop-design.jpg?alt=media&token=72a5c8cb-d319-48b6-bf58-5d3982f64f86'
-            }
-            alt={img}
-            height={500}
-            width={500}
-          />
+          <Image src={img} alt={img} height={500} width={500} />
         </div>
       </Link>
       <div className='card__text'>
@@ -66,7 +55,7 @@ const Cards = ({
         </article>
         <Icon site={`/projects/${id}`} text='see case study' />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -81,18 +70,18 @@ export const FeaturedCard = ({
   site,
   tags,
 }) => {
-  // const controls = useAnimation();
-  // const [ref, inView] = useInView();
-
-  // useEffect(() => {
-  //   if (inView) {
-  //     controls.start('show');
-  //   }
-  // }, [controls, inView]);
-
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['0 1', '1.33 1'],
+  });
   return (
-    <div
-      // ref={ref}
+    <motion.div
+      ref={ref}
+      style={{
+        scale: scrollYProgress,
+        opacity: scrollYProgress,
+      }}
       // initial="hidden"
       // animate={controls}
       // variants={fadeIn}
@@ -133,6 +122,6 @@ export const FeaturedCard = ({
         </div>
         <Icon site={`/projects/${id}`} text='see case study' />
       </div>
-    </div>
+    </motion.div>
   );
 };

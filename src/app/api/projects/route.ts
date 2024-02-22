@@ -1,10 +1,10 @@
-import prisma from '@/lib/prisma';
+import { db } from '@/lib/db';
 import { ProjectsTypes } from '@/utility/Types';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const GET = async () => {
   try {
-    const projects = await prisma.projects.findMany({
+    const projects = await db.projects.findMany({
       orderBy: {
         id: 'desc',
       },
@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     const body: ProjectsTypes = await request.json();
     const { title, description, repo, site, time, img, client } = body;
 
-    const newProject = await prisma.projects.create({
+    const newProject = await db.projects.create({
       data: {
         title,
         description,

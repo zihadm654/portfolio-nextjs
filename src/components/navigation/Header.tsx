@@ -7,6 +7,8 @@ import { dancing_script } from '../../utility/fonts';
 import ThemeButton from '../ThemeButton';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { Button } from '../ui/button';
+import { LoginButton } from '../auth/login-button';
 
 function Header() {
   const [menu, setMenu] = useState(false);
@@ -43,6 +45,11 @@ function Header() {
         </div>
         <div className='navbar__right'>
           <ThemeButton />
+          <LoginButton asChild>
+            <Button variant='secondary' size='lg'>
+              Sign in
+            </Button>
+          </LoginButton>
           <div
             className={menu ? 'menu active' : 'menu'}
             onClick={showSidebar}

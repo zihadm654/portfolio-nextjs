@@ -1,9 +1,9 @@
 'use server';
-import prisma from '@/lib/prisma';
+import { db } from '@/lib/db';
 
 export const getProjects = async () => {
   try {
-    const projects = await prisma.projects.findMany({
+    const projects = await db.projects.findMany({
       orderBy: {
         id: 'desc',
       },
@@ -16,7 +16,7 @@ export const getProjects = async () => {
 };
 export const getProject = async (id) => {
   try {
-    const project = await prisma.projects.findUnique({
+    const project = await db.projects.findUnique({
       where: {
         id: id,
       },

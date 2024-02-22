@@ -109,22 +109,17 @@ const ContactForm = () => {
       {!submitted ? (
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='space-y-4
-            h-full px-6
-            border rounded-3xl p-10
-            md:w-1/3'
+          className='gap-4 flex items-start justify-center flex-col min-w-max'
         >
-          <div className='md:flex items-center gap-6 '>
+          <div className='flex items-center justify-between w-full space-x-4 gap-6 max-md:space-x-0 max-sm:space-x-0 max-sm:flex-col'>
             <FormField
               control={form.control}
               name='first_name'
               render={({ field }) => (
                 <FormItem className='items-center justify-center w-full'>
-                  <FormLabel className='text-lg bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50'>
-                    First name *
-                  </FormLabel>
+                  <FormLabel className='text-lg'>First name *</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} placeholder='John' />
                   </FormControl>
                 </FormItem>
               )}
@@ -135,11 +130,9 @@ const ContactForm = () => {
               name='last_name'
               render={({ field }) => (
                 <FormItem className='items-center justify-center w-full'>
-                  <FormLabel className='text-lg bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50'>
-                    Last name *
-                  </FormLabel>
+                  <FormLabel className='text-lg '>Last name *</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input {...field} placeholder='Doe' />
                   </FormControl>
                 </FormItem>
               )}
@@ -150,71 +143,64 @@ const ContactForm = () => {
             control={form.control}
             name='email'
             render={({ field }) => (
-              <FormItem className='items-center justify-center  w-full'>
-                <FormLabel className='text-lg bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50'>
-                  Email *
-                </FormLabel>
+              <FormItem className='items-center justify-center  w-2/3'>
+                <FormLabel className='text-lg'>Email *</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input {...field} placeholder='email@gmail.com' />
                 </FormControl>
               </FormItem>
             )}
           />
-
-          <FormField
-            control={form.control}
-            name='company_name'
-            render={({ field }) => (
-              <FormItem className='items-center justify-center  w-full'>
-                <FormLabel className='text-lg bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50'>
-                  Company name?
-                </FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name='company_size'
-            render={({ field }) => (
-              <FormItem className='items-center justify-center w-full'>
-                <FormLabel className='text-lg bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50'>
-                  Company size ?
-                </FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
+          <div className='flex items-center justify-between w-full space-x-4 gap-6 max-md:space-x-0 max-sm:space-x-0 max-sm:flex-col'>
+            <FormField
+              control={form.control}
+              name='company_name'
+              render={({ field }) => (
+                <FormItem className='items-center justify-center  w-full'>
+                  <FormLabel className='text-lg '>Company name?</FormLabel>
                   <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder='Select an option' />
-                    </SelectTrigger>
+                    <Input {...field} placeholder='domino' />
                   </FormControl>
-                  <SelectContent>
-                    <div className='flex gap-4'>
-                      <SelectItem value='1-10'>1-10</SelectItem>
-                    </div>
-                    <SelectItem value='11-50'>11-50</SelectItem>
-                    <SelectItem value='51-200'>51-200</SelectItem>
-                    <SelectItem value='501-1000'>501-1000</SelectItem>
-                    <SelectItem value='1000+'>1000+</SelectItem>
-                  </SelectContent>
-                </Select>
-              </FormItem>
-            )}
-          />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name='company_size'
+              render={({ field }) => (
+                <FormItem className='items-center justify-center w-full'>
+                  <FormLabel className='text-lg '>Company size ?</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className='text-lg'>
+                        <SelectValue placeholder='Select an option' />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <div className='flex gap-4 text-lg'>
+                        <SelectItem value='1-10'>1-10</SelectItem>
+                      </div>
+                      <SelectItem value='11-50'>11-50</SelectItem>
+                      <SelectItem value='51-200'>51-200</SelectItem>
+                      <SelectItem value='501-1000'>501-1000</SelectItem>
+                      <SelectItem value='1000+'>1000+</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </FormItem>
+              )}
+            />
+          </div>
 
           <FormField
             control={form.control}
             name='help'
             render={({ field }) => (
-              <FormItem className='items-center justify-center  w-full'>
-                <FormLabel className='text-lg bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50'>
-                  How can we help ?
-                </FormLabel>
+              <FormItem className='items-center justify-start w-2/3'>
+                <FormLabel className='text-lg'>How can we help ?</FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
@@ -245,38 +231,29 @@ const ContactForm = () => {
             name='info'
             render={({ field }) => (
               <FormItem className='items-center justify-center w-full'>
-                <FormLabel className='text-lg bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50'>
-                  Anything else ?
-                </FormLabel>
+                <FormLabel className='text-lg '>Anything else ?</FormLabel>
                 <FormControl>
-                  <Textarea style={{ height: '100px' }} {...field} />
+                  <Textarea
+                    style={{ height: '100px' }}
+                    {...field}
+                    placeholder='tell us more'
+                  />
                 </FormControl>
               </FormItem>
             )}
           />
 
-          <div className='flex gap-4 items-center'>
-            <div>
-              <Checkbox
-                className='
-                outline
-                border-2
-                text-lg
-                font-light
-                bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400
-                '
-              />
-            </div>
-            <div className='text-xs font-light  md:w-3/4 mb-1 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400'>
+          <div className='flex gap-4 items-center justify-start w-2/3'>
+            <Checkbox className='text-lg text-purple-900' />
+            <div className='text-sm font-light md:w-3/4 mb-1 '>
               I agree to Bird&apos; sending marketing communications related to
               bird
             </div>
           </div>
-
-          <div className='flex items-center gap-4'>
+          <div className='self-start'>
             <Button
               type='submit'
-              className='text-sm font-light'
+              className='justify-items-start text-sm font-light py-3'
               disabled={loading}
               onClick={() => form.handleSubmit(onSubmit)}
             >

@@ -13,7 +13,7 @@ function Contact() {
       </div>
       <div className='callaction'>
         <Button
-          site={'/contact'}
+          site={'/book'}
           variants={'primary__btn'}
           text={'A Free consultation'}
         />

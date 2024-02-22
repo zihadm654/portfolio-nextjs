@@ -1,6 +1,6 @@
 'use server';
 
-import prisma from '@/lib/prisma';
+import { db } from '@/lib/db';
 import { revalidatePath } from 'next/cache';
 
 export const addProject = async (formData: FormData) => {
@@ -12,7 +12,7 @@ export const addProject = async (formData: FormData) => {
   const img = formData.get('img');
   const client = formData.get('client');
 
-  await prisma.projects.create({
+  await db.projects.create({
     data: {
       title: title as string,
       description: description as string,

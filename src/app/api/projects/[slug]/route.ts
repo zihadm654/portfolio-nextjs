@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import prisma from '@/lib/prisma';
+import { db } from '@/lib/db';
 
 export const GET = async (req: NextRequest) => {
   try {
     const id = req.url.split('/').at(-1);
 
-    const project = await prisma.projects.findUnique({
+    const project = await db.projects.findUnique({
       where: {
         id,
       },
@@ -32,7 +32,7 @@ export const DELETE = async (req: NextRequest) => {
   try {
     const id = req.url.split('/').at(-1);
 
-    await prisma.projects.delete({
+    await db.projects.delete({
       where: {
         id,
       },
@@ -50,7 +50,7 @@ export const PATCH = async (request: Request) => {
     const body = await request.json();
     const { title, description, repo, site, time, img, client } = body;
 
-    const updateProject = await prisma.projects.update({
+    const updateProject = await db.projects.update({
       where: {
         id,
       },
