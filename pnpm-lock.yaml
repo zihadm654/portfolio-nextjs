@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@auth/prisma-adapter':
     specifier: ^1.4.0
-    version: 1.4.0(@prisma/client@5.10.1)(nodemailer@6.9.9)
+    version: 1.4.0(@prisma/client@5.10.2)(nodemailer@6.9.10)
   '@ducanh2912/next-pwa':
     specifier: ^10.2.5
     version: 10.2.5(esbuild@0.20.1)(next@14.1.0)(webpack@5.90.3)
@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.3.4
     version: 3.3.4(react-hook-form@7.50.1)
   '@prisma/client':
-    specifier: ^5.10.1
-    version: 5.10.1(prisma@5.10.1)
+    specifier: ^5.10.2
+    version: 5.10.2(prisma@5.10.2)
   '@radix-ui/react-accordion':
     specifier: ^1.1.2
     version: 1.1.2(@types/react-dom@18.2.19)(@types/react@18.2.57)(react-dom@18.2.0)(react@18.2.0)
@@ -94,7 +94,7 @@ dependencies:
     version: 14.1.0(@babel/core@7.23.9)(@opentelemetry/api@1.7.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.71.1)
   next-auth:
     specifier: 5.0.0-beta.13
-    version: 5.0.0-beta.13(next@14.1.0)(nodemailer@6.9.9)(react@18.2.0)
+    version: 5.0.0-beta.13(next@14.1.0)(nodemailer@6.9.10)(react@18.2.0)
   next-cloudinary:
     specifier: ^4.28.0
     version: 4.28.0(next@14.1.0)(react@18.2.0)(semantic-release@23.0.2)
@@ -105,8 +105,8 @@ dependencies:
     specifier: ^0.1.1
     version: 0.1.1(next@14.1.0)(react-dom@18.2.0)(react@18.2.0)
   nodemailer:
-    specifier: ^6.9.9
-    version: 6.9.9
+    specifier: ^6.9.10
+    version: 6.9.10
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -188,8 +188,8 @@ devDependencies:
     specifier: ^8.4.35
     version: 8.4.35
   prisma:
-    specifier: ^5.10.1
-    version: 5.10.1
+    specifier: ^5.10.2
+    version: 5.10.2
   react-icons:
     specifier: ^4.12.0
     version: 4.12.0(react@18.2.0)
@@ -234,7 +234,7 @@ packages:
       leven: 3.1.0
     dev: false
 
-  /@auth/core@0.27.0(nodemailer@6.9.9):
+  /@auth/core@0.27.0(nodemailer@6.9.10):
     resolution: {integrity: sha512-3bydnRJIM/Al6mkYmb53MsC+6G8ojw3lLPzwgVnX4dCo6N2lrib6Wq6r0vxZIhuHGjLObqqtUfpeaEj5aeTHFg==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
@@ -252,19 +252,19 @@ packages:
       '@types/cookie': 0.6.0
       cookie: 0.6.0
       jose: 5.2.2
-      nodemailer: 6.9.9
+      nodemailer: 6.9.10
       oauth4webapi: 2.10.3
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
     dev: false
 
-  /@auth/prisma-adapter@1.4.0(@prisma/client@5.10.1)(nodemailer@6.9.9):
+  /@auth/prisma-adapter@1.4.0(@prisma/client@5.10.2)(nodemailer@6.9.10):
     resolution: {integrity: sha512-k5D6ajX8MZv9107WWaIpzcNmsB8+sumyc7y46lnAMbLdgBoUcwAYtxGLbwEFSvzgjDcxjWqzlB5AIAED4vioDA==}
     peerDependencies:
       '@prisma/client': '>=2.26.0 || >=3 || >=4 || >=5'
     dependencies:
-      '@auth/core': 0.27.0(nodemailer@6.9.9)
-      '@prisma/client': 5.10.1(prisma@5.10.1)
+      '@auth/core': 0.27.0(nodemailer@6.9.10)
+      '@prisma/client': 5.10.2(prisma@5.10.2)
     transitivePeerDependencies:
       - '@simplewebauthn/browser'
       - '@simplewebauthn/server'
@@ -1455,8 +1455,8 @@ packages:
     resolution: {integrity: sha512-RJW/K1hvm+qL2civTWgg7iKdTPDMLmpFBvH03KUkDxuDk/xi9E9x9nPthEsmdDy65GdCcZm0UKnErXXgKzMOQQ==}
     dev: false
 
-  /@cloudinary/transformation-builder-sdk@1.11.0:
-    resolution: {integrity: sha512-BRHcjkMc0zSgyLnYtE+KQG1AyaC2EAHfuGzSJRGiLVsLD8UzLcC8S3GFzzKOPVzGQi0IPm21b1F7M6oqsF8FrQ==}
+  /@cloudinary/transformation-builder-sdk@1.12.1:
+    resolution: {integrity: sha512-tcFJsd5Ry+OB3ujhdW+QnGZ66w4aT9sb+8412WjuymeEXG72pp7TOW9eoQUP1mElH7vk7nH777gHU+icBIUH9Q==}
     dependencies:
       '@cloudinary/url-gen': 1.15.0
     dev: false
@@ -1464,7 +1464,7 @@ packages:
   /@cloudinary/url-gen@1.15.0:
     resolution: {integrity: sha512-bjU67eZxLUgoRy/Plli4TQio7q6P31OYqnEgXxeN9TKXrzr6h0DeEdIUhKI9gy3HkEBWXWWJIPh7j7gkOJPnyA==}
     dependencies:
-      '@cloudinary/transformation-builder-sdk': 1.11.0
+      '@cloudinary/transformation-builder-sdk': 1.12.1
     dev: false
 
   /@colors/colors@1.5.0:
@@ -2560,8 +2560,8 @@ packages:
       config-chain: 1.1.13
     dev: false
 
-  /@prisma/client@5.10.1(prisma@5.10.1):
-    resolution: {integrity: sha512-4R8Vp6sSwVJSnOxw8WU1WSLqE/G3WJy1xA05XvW87cINoB1hEY7endw5Ppy6TrIBCCtHQim2lqfHkbPvv+i7bQ==}
+  /@prisma/client@5.10.2(prisma@5.10.2):
+    resolution: {integrity: sha512-ef49hzB2yJZCvM5gFHMxSFL9KYrIP9udpT5rYo0CsHD4P9IKj473MbhU1gjKKftiwWBTIyrt9jukprzZXazyag==}
     engines: {node: '>=16.13'}
     requiresBuild: true
     peerDependencies:
@@ -2570,35 +2570,35 @@ packages:
       prisma:
         optional: true
     dependencies:
-      prisma: 5.10.1
+      prisma: 5.10.2
     dev: false
 
-  /@prisma/debug@5.10.1:
-    resolution: {integrity: sha512-Ipo9y/lCMzedXMtEBe4YCdvVVivSy6MdG7aYTM15t86g4CRzwdlEsw8Czxnw20w9Qgzdx0MX2iLsCCIG4JoHbA==}
+  /@prisma/debug@5.10.2:
+    resolution: {integrity: sha512-bkBOmH9dpEBbMKFJj8V+Zp8IZHIBjy3fSyhLhxj4FmKGb/UBSt9doyfA6k1UeUREsMJft7xgPYBbHSOYBr8XCA==}
 
   /@prisma/engines-version@5.10.0-34.5a9203d0590c951969e85a7d07215503f4672eb9:
     resolution: {integrity: sha512-uCy/++3Jx/O3ufM+qv2H1L4tOemTNqcP/gyEVOlZqTpBvYJUe0tWtW0y3o2Ueq04mll4aM5X3f6ugQftOSLdFQ==}
 
-  /@prisma/engines@5.10.1:
-    resolution: {integrity: sha512-75oJa900Pw+GAXjPJmKZqsD7bgSgQbpeGLxCwchrbgPIM70y3h0FbjIsiSAjuhwIGUCCNWzctUNv67rvSmoQAQ==}
+  /@prisma/engines@5.10.2:
+    resolution: {integrity: sha512-HkSJvix6PW8YqEEt3zHfCYYJY69CXsNdhU+wna+4Y7EZ+AwzeupMnUThmvaDA7uqswiHkgm5/SZ6/4CStjaGmw==}
     requiresBuild: true
     dependencies:
-      '@prisma/debug': 5.10.1
+      '@prisma/debug': 5.10.2
       '@prisma/engines-version': 5.10.0-34.5a9203d0590c951969e85a7d07215503f4672eb9
-      '@prisma/fetch-engine': 5.10.1
-      '@prisma/get-platform': 5.10.1
+      '@prisma/fetch-engine': 5.10.2
+      '@prisma/get-platform': 5.10.2
 
-  /@prisma/fetch-engine@5.10.1:
-    resolution: {integrity: sha512-xg3I3RM/qENykZNGBna+14gBkkZL2TVkyX3OX2GWI8MV23Meq5jYdqvlgBrZne25ZxiulctSEA2D6Y5fq1eLog==}
+  /@prisma/fetch-engine@5.10.2:
+    resolution: {integrity: sha512-dSmXcqSt6DpTmMaLQ9K8ZKzVAMH3qwGCmYEZr/uVnzVhxRJ1EbT/w2MMwIdBNq1zT69Rvh0h75WMIi0mrIw7Hg==}
     dependencies:
-      '@prisma/debug': 5.10.1
+      '@prisma/debug': 5.10.2
       '@prisma/engines-version': 5.10.0-34.5a9203d0590c951969e85a7d07215503f4672eb9
-      '@prisma/get-platform': 5.10.1
+      '@prisma/get-platform': 5.10.2
 
-  /@prisma/get-platform@5.10.1:
-    resolution: {integrity: sha512-0rE8lSE3y+Ua3LaOcXlWADz21+kGkf9NWmGNuh8n9I6uaCq90LQxM002l4NSYg6ELtiJXyDgJ4nRhM0x0OXjDQ==}
+  /@prisma/get-platform@5.10.2:
+    resolution: {integrity: sha512-nqXP6vHiY2PIsebBAuDeWiUYg8h8mfjBckHh6Jezuwej0QJNnjDiOq30uesmg+JXxGk99nqyG3B7wpcOODzXvg==}
     dependencies:
-      '@prisma/debug': 5.10.1
+      '@prisma/debug': 5.10.2
 
   /@protobufjs/aspromise@1.1.2:
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==}
@@ -4447,7 +4447,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.23.0
-      caniuse-lite: 1.0.30001588
+      caniuse-lite: 1.0.30001589
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -4565,8 +4565,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001588
-      electron-to-chromium: 1.4.677
+      caniuse-lite: 1.0.30001589
+      electron-to-chromium: 1.4.679
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.23.0)
 
@@ -4611,8 +4611,8 @@ packages:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
     engines: {node: '>= 6'}
 
-  /caniuse-lite@1.0.30001588:
-    resolution: {integrity: sha512-+hVY9jE44uKLkH0SrUTqxjxqNTOWHsbnQDIKjwkZ3lNTzUUVdBLBGXtj/q5Mp5u98r3droaZAewQuEDzjQdZlQ==}
+  /caniuse-lite@1.0.30001589:
+    resolution: {integrity: sha512-vNQWS6kI+q6sBlHbh71IIeC+sRwK2N3EDySc/updIGhIee2x5z00J4c1242/5/d6EpEMdOnk/m+6tuk4/tcsqg==}
 
   /ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -5232,8 +5232,8 @@ packages:
       jake: 10.8.7
     dev: false
 
-  /electron-to-chromium@1.4.677:
-    resolution: {integrity: sha512-erDa3CaDzwJOpyvfKhOiJjBVNnMM0qxHq47RheVVwsSQrgBA9ZSGV9kdaOfZDPXcHzhG7lBxhj6A7KvfLJBd6Q==}
+  /electron-to-chromium@1.4.679:
+    resolution: {integrity: sha512-NhQMsz5k0d6m9z3qAxnsOR/ebal4NAGsrNVRwcDo4Kc/zQ7KdsTKZUxZoygHcVRb0QDW3waEDIcE3isZ79RP6g==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -8100,7 +8100,7 @@ packages:
     resolution: {integrity: sha512-EZSPZB70jiVsivaBLYDCyntd5eH8NTSMOn3rB+HxwdmKThGELLdYv8qVIMWvZEFy9w8ZZpW9h9OB32l1rGtj7g==}
     dev: false
 
-  /next-auth@5.0.0-beta.13(next@14.1.0)(nodemailer@6.9.9)(react@18.2.0):
+  /next-auth@5.0.0-beta.13(next@14.1.0)(nodemailer@6.9.10)(react@18.2.0):
     resolution: {integrity: sha512-2m2Gq69WQ0YXcHCCpHn2y5z1bxSlqD/XOuAgrdtz49/VIAdTFFeYZz97RYqf6xMF8VGmoG32VUnJ6LzaHk6Fwg==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
@@ -8116,9 +8116,9 @@ packages:
       nodemailer:
         optional: true
     dependencies:
-      '@auth/core': 0.27.0(nodemailer@6.9.9)
+      '@auth/core': 0.27.0(nodemailer@6.9.10)
       next: 14.1.0(@babel/core@7.23.9)(@opentelemetry/api@1.7.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.71.1)
-      nodemailer: 6.9.9
+      nodemailer: 6.9.10
       react: 18.2.0
     dev: false
 
@@ -8188,7 +8188,7 @@ packages:
       '@opentelemetry/api': 1.7.0
       '@swc/helpers': 0.5.2
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001588
+      caniuse-lite: 1.0.30001589
       graceful-fs: 4.2.11
       postcss: 8.4.31
       react: 18.2.0
@@ -8260,8 +8260,8 @@ packages:
   /node-releases@2.0.14:
     resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}
 
-  /nodemailer@6.9.9:
-    resolution: {integrity: sha512-dexTll8zqQoVJEZPwQAKzxxtFn0qTnjdQTchoU6Re9BUUGBJiOy3YMn/0ShTW6J5M0dfQ1NeDeRTTl4oIWgQMA==}
+  /nodemailer@6.9.10:
+    resolution: {integrity: sha512-qtoKfGFhvIFW5kLfrkw2R6Nm6Ur4LNUMykyqu6n9BRKJuyQrqEGwdXXUAbwWEKt33dlWUGXb7rzmJP/p4+O+CA==}
     engines: {node: '>=6.0.0'}
     dev: false
 
@@ -8708,7 +8708,7 @@ packages:
     dependencies:
       '@babel/code-frame': 7.23.5
       index-to-position: 0.1.2
-      type-fest: 4.10.2
+      type-fest: 4.10.3
     dev: false
 
   /parse-numeric-range@1.3.0:
@@ -9034,13 +9034,13 @@ packages:
       js-beautify: 1.15.1
     dev: false
 
-  /prisma@5.10.1:
-    resolution: {integrity: sha512-2VLQ8dMXZGd5qS6XIDyAzK2W4xdPJDt/E3IBcjByn64Fnp33llqq/HBxx0EroZO7ezKiw1gS3BOrkpyzPfeFhA==}
+  /prisma@5.10.2:
+    resolution: {integrity: sha512-hqb/JMz9/kymRE25pMWCxkdyhbnIWrq+h7S6WysJpdnCvhstbJSNP/S6mScEcqiB8Qv2F+0R3yG+osRaWqZacQ==}
     engines: {node: '>=16.13'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@prisma/engines': 5.10.1
+      '@prisma/engines': 5.10.2
 
   /process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
@@ -9239,7 +9239,7 @@ packages:
     dependencies:
       find-up-simple: 1.0.0
       read-pkg: 9.0.1
-      type-fest: 4.10.2
+      type-fest: 4.10.3
     dev: false
 
   /read-pkg@5.2.0:
@@ -9259,7 +9259,7 @@ packages:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.0
       parse-json: 8.1.0
-      type-fest: 4.10.2
+      type-fest: 4.10.3
       unicorn-magic: 0.1.0
     dev: false
 
@@ -9280,7 +9280,7 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       inherits: 2.0.4
-      string_decoder: 1.1.1
+      string_decoder: 1.3.0
       util-deprecate: 1.0.2
     dev: false
 
@@ -10000,6 +10000,12 @@ packages:
       safe-buffer: 5.1.2
     dev: false
 
+  /string_decoder@1.3.0:
+    resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
+    dependencies:
+      safe-buffer: 5.2.1
+    dev: false
+
   /stringify-entities@4.0.3:
     resolution: {integrity: sha512-BP9nNHMhhfcMbiuQKCqMjhDP5yBCAxsPu4pHFFzJ6Alo9dZgY4VLDPutXqIjpRiMoKdp7Av85Gr73Q5uH9k7+g==}
     dependencies:
@@ -10477,8 +10483,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: false
 
-  /type-fest@4.10.2:
-    resolution: {integrity: sha512-anpAG63wSpdEbLwOqH8L84urkL6PiVIov3EMmgIhhThevh9aiMQov+6Btx0wldNcvm4wV+e2/Rt1QdDwKHFbHw==}
+  /type-fest@4.10.3:
+    resolution: {integrity: sha512-JLXyjizi072smKGGcZiAJDCNweT8J+AuRxmPZ1aG7TERg4ijx9REl8CNhbr36RV4qXqL1gO1FF9HL8OkVmmrsA==}
     engines: {node: '>=16'}
     dev: false
 
