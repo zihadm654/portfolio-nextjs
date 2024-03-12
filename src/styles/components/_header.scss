@@ -93,12 +93,12 @@
       }
     }
     .menu {
-      @include m.media(sm) {
-        display: flex;
-      }
-      @include m.media(md) {
-        display: flex;
-      }
+      // @include m.media(sm) {
+      //   display: flex;
+      // }
+      // @include m.media(md) {
+      //   display: flex;
+      // }
       margin-left: 1.5rem;
       cursor: pointer;
       position: relative;
@@ -106,7 +106,7 @@
       height: 3.5rem;
       @include m.flex(center);
       transition: 650ms;
-      display: none;
+      // display: none;
       //active state
       &.active {
         &::before {
@@ -146,53 +146,51 @@
     top: 0%;
     right: 0%;
     position: fixed;
-    overflow: hidden;
     background-color: #fff;
     color: #000;
-    transition: 850ms;
-    animation: hamburger 300ms forwards;
-    transition: 700ms;
     height: 100svh;
-    max-width: 45%;
-    @include m.media(sm) {
-      max-width: 55%;
-    }
-    .nav {
-      margin: 2rem 0;
-      padding: 5rem 3rem;
+    .body {
+      box-sizing: border-box;
+      padding: 5rem 1.5rem;
       height: 100%;
-      width: 100%;
-      height: 100%;
-      width: 100%;
-      @include m.flex(space-evenly);
+      @include m.flex(space-between);
       flex-direction: column;
-      h5 {
-        align-self: center;
-      }
-      .nav__links,
-      .social__media {
-        align-items: center;
-      }
-      .nav__links {
-        .link {
-          position: relative;
-          @include m.flex(center);
-
-          .indicator {
-            width: 10px;
-            height: 10px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            left: -20px;
+      .nav {
+        @include m.flex(space-between);
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 0 1rem;
+        h5 {
+          align-self: flex-start;
+          &.dark {
+            color: #fff;
           }
+        }
+        .nav__links,
+        .social__media {
+          align-items: flex-start;
+        }
+        .nav__links {
+          .link {
+            position: relative;
+            @include m.flex(center);
 
-          a {
-            font-size: v.$xxlr;
-            color: #000;
-            font-weight: 700;
-            &:hover {
-              color: c.$secondaryColor;
+            .indicator {
+              width: 10px;
+              height: 10px;
+              background-color: white;
+              border-radius: 50%;
+              position: absolute;
+              left: -20px;
+            }
+
+            a {
+              font-size: v.$xxlr;
+              color: #000;
+              font-weight: 700;
+              &:hover {
+                color: c.$secondaryColor;
+              }
             }
           }
         }
@@ -221,7 +219,7 @@
     .curve__burger {
       position: absolute;
       top: 0;
-      left: -99px;
+      left: 0;
       width: 100px;
       height: 100%;
       fill: rgb(41, 41, 41);

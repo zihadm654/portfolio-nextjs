@@ -13,7 +13,9 @@ import { usePathname } from 'next/navigation';
 import { menuSlide } from '@/utility/Animation';
 import { useState } from 'react';
 import Curve from '@/components/navigation/Curve';
-function Hamburger({ hide }) {
+import { LoginButton } from '../auth/login-button';
+import { Button } from '../ui/button';
+function Hamburger() {
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 
@@ -25,26 +27,33 @@ function Hamburger({ hide }) {
       exit='exit'
       variants={menuSlide}
     >
-      <nav
-        onMouseLeave={() => {
-          setSelectedIndicator(pathname);
-        }}
-        className='nav'
-      >
-        <h5 className='nav__title'>Navigation</h5>
-        <ul className='nav__links'>
-          {links.map((data, index) => {
-            return (
-              <Links
-                key={index}
-                data={{ ...data, index }}
-                menu={selectedIndicator == data.href}
-                setSelectedIndicator={setSelectedIndicator}
-                hide={hide}
-              />
-            );
-          })}
-        </ul>
+      <div className='body'>
+        <nav
+          onMouseLeave={() => {
+            setSelectedIndicator(pathname);
+          }}
+          className='nav'
+        >
+          <h5 className='nav__title'>Navigation</h5>
+          <ul className='nav__links'>
+            {links.map((data, index) => {
+              return (
+                <Links
+                  key={index}
+                  data={{ ...data, index }}
+                  menu={selectedIndicator == data.href}
+                  setSelectedIndicator={setSelectedIndicator}
+                  // hide={hide}
+                />
+              );
+            })}
+          </ul>
+          <LoginButton asChild>
+            <Button className='ml-4' variant='secondary' size='lg'>
+              Sign in
+            </Button>
+          </LoginButton>
+        </nav>
         <div className='social__media'>
           <Link href={'https://dribbble.com/zihadm654'}>
             <FaDribbble />
@@ -62,7 +71,7 @@ function Hamburger({ hide }) {
             <FaLinkedin />
           </Link>
         </div>
-      </nav>
+      </div>
       <Curve />
     </motion.div>
   );

@@ -5,16 +5,17 @@ import Link from 'next/link';
 import Hamburger from './Hamburger';
 import { dancing_script } from '../../utility/fonts';
 import ThemeButton from '../ThemeButton';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import { Button } from '../ui/button';
-import { LoginButton } from '../auth/login-button';
 
 function Header() {
   const [menu, setMenu] = useState(false);
 
-  const showSidebar = () => setMenu(!menu);
-  const path = usePathname();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (menu) setMenu(false);
+  }, [pathname]);
   return (
     <>
       <header className='navbar'>
@@ -31,7 +32,7 @@ function Header() {
             {links?.map((link) => (
               <li key={link.href}>
                 <Link className='relative caret-violet-950' href={link.href}>
-                  {link.href === path && (
+                  {link.href === pathname && (
                     <motion.span
                       layoutId='underline'
                       className='active__underline '
@@ -45,24 +46,19 @@ function Header() {
         </div>
         <div className='navbar__right'>
           <ThemeButton />
-          <LoginButton asChild>
-            <Button variant='secondary' size='lg'>
-              Sign in
-            </Button>
-          </LoginButton>
           <div
             className={menu ? 'menu active' : 'menu'}
-            onClick={showSidebar}
+            onClick={() => setMenu(!menu)}
           ></div>
         </div>
       </header>
-      {/* <AnimatePresence> */}
-      {menu && (
-        <div className='burger__wrapper'>
-          <Hamburger hide={showSidebar} />
-        </div>
-      )}
-      {/* </AnimatePresence> */}
+      <AnimatePresence mode='wait'>
+        {menu && (
+          <div className='burger__wrapper'>
+            <Hamburger />
+          </div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
