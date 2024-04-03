@@ -4,7 +4,6 @@ import Hero from '../components/sections/Hero';
 import Projects from '../components/sections/Projects';
 import Skills from '../components/sections/Skills';
 import Blogs from '../components/sections/Blogs';
-import { config } from '@/lib/constant';
 import FAQS from '@/components/sections/Accordian';
 import { getProjects } from '@/actions/getProjects';
 

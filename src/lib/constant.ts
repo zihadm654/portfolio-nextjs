@@ -1,6 +1,6 @@
 // Constants.js
 const production = {
-  url: 'https://www.abdulmalekzihad.me',
+  url: 'https://portfolio-nextjs-zihadm654.vercel.app',
 };
 const development = {
   url: 'http://localhost:3000',

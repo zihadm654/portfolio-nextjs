@@ -9,28 +9,23 @@ import type { Metadata, Viewport } from 'next';
 import Providers from '@/lib/providers';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Toaster } from '@/components/ui/sonner';
-import { SessionProvider } from 'next-auth/react';
-import { auth } from '@/auth';
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = await auth();
   return (
     <html lang='en' className={`${poppins.className}`}>
       <body>
-        <SessionProvider session={session}>
-          <Providers>
-            <div className='min-h-screen relative'>
-              <Header />
-              <main>{children}</main>
-              <Contact />
-            </div>
-            <SpeedInsights />
-            <Toaster />
-          </Providers>
-        </SessionProvider>
+        <Providers>
+          <div className='min-h-screen relative'>
+            <Header />
+            <main>{children}</main>
+            <Contact />
+          </div>
+          <SpeedInsights />
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );

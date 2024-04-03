@@ -6,20 +6,10 @@ import { config } from '@/lib/constant';
 import { Suspense } from 'react';
 import { ProjectsTypes } from '@/utility/Types';
 import { SkeletonCard } from '@/components/Skeleton';
+import { getProjects } from '@/actions/getProjects';
 
-const getData = async () => {
-  const URL = config.url;
-  const res = await fetch(`${URL}/api/projects`, {
-    next: { revalidate: 3600 },
-  });
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  return res.json();
-};
 export default async function Page() {
-  const data = await getData();
+  const data = await getProjects();
   return (
     <section className='projects'>
       <div
@@ -41,7 +31,7 @@ export default async function Page() {
         <h3>Featured Projects</h3>
         <Suspense fallback={<SkeletonCard />}>
           <div className='cards'>
-            {data?.map((item: ProjectsTypes) => (
+            {data?.map((item: any) => (
               <Cards
                 id={item.id}
                 key={item.id}
